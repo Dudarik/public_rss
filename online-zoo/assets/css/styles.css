@@ -317,14 +317,20 @@ template {
   display: none;
 }
 
-ul {
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: "Roboto";
+  font-family: "Roboto", "Arial", sans-serif;
   font-style: normal;
   font-weight: 400;
   color: #000000;
@@ -334,7 +340,7 @@ body {
 }
 
 h1 {
-  font-family: "Roboto";
+  font-family: "Roboto", "Arial", sans-serif;
   font-style: normal;
   font-weight: 400;
   color: #000000;
@@ -344,7 +350,7 @@ h1 {
 }
 
 h2 {
-  font-family: "Roboto";
+  font-family: "Roboto", "Arial", sans-serif;
   font-style: normal;
   font-weight: 400;
   color: #000000;
@@ -353,7 +359,7 @@ h2 {
 }
 
 h3 {
-  font-family: "Roboto";
+  font-family: "Roboto", "Arial", sans-serif;
   font-style: normal;
   font-weight: 400;
   color: #000000;
@@ -362,28 +368,30 @@ h3 {
 }
 
 h4 {
-  font-family: "Roboto";
+  font-family: "Roboto", "Arial", sans-serif;
   font-style: normal;
   font-weight: 400;
   color: #000000;
+  font-size: 24px;
+  line-height: 120%;
 }
 
 h5 {
-  font-family: "Roboto";
+  font-family: "Roboto", "Arial", sans-serif;
   font-style: normal;
   font-weight: 400;
   color: #000000;
 }
 
 h6 {
-  font-family: "Roboto";
+  font-family: "Roboto", "Arial", sans-serif;
   font-style: normal;
   font-weight: 400;
   color: #000000;
 }
 
 .subtitle {
-  font-family: "Roboto";
+  font-family: "Roboto", "Arial", sans-serif;
   font-style: normal;
   font-weight: 400;
   color: #000000;
@@ -392,7 +400,25 @@ h6 {
 }
 
 .button-text {
-  font-family: "Roboto";
+  font-family: "Roboto", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #000000;
+  font-size: 16px;
+  line-height: 140%;
+}
+
+.paragraph-lh-130 {
+  font-family: "Roboto", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #000000;
+  font-size: 16px;
+  line-height: 130%;
+}
+
+.paragraph-lh-140 {
+  font-family: "Roboto", "Arial", sans-serif;
   font-style: normal;
   font-weight: 400;
   color: #000000;
@@ -401,7 +427,7 @@ h6 {
 }
 
 .small-paragraph {
-  font-family: "Roboto";
+  font-family: "Roboto", "Arial", sans-serif;
   font-style: normal;
   font-weight: 400;
   color: #000000;
@@ -588,9 +614,42 @@ h6 {
   margin-right: 90px;
 }
 
+.backstage {
+  height: 563px;
+}
+
 .flower-foto {
   position: absolute;
   right: 0px;
   top: 792px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.backstage__wrapper {
+  display: flex;
+  flex-direction: row;
+  padding: 0 220px;
+  margin-top: 140px;
+}
+
+.backstage-picture {
+  width: 609px;
+  height: 403px;
+}
+
+.backstage-description {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 0 87px;
+}
+.backstage-description h2 {
+  margin-bottom: 6px;
+  letter-spacing: -0.2px;
+}
+.backstage-description h4 {
+  margin-top: 40px;
+  margin-bottom: 16px;
+}
+.backstage-description .paragraph-lh-140 {
+  letter-spacing: -0.1px;
 }/*# sourceMappingURL=styles.css.map */

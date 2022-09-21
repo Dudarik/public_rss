@@ -28,6 +28,9 @@ h3 {
 }
 h4 {
   @include font-settings;
+
+  font-size: 24px;
+  line-height: 120%;
 }
 h5 {
   @include font-settings;
@@ -43,6 +46,18 @@ h6 {
 }
 
 .button-text {
+  @include font-settings;
+  font-size: 16px;
+  line-height: 140%;
+}
+
+.paragraph-lh-130 {
+  @include font-settings;
+  font-size: 16px;
+  line-height: 130%;
+}
+
+.paragraph-lh-140 {
   @include font-settings;
   font-size: 16px;
   line-height: 140%;
