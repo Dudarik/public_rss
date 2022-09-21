@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 .no-visible {
-  position: absolute;
+  position: relative;
+  z-index: -1;
   opacity: 0;
 }
 
@@ -431,22 +432,33 @@ h6 {
   line-height: 140%;
   text-align: center;
   color: #ffffff;
-  background-color: linear-gradient(113.96deg, #f9804b 1.49%, #fe9013 101.44%);
+  background-image: linear-gradient(113.96deg, #f9804b 1.49%, #fe9013 101.44%);
 }
-.btn__round, .btn__main {
+.btn__semi-round, .btn__main {
   width: 298px;
   height: 54px;
   font-weight: 500;
   text-transform: uppercase;
+  letter-spacing: -0.5px;
+  border: none;
 }
-.btn__round:hover, .btn__main:hover {
+.btn__semi-round:hover, .btn__main:hover {
   background-color: #e47209;
 }
-.btn__round:active, .btn__main:active {
+.btn__semi-round:active, .btn__main:active {
   background-color: #4b9200;
 }
-.btn__round:disable, .btn__main:disable {
+.btn__semi-round:disabled, .btn__main:disabled {
   background-color: #767474;
+}
+.btn__semi-round {
+  border-radius: 25px;
+}
+.btn:hover {
+  background-image: none;
+}
+.btn:disabled {
+  background-image: none;
 }
 .btn__round {
   border-radius: 25px;
@@ -524,6 +536,7 @@ h6 {
 }
 
 .watch-you-animal {
+  display: block;
   height: 700px;
   background-image: url("../images/main_header/giant_panda.png");
   background-repeat: no-repeat;
@@ -533,4 +546,43 @@ h6 {
   .watch-you-animal {
     background-size: cover;
   }
+}
+
+.watch-animal__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-weight: 700;
+  font-size: 106.496px;
+  line-height: 75%;
+  padding-top: 87px;
+  padding-right: 229px;
+  text-transform: uppercase;
+}
+
+.watch-animal__title {
+  z-index: 20;
+  text-align: center;
+  color: #ffffff;
+  letter-spacing: -4.3px;
+}
+.watch-animal__title span {
+  color: #ffee2e;
+  letter-spacing: -5px;
+}
+.watch-animal__title::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 465px;
+  height: 465px;
+  border-radius: 50%;
+  left: calc(50% - 232.5px + 239.5px);
+  top: 92px;
+  background: linear-gradient(113.96deg, #f9804b 1.49%, #fe9013 101.44%);
+}
+
+.button__wrapper {
+  margin-top: 16px;
+  margin-right: 90px;
 }/*# sourceMappingURL=styles.css.map */

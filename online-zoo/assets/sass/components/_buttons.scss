@@ -1,44 +1,39 @@
 $button-state-colors: (
   hover: $color_orange_darken,
   active: $color_green,
-  disable: $color_gray,
+  disabled: $color_gray,
 );
-
-// .button {
-//   @each $status, $color in $button-colors {
-//     &:#{$status} {
-//       background-color: $color;
-//     }
-//   }
-// }
 
 .btn {
   @include button-settings;
-  &__round,
+  &__semi-round,
   &__main {
     width: 298px;
     height: 54px;
+
     font-weight: 500;
     text-transform: uppercase;
+    letter-spacing: -0.5px;
+
+    border: none;
 
     @each $status, $color in $button-state-colors {
       &:#{$status} {
         background-color: $color;
       }
     }
-    // &:hover{
-    //   background-color: $color_orange_darken;
-    // }
-
-    // &:active{
-    //   background-color: $color_green;
-    // }
-
-    // &:disabled{
-    //   background-color: $color_gray;
-    // }
   }
 
+  &__semi-round {
+    border-radius: 25px;
+  }
+
+  &:hover {
+    background-image: none;
+  }
+  &:disabled {
+    background-image: none;
+  }
   &__round {
     border-radius: 25px;
   }
