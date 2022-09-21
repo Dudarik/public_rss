@@ -21,7 +21,7 @@ $button-state-colors: (
     font-weight: 500;
     text-transform: uppercase;
 
-    @each $status, $color in $button-colors {
+    @each $status, $color in $button-state-colors {
       &:#{$status} {
         background-color: $color;
       }

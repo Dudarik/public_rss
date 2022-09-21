@@ -1,0 +1,36 @@
+.main-menu {
+  margin-left: 63px;
+}
+.menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 0;
+  padding: 0;
+
+  width: 472px;
+}
+
+.menu__item {
+  list-style-type: none;
+  display: block;
+}
+.menu__link {
+  font-weight: 500;
+  text-decoration: none;
+
+  &:link,
+  &:visited {
+    background: $color_white;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  &:hover,
+  &:active {
+    background: $color_orange;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
