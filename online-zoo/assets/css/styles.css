@@ -666,6 +666,7 @@ h6 {
 .pets {
   height: 1079px;
   position: relative;
+  margin-top: 20px;
 }
 
 .pets__palm,
@@ -694,15 +695,15 @@ h6 {
 .slider-button__left,
 .slider-button__right {
   position: absolute;
-  top: 408px;
+  top: 402px;
 }
 
 .slider-button__left {
-  left: -85px;
+  left: -80px;
 }
 
 .slider-button__right {
-  right: -85px;
+  right: -72px;
 }
 
 .slider__cards {
@@ -712,8 +713,8 @@ h6 {
   grid-auto-flow: column;
   flex-wrap: wrap;
   row-gap: 20px;
-  -moz-column-gap: 30px;
-       column-gap: 30px;
+  -moz-column-gap: 29px;
+       column-gap: 29px;
   max-height: 890px;
   max-width: 1170px;
   overflow: hidden;
@@ -779,6 +780,7 @@ h6 {
   font-size: 16px;
   line-height: 140%;
   /* or 22px */
+  letter-spacing: -0.8px;
   text-transform: uppercase;
 }
 .slider__card .title__icon {
