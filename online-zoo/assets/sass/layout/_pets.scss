@@ -1,0 +1,21 @@
+.pets {
+  height: 1079px;
+  // position: relative;
+  * {
+    border: 1px dotted green;
+  }
+}
+
+.pets__palm,
+.pets__strelitzia {
+  position: absolute;
+
+  bottom: 0;
+}
+
+.pets__palm {
+  left: 0;
+}
+.pets__strelitzia {
+  right: 0;
+}
