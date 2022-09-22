@@ -52,24 +52,31 @@
       color: $color_orange_second;
     }
 
-    .pick-and-feed__subtitle {
-      letter-spacing: -0.11px;
-      margin-bottom: 25px;
-    }
-
-    .pick-and-feed__p1 {
-      // letter-spacing: -0.11px;
-      margin-bottom: 0;
-    }
-
-    .pick-and-feed__p2 {
-      margin-top: 0;
-    }
     .pick-and-feed__text-wrapper {
       display: flex;
       flex-direction: column;
       padding-left: 99px;
       padding-right: 59px;
+    }
+
+    .pick-and-feed__subtitle {
+      letter-spacing: -0.11px;
+      margin-bottom: 42px;
+    }
+
+    .pick-and-feed__p1 {
+      margin-bottom: 10px;
+    }
+
+    .pick-and-feed__p2 {
+      letter-spacing: -0.11px;
+      padding-right: 140px;
+    }
+
+    a {
+      display: inline-block;
+      text-decoration: none;
+      border-bottom: 1px solid $color_orange_second;
     }
   }
 }
