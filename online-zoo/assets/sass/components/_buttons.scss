@@ -16,7 +16,11 @@ $button-state-colors: (
     letter-spacing: -0.5px;
 
     border: none;
+  }
 
+  &__semi-round,
+  &__round,
+  &__main {
     @each $status, $color in $button-state-colors {
       &:#{$status} {
         background-color: $color;
