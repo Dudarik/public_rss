@@ -20,9 +20,49 @@
   right: 0;
 }
 
+.pets_wrapper {
+  display: flex;
+  padding: 0 218px;
+}
+
+.slider {
+  position: relative;
+}
+
+.slider-button__left,
+.slider-button__right {
+  position: absolute;
+  top: 408px;
+}
+
+.slider-button__left {
+  left: -85px;
+}
+
+.slider-button__right {
+  right: -85px;
+}
+
+.slider__cards {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+
+  // grid-auto-columns: 1fr;
+
+  grid-auto-flow: column;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  column-gap: 30px;
+  max-height: 890px;
+  max-width: 1170px;
+  overflow: hidden;
+}
+
 .slider__card {
   cursor: pointer;
-  margin-left: 200px;
+
   width: 368px;
   height: 428px;
   position: relative;
@@ -51,7 +91,7 @@
       position: absolute;
       opacity: 0;
       z-index: 50;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.6);
       top: 0;
       right: 0;
       bottom: 0;
