@@ -28,14 +28,24 @@ $button-state-colors: (
     border-radius: 25px;
   }
 
+  &__round {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    width: 62px;
+    height: 62px;
+
+    background-repeat: no-repeat;
+  }
+
   &:hover {
     background-image: none;
   }
   &:disabled {
     background-image: none;
-  }
-  &__round {
-    border-radius: 25px;
   }
 
   &__submit {
