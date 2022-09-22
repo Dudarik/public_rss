@@ -1,9 +1,9 @@
 .pets {
   height: 1079px;
-  // position: relative;
-  * {
-    border: 1px dotted green;
-  }
+  position: relative;
+  // * {
+  //   border: 1px dotted green;
+  // }
 }
 
 .pets__palm,
@@ -18,4 +18,111 @@
 }
 .pets__strelitzia {
   right: 0;
+}
+
+.slider__card {
+  cursor: pointer;
+  margin-left: 200px;
+  width: 368px;
+  height: 428px;
+  position: relative;
+  background-color: $color_white;
+  box-sizing: border-box;
+
+  border-radius: 5px;
+  background-clip: padding-box;
+  border: solid 1px transparent;
+
+  .card_image {
+    transition: all 0.5s;
+    width: 366px;
+    height: 366px;
+    // transform: scale(1);
+  }
+
+  .card-img__wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 366px;
+    height: 366px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      opacity: 0;
+      z-index: 50;
+      background-color: rgba(0, 0, 0, 0.5);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -1px;
+    border-radius: inherit;
+    background: $color_orange;
+  }
+  img {
+    overflow: hidden;
+    border-radius: 5px 5px 0 0;
+  }
+
+  .card__text {
+    position: absolute;
+    bottom: 14px;
+    left: 16px;
+    transition: all 0.5s;
+  }
+
+  .card__title {
+    // position: relative;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    /* or 22px */
+
+    text-transform: uppercase;
+  }
+
+  .title__icon {
+    position: absolute;
+    right: 12px;
+    bottom: 13px;
+  }
+
+  &:hover .card_image {
+    margin-top: -10px;
+    margin-left: -10px;
+    width: 386px;
+    height: 386px;
+    transition: all 0.5s;
+    overflow: hidden;
+  }
+
+  &:hover .card-img__wrapper::before {
+    opacity: 1;
+    transition: all 0.5s;
+  }
+
+  &:hover .card__text {
+    position: absolute;
+    z-index: 1000;
+    bottom: 200px;
+    color: $color_white;
+    transition: all 0.5s;
+  }
+
+  &:hover .small-paragraph {
+    color: $color_white;
+    transition: all 0.5s;
+  }
 }

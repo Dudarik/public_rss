@@ -480,14 +480,20 @@ h6 {
 .btn__semi-round {
   border-radius: 25px;
 }
+.btn__round {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 62px;
+  height: 62px;
+  background-repeat: no-repeat;
+}
 .btn:hover {
   background-image: none;
 }
 .btn:disabled {
   background-image: none;
-}
-.btn__round {
-  border-radius: 25px;
 }
 .btn__submit {
   width: 129px;
@@ -657,9 +663,7 @@ h6 {
 
 .pets {
   height: 1079px;
-}
-.pets * {
-  border: 1px dotted green;
+  position: relative;
 }
 
 .pets__palm,
@@ -674,4 +678,96 @@ h6 {
 
 .pets__strelitzia {
   right: 0;
+}
+
+.slider__card {
+  cursor: pointer;
+  margin-left: 200px;
+  width: 368px;
+  height: 428px;
+  position: relative;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background-clip: padding-box;
+  border: solid 1px transparent;
+}
+.slider__card .card_image {
+  transition: all 0.5s;
+  width: 366px;
+  height: 366px;
+}
+.slider__card .card-img__wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 366px;
+  height: 366px;
+}
+.slider__card .card-img__wrapper::before {
+  content: "";
+  position: absolute;
+  opacity: 0;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.slider__card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -1px;
+  border-radius: inherit;
+  background: linear-gradient(113.96deg, #f9804b 1.49%, #fe9013 101.44%);
+}
+.slider__card img {
+  overflow: hidden;
+  border-radius: 5px 5px 0 0;
+}
+.slider__card .card__text {
+  position: absolute;
+  bottom: 14px;
+  left: 16px;
+  transition: all 0.5s;
+}
+.slider__card .card__title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  /* or 22px */
+  text-transform: uppercase;
+}
+.slider__card .title__icon {
+  position: absolute;
+  right: 12px;
+  bottom: 13px;
+}
+.slider__card:hover .card_image {
+  margin-top: -10px;
+  margin-left: -10px;
+  width: 386px;
+  height: 386px;
+  transition: all 0.5s;
+  overflow: hidden;
+}
+.slider__card:hover .card-img__wrapper::before {
+  opacity: 1;
+  transition: all 0.5s;
+}
+.slider__card:hover .card__text {
+  position: absolute;
+  z-index: 1000;
+  bottom: 200px;
+  color: #ffffff;
+  transition: all 0.5s;
+}
+.slider__card:hover .small-paragraph {
+  color: #ffffff;
+  transition: all 0.5s;
 }/*# sourceMappingURL=styles.css.map */
