@@ -30,6 +30,8 @@
   text-align: center;
   color: $color_white;
 
+  position: relative;
+
   letter-spacing: -4.3px;
   span {
     color: $color_yellow;
@@ -44,8 +46,11 @@
     height: 465px;
 
     border-radius: 50%;
-    left: calc(50% - 465px / 2 + 239.5px);
-    top: 92px;
+    right: 99px;
+    bottom: 9px;
+    // left: 0;
+    // left: calc(50% - 465px / 2 + 239.5px);
+    // top: 92px;
     background: $color_orange;
   }
 }
