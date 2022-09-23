@@ -32,10 +32,8 @@
 
   position: relative;
 
-  letter-spacing: -4.3px;
   span {
     color: $color_yellow;
-    letter-spacing: -5px;
   }
   &::before {
     content: "";
