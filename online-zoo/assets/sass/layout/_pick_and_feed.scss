@@ -78,5 +78,58 @@
       text-decoration: none;
       border-bottom: 1px solid $color_orange_second;
     }
+    .pick-and-feed__how-it-work-title {
+      margin-top: 60px;
+      margin-bottom: 38px;
+      letter-spacing: 0.4px;
+    }
+
+    .cards-widget {
+      display: flex;
+    }
+
+    .cards-widget__card-image {
+      background-color: $color_white;
+
+      width: 168px;
+      height: 168px;
+
+      border-radius: 5px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: relative;
+      background-clip: padding-box;
+      border: solid 1px transparent;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        margin: -1px;
+        border-radius: inherit;
+        background: $color_orange;
+      }
+    }
+    .cards-widget__card-title {
+      width: 168px;
+      margin-top: 30px;
+      white-space: wrap;
+    }
+    .cards-widget__card-arrow-right {
+      margin-top: 60px;
+      margin-left: 29px;
+      margin-right: 30px;
+    }
+  }
+  .pick-and-feed__feed-friend {
+    margin-top: 60px;
+    letter-spacing: -0.9px;
   }
 }
