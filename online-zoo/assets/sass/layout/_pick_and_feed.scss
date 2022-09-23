@@ -2,28 +2,7 @@
   // height: 1004px;
   margin-top: 27px;
 
-  background: linear-gradient(
-      315.75deg,
-      rgba(254, 210, 144, 0.7) 30.06%,
-      #febdab 100.95%,
-      rgba(254, 210, 144, 0.7) 106.36%
-    ),
-    linear-gradient(
-      315.75deg,
-      rgba(254, 189, 171, 0.74) 30.06%,
-      rgba(243, 169, 248, 0.66) 50.74%,
-      #e0d8f0 80.49%,
-      #eaf7fe 127.9%,
-      #eaf7fe 149.54%
-    ),
-    linear-gradient(
-      315.75deg,
-      rgba(254, 189, 171, 0.74) 30.06%,
-      rgba(243, 169, 248, 0.66) 50.74%,
-      #e0d8f0 80.49%,
-      #eaf7fe 127.9%,
-      #eaf7fe 149.54%
-    );
+  background: $color_pink_grad;
   opacity: 0.9;
   @media (min-width: 1601px) {
     background-size: cover;
@@ -60,16 +39,15 @@
     }
 
     .pick-and-feed__subtitle {
-      letter-spacing: -0.11px;
       margin-bottom: 42px;
     }
 
     .pick-and-feed__p1 {
+      font-weight: 500;
       margin-bottom: 10px;
     }
 
     .pick-and-feed__p2 {
-      letter-spacing: -0.11px;
       padding-right: 140px;
     }
 
@@ -81,7 +59,6 @@
     .pick-and-feed__how-it-work-title {
       margin-top: 60px;
       margin-bottom: 38px;
-      letter-spacing: 0.4px;
     }
 
     .cards-widget {
@@ -91,8 +68,8 @@
     .cards-widget__card-image {
       background-color: $color_white;
 
-      width: 168px;
-      height: 168px;
+      width: 166px;
+      height: 166px;
 
       border-radius: 5px;
 
@@ -130,6 +107,5 @@
   }
   .pick-and-feed__feed-friend {
     margin-top: 60px;
-    letter-spacing: -0.9px;
   }
 }
