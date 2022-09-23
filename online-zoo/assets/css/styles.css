@@ -1043,4 +1043,9 @@ h6 {
 }
 .testimonials__wrapper .btn_leave-feedback {
   align-self: flex-start;
+}
+
+.footer {
+  height: 443px;
+  background: #111115;
 }/*# sourceMappingURL=styles.css.map */
