@@ -525,7 +525,7 @@ h6 {
   justify-content: space-between;
   margin: 0;
   padding: 0;
-  width: 472px;
+  gap: 58px;
 }
 
 .menu__item {
@@ -1048,4 +1048,61 @@ h6 {
 .footer {
   height: 443px;
   background: #111115;
+}
+
+.footer__wrapper {
+  height: 100%;
+  padding: 0 220px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.footer__wrapper .subtitle {
+  color: #ffffff;
+}
+.footer__wrapper .logo__link_down {
+  margin-top: 32px;
+}
+.footer__wrapper .social-media {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 5px;
+}
+.footer__wrapper .social-media .btn__donate {
+  margin-top: 70px;
+}
+.footer__wrapper .social-media .social-media__links {
+  margin-top: 44px;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+.footer__wrapper .social-media .social-media__links .social-media__link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: #ffffff;
+  text-decoration: none;
+}
+.footer__wrapper .social-media .social-media__links .social-media__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  background: rgba(196, 196, 196, 0.5);
+}
+.footer__wrapper .footer__menu {
+  padding: 0 12px;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 50px;
 }/*# sourceMappingURL=styles.css.map */
