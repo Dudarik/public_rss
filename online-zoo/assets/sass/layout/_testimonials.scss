@@ -63,6 +63,9 @@
 
       padding: 13px 15px 19px 14px;
 
+      // overflow-x: hidden;
+      // margin-right: calc(-1 * (100vw - 100%));
+
       &::before {
         content: "";
         position: absolute;
@@ -109,6 +112,9 @@
         width: 237px;
         height: 309px;
         overflow-y: auto;
+        &::-webkit-scrollbar {
+          width: 0px;
+        }
       }
     }
   }

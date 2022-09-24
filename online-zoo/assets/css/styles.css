@@ -1005,6 +1005,9 @@ html {
   height: 309px;
   overflow-y: auto;
 }
+.testimonials__wrapper .slider__cards .slider__card .card__text::-webkit-scrollbar {
+  width: 0px;
+}
 .testimonials__wrapper .slider__controls {
   margin-top: 21px;
 }
