@@ -1147,7 +1147,6 @@ html {
 }
 .footer__wrapper .subscribe .subscribe__email {
   box-sizing: border-box;
-  position: absolute;
   top: 1px;
   left: 1px;
   width: 226px;
@@ -1155,14 +1154,23 @@ html {
   padding: 10px 7px 10px 10px;
   background-color: #000000;
   border: none;
-  border-radius: inherit;
+  border-radius: 2px;
   outline: none;
 }
-.footer__wrapper .subscribe .subscribe__email:valid .email__border {
-  width: 300px;
+.footer__wrapper .subscribe .subscribe__email:required {
+  border: 10px solid #ffffff;
+}
+.footer__wrapper .subscribe .subscribe__email:valid {
+  border: 1px solid #4b9200;
+  color: #4b9200;
 }
 .footer__wrapper .subscribe .subscribe__email:invalid {
   color: #d31414;
+  border: 1px solid #d31414;
+}
+.footer__wrapper .subscribe .subscribe__email:invalid ~ .btn__subs {
+  color: #d31414;
+  border: 1px solid #d31414;
 }
 .footer__wrapper .subscribe .copyright {
   align-self: end;

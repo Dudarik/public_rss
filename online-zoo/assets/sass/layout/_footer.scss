@@ -114,7 +114,7 @@
     }
     .subscribe__email {
       box-sizing: border-box;
-      position: absolute;
+      // position: absolute;
       top: 1px;
       left: 1px;
       width: 226px;
@@ -123,24 +123,25 @@
       padding: 10px 7px 10px 10px;
       background-color: $color_black;
       border: none;
-      border-radius: inherit;
+      border-radius: 2px;
       outline: none;
 
-      &:valid {
-        // border: 1px solid $color_green;
-        .email__border {
-          width: 300px;
-        }
-        // & .email__border {
-        //   background: $color_green;
-        // }
+      &:required {
+        border: 10px solid $color_white;
       }
+      &:valid {
+        border: 1px solid $color_green;
+        color: $color_green;
+      }
+
       &:invalid {
         color: $color_red;
-        // & .btn__subs {
-        //   color: $color_red;/
-        //   border: 10px solid red;
-        // }
+        border: 1px solid $color_red;
+
+        & ~ .btn__subs {
+          color: $color_red;
+          border: 1px solid $color_red;
+        }
       }
     }
     .copyright {
