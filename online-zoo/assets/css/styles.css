@@ -555,6 +555,23 @@ html {
   -webkit-text-fill-color: transparent;
 }
 
+.menu__link_backlight {
+  font-weight: 500;
+  text-decoration: none;
+}
+.menu__link_backlight:link, .menu__link_backlight:visited {
+  background: linear-gradient(113.96deg, #f9804b 1.49%, #fe9013 101.44%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.menu__link_backlight:hover, .menu__link_backlight:active {
+  background: #fe9013;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .header {
   display: block;
   width: 100%;

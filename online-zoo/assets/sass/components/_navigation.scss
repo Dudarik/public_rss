@@ -34,3 +34,21 @@
     -webkit-text-fill-color: transparent;
   }
 }
+
+.menu__link_backlight {
+  font-weight: 500;
+  text-decoration: none;
+
+  &:link,
+  &:visited {
+    background: $color_orange;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  &:hover,
+  &:active {
+    background: $color_orange_second;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
