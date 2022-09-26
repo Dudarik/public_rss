@@ -9,15 +9,11 @@
   padding: 0 220px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  // align-items: center;
-  // justify-content: space-between;
-  // border: 1px dotted green;
+
   .subtitle {
     color: $color_white;
   }
-  // & > * {
-  //   border: 1px dotted green;
-  // }
+
   .logo__link_down {
     margin-top: 32px;
   }
@@ -30,6 +26,10 @@
 
     .btn__donate {
       margin-top: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
     }
 
     .social-media__links {
@@ -126,9 +126,9 @@
       border-radius: 2px;
       outline: none;
 
-      &:required {
-        border: 10px solid $color_white;
-      }
+      // &:required {
+      //   border: 10px solid $color_white;
+      // }
       &:valid {
         border: 1px solid $color_green;
         color: $color_green;
