@@ -1428,43 +1428,89 @@ html {
   width: 268px;
   height: 50px;
   margin-top: 48px;
-  margin-bottom: 30px;
+  margin-bottom: 28px;
 }
-.donate__pick-and-feed__wrapper .amount-input__wrapper::before {
-  content: "";
+.donate__pick-and-feed__wrapper .amount-input__wrapper .dollar__icon {
   background-image: url("../icons/other_icons/dollar_gray_icon.svg");
   position: absolute;
   width: 10px;
   height: 20px;
   right: 10px;
   top: 19px;
+  fill: #929699;
 }
-.donate__pick-and-feed__wrapper .amount__input {
+.donate__pick-and-feed__wrapper .amount-input__wrapper .amount__input {
   border: 1px solid #929699;
   border-radius: 2px;
   width: 262px;
   height: 50px;
   background-color: transparent;
   -moz-appearance: textfield;
+  outline: none;
 }
-.donate__pick-and-feed__wrapper .amount__input::-webkit-outer-spin-button, .donate__pick-and-feed__wrapper .amount__input::-webkit-inner-spin-button {
+.donate__pick-and-feed__wrapper .amount-input__wrapper .amount__input:default {
+  border: 1px solid #929699;
+}
+.donate__pick-and-feed__wrapper .amount-input__wrapper .amount__input:valid {
+  border: 1px solid #4b9200;
+}
+.donate__pick-and-feed__wrapper .amount-input__wrapper .amount__input:valid ~ .dollar__icon {
+  fill: #4b9200;
+}
+.donate__pick-and-feed__wrapper .amount-input__wrapper .amount__input:invalid {
+  border: 1px solid #d31414;
+}
+.donate__pick-and-feed__wrapper .amount-input__wrapper .amount__input:invalid ~ .dollar__icon {
+  fill: #d31414;
+}
+.donate__pick-and-feed__wrapper .amount-input__wrapper .amount__input::-webkit-outer-spin-button, .donate__pick-and-feed__wrapper .amount-input__wrapper .amount__input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.donate__pick-and-feed__wrapper .amount__input::-moz-placeholder {
+.donate__pick-and-feed__wrapper .amount-input__wrapper .amount__input::-moz-placeholder {
   padding-left: 8px;
   color: #929699;
 }
-.donate__pick-and-feed__wrapper .amount__input:-ms-input-placeholder {
+.donate__pick-and-feed__wrapper .amount-input__wrapper .amount__input:-ms-input-placeholder {
   padding-left: 8px;
   color: #929699;
 }
-.donate__pick-and-feed__wrapper .amount__input::placeholder {
+.donate__pick-and-feed__wrapper .amount-input__wrapper .amount__input::placeholder {
   padding-left: 8px;
   color: #929699;
 }
 .donate__pick-and-feed__wrapper .amount-freq__wrapper {
   margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  width: 198px;
+}
+.donate__pick-and-feed__wrapper .amount-freq__wrapper input[type=radio] {
+  display: none;
+}
+.donate__pick-and-feed__wrapper .amount-freq__wrapper label {
+  display: block;
+  cursor: pointer;
+  position: relative;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  /* or 22px */
+  color: #333b41;
+  margin-left: 18px;
+}
+.donate__pick-and-feed__wrapper .amount-freq__wrapper label::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  left: -30px;
+  background: transparent;
+  border: 1px solid #fe9013;
+  border-radius: 50%;
+}
+.donate__pick-and-feed__wrapper .amount-freq__wrapper input[type=radio]:checked + label:before {
+  background: #fe9013;
 }
 .donate__pick-and-feed__wrapper .share {
   margin-top: 29px;

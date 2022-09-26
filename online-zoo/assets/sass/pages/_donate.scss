@@ -269,39 +269,97 @@
     width: 268px;
     height: 50px;
     margin-top: 48px;
-    margin-bottom: 30px;
-    &::before {
-      content: "";
+    margin-bottom: 28px;
+
+    .dollar__icon {
       background-image: url("../icons/other_icons/dollar_gray_icon.svg");
       position: absolute;
       width: 10px;
       height: 20px;
       right: 10px;
       top: 19px;
+
+      fill: #929699;
     }
-  }
 
-  .amount__input {
-    border: 1px solid #929699;
-    border-radius: 2px;
+    .amount__input {
+      border: 1px solid #929699;
+      border-radius: 2px;
 
-    width: 262px;
-    height: 50px;
-    background-color: transparent;
+      width: 262px;
+      height: 50px;
 
-    -moz-appearance: textfield;
-    &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-    &::placeholder {
-      padding-left: 8px;
-      color: #929699;
+      // padding-left: px;
+      background-color: transparent;
+
+      -moz-appearance: textfield;
+
+      outline: none;
+      &:default {
+        border: 1px solid #929699;
+      }
+      &:valid {
+        border: 1px solid $color_green;
+        & ~ .dollar__icon {
+          fill: $color_green;
+        }
+      }
+      &:invalid {
+        border: 1px solid $color_red;
+        & ~ .dollar__icon {
+          fill: $color_red;
+        }
+      }
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      &::placeholder {
+        padding-left: 8px;
+        color: #929699;
+      }
     }
   }
   .amount-freq__wrapper {
     margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    width: 198px;
+    input[type="radio"] {
+      display: none;
+    }
+
+    label {
+      display: block;
+      cursor: pointer;
+      position: relative;
+
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 140%;
+      /* or 22px */
+
+      color: #333b41;
+
+      margin-left: 18px;
+
+      &::before {
+        content: "";
+        // display: none;
+        width: 14px;
+        height: 14px;
+        position: absolute;
+        left: -30px;
+        background: transparent;
+        border: 1px solid $color_orange_second;
+        border-radius: 50%;
+      }
+    }
+    input[type="radio"]:checked + label:before {
+      background: $color_orange_second;
+    }
   }
 
   .share {
