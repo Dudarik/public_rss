@@ -1,0 +1,74 @@
+$button-state-colors: (
+  hover: $color_orange_darken,
+  active: $color_green,
+  disabled: $color_gray,
+);
+
+.btn {
+  @include button-settings;
+  &__semi-round,
+  &__main {
+    width: 298px;
+    height: 54px;
+
+    font-weight: 500;
+    text-transform: uppercase;
+
+    border: none;
+  }
+
+  &__semi-round,
+  &__round,
+  &__main {
+    @each $status, $color in $button-state-colors {
+      &:#{$status} {
+        background-color: $color;
+      }
+    }
+  }
+
+  &__semi-round {
+    border-radius: 25px;
+  }
+
+  &__round {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 50%;
+
+    width: 62px;
+    height: 62px;
+
+    background-repeat: no-repeat;
+  }
+
+  &:hover {
+    background-image: none;
+  }
+  &:disabled {
+    background-image: none;
+  }
+
+  &__submit {
+    width: 129px;
+    height: 42px;
+
+    background: $color_gray_light;
+
+    border: 1px solid $color_black_blue;
+    color: $color_black;
+
+    &:active {
+      border: 1px solid $color_green;
+      color: $color_green;
+    }
+    &_mistake {
+      border: 1px solid $color_red;
+      color: $color_red;
+    }
+  }
+}

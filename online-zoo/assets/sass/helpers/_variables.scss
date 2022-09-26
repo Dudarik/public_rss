@@ -1,0 +1,51 @@
+$color_black: #000000;
+$color_white: #ffffff;
+$color_green: #4b9200;
+$color_orange: linear-gradient(113.96deg, #f9804b 1.49%, #fe9013 101.44%);
+$color_orange_second: #fe9013;
+$color_orange_darken: #e47209;
+$color_yellow: #ffee2e;
+$color_pink_grad: linear-gradient(
+    315.75deg,
+    rgba(254, 210, 144, 0.7) 30.06%,
+    #febdab 100.95%,
+    rgba(254, 210, 144, 0.7) 106.36%
+  ),
+  linear-gradient(
+    315.75deg,
+    rgba(254, 189, 171, 0.74) 30.06%,
+    rgba(243, 169, 248, 0.66) 50.74%,
+    #e0d8f0 80.49%,
+    #eaf7fe 127.9%,
+    #eaf7fe 149.54%
+  ),
+  linear-gradient(
+    315.75deg,
+    rgba(254, 189, 171, 0.74) 30.06%,
+    rgba(243, 169, 248, 0.66) 50.74%,
+    #e0d8f0 80.49%,
+    #eaf7fe 127.9%,
+    #eaf7fe 149.54%
+  );
+$color_ping_grad: linear-gradient(
+    315.75deg,
+    rgba(254, 189, 171, 0.74) 30.06%,
+    rgba(243, 169, 248, 0.66) 50.74%,
+    #e0d8f0 80.49%,
+    #eaf7fe 127.9%,
+    #eaf7fe 149.54%
+  ),
+  linear-gradient(
+    315.75deg,
+    rgba(254, 189, 171, 0.74) 30.06%,
+    rgba(243, 169, 248, 0.66) 50.74%,
+    #e0d8f0 80.49%,
+    #eaf7fe 127.9%,
+    #eaf7fe 149.54%
+  );
+$color_red: #d31414;
+$color_black_blue: #333b41;
+$color_gray: #767474;
+$color_gray_smoky: #ababab;
+$color_gray_light: #f1f3f2;
+$color_frosted_glass_white: rgba(253, 253, 255, 0.52);

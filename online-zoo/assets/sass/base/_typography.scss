@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+body {
+  @include font-settings;
+  font-size: 16px;
+  line-height: 140%;
+  font-family: "Roboto", "Arial", sans-serif;
+}
+
+h1 {
+  @include font-settings;
+  font-weight: 700;
+  font-size: 114px;
+  line-height: 80%;
+}
+
+h2 {
+  @include font-settings;
+
+  font-size: 48px;
+  line-height: 120%;
+}
+h3 {
+  @include font-settings;
+
+  font-size: 36px;
+  line-height: 130%;
+}
+h4 {
+  @include font-settings;
+
+  font-size: 24px;
+  line-height: 120%;
+}
+h5 {
+  @include font-settings;
+}
+h6 {
+  @include font-settings;
+}
+
+.subtitle {
+  @include font-settings;
+  font-size: 24px;
+  line-height: 120%;
+}
+
+.button-text {
+  @include font-settings;
+  font-size: 16px;
+  line-height: 140%;
+}
+
+.paragraph-lh-130 {
+  @include font-settings;
+  font-size: 16px;
+  line-height: 130%;
+}
+
+.paragraph-lh-140 {
+  @include font-settings;
+  font-size: 16px;
+  line-height: 140%;
+}
+
+.small-paragraph {
+  @include font-settings;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 120%;
+  color: $color_gray;
+}
