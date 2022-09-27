@@ -54,6 +54,13 @@
 
         color: $color_white;
         text-decoration: none;
+        &:hover {
+          color: $color_orange_second;
+        }
+
+        &:hover .social-media__icon {
+          background-color: $color_orange_second;
+        }
         &:active {
           color: $color_green;
         }
@@ -72,6 +79,14 @@
         height: 26px;
 
         background: rgba(196, 196, 196, 0.5);
+        &:hover {
+          background-color: $color_orange_second;
+        }
+
+        &:hover .social-media__link {
+          color: $color_orange_second;
+        }
+
         &:active {
           background-color: $color_green;
         }
