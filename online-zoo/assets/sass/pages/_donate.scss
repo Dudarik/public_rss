@@ -272,6 +272,7 @@
     .amount__input {
       border: 1px solid #929699;
       border-radius: 2px;
+      padding-left: 10px;
 
       width: 262px;
       height: 50px;
@@ -285,13 +286,13 @@
       &:default {
         border: 1px solid #929699;
       }
-      &:valid {
+      &:focus:valid {
         border: 1px solid $color_green;
         & ~ .dollar__icon {
           fill: $color_green;
         }
       }
-      &:invalid {
+      &:focus:invalid {
         border: 1px solid $color_red;
         & ~ .dollar__icon {
           fill: $color_red;
