@@ -36,9 +36,11 @@
       margin-top: 44px;
       display: flex;
       gap: 10px;
+      display: inline-flex;
       flex-direction: column;
       // border: 1px dotted green;
       // margin-top: -100px;
+      max-width: 120px;
 
       .social-media__link {
         display: flex;
