@@ -1,13 +1,32 @@
 .pets {
+  // $card_w_1600: 368px;
+  // $card_h_1600: 428px;
+
+  // $card_w_1000: 297px;
+  // $card_h_1000: 356px;
+
+  $card_pic_1600: 366px;
+  $card_pic_1000: 295px;
+  $card_pic_tablet: 285px;
+  $card_pic_mobile: 285px;
+
   position: relative;
-  margin-top: 180px;
-  padding-bottom: 70px;
+  margin-top: 173px;
+  padding-bottom: 28px;
+
+  @media screen and (max-width: 1500px) {
+    margin-top: 141px;
+    padding-bottom: 70px;
+  }
 
   .pets__palm,
   .pets__strelitzia {
     position: absolute;
 
-    bottom: -27px;
+    bottom: -34px;
+    @media screen and (max-width: 1500px) {
+      bottom: -34px;
+    }
   }
 
   .pets__palm {
@@ -25,7 +44,8 @@
     // TODO: maybe add 2px wrap
 
     .btn-pets__wrapper {
-      margin-top: 78px;
+      margin-top: 79px;
+      margin-bottom: 43px;
     }
   }
 
@@ -36,15 +56,24 @@
   .slider-button__left,
   .slider-button__right {
     position: absolute;
-    top: 402px;
+    // z-index: 10000;
+    top: 369px;
+    // @media screen and (max-width: 1500px) {
+    // }
   }
 
   .slider-button__left {
     left: -77px;
+    @media screen and (max-width: 1500px) {
+      left: 328px;
+    }
   }
 
   .slider-button__right {
     right: -75px;
+    @media screen and (max-width: 1500px) {
+      right: 327px;
+    }
   }
 
   .slider__cards {
@@ -62,6 +91,12 @@
     max-width: 1170px;
 
     overflow: hidden;
+    @media screen and (max-width: 1500px) {
+      row-gap: 90px;
+
+      max-height: 890px;
+      max-width: 950px;
+    }
   }
 
   .slider__card {
@@ -76,19 +111,29 @@
     border-radius: 5px;
     background-clip: padding-box;
     border: solid 1px transparent;
+    transition: all 0.3;
+    @media screen and (max-width: 1500px) {
+      width: 296px;
+      height: 356px;
+    }
 
     .card_image {
       transition: all 0.5s;
-      width: 366px;
-      height: 366px;
+      width: $card_pic_1600;
+      height: $card_pic_1600;
+      overflow: hidden;
+      @media screen and (max-width: 1500px) {
+        width: $card_pic_1000;
+        height: $card_pic_1000;
+      }
       // transform: scale(1);
     }
 
     .card-img__wrapper {
       overflow: hidden;
       position: relative;
-      width: 366px;
-      height: 366px;
+      width: $card_pic_1600;
+      height: $card_pic_1600;
 
       &::before {
         content: "";
@@ -100,6 +145,10 @@
         right: 0;
         bottom: 0;
         left: 0;
+      }
+      @media screen and (max-width: 1500px) {
+        width: 294px;
+        height: 294px;
       }
     }
 
@@ -118,6 +167,39 @@
     img {
       overflow: hidden;
       border-radius: 5px 5px 0 0;
+    }
+
+    .slider__card_1 {
+      //pandas
+      order: 1;
+    }
+    .slider__card_2 {
+      //two-toed sloth
+      order: 2;
+    }
+    .slider__card_3 {
+      // eagles
+      order: 3;
+    }
+    .slider__card_4 {
+      // chetahs
+      order: 4;
+    }
+    .slider__card_5 {
+      // gorillas
+      order: 5;
+    }
+    .slider__card_6 {
+      //penguins
+      order: 6;
+    }
+    .slider__card_7 {
+      // alligators in small devices
+      order: 7;
+    }
+    .slider__card_8 {
+      //empty --- default pandas
+      order: 8;
     }
 
     .card__text {
@@ -143,10 +225,12 @@
     }
 
     &:hover .card_image {
-      margin-top: -10px;
-      margin-left: -10px;
-      width: 386px;
-      height: 386px;
+      // margin-top: -10px;
+      // margin-left: -10px;
+      // width: 386px;
+      // height: 386px;
+
+      transform: scale(1.05);
       transition: all 0.5s;
       overflow: hidden;
     }

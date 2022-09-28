@@ -21,22 +21,25 @@
 }
 
 .backstage-picture {
-  margin-top: 8px;
+  margin-top: 0px;
   // width: 609px;
   // height: 403px;
+  @media screen and (max-width: 1599px) {
+    margin-top: 8px;
+  }
 }
 
 .backstage-description {
   display: flex;
   flex-direction: column;
   // margin: 0 0 0 87px;
-  margin-left: 87px;
+  margin-left: 86px;
   transition: all 0.3s;
   h2 {
     margin-bottom: 22px;
   }
   h4 {
-    margin-top: 48px;
+    margin-top: 54px;
     margin-bottom: 32px;
     @media screen and (max-width: 1000px) {
       margin-top: 53px;

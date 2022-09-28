@@ -100,16 +100,38 @@
         </div>
       </section>
       <section class="pets">
-        <img
+        <picture class="pets__palm">
+          <source
+            srcset="../../assets/images/pets/palm_foto.png"
+            media="(min-width: 1500px)"
+          />
+          <source
+            srcset="../../assets/images/small_desktop/pets/palm_foto.png"
+            media="(min-width: 641px)"
+          />
+          <img src="https://via.placeholder.com/320" />
+        </picture>
+        <picture class="pets__strelitzia">
+          <source
+            srcset="../../assets/images/pets/strelitzia.png"
+            media="(min-width: 1500px)"
+          />
+          <source
+            srcset="../../assets/images/small_desktop/pets/strelitzia.png"
+            media="(min-width: 641px)"
+          />
+          <img src="https://via.placeholder.com/320" />
+        </picture>
+        <!-- <img
           src="../../assets/images/pets/palm_foto.png"
           alt="Palm photo"
           class="pets__palm"
-        />
-        <img
+        /> -->
+        <!-- <img
           src="../../assets/images/pets/strelitzia.png"
           alt="Strelitzia photo"
           class="pets__strelitzia"
-        />
+        /> -->
         <div class="container">
           <div class="pets_wrapper block__wrapper">
             <div class="pets__slider">
@@ -148,14 +170,33 @@
                 </button>
                 <div class="slider__view">
                   <div class="slider__cards">
-                    <div class="slider__card">
+                    <div class="slider__card slider__card_1">
                       <div class="card-img__wrapper">
-                        <img
+                        <picture>
+                          <source
+                            srcset="
+                              ../../assets/images/pets/slider/giant_pandas.png
+                            "
+                            media="(min-width: 1500px)"
+                          />
+                          <source
+                            srcset="
+                              ../../assets/images/small_desktop/pets/slider/giant_pandas.png
+                            "
+                            media="(min-width: 641px)"
+                          />
+                          <img
+                            src="https://via.placeholder.com/320"
+                            class="card_image"
+                          />
+                        </picture>
+                        <!-- <img
                           src="../../assets/images/pets/slider/giant_pandas.png"
                           alt="Giant pandas"
                           class="card_image"
-                        />
+                        /> -->
                       </div>
+
                       <!-- <div class="card__text-wrapper"> -->
                       <div class="card__text">
                         <div class="card__title">giant Pandas</div>
@@ -164,19 +205,38 @@
                         </div>
                         <!-- </div> -->
                       </div>
+
                       <img
                         src="../../assets/icons/cards_icons/banana-bamboo_icon.svg"
                         alt="Banana and bamboo"
                         class="title__icon"
                       />
                     </div>
-                    <div class="slider__card">
+                    <div class="slider__card slider__card_2">
                       <div class="card-img__wrapper">
-                        <img
+                        <picture>
+                          <source
+                            srcset="
+                              ../../assets/images/pets/slider/two-toed_sloth.png
+                            "
+                            media="(min-width: 1500px)"
+                          />
+                          <source
+                            srcset="
+                              ../../assets/images/small_desktop/pets/slider/two-toed_sloth.png
+                            "
+                            media="(min-width: 641px)"
+                          />
+                          <img
+                            class="card_image"
+                            src="https://via.placeholder.com/320"
+                          />
+                        </picture>
+                        <!-- <img
                           src="../../assets/images/pets/slider/two-toed_sloth.png"
                           alt="Two-toed Sloth"
                           class="card_image"
-                        />
+                        /> -->
                       </div>
                       <!-- <div class="card__text-wrapper"> -->
                       <div class="card__text">
@@ -192,13 +252,29 @@
                         class="title__icon"
                       />
                     </div>
-                    <div class="slider__card">
+                    <div class="slider__card slider__card_3">
                       <div class="card-img__wrapper">
-                        <img
+                        <picture>
+                          <source
+                            srcset="../../assets/images/pets/slider/eagles.png"
+                            media="(min-width: 1500px)"
+                          />
+                          <source
+                            srcset="
+                              ../../assets/images/small_desktop/pets/slider/eagles.png
+                            "
+                            media="(min-width: 641px)"
+                          />
+                          <img
+                            class="card_image"
+                            src="https://via.placeholder.com/320"
+                          />
+                        </picture>
+                        <!-- <img
                           src="../../assets/images/pets/slider/eagle.png"
-                          alt="Giant pandas"
+                          alt="Eagles"
                           class="card_image"
-                        />
+                        /> -->
                       </div>
                       <!-- <div class="card__text-wrapper"> -->
                       <div class="card__text">
@@ -214,13 +290,31 @@
                         class="title__icon"
                       />
                     </div>
-                    <div class="slider__card">
+                    <div class="slider__card slider__card_4">
                       <div class="card-img__wrapper">
-                        <img
+                        <picture>
+                          <source
+                            srcset="
+                              ../../assets/images/pets/slider/cheetahs.png
+                            "
+                            media="(min-width: 1500px)"
+                          />
+                          <source
+                            srcset="
+                              ../../assets/images/small_desktop/pets/slider/cheetahs.png
+                            "
+                            media="(min-width: 641px)"
+                          />
+                          <img
+                            class="card_image"
+                            src="https://via.placeholder.com/320"
+                          />
+                        </picture>
+                        <!-- <img
                           src="../../assets/images/pets/slider/cheetahs.png"
                           alt="Cheetahs"
                           class="card_image"
-                        />
+                        /> -->
                       </div>
                       <!-- <div class="card__text-wrapper"> -->
                       <div class="card__text">
@@ -234,13 +328,31 @@
                         class="title__icon"
                       />
                     </div>
-                    <div class="slider__card">
+                    <div class="slider__card slider__card_5">
                       <div class="card-img__wrapper">
-                        <img
+                        <picture>
+                          <source
+                            srcset="
+                              ../../assets/images/pets/slider/gorrilas.png
+                            "
+                            media="(min-width: 1500px)"
+                          />
+                          <source
+                            srcset="
+                              ../../assets/images/small_desktop/pets/slider/gorrilas.png
+                            "
+                            media="(min-width: 641px)"
+                          />
+                          <img
+                            class="card_image"
+                            src="https://via.placeholder.com/320"
+                          />
+                        </picture>
+                        <!-- <img
                           src="../../assets/images/pets/slider/gorrilas.png"
                           alt="Gorillas"
                           class="card_image"
-                        />
+                        /> -->
                       </div>
                       <!-- <div class="card__text-wrapper"> -->
                       <div class="card__text">
@@ -254,13 +366,32 @@
                         class="title__icon"
                       />
                     </div>
-                    <div class="slider__card">
+                    <div class="slider__card slider__card_6">
                       <div class="card-img__wrapper">
-                        <img
+                        <picture>
+                          <source
+                            srcset="
+                              ../../assets/images/pets/slider/penguins.png
+                            "
+                            media="(min-width: 1500px)"
+                          />
+                          <source
+                            class="card_image"
+                            srcset="
+                              ../../assets/images/small_desktop/pets/slider/penguins.png
+                            "
+                            media="(min-width: 641px)"
+                          />
+                          <img
+                            src="https://via.placeholder.com/320"
+                            class="card_image"
+                          />
+                        </picture>
+                        <!-- <img
                           src="../../assets/images/pets/slider/penguins.png"
                           alt="Penguins"
                           class="card_image"
-                        />
+                        /> -->
                       </div>
                       <!-- <div class="card__text-wrapper"> -->
                       <div class="card__text">
@@ -274,13 +405,28 @@
                         class="title__icon"
                       />
                     </div>
-                    <div class="slider__card">
+                    <div class="slider__card slider__card_7">
                       <div class="card-img__wrapper">
-                        <img
+                        <picture class="card_image">
+                          <source
+                            srcset="
+                              ../../assets/images/pets/slider/alligators.png
+                            "
+                            media="(min-width: 1500px)"
+                          />
+                          <source
+                            srcset="
+                              ../../assets/images/small_desktop/pets/slider/alligators.png
+                            "
+                            media="(min-width: 641px)"
+                          />
+                          <img src="https://via.placeholder.com/320" />
+                        </picture>
+                        <!-- <img
                           src="../../assets/images/pets/slider/empty.png"
                           alt="Giant pandas"
                           class="card_image"
-                        />
+                        /> -->
                       </div>
                       <!-- <div class="card__text-wrapper"> -->
                       <div class="card__text">
@@ -296,7 +442,7 @@
                         class="title__icon"
                       />
                     </div>
-                    <div class="slider__card">
+                    <div class="slider__card slider__card_8">
                       <div class="card-img__wrapper">
                         <img
                           src="../../assets/images/pets/slider/giant_pandas.png"
