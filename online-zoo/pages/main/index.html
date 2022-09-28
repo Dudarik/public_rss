@@ -62,11 +62,24 @@
         />
         <div class="container">
           <div class="backstage__wrapper block__wrapper">
-            <img
+            <picture class="backstage-picture">
+              <source
+                srcset="../../assets/images/backstage/bamboo-cap.png"
+                media="(min-width: 1300px)"
+              />
+              <source
+                srcset="
+                  ../../assets/images/small_desktop/backstage/bamboo-cap.png
+                "
+                media="(min-width: 641px)"
+              />
+              <img src="https://via.placeholder.com/320" />
+            </picture>
+            <!-- <img
               src="../../assets/images/backstage/bamboo-cap.png"
               alt="man in bamboo cap"
               class="backstage-picture"
-            />
+            /> -->
             <div class="backstage-description">
               <h2>The Backstage of the Wilderness World.</h2>
               <p class="paragraph-lh-130">
