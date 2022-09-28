@@ -1,10 +1,8 @@
 .pets {
-  height: 1079px;
   position: relative;
-  margin-top: 20px;
-  // * {
-  //   border: 1px dotted green;
-  // }
+  margin-top: 180px;
+  padding-bottom: 70px;
+
   .pets__palm,
   .pets__strelitzia {
     position: absolute;
@@ -23,7 +21,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 218px;
+    // padding: 0 218px;
+    // TODO: maybe add 2px wrap
 
     .btn-pets__wrapper {
       margin-top: 78px;

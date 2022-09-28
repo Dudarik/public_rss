@@ -1,10 +1,12 @@
 .watch-you-animal {
   display: block;
-  height: 700px;
+  // height: 700px;
   background-image: url("../images/main_header/giant_panda.png");
   background-repeat: no-repeat;
   background-position: center -80px;
+  padding-bottom: 100px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
   @media (min-width: 1601px) {
     background-size: cover;
   }
@@ -22,6 +24,7 @@
   padding-top: 87px;
   padding-right: 229px;
   text-transform: uppercase;
+
   // width: 100%;
 }
 

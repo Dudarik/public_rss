@@ -9,13 +9,16 @@
   }
 }
 .pick-and-feed__wrapper {
-  padding: 70px 220px 100px;
+  // padding: 70px 220px 100px;
+  // margin-top: 70px;
+  padding-top: 70px;
+  padding-bottom: 100px;
 
   .pick-and-feed__content {
     background: rgba(253, 253, 255, 0.52);
     backdrop-filter: blur(2px);
 
-    height: 835px;
+    // height: 835px;
 
     border-radius: 20px;
 

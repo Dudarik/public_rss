@@ -9,11 +9,17 @@
 .header__wrapper {
   height: 100%;
 
-  padding: 0 220px;
+  // margin: 0 220px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  transition: all 0.3s;
+  @media screen and (max-width: 1599px) {
+    // margin: 0 30px;
+    // background-color: aqua;
+    transition: all 0.3s;
+  }
 }
 
 .desinger {
