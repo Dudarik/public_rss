@@ -9,10 +9,12 @@
   }
 }
 .pick-and-feed__wrapper {
-  // padding: 70px 220px 100px;
-  // margin-top: 70px;
   padding-top: 70px;
   padding-bottom: 100px;
+  transition: all 0.3s;
+  @media screen and (max-width: 1000px) {
+    padding-top: 30px;
+  }
 
   .pick-and-feed__content {
     background: rgba(253, 253, 255, 0.52);
@@ -32,6 +34,11 @@
       margin-top: 40px;
       margin-bottom: 30px;
       color: $color_orange_second;
+      transition: all 0.3s;
+      @media screen and (max-width: 1000px) {
+        margin-top: 30px;
+        margin-bottom: 22px;
+      }
     }
 
     .pick-and-feed__text-wrapper {
@@ -39,19 +46,33 @@
       flex-direction: column;
       padding-left: 99px;
       padding-right: 59px;
+      @media screen and (max-width: 1000px) {
+        padding-right: 45px;
+        padding-left: 49px;
+      }
     }
 
     .pick-and-feed__subtitle {
       margin-bottom: 42px;
+
+      @media screen and (max-width: 1000px) {
+        margin-bottom: 20px;
+      }
     }
 
     .pick-and-feed__p1 {
       font-weight: 500;
       margin-bottom: 10px;
+      @media screen and (max-width: 1000px) {
+        margin-right: 31px;
+      }
     }
 
     .pick-and-feed__p2 {
-      padding-right: 140px;
+      margin-right: 140px;
+      @media screen and (max-width: 1000px) {
+        margin-right: 40px;
+      }
     }
 
     a {
@@ -62,6 +83,9 @@
     .pick-and-feed__how-it-work-title {
       margin-top: 60px;
       margin-bottom: 38px;
+      @media screen and (max-width: 1000px) {
+        margin-top: 40px;
+      }
     }
 
     .cards-widget {
@@ -110,5 +134,9 @@
   }
   .pick-and-feed__feed-friend {
     margin-top: 60px;
+    @media screen and (max-width: 1000px) {
+      margin-top: 72px;
+      margin-bottom: 50px;
+    }
   }
 }
