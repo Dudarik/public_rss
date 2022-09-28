@@ -10,7 +10,9 @@
   margin: 0;
   padding: 0;
   gap: 58px;
-  // width: 472px;
+  @media screen and (max-width: 1599px) {
+    gap: 48px;
+  }
 }
 
 .menu__item {

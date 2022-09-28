@@ -4,6 +4,8 @@
   width: 100%;
   height: 80px;
   background-color: $color_black;
+  position: relative;
+  z-index: 1000;
 }
 
 .header__wrapper {
