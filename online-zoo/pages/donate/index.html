@@ -218,6 +218,8 @@
                         placeholder="Another amount"
                         type="number"
                         class="amount__input"
+                        maxlength="4"
+                        oninput="this.value = this.value.slice(0, this.maxLength);"
                         min="0"
                         max="9999"
                       />
