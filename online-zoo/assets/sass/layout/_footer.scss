@@ -6,120 +6,116 @@
 .footer__wrapper {
   // height: 100%;
 
-  // padding: 0 220px;
+  // padding: 0 221px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  // grid-template-columns: repeat(6, 1fr);
-  // grid-template-rows: repeat(6, 1fr);
+  grid-template-rows: auto minmax(60px, auto) auto; //repeat(3, 1fr);
+  grid-template-columns: auto minmax(110px, auto) auto; //repeat(3, 1fr);;
+  grid-template-areas:
+    "logo subs subs"
+    "button button button"
+    "social f_menu f_copy";
+  grid-gap: 1px;
+
+  // width: 100%;
+  // height: 100%;
+
   // & * {
+  //   box-sizing: border-box;
   //   border: 1px dotted green;
   // }
-
   .subtitle {
     color: $color_white;
   }
 
   .logo__link_down {
-    margin-top: 30px;
-    // grid-column: 1/2;
-    // grid-row: 1/2;
+    margin-top: 38px;
   }
 
-  .social-media {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-top: 5px;
-
+  .footer-logo__wrapper {
+    grid-area: logo;
+  }
+  .footer-btn__wrapper {
+    grid-area: button;
+    margin-top: 35px;
     .btn__donate {
-      margin-top: 70px;
+      // margin-top: 70px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
     }
+  }
+  .social-media-links__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    // border: 1px dotted green;
+    margin-top: 44px;
 
-    .social-media__links {
-      margin-top: 44px;
+    .social-media__link {
       display: flex;
-      gap: 10px;
-      display: inline-flex;
-      flex-direction: column;
-      // border: 1px dotted green;
-      // margin-top: -100px;
-      max-width: 120px;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 2px;
 
-      .social-media__link {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 2px;
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 140%;
 
-        font-family: "Roboto";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 140%;
-
-        color: $color_white;
-        text-decoration: none;
-        &:hover {
-          color: $color_orange_second;
-        }
-
-        &:hover .social-media__icon {
-          background-color: $color_orange_second;
-        }
-        &:active {
-          color: $color_green;
-        }
-        &:active .social-media__icon {
-          background-color: $color_green;
-        }
+      color: $color_white;
+      text-decoration: none;
+      &:active {
+        color: $color_green;
       }
-      .social-media__icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      &:active .social-media__icon {
+        background-color: $color_green;
+      }
+    }
+    .social-media__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-        margin-right: 10px;
-        border-radius: 50%;
-        width: 26px;
-        height: 26px;
+      margin-right: 10px;
+      border-radius: 50%;
+      width: 26px;
+      height: 26px;
 
-        background: rgba(196, 196, 196, 0.5);
-        &:hover {
-          background-color: $color_orange_second;
-        }
+      background: rgba(196, 196, 196, 0.5);
+      &:active {
+        background-color: $color_green;
+      }
 
-        &:hover .social-media__link {
-          color: $color_orange_second;
-        }
-
-        &:active {
-          background-color: $color_green;
-        }
-
-        &:active .social-media__link {
-          color: $color_green;
-        }
+      &:active .social-media__link {
+        color: $color_green;
       }
     }
   }
+  .footer-menu__wrapper {
+    grid-area: f_menu;
 
-  .footer__menu {
-    padding: 0 12px;
     display: flex;
+    // flex-direction: row;
     align-items: flex-end;
-    margin-bottom: 50px;
+    justify-content: flex-end;
+
     // border: 1px dotted green;
   }
+  .subscribe__wrapper {
+    grid-area: subs;
+    display: flex;
+    align-items: flex-end;
 
-  .subscribe {
     margin-top: 40px;
-    margin-left: 20px;
+
     display: flex;
     flex-direction: column;
+
+    .subtitle {
+      margin-right: 131px;
+    }
 
     // border: 1px dotted green;
     .subscribe__form {
@@ -127,15 +123,15 @@
       display: flex;
       gap: 10px;
     }
-    // .email__border {
-    //   position: relative;
-    //   width: 228px;
-    //   height: 42px;
-    //   // border: 0.7px solid;
-    //   background: linear-gradient(113.96deg, #f9804b 1.49%, #fe9013 101.44%);
+    .email__border {
+      position: relative;
+      width: 228px;
+      height: 42px;
+      // border: 0.7px solid;
+      background: linear-gradient(113.96deg, #f9804b 1.49%, #fe9013 101.44%);
 
-    //   border-radius: 2px;
-    // }
+      border-radius: 2px;
+    }
     .subscribe__email {
       box-sizing: border-box;
       // position: absolute;
@@ -146,19 +142,19 @@
 
       padding: 10px 7px 10px 10px;
       background-color: $color_black;
-      border: 1px solid $color_orange_second;
+      border: none;
       border-radius: 2px;
       outline: none;
 
       // &:required {
       //   border: 10px solid $color_white;
       // }
-      &:focus:valid {
+      &:valid {
         border: 1px solid $color_green;
         color: $color_green;
       }
 
-      &:focus:invalid {
+      &:invalid {
         color: $color_red;
         border: 1px solid $color_red;
 
@@ -168,23 +164,27 @@
         }
       }
     }
-    .copyright {
-      align-self: end;
-      margin-top: 209px;
-      // margin-right: 5px;
+  }
+  .copyright__wrapper {
+    grid-area: f_copy;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    // align-self: end;
+    // margin-top: 209px;
+    // margin-right: 5px;
 
-      .copyright__link {
-        // display: inline-block;
-        text-align: right;
-        color: $color_white;
-        text-decoration: none;
-        font-weight: 100;
-        font-size: 16px;
-        line-height: 130%;
-        &:active {
-          color: $color_green;
-          border-bottom: 1px solid $color_green;
-        }
+    .copyright__link {
+      // display: inline-block;
+      text-align: right;
+      color: $color_white;
+      text-decoration: none;
+      font-weight: 100;
+      font-size: 16px;
+      line-height: 130%;
+      &:active {
+        color: $color_green;
+        border-bottom: 1px solid $color_green;
       }
     }
   }
