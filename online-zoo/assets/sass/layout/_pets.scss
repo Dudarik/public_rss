@@ -169,35 +169,47 @@
       border-radius: 5px 5px 0 0;
     }
 
-    .slider__card_1 {
+    &.slider__card_1 {
       //pandas
       order: 1;
     }
-    .slider__card_2 {
+    &.slider__card_2 {
       //two-toed sloth
       order: 2;
+      @media screen and (max-width: 1500px) {
+        order: 7;
+      }
     }
-    .slider__card_3 {
+    &.slider__card_3 {
       // eagles
       order: 3;
     }
-    .slider__card_4 {
+    &.slider__card_4 {
       // chetahs
       order: 4;
+      @media screen and (max-width: 1500px) {
+        order: 5;
+      }
     }
-    .slider__card_5 {
+    &.slider__card_5 {
       // gorillas
       order: 5;
+      @media screen and (max-width: 1500px) {
+        order: 2;
+      }
     }
-    .slider__card_6 {
+    &.slider__card_6 {
       //penguins
       order: 6;
     }
-    .slider__card_7 {
+    &.slider__card_7 {
       // alligators in small devices
       order: 7;
+      @media screen and (max-width: 1500px) {
+        order: 4;
+      }
     }
-    .slider__card_8 {
+    &.slider__card_8 {
       //empty --- default pandas
       order: 8;
     }
