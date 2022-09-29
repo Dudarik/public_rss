@@ -1,12 +1,19 @@
 .testimonials {
-  height: 919px;
+  // height: 919px;
   position: relative;
   // border: 10px dotted green;
   .testimonials__leaf {
     position: absolute;
     z-index: -1;
-    bottom: -132px;
+    bottom: -313px;
     right: 0;
+    @media screen and (max-width: 1599px) {
+      bottom: -226px;
+    }
+  }
+  margin-bottom: 180px;
+  @media screen and (max-width: 1599px) {
+    margin-bottom: 140px;
   }
 }
 
@@ -17,11 +24,18 @@
   flex-direction: column;
 
   .testimonials__title {
-    margin-top: 140px;
+    margin-top: 191px;
     margin-bottom: 47px;
+    @media screen and (max-width: 1599px) {
+      margin-top: 101px;
+      margin-bottom: 29px;
+    }
   }
   .testimonials__slider {
-    margin-bottom: 28px;
+    margin-bottom: 30px;
+    @media screen and (max-width: 1599px) {
+      margin-bottom: 51px;
+    }
   }
   .slider {
     display: flex;
@@ -48,6 +62,10 @@
 
     overflow: hidden;
 
+    @media screen and (max-width: 1599px) {
+      max-width: 940px;
+    }
+
     .slider__card {
       width: 235px;
       height: 355px;
@@ -61,9 +79,58 @@
       background-color: $color_gray_light;
 
       padding: 13px 15px 19px 14px;
+      @media screen and (max-width: 1599px) {
+        width: 260px;
+        height: 355px;
+      }
 
       // overflow-x: hidden;
       // margin-right: calc(-1 * (100vw - 100%));
+
+      &.slider_card_1 {
+        //Michael John
+        order: 1;
+      }
+      &.slider_card_2 {
+        //Oskar Samborsky
+        order: 2;
+        @media screen and (max-width: 1599px) {
+          order: 5;
+        }
+      }
+      &.slider_card_3 {
+        //Fredericka Michelin 1600
+        order: 3;
+        @media screen and (max-width: 1599px) {
+          order: 6;
+        }
+      }
+      &.slider_card_4 {
+        //Mila Rikha
+        order: 4;
+      }
+      &.slider_card_5 {
+        //Oska Samborska
+        order: 5;
+        @media screen and (max-width: 1599px) {
+          & .card__text {
+            width: 250px;
+          }
+
+          & .card__header .user-avatar {
+            margin-bottom: 14px;
+          }
+
+          order: 2;
+        }
+      }
+      &.slider_card_6 {
+        //Fredericka Michelin 1000
+        order: 6;
+        @media screen and (max-width: 1599px) {
+          order: 3;
+        }
+      }
 
       &::before {
         content: "";
@@ -114,11 +181,14 @@
         &::-webkit-scrollbar {
           width: 0px;
         }
+        @media screen and (max-width: 1599px) {
+          width: 255px;
+        }
       }
     }
   }
   .slider__controls {
-    margin-top: 21px;
+    margin-top: 19px;
 
     .range__wrapper {
       position: relative;
@@ -147,14 +217,18 @@
             #eaf7fe 149.54%
           ),
           linear-gradient(0deg, #f5f7f6, #f5f7f6);
+        @media screen and (max-width: 1599px) {
+          margin-left: -12px;
+          width: 393px;
+        }
       }
 
       .slider__range {
         position: absolute;
         top: 1px;
         left: 1px;
-        width: 599px;
-        height: 8px;
+        width: calc(100% - 2px);
+        height: calc(100% - 2px);
 
         background-color: #f5f7f6;
 
@@ -172,6 +246,9 @@
           width: 115.19px;
           height: 6px;
           -webkit-appearance: none;
+          @media screen and (max-width: 1599px) {
+            width: 75px;
+          }
         }
 
         &::-moz-range-thumb {
