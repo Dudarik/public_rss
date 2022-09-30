@@ -17,11 +17,15 @@ html {
       margin-left: 30px;
       margin-right: 30px;
     }
+    @media screen and(max-width: 999px) {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
   }
 
   @media screen and(max-width: 1599px) {
     width: auto;
-    min-width: 1000px;
+    // min-width: 1000px;
     // background-color: red;
   }
 }
