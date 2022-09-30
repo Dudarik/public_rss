@@ -9,6 +9,10 @@
   @media screen and (max-width: 1599px) {
     display: none;
   }
+  @media screen and (max-width: 999px) {
+    display: block;
+    top: -68px;
+  }
 }
 
 .backstage__wrapper {
@@ -27,6 +31,9 @@
   @media screen and (max-width: 1599px) {
     margin-top: 8px;
   }
+  @media screen and (max-width: 999px) {
+    display: none;
+  }
 }
 
 .backstage-description {
@@ -37,17 +44,30 @@
   transition: all 0.3s;
   h2 {
     margin-bottom: 22px;
+    @media screen and (max-width: 999px) {
+      margin-left: 4px;
+      margin-top: -2px;
+    }
   }
   h4 {
     margin-top: 54px;
     margin-bottom: 32px;
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: 1599px) {
       margin-top: 53px;
       margin-bottom: 32px;
+    }
+    @media screen and (max-width: 999px) {
+      margin-top: 30px;
+      margin-left: 4px;
+      margin-bottom: 19px;
     }
   }
 
   @media screen and (max-width: 1599px) {
     margin-left: 31px;
+  }
+  @media screen and (max-width: 999px) {
+    margin-left: 0;
+    margin-right: 105px;
   }
 }
