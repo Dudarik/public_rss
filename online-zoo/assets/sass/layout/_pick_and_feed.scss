@@ -12,8 +12,15 @@
   padding-top: 70px;
   padding-bottom: 50px;
   transition: all 0.3s;
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1599px) {
     padding-top: 30px;
+  }
+  @media screen and (max-width: 999px) {
+    padding-top: 20px;
+    &.block__wrapper {
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
 
   .pick-and-feed__content {
@@ -35,9 +42,14 @@
       margin-bottom: 30px;
       color: $color_orange_second;
       transition: all 0.3s;
-      @media screen and (max-width: 1000px) {
+      @media screen and (max-width: 1599px) {
         margin-top: 30px;
         margin-bottom: 22px;
+      }
+      @media screen and (max-width: 999px) {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        font-size: 42px;
       }
     }
 
@@ -46,32 +58,43 @@
       flex-direction: column;
       padding-left: 99px;
       padding-right: 59px;
-      @media screen and (max-width: 1000px) {
+      color: #333b41;
+
+      @media screen and (max-width: 1599px) {
         padding-right: 45px;
         padding-left: 49px;
+      }
+      @media screen and (max-width: 999px) {
+        padding-right: 0px;
+        padding-left: 19px;
       }
     }
 
     .pick-and-feed__subtitle {
       margin-bottom: 42px;
 
-      @media screen and (max-width: 1000px) {
+      @media screen and (max-width: 1599px) {
         margin-bottom: 20px;
+      }
+
+      @media screen and (max-width: 999px) {
+        letter-spacing: -0.87px;
+        line-height: 110%;
       }
     }
 
     .pick-and-feed__p1 {
       font-weight: 500;
       margin-bottom: 10px;
-      @media screen and (max-width: 1000px) {
+      @media screen and (max-width: 1599px) {
         margin-right: 31px;
       }
     }
 
     .pick-and-feed__p2 {
       margin-right: 140px;
-      @media screen and (max-width: 1000px) {
-        margin-right: 40px;
+      @media screen and (max-width: 1599px) {
+        margin-right: 25px;
       }
     }
 
@@ -83,8 +106,12 @@
     .pick-and-feed__how-it-work-title {
       margin-top: 60px;
       margin-bottom: 38px;
-      @media screen and (max-width: 1000px) {
+      @media screen and (max-width: 1599px) {
         margin-top: 40px;
+      }
+      @media screen and (max-width: 999px) {
+        margin-top: 30px;
+        margin-bottom: 19px;
       }
     }
 
