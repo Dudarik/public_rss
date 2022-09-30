@@ -158,9 +158,12 @@
         }
 
         .donation-amount__pbar-midline {
-          width: 785px;
+          width: 904px;
           height: 2px;
           background: #72828e;
+          @media screen and (max-width: 1599px) {
+            width: 785px;
+          }
 
           // display: inline-block;
         }
