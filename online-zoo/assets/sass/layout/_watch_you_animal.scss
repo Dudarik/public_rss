@@ -4,6 +4,7 @@
   background-repeat: no-repeat;
   background-position: center -80px;
   padding-bottom: 100px;
+
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   transition: background-image 1s;
 
@@ -11,6 +12,13 @@
     filter: none;
 
     background-image: url("../images/small_desktop/main_header/giant_panda.png");
+  }
+
+  @media screen and (max-width: 641px) {
+    // height: 373px;
+
+    background-image: url("../images/tablet/main_header/giant_panda.png");
+    background-position: center 0px;
   }
 
   @media screen and (min-width: 1601px) {
@@ -22,14 +30,25 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  position: relative;
 
   padding-top: 87px;
   padding-right: 9px;
   text-transform: uppercase;
   transition: all 0.3s;
+
   @media screen and (max-width: 1599px) {
     padding-top: 45px;
     padding-right: 63px;
+  }
+  @media screen and (max-width: 999px) {
+    display: flex;
+    flex-direction: row-reverse;
+    // align-items: center;
+    // justify-content: center;
+
+    padding-top: 84px;
+    padding-right: 1px;
   }
 }
 
@@ -47,6 +66,11 @@
   @media screen and (max-width: 1599px) {
     font-weight: 700;
     font-size: 85px;
+  }
+  @media screen and (max-width: 999px) {
+    font-weight: 700;
+    font-size: 54.2894px;
+    line-height: 75%;
   }
 
   span {
@@ -70,15 +94,28 @@
       height: 367px;
       right: 84px;
     }
+    @media screen and (max-width: 1599px) {
+      width: 237.6px;
+      height: 237.6px;
+      right: 50px;
+      bottom: 7px;
+    }
   }
 }
 
 .button__wrapper {
   margin-top: 60px;
   margin-right: 90px;
+
+  // border: 1px dotted green;
   @media screen and (max-width: 1599px) {
     margin-top: 39px;
     margin-right: 44px;
+  }
+  @media screen and (max-width: 999px) {
+    position: absolute;
+    left: 0px;
+    bottom: -45px;
   }
   // left: calc(50% - 298px/2 + 332px);
 }
