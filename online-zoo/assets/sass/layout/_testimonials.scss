@@ -48,7 +48,7 @@
     display: grid;
 
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(1, 1fr);
+    grid-template-rows: 1fr;
 
     grid-auto-flow: column;
 
@@ -64,6 +64,9 @@
 
     @media screen and (max-width: 1599px) {
       max-width: 940px;
+    }
+    @media screen and (max-width: 999px) {
+      max-width: 600px;
     }
 
     .slider__card {
@@ -84,6 +87,10 @@
         height: 355px;
       }
 
+      @media screen and (max-width: 1599px) {
+        width: 260px;
+        height: 355px;
+      }
       // overflow-x: hidden;
       // margin-right: calc(-1 * (100vw - 100%));
 
@@ -189,6 +196,9 @@
   }
   .slider__controls {
     margin-top: 19px;
+    @media screen and (max-width: 999px) {
+      display: none;
+    }
 
     .range__wrapper {
       position: relative;
