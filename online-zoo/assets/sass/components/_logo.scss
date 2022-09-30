@@ -6,6 +6,11 @@
   height: 52px;
 
   background: url("../icons/logo_icons/logo-petonline-optimized.svg") no-repeat;
+  @media screen and (max-width: 999px) {
+    width: 46px;
+    height: 29px;
+    background: url("../icons/logo_icons/tablet/logo_footer.png") no-repeat;
+  }
   // display: flex;
   // align-items: center;
   // justify-content: center;
