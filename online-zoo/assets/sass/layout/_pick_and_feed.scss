@@ -17,6 +17,8 @@
   }
   @media screen and (max-width: 999px) {
     padding-top: 20px;
+    padding-bottom: 20px;
+
     &.block__wrapper {
       margin-left: 0;
       margin-right: 0;
@@ -117,6 +119,11 @@
 
     .cards-widget {
       display: flex;
+      transition: all 0.3s;
+      @media screen and (max-width: 999px) {
+        gap: 21px;
+        margin-left: -13px;
+      }
     }
 
     .cards-widget__card-image {
@@ -157,14 +164,29 @@
       margin-top: 60px;
       margin-left: 29px;
       margin-right: 30px;
+      @media screen and (max-width: 999px) {
+        margin: 0;
+        position: relative;
+
+        .card__arrow {
+          position: absolute;
+          top: -16px;
+          left: -52px;
+          z-index: 100;
+        }
+      }
     }
   }
   .pick-and-feed__feed-friend {
     margin-top: 62px;
     margin-bottom: 59px;
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: 1599px) {
       margin-top: 72px;
       margin-bottom: 50px;
+    }
+    @media screen and (max-width: 999px) {
+      margin-top: 41px;
+      margin-bottom: 60px;
     }
   }
 }
