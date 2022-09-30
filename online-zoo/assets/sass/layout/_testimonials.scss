@@ -8,12 +8,15 @@
     bottom: -313px;
     right: 0;
     @media screen and (max-width: 1599px) {
-      bottom: -226px;
+      bottom: -149px;
     }
   }
   margin-bottom: 180px;
   @media screen and (max-width: 1599px) {
     margin-bottom: 140px;
+  }
+  @media screen and (max-width: 999px) {
+    margin-bottom: 80px;
   }
 }
 
@@ -30,11 +33,16 @@
       margin-top: 101px;
       margin-bottom: 29px;
     }
+    @media screen and (max-width: 999px) {
+      margin-top: 61px;
+      margin-bottom: 29px;
+    }
   }
   .testimonials__slider {
     margin-bottom: 30px;
     @media screen and (max-width: 1599px) {
       margin-bottom: 51px;
+      width: 100%;
     }
   }
   .slider {
@@ -42,6 +50,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    // width: 100%;
   }
 
   .slider__cards {
@@ -66,7 +75,17 @@
       max-width: 940px;
     }
     @media screen and (max-width: 999px) {
-      max-width: 600px;
+      // max-width: 600px;
+
+      grid-template-columns: auto;
+      grid-template-rows: repeat(4, auto);
+
+      row-gap: 15px;
+
+      grid-auto-flow: row;
+      width: 100%;
+      max-height: 370px;
+      overflow-y: auto;
     }
 
     .slider__card {
@@ -87,9 +106,9 @@
         height: 355px;
       }
 
-      @media screen and (max-width: 1599px) {
-        width: 260px;
-        height: 355px;
+      @media screen and (max-width: 999px) {
+        width: 94.5%;
+        height: 73px;
       }
       // overflow-x: hidden;
       // margin-right: calc(-1 * (100vw - 100%));
@@ -120,10 +139,6 @@
         //Oska Samborska
         order: 5;
         @media screen and (max-width: 1599px) {
-          & .card__text {
-            width: 250px;
-          }
-
           & .card__header .user-avatar {
             margin-bottom: 14px;
           }
@@ -190,6 +205,10 @@
         }
         @media screen and (max-width: 1599px) {
           width: 255px;
+        }
+        @media screen and (max-width: 999px) {
+          width: 100%;
+          height: 36px;
         }
       }
     }
@@ -275,5 +294,11 @@
   }
   .btn_leave-feedback {
     align-self: flex-start;
+    @media screen and (max-width: 999px) {
+      align-self: center;
+      margin-top: -24px;
+      // margin-bottom: 20px;
+      width: 240px;
+    }
   }
 }
