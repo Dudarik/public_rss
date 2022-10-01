@@ -15,6 +15,11 @@
     background-position: center;
     background-image: url("../../assets/images/small_desktop/main_header/panda_bg.png");
   }
+  @media screen and (max-width: 640px) {
+    height: 369px;
+    background-position: center 34px;
+    background-image: url("../../assets/images/tablet/main_header/panda_bg.png");
+  }
 }
 
 .donate__pick-and-feed {
@@ -27,6 +32,9 @@
   .donate__pick-and-feed__wrapper {
     margin-top: 40px;
     @media screen and (max-width: 1599px) {
+      margin-bottom: 29px;
+    }
+    @media screen and (max-width: 999px) {
       margin-bottom: 29px;
     }
     .donate-title__wrapper {
