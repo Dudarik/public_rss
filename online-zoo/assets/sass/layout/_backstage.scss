@@ -48,6 +48,11 @@
       margin-left: 4px;
       margin-top: -2px;
     }
+    @media screen and (max-width: 639px) {
+      margin: 0;
+      margin-bottom: 8px;
+      font-size: 24px;
+    }
   }
   h4 {
     margin-top: 54px;
@@ -61,6 +66,11 @@
       margin-left: 4px;
       margin-bottom: 19px;
     }
+    @media screen and (max-width: 639px) {
+      margin-top: 22px;
+      margin-left: 0px;
+      margin-bottom: 7px;
+    }
   }
 
   @media screen and (max-width: 1599px) {
@@ -69,5 +79,9 @@
   @media screen and (max-width: 999px) {
     margin-left: 0;
     margin-right: 105px;
+  }
+  @media screen and (max-width: 639px) {
+    margin-left: 0;
+    margin-right: 5px;
   }
 }
