@@ -140,7 +140,7 @@
       max-height: 890px;
       max-width: 610px;
     }
-    @media screen and (max-width: 999px) {
+    @media screen and (max-width: 639px) {
       grid-template-columns: calc($card_pic_mobile + 4px);
       grid-template-rows: auto;
 
