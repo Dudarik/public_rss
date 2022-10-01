@@ -21,6 +21,10 @@ html {
       margin-left: 20px;
       margin-right: 20px;
     }
+    @media screen and(max-width: 639px) {
+      margin-left: 11px;
+      margin-right: 11px;
+    }
   }
 
   @media screen and(max-width: 1599px) {
