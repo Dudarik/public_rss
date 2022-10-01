@@ -35,18 +35,29 @@
       margin-bottom: 29px;
     }
     @media screen and (max-width: 999px) {
-      margin-bottom: 29px;
+      margin-top: 30px;
+      margin-bottom: 46px;
     }
     .donate-title__wrapper {
       .donate__subtitle {
         color: $color_white;
+
         @media screen and (max-width: 1599px) {
           margin-right: 92px;
           margin-bottom: 29px;
         }
+        @media screen and (max-width: 999px) {
+          font-size: 24px;
+          line-height: 120%;
+          margin-right: 30px;
+          margin-bottom: 20px;
+        }
         &_orange {
           margin-top: 45px;
           color: $color_orange_second;
+          @media screen and (max-width: 999px) {
+            margin-top: 29px;
+          }
         }
       }
       .donate__pick-and-feed__p1 {
@@ -73,6 +84,9 @@
     @media screen and (max-width: 1599px) {
       margin-top: 40px;
     }
+    @media screen and (max-width: 999px) {
+      margin-top: 29px;
+    }
     .pick-and-feed__title {
       margin-top: 40px;
       margin-bottom: 21px;
@@ -82,6 +96,11 @@
       @media screen and (max-width: 1599px) {
         margin-top: 20px;
         margin-bottom: 12px;
+      }
+      @media screen and (max-width: 999px) {
+        margin-top: 30px;
+        margin-bottom: 21px;
+        margin-right: -1px;
       }
     }
   }
@@ -98,6 +117,9 @@
       @media screen and (max-width: 1599px) {
         margin-right: 0;
       }
+      @media screen and (max-width: 1599px) {
+        text-align: center;
+      }
     }
 
     .donation-animal__wrapper {
@@ -106,6 +128,9 @@
 
       margin-top: 59px;
       margin-right: 14px;
+      @media screen and (max-width: 999px) {
+        margin-top: 50px;
+      }
 
       .days-count__wrapper {
         display: flex;
@@ -139,17 +164,28 @@
     margin-bottom: 52px;
     position: relative;
 
+    @media screen and (max-width: 999px) {
+      margin-top: 25px;
+    }
+
     .donation-amount__title {
       align-self: flex-start;
       margin-left: 3px;
-      @media screen and (max-width: 1599px) {
-        margin-left: 83px;
+      // @media screen and (max-width: 1599px) {
+      //   margin-left: 83px;
+      // }
+      @media screen and (max-width: 999px) {
+        margin-left: 10px;
+        margin-top: 35px;
       }
     }
 
     .donation-amount__main {
       margin-top: 16px;
       position: relative;
+      @media screen and (max-width: 999px) {
+        margin-top: 6px;
+      }
 
       .donation-amount__pbar {
         width: 976px;
@@ -164,13 +200,20 @@
         @media screen and (max-width: 1599px) {
           width: 810px;
         }
+        @media screen and (max-width: 999px) {
+          width: 600px;
+        }
 
         .donation-amount__pbar-midline {
           width: 904px;
           height: 2px;
           background: #72828e;
           @media screen and (max-width: 1599px) {
-            width: 785px;
+            // width: 785px;
+            width: 77%;
+          }
+          @media screen and (max-width: 1599px) {
+            width: 86%;
           }
 
           // display: inline-block;
@@ -188,6 +231,9 @@
         @media screen and (max-width: 1599px) {
           left: -48px;
         }
+        @media screen and (max-width: 999px) {
+          left: -27px;
+        }
 
         .radio__wrapper {
           padding-top: 22px;
@@ -197,6 +243,11 @@
           align-items: center;
           @media screen and (max-width: 1599px) {
             &:first-child {
+              display: none;
+            }
+          }
+          @media screen and (max-width: 999px) {
+            &:nth-child(-n + 3) {
               display: none;
             }
           }
@@ -281,6 +332,14 @@
     height: 50px;
     margin-top: 48px;
     margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media screen and (max-width: 999px) {
+      width: 180px;
+      height: 38px;
+      margin-bottom: 32px;
+    }
 
     .dollar__icon {
       background-image: url("../icons/other_icons/dollar_gray_icon.svg");
@@ -291,6 +350,10 @@
       top: 19px;
 
       fill: #929699;
+      @media screen and (max-width: 999px) {
+        // right: 10px;
+        top: 9px;
+      }
     }
 
     .amount__input {
@@ -307,6 +370,11 @@
       -moz-appearance: textfield;
 
       outline: none;
+
+      @media screen and (max-width: 999px) {
+        width: 180px;
+        height: 38px;
+      }
       &:default {
         border: 1px solid #929699;
       }
@@ -329,7 +397,7 @@
         margin: 0;
       }
       &::placeholder {
-        padding-left: 8px;
+        padding-left: 6px;
         color: #929699;
       }
     }
@@ -380,6 +448,9 @@
     margin-bottom: 60px;
     @media screen and (max-width: 1599px) {
       margin-bottom: 45px;
+    }
+    @media screen and (max-width: 999px) {
+      margin-bottom: 31px;
     }
   }
 }
