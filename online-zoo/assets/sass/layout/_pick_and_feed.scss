@@ -7,6 +7,9 @@
   @media (min-width: 1601px) {
     background-size: cover;
   }
+  @media screen and (max-width: 639px) {
+    margin-top: 26px;
+  }
 }
 .pick-and-feed__wrapper {
   padding-top: 70px;
@@ -23,6 +26,10 @@
       margin-left: 0;
       margin-right: 0;
     }
+  }
+  @media screen and (max-width: 639px) {
+    padding-top: 0px;
+    padding-bottom: 20px;
   }
 
   .pick-and-feed__content {
