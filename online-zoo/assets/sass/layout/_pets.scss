@@ -285,6 +285,10 @@
       position: absolute;
       right: 12px;
       bottom: 13px;
+      @media screen and (max-width: 999px) {
+        right: 6px;
+        bottom: 8px;
+      }
     }
 
     &:hover .card_image {
