@@ -97,17 +97,36 @@
                   </div>
 
                   <div class="donation__multiplay">
-                    <img
+                    <picture>
+                      <source
+                        srcset="../../assets/icons/other_icons/x_icon.svg"
+                        media="(min-width:639px)"
+                      />
+                      <img
+                        src="../../assets/icons/other_icons/x_mobile_icon.svg"
+                        alt="multiply"
+                      />
+                    </picture>
+                    <!-- <img
                       src="../../assets/icons/other_icons/x_icon.svg"
                       alt="multiply"
-                    />
+                    /> -->
                   </div>
 
                   <div class="donation-animal">
-                    <img
-                      src="../../assets/icons/animals_big_icons/panda_widget1.svg"
-                      alt="panda"
-                    />
+                    <picture>
+                      <source
+                        srcset="
+                          ../../assets/icons/animals_big_icons/panda_widget1.svg
+                        "
+                        media="(min-width: 640px)"
+                      />
+                      <img
+                        src="../../assets/icons/animals_mobile_widget/panda_icon.svg"
+                        alt="panda"
+                        class="donation-animal-image"
+                      />
+                    </picture>
                   </div>
                 </div>
                 <form action="submit">
