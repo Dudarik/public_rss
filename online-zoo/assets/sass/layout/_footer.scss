@@ -17,12 +17,21 @@
   grid-gap: 1px;
 
   @media screen and (max-width: 999px) {
-    // grid-template-rows: auto auto auto; //repeat(3, 1fr);
-    // grid-template-columns: auto auto minmax(220px, auto); //repeat(3, 1fr);;
     grid-template-areas:
       "logo logo social"
       "button button social"
       "f_menu f_menu f_copy";
+    grid-gap: 1px;
+  }
+  @media screen and (max-width: 639px) {
+    grid-template-rows: auto auto minmax(60px, auto) auto auto; //repeat(3, 1fr);
+    grid-template-columns: auto; //repeat(3, 1fr);;
+    grid-template-areas:
+      "logo"
+      "social"
+      "button "
+      "f_copy"
+      "f_menu";
     grid-gap: 1px;
   }
 
@@ -81,6 +90,9 @@
       margin-top: 12px;
       margin-right: 0;
       align-items: flex-end;
+    }
+    @media screen and (max-width: 999px) {
+      flex-direction: row;
     }
 
     .social-media__link {

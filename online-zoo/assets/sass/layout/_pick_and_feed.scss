@@ -28,8 +28,10 @@
     }
   }
   @media screen and (max-width: 639px) {
-    padding-top: 0px;
-    padding-bottom: 20px;
+    &.block__wrapper {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
   }
 
   .pick-and-feed__content {
@@ -60,6 +62,11 @@
         margin-bottom: 20px;
         font-size: 42px;
       }
+      @media screen and (max-width: 639px) {
+        margin-top: 21px;
+        margin-bottom: 10px;
+        font-size: 24px;
+      }
     }
 
     .pick-and-feed__text-wrapper {
@@ -77,6 +84,10 @@
         padding-right: 0px;
         padding-left: 19px;
       }
+      @media screen and (max-width: 639px) {
+        // padding-right: 0px;
+        padding-left: 0px;
+      }
     }
 
     .pick-and-feed__subtitle {
@@ -90,6 +101,12 @@
         letter-spacing: -0.87px;
         line-height: 110%;
       }
+      @media screen and (max-width: 639px) {
+        text-align: center;
+        line-height: 120%;
+        letter-spacing: 0;
+        font-size: 18px;
+      }
     }
 
     .pick-and-feed__p1 {
@@ -98,12 +115,18 @@
       @media screen and (max-width: 1599px) {
         margin-right: 31px;
       }
+      @media screen and (max-width: 639px) {
+        display: none;
+      }
     }
 
     .pick-and-feed__p2 {
       margin-right: 140px;
       @media screen and (max-width: 1599px) {
         margin-right: 25px;
+      }
+      @media screen and (max-width: 639px) {
+        display: none;
       }
     }
 
@@ -122,6 +145,11 @@
         margin-top: 30px;
         margin-bottom: 19px;
       }
+      @media screen and (max-width: 639px) {
+        font-size: 24px;
+        margin-top: 0px;
+        // margin-bottom: 18px;
+      }
     }
 
     .cards-widget {
@@ -130,6 +158,21 @@
       @media screen and (max-width: 999px) {
         gap: 21px;
         margin-left: -13px;
+      }
+      @media screen and (max-width: 639px) {
+        flex-direction: column;
+        margin-left: 0;
+        gap: 0;
+      }
+      .cards-widget__card {
+        @media screen and (max-width: 639px) {
+          margin-bottom: 43px;
+        }
+        &:nth-child(3) {
+          @media screen and (max-width: 639px) {
+            margin-bottom: 28px;
+          }
+        }
       }
     }
 
@@ -166,6 +209,9 @@
       width: 168px;
       margin-top: 30px;
       white-space: normal;
+      @media screen and (max-width: 639px) {
+        margin-top: 9px;
+      }
     }
     .cards-widget__card-arrow-right {
       margin-top: 60px;
@@ -180,6 +226,15 @@
           top: -16px;
           left: -52px;
           z-index: 100;
+          @media screen and (max-width: 639px) {
+            top: -82px;
+            left: 174px;
+          }
+        }
+        @media screen and (max-width: 639px) {
+          margin: 0;
+          gap: 0;
+          position: relative;
         }
       }
     }
@@ -194,6 +249,10 @@
     @media screen and (max-width: 999px) {
       margin-top: 41px;
       margin-bottom: 60px;
+    }
+    @media screen and (max-width: 639px) {
+      margin-top: -4px;
+      margin-bottom: 40px;
     }
   }
 }
