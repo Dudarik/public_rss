@@ -110,6 +110,7 @@
       align-items: flex-end;
     }
     @media screen and (max-width: 639px) {
+      flex-direction: row;
       gap: 30px;
       margin-top: 7px;
     }
