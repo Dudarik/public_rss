@@ -221,7 +221,7 @@
       .card__text {
         width: 237px;
         height: 309px;
-        overflow-y: auto;
+        overflow-y: hidden;
         &::-webkit-scrollbar {
           width: 0px;
         }
