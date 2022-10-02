@@ -1,37 +1,87 @@
 .backstage {
-  height: 563px;
   position: relative;
-  // border: 1px dotted green;
 }
 .flower-foto {
   position: absolute;
   right: 0px;
   top: -130px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  @media screen and (max-width: 1599px) {
+    display: none;
+  }
+  @media screen and (max-width: 999px) {
+    display: block;
+    top: -68px;
+  }
 }
 
 .backstage__wrapper {
   display: flex;
   flex-direction: row;
-  padding: 0 220px;
   margin-top: 140px;
+  @media screen and (max-width: 1599px) {
+    margin-top: 48px;
+  }
 }
 
 .backstage-picture {
-  width: 609px;
-  height: 403px;
+  margin-top: 0px;
+  // width: 609px;
+  // height: 403px;
+  @media screen and (max-width: 1599px) {
+    margin-top: 8px;
+  }
+  @media screen and (max-width: 999px) {
+    display: none;
+  }
 }
 
 .backstage-description {
   display: flex;
   flex-direction: column;
-  margin: 0 0 0 87px;
-
+  // margin: 0 0 0 87px;
+  margin-left: 86px;
+  transition: all 0.3s;
   h2 {
     margin-bottom: 22px;
+    @media screen and (max-width: 999px) {
+      margin-left: 4px;
+      margin-top: -2px;
+    }
+    @media screen and (max-width: 639px) {
+      margin: 0;
+      margin-bottom: 8px;
+      font-size: 24px;
+    }
   }
   h4 {
     margin-top: 54px;
     margin-bottom: 32px;
+    @media screen and (max-width: 1599px) {
+      margin-top: 53px;
+      margin-bottom: 32px;
+    }
+    @media screen and (max-width: 999px) {
+      margin-top: 30px;
+      margin-left: 4px;
+      margin-bottom: 19px;
+    }
+    @media screen and (max-width: 639px) {
+      margin-top: 22px;
+      margin-left: 0px;
+      margin-bottom: 7px;
+    }
+  }
+
+  @media screen and (max-width: 1599px) {
+    margin-left: 31px;
+  }
+  @media screen and (max-width: 999px) {
+    margin-left: 0;
+    margin-right: 105px;
+  }
+  @media screen and (max-width: 639px) {
+    margin-left: 0;
+    margin-right: 5px;
   }
 }

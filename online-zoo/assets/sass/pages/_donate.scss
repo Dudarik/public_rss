@@ -1,57 +1,89 @@
 .donate__watch-you-animal {
   display: block;
-  height: 386px;
+  height: 387px;
   background-image: url("../../assets/images/main_header/panda_bg.png");
   background-repeat: no-repeat;
   background-position: center -4px;
+  transition: all 0.3s;
 
   @media (min-width: 1601px) {
     background-size: cover;
   }
-}
 
-.donate__watch-animal__wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-
-  font-weight: 700;
-  font-size: 106.496px;
-  line-height: 75%;
-
-  padding-top: 87px;
-  padding-right: 229px;
-  text-transform: uppercase;
-  // width: 100%;
+  @media screen and (max-width: 1000px) {
+    height: 391px;
+    background-position: center;
+    background-image: url("../../assets/images/small_desktop/main_header/panda_bg.png");
+  }
+  @media screen and (max-width: 640px) {
+    height: 369px;
+    background-position: center 34px;
+    background-image: url("../../assets/images/tablet/main_header/panda_bg.png");
+  }
+  @media screen and (max-width: 320px) {
+    height: 221px;
+    background-position: center 34px;
+    background-image: url("../../assets/images/mobile/main_header/panda_bg.png");
+  }
 }
 
 .donate__pick-and-feed {
-  // height: 1004px;
-
+  display: flex;
   background: $color_pink_grad;
   opacity: 0.9;
   @media (min-width: 1601px) {
     background-size: cover;
   }
-}
+  .donate__pick-and-feed__wrapper {
+    margin-top: 40px;
+    @media screen and (max-width: 1599px) {
+      margin-bottom: 29px;
+    }
+    @media screen and (max-width: 999px) {
+      margin-top: 30px;
+      margin-bottom: 46px;
+    }
+    @media screen and (max-width: 639px) {
+      margin-bottom: 20px;
+    }
+    .donate-title__wrapper {
+      .donate__subtitle {
+        color: $color_white;
 
-.donate__pick-and-feed__wrapper {
-  padding: 40px 220px 180px;
-  .donate__title {
-    h3 {
-      color: $color_white;
-      &.donate__subtitle {
-        margin-top: 45px;
-        color: $color_orange_second;
+        @media screen and (max-width: 1599px) {
+          margin-right: 92px;
+          margin-bottom: 29px;
+        }
+        @media screen and (max-width: 999px) {
+          font-size: 24px;
+          line-height: 120%;
+          margin-right: 30px;
+          margin-bottom: 20px;
+        }
+        @media screen and (max-width: 639px) {
+          margin-right: 15px;
+          margin-bottom: 17px;
+        }
+        &_orange {
+          margin-top: 45px;
+          color: $color_orange_second;
+          @media screen and (max-width: 999px) {
+            margin-top: 29px;
+          }
+          @media screen and (max-width: 639px) {
+            font-size: 24px;
+          }
+        }
+      }
+      .donate__pick-and-feed__p1 {
+        margin-top: 10px;
+        color: $color_white;
+        font-weight: 500;
+        @media screen and (max-width: 639px) {
+          line-height: 140%;
+        }
       }
     }
-  }
-
-  .donate__pick-and-feed__p1 {
-    margin-top: 10px;
-    color: $color_white;
-    font-weight: 500;
-    // margin-bottom: 10px;
   }
 
   .pick-and-feed__content {
@@ -67,61 +99,109 @@
     flex-direction: column;
 
     margin-top: 60px;
+    @media screen and (max-width: 1599px) {
+      margin-top: 40px;
+    }
+    @media screen and (max-width: 999px) {
+      margin-top: 29px;
+    }
     .pick-and-feed__title {
       margin-top: 40px;
       margin-bottom: 21px;
       margin-right: 15px;
       color: $color_orange_second;
+
+      @media screen and (max-width: 1599px) {
+        margin-top: 20px;
+        margin-bottom: 12px;
+      }
+      @media screen and (max-width: 999px) {
+        margin-top: 30px;
+        margin-bottom: 21px;
+        margin-right: -1px;
+      }
+      @media screen and (max-width: 639px) {
+        margin-top: 19px;
+        margin-bottom: 11px;
+        font-size: 24px;
+      }
     }
   }
   .pick-and-feed__content-wrapper {
-    & > p {
-      margin-right: 132px;
-      font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .pick-and-feed__description {
+      margin-right: auto;
       font-size: 24px;
       line-height: 120%;
       color: #333b41;
+      @media screen and (max-width: 1599px) {
+        margin-right: 0;
+      }
+      @media screen and (max-width: 999px) {
+        text-align: center;
+      }
+      @media screen and (max-width: 639px) {
+        font-size: 16px;
+      }
     }
-  }
-  .donation-animal__wrapper {
-    display: flex;
-    align-items: center;
 
-    margin-top: 59px;
-    margin-left: 215px;
-
-    // max-width: 532px;
-
-    .days-count__wrapper {
-      // width: 159px;
+    .donation-animal__wrapper {
       display: flex;
       align-items: center;
-      // justify-content: center;
-      flex-direction: column;
-      // padding-left: 15px;
 
-      .count {
-        font-weight: 500;
-        font-size: 72px;
-        line-height: 80%;
-
-        padding-top: 50px;
+      margin-top: 59px;
+      margin-right: 14px;
+      @media screen and (max-width: 999px) {
+        margin-top: 50px;
       }
-      & > p {
-        padding-top: 10px;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 140%;
-
-        color: #333b41;
+      @media screen and (max-width: 639px) {
+        margin-top: 14px;
+        margin-right: 0;
       }
-    }
-    .donation__multiplay {
-      padding-top: 25px;
-      padding-left: 10px;
-    }
-    .donation-animal {
-      padding-left: 65px;
+
+      .days-count__wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .count__day {
+          font-weight: 500;
+          font-size: 72px;
+          line-height: 80%;
+
+          padding-top: 50px;
+          @media screen and (max-width: 639px) {
+            padding-top: 27px;
+            font-size: 40.6015px;
+          }
+        }
+        .count__description {
+          padding-top: 10px;
+          color: #333b41;
+          @media screen and (max-width: 639px) {
+            padding-top: 5px;
+            font-size: 9px;
+            letter-spacing: -0.15px;
+          }
+        }
+      }
+      .donation__multiplay {
+        padding-top: 25px;
+        padding-left: 10px;
+        @media screen and (max-width: 639px) {
+          padding-top: 11px;
+          padding-left: 8px;
+        }
+      }
+      .donation-animal {
+        padding-left: 65px;
+        @media screen and (max-width: 639px) {
+          padding-left: 35px;
+        }
+      }
     }
   }
 
@@ -130,14 +210,32 @@
     margin-bottom: 52px;
     position: relative;
 
-    .donation-amount_p {
+    @media screen and (max-width: 999px) {
+      margin-top: 25px;
+    }
+    @media screen and (max-width: 639px) {
+      margin-top: 0;
+    }
+
+    .donation-amount__title {
       align-self: flex-start;
       margin-left: 3px;
+      @media screen and (max-width: 999px) {
+        margin-left: 10px;
+        margin-top: 35px;
+      }
+      @media screen and (max-width: 639px) {
+        margin-left: 0;
+        margin-top: -2px;
+      }
     }
 
     .donation-amount__main {
       margin-top: 16px;
       position: relative;
+      @media screen and (max-width: 999px) {
+        margin-top: 6px;
+      }
 
       .donation-amount__pbar {
         width: 976px;
@@ -146,15 +244,32 @@
         border-radius: 2px;
         opacity: 1;
         background: #404950;
-        // text-align: center;
         display: flex;
         align-items: center;
         justify-content: center;
+        @media screen and (max-width: 1599px) {
+          width: 810px;
+        }
+        @media screen and (max-width: 999px) {
+          width: 600px;
+        }
+        @media screen and (max-width: 639px) {
+          margin-left: -1px;
+          width: 300px;
+
+          height: 15px;
+        }
 
         .donation-amount__pbar-midline {
-          width: 915px;
+          width: 904px;
           height: 2px;
           background: #72828e;
+          @media screen and (max-width: 1599px) {
+            width: 96%;
+          }
+          @media screen and (max-width: 999px) {
+            width: 86%;
+          }
 
           // display: inline-block;
         }
@@ -162,11 +277,21 @@
 
       .radio-buttons__wrapper {
         position: absolute;
-        width: 1035px;
+        // width: 1035px;
         top: 8px;
         left: -30px;
         display: flex;
         justify-content: space-between;
+
+        @media screen and (max-width: 1599px) {
+          left: -48px;
+        }
+        @media screen and (max-width: 999px) {
+          left: -27px;
+        }
+        @media screen and (max-width: 639px) {
+          left: -14px;
+        }
 
         .radio__wrapper {
           padding-top: 22px;
@@ -174,6 +299,21 @@
           display: flex;
           flex-direction: column;
           align-items: center;
+          @media screen and (max-width: 1599px) {
+            &:first-child {
+              display: none;
+            }
+          }
+          @media screen and (max-width: 999px) {
+            &:nth-child(-n + 3) {
+              display: none;
+            }
+            // width: 20%;
+          }
+          @media screen and (max-width: 639px) {
+            padding-top: 3px;
+            width: 65px;
+          }
         }
 
         .radio-button__custom {
@@ -183,7 +323,10 @@
 
           &:checked + label {
             background: url("../icons/other_icons/roller_icon.svg");
-
+            @media screen and (max-width: 639px) {
+              background: url("../icons/other_icons/roller_mobile_icon.svg")
+                no-repeat center center;
+            }
             & + label > .radio-button__count {
               color: $color_orange_second;
             }
@@ -202,12 +345,17 @@
             height: 10px;
             background-color: #ffee2e;
             border-radius: 50%;
+            @media screen and (max-width: 639px) {
+              width: 5px;
+              height: 5px;
+            }
           }
         }
 
         .dollar__label {
           display: flex;
           align-items: center;
+          // justify-content: center;
           padding-top: 10px;
 
           .radio-button__count {
@@ -216,13 +364,15 @@
             font-weight: 500;
             font-size: 26px;
             line-height: 140%;
-            /* or 36px */
 
             text-transform: uppercase;
-
-            /* or3 */
-
-            // color: #fe9013;
+            @media screen and (max-width: 1599px) {
+              margin-left: 23px;
+            }
+            @media screen and (max-width: 639px) {
+              font-size: 13px;
+              margin-left: 0;
+            }
           }
           :hover {
             cursor: pointer;
@@ -238,6 +388,9 @@
           width: 40px;
           height: 40px;
           cursor: pointer;
+          @media screen and (max-width: 639px) {
+            top: -20px;
+          }
           &::before {
             margin: 0 auto;
           }
@@ -257,6 +410,18 @@
     height: 50px;
     margin-top: 48px;
     margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media screen and (max-width: 999px) {
+      width: 180px;
+      height: 38px;
+      margin-bottom: 32px;
+    }
+    @media screen and (max-width: 639px) {
+      margin-top: -1px;
+      margin-bottom: 27px;
+    }
 
     .dollar__icon {
       background-image: url("../icons/other_icons/dollar_gray_icon.svg");
@@ -267,6 +432,10 @@
       top: 19px;
 
       fill: #929699;
+      @media screen and (max-width: 999px) {
+        // right: 10px;
+        top: 9px;
+      }
     }
 
     .amount__input {
@@ -283,6 +452,11 @@
       -moz-appearance: textfield;
 
       outline: none;
+
+      @media screen and (max-width: 999px) {
+        width: 180px;
+        height: 38px;
+      }
       &:default {
         border: 1px solid #929699;
       }
@@ -305,7 +479,7 @@
         margin: 0;
       }
       &::placeholder {
-        padding-left: 8px;
+        padding-left: 6px;
         color: #929699;
       }
     }
@@ -315,6 +489,9 @@
     display: flex;
     justify-content: space-between;
     width: 198px;
+    @media screen and (max-width: 639px) {
+      margin-bottom: 27px;
+    }
     input[type="radio"] {
       display: none;
     }
@@ -354,5 +531,15 @@
   .share {
     margin-top: 29px;
     margin-bottom: 60px;
+    @media screen and (max-width: 1599px) {
+      margin-bottom: 45px;
+    }
+    @media screen and (max-width: 999px) {
+      margin-bottom: 31px;
+    }
+    @media screen and (max-width: 639px) {
+      margin-left: -2px;
+      margin-bottom: 20px;
+    }
   }
 }

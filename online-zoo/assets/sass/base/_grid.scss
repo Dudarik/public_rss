@@ -4,7 +4,32 @@ html {
 }
 
 .container {
-  max-width: 1600px;
+  width: 1600px;
   height: 100%;
   margin: 0 auto;
+
+  .block__wrapper {
+    margin-left: 220px;
+    margin-right: 220px;
+    transition: all 0.3s;
+
+    @media screen and(max-width: 1599px) {
+      margin-left: 30px;
+      margin-right: 30px;
+    }
+    @media screen and(max-width: 999px) {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+    @media screen and(max-width: 639px) {
+      margin-left: 11px;
+      margin-right: 11px;
+    }
+  }
+
+  @media screen and(max-width: 1599px) {
+    width: auto;
+    // min-width: 1000px;
+    // background-color: red;
+  }
 }

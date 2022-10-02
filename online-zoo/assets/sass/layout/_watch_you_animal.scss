@@ -1,11 +1,33 @@
 .watch-you-animal {
   display: block;
-  height: 700px;
   background-image: url("../images/main_header/giant_panda.png");
   background-repeat: no-repeat;
   background-position: center -80px;
+  padding-bottom: 100px;
+
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  @media (min-width: 1601px) {
+  transition: background-image 1s;
+
+  @media screen and (max-width: 1000px) {
+    filter: none;
+
+    background-image: url("../images/small_desktop/main_header/giant_panda.png");
+  }
+
+  @media screen and (max-width: 641px) {
+    // height: 373px;
+
+    background-image: url("../images/tablet/main_header/giant_panda.png");
+    background-position: center 0px;
+  }
+  @media screen and (max-width: 321px) {
+    // height: 373px;
+
+    background-image: url("../images/mobile/main_header/giant_panda.png");
+    background-position: center 33px;
+  }
+
+  @media screen and (min-width: 1601px) {
     background-size: cover;
   }
 }
@@ -14,15 +36,28 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-
-  font-weight: 700;
-  font-size: 106.496px;
-  line-height: 75%;
+  position: relative;
 
   padding-top: 87px;
-  padding-right: 229px;
+  padding-right: 9px;
   text-transform: uppercase;
-  // width: 100%;
+  transition: all 0.3s;
+
+  @media screen and (max-width: 1599px) {
+    padding-top: 45px;
+    padding-right: 63px;
+  }
+  @media screen and (max-width: 999px) {
+    flex-direction: row-reverse;
+
+    padding-top: 84px;
+    padding-right: 1px;
+  }
+  @media screen and (max-width: 639px) {
+    flex-direction: column;
+    padding-top: 75px;
+    padding-right: 0;
+  }
 }
 
 .watch-animal__title {
@@ -31,6 +66,22 @@
   color: $color_white;
 
   position: relative;
+
+  font-weight: 700;
+  font-size: 106.496px;
+  line-height: 75%;
+
+  @media screen and (max-width: 1599px) {
+    font-size: 85px;
+  }
+  @media screen and (max-width: 999px) {
+    font-size: 54.2894px;
+    line-height: 75%;
+  }
+  @media screen and (max-width: 639px) {
+    font-size: 28px;
+    line-height: 75%;
+  }
 
   span {
     color: $color_yellow;
@@ -46,15 +97,46 @@
     border-radius: 50%;
     right: 99px;
     bottom: 9px;
-    // left: 0;
-    // left: calc(50% - 465px / 2 + 239.5px);
-    // top: 92px;
     background: $color_orange;
+    transition: all 1s;
+    @media screen and (max-width: 1599px) {
+      width: 367px;
+      height: 367px;
+      right: 84px;
+    }
+    @media screen and (max-width: 999px) {
+      width: 237.6px;
+      height: 237.6px;
+      right: 50px;
+      bottom: 7px;
+    }
+    @media screen and (max-width: 639px) {
+      width: 119.09px;
+      height: 119.09px;
+      right: 27px;
+      bottom: 5px;
+    }
   }
 }
 
 .button__wrapper {
-  margin-top: 16px;
+  margin-top: 60px;
   margin-right: 90px;
+
+  // border: 1px dotted green;
+  @media screen and (max-width: 1599px) {
+    margin-top: 39px;
+    margin-right: 44px;
+  }
+  @media screen and (max-width: 999px) {
+    position: absolute;
+    left: 0px;
+    bottom: -45px;
+  }
+  @media screen and (max-width: 639px) {
+    position: absolute;
+    left: 0px;
+    bottom: -115px;
+  }
   // left: calc(50% - 298px/2 + 332px);
 }
