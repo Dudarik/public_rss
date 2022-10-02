@@ -20,6 +20,11 @@
     background-position: center 34px;
     background-image: url("../../assets/images/tablet/main_header/panda_bg.png");
   }
+  @media screen and (max-width: 640px) {
+    height: 221px;
+    background-position: center 34px;
+    background-image: url("../../assets/images/mobile/main_header/panda_bg.png");
+  }
 }
 
 .donate__pick-and-feed {
