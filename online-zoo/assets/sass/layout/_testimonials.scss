@@ -10,6 +10,9 @@
     @media screen and (max-width: 1599px) {
       bottom: -226px;
     }
+    @media screen and (max-width: 999px) {
+      bottom: -149px;
+    }
     @media screen and (max-width: 639px) {
       bottom: -90px;
     }
@@ -21,7 +24,7 @@
   @media screen and (max-width: 999px) {
     margin-bottom: 80px;
   }
-  @media screen and (max-width: 999px) {
+  @media screen and (max-width: 639px) {
     margin-bottom: 60px;
   }
 }
@@ -98,7 +101,7 @@
       max-height: 370px;
       overflow-y: auto;
     }
-    @media screen and (max-width: 999px) {
+    @media screen and (max-width: 639px) {
       row-gap: 20px;
     }
 
