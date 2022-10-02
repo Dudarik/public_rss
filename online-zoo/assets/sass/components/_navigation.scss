@@ -2,20 +2,24 @@
   margin-left: 63px;
   width: 100%;
   position: relative;
-
   .menu__burger {
     display: none;
     position: absolute;
     z-index: 1000;
-    right: 0px;
+    left: calc(100vw - 150px);
+    right: 1vh;
+    // right: 3px;
     top: -2px;
     width: 18px;
     height: 10px;
-    // border: 1px dotted green;
     cursor: pointer;
 
     @media screen and (max-width: 999px) {
+      left: calc(100vw - 168px);
       display: block;
+    }
+    @media screen and (max-width: 400px) {
+      left: calc(100vw - 148px);
     }
 
     span {
