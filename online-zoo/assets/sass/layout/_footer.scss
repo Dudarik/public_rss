@@ -4,6 +4,9 @@
   @media screen and(max-width: 999px) {
     height: 282px;
   }
+  @media screen and(max-width: 639px) {
+    height: 334px;
+  }
 }
 
 .footer__wrapper {
@@ -32,7 +35,9 @@
       "button "
       "f_copy"
       "f_menu";
-    grid-gap: 1px;
+    grid-gap: 25px;
+    // align-items: center;
+    justify-items: center;
   }
 
   // & * {
@@ -48,11 +53,21 @@
     @media screen and (max-width: 999px) {
       margin-top: 13px;
     }
+    @media screen and (max-width: 639px) {
+      margin-top: 18px;
+    }
     .footer__logo {
       @media screen and (max-width: 999px) {
         width: 82px;
         height: 52px;
         background-image: url("../icons/logo_icons/logo-petonline-optimized.svg");
+        background-repeat: no-repeat;
+      }
+      @media screen and (max-width: 639px) {
+        width: 128px;
+        height: 23px;
+
+        background-image: url("../icons/logo_icons/logo_footer_mobile.png");
         background-repeat: no-repeat;
       }
     }
@@ -69,6 +84,9 @@
     }
     @media screen and (max-width: 999px) {
       margin-top: -19px;
+    }
+    @media screen and (max-width: 639px) {
+      margin-top: 5px;
     }
     .btn__donate {
       // margin-top: 70px;
@@ -93,6 +111,10 @@
     }
     @media screen and (max-width: 999px) {
       flex-direction: row;
+    }
+    @media screen and (max-width: 639px) {
+      gap: 30px;
+      margin-top: 7px;
     }
 
     .social-media__link {
@@ -157,11 +179,18 @@
       justify-content: flex-start;
       margin-top: 70px;
     }
+    @media screen and(max-width: 639px) {
+      justify-content: flex-start;
+      margin-top: 0px;
+    }
 
     .footer__menu {
       display: flex;
       @media screen and(max-width: 999px) {
         gap: 37px;
+      }
+      @media screen and(max-width: 639px) {
+        gap: 30px;
       }
     }
     @media screen and(max-width: 1599px) {
@@ -245,6 +274,9 @@
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
+    @media screen and (max-width: 639px) {
+      justify-self: end;
+    }
     // align-self: end;
     // margin-top: 209px;
     // margin-right: 5px;
@@ -257,6 +289,10 @@
       font-weight: 100;
       font-size: 16px;
       line-height: 130%;
+      @media screen and (max-width: 639px) {
+        font-size: 15px;
+        line-height: 120%;
+      }
       &:active {
         color: $color_green;
         border-bottom: 1px solid $color_green;
