@@ -84,7 +84,12 @@
     position: absolute;
     // z-index: 10000;
     top: 403px;
+    @media screen and (max-width: 1599px) {
+      // top: 343px;
+      top: 369px;
+    }
     @media screen and (max-width: 999px) {
+      // top: 343px;
       top: 343px;
     }
     @media screen and (max-width: 639px) {
