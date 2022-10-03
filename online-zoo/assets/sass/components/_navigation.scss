@@ -178,11 +178,18 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        justify-content: flex-start;
+        // justify-content: flex-start;
+        gap: 15px;
         .menu__link {
           &:link,
           &:visited {
             background: black;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+          &:hover,
+          &:active {
+            background: $color_orange_second;
             background-clip: text;
             -webkit-text-fill-color: transparent;
           }
