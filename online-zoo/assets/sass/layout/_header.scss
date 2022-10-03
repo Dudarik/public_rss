@@ -6,7 +6,7 @@
   position: relative;
   z-index: 100;
   transition: all 0.3s;
-  @media screen and (max-width: 999px) {
+  @media screen and (max-width: 640px) {
     height: 34px;
     position: fixed;
     z-index: 1000;

@@ -2,6 +2,10 @@
   margin-left: 63px;
   width: 100%;
   position: relative;
+  transition: all 0.3s;
+  @media screen and (max-width: 680px) {
+    margin-left: 30px;
+  }
   .menu__burger {
     display: none;
     position: absolute;
@@ -14,8 +18,11 @@
     height: 10px;
     cursor: pointer;
 
-    @media screen and (max-width: 999px) {
-      left: calc(100vw - 168px);
+    // @media screen and (max-width: 999px) {
+    //   left: calc(100vw - 168px);
+    // }
+
+    @media screen and (max-width: 640px) {
       display: block;
     }
     @media screen and (max-width: 400px) {
@@ -59,10 +66,11 @@
   .menu__item {
     list-style-type: none;
     display: block;
-
+    transition: all 1s;
     &:last-child {
       margin-left: auto;
-      @media screen and (max-width: 999px) {
+
+      @media screen and (max-width: 700px) {
         margin-left: 0;
       }
     }
@@ -105,7 +113,10 @@
   @media screen and (max-width: 1599px) {
     gap: 48px;
   }
-  @media screen and (max-width: 999px) {
+  @media screen and (max-width: 810px) {
+    gap: 25px;
+  }
+  @media screen and (max-width: 640px) {
     display: none;
   }
 }
