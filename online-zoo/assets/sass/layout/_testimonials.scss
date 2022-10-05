@@ -54,9 +54,10 @@
   }
   .testimonials__slider {
     margin-bottom: 30px;
+    width: 100%;
     @media screen and (max-width: 1599px) {
       margin-bottom: 51px;
-      width: 100%;
+      // width: 100%;
     }
   }
   .slider {
@@ -64,10 +65,24 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    // width: 100%;
+    width: 100%;
+
+    .testimonials_slider_wrapper {
+      // border: 1px dotted green;
+      position: relative;
+      height: 500px;
+      width: 100%;
+      max-width: 1160px;
+      overflow: hidden;
+      // border: 1px dotted green;
+      @media screen and (max-width: 1599px) {
+        max-width: 940px;
+      }
+    }
   }
 
   .slider__cards {
+    transition: left 1.5s;
     display: grid;
 
     grid-template-columns: repeat(4, 1fr);
@@ -75,22 +90,20 @@
 
     grid-auto-flow: column;
 
-    // row-gap: 19px;
     column-gap: 29.3px;
 
-    max-height: 500px;
-    max-width: 1160px;
-
-    // overflow-x: auto;
+    position: absolute;
+    left: 0;
 
     overflow: hidden;
 
     @media screen and (max-width: 1599px) {
-      max-width: 940px;
+      // max-width: 940px;
+      left: 0;
     }
     @media screen and (max-width: 999px) {
       // max-width: 600px;
-
+      left: 0;
       grid-template-columns: auto;
       grid-template-rows: repeat(4, auto);
 
@@ -198,6 +211,9 @@
           height: 37px;
           margin-right: 10px;
           margin-bottom: 10px;
+          img {
+            border-radius: 50%;
+          }
         }
         .user-info {
           position: relative;
@@ -299,7 +315,8 @@
 
           border-radius: 5px;
           cursor: pointer;
-          width: 115.19px;
+          // width: 115.19px;
+          width: 12.5%;
           height: 6px;
           -webkit-appearance: none;
           @media screen and (max-width: 1599px) {
