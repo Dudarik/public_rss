@@ -69,6 +69,11 @@
   }
 }
 
+.burger__stop-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
 .burger__toggle-button {
   display: none;
   position: absolute;
