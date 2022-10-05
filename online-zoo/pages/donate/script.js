@@ -5,9 +5,10 @@ const progressBar = document.querySelector(".radio-buttons__wrapper");
 const anotherAmount = document.querySelector("#another_amount");
 
 progressBar.addEventListener("click", (event) => {
-  event.stopPropagation();
-  const id = event.target.id;
-  console.log(event.target.closest(".radio-button__custom"), id);
+  if (event.target.id) {
+    const id = event.target.id;
+    anotherAmount.value = +id.slice(7);
+  }
 });
 
 anotherAmount.addEventListener("keyup", (event) => {
