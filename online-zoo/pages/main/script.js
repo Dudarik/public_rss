@@ -19,7 +19,7 @@ const testimonialsSliderCards = document.querySelector(
 
 const popupOverlay = document.querySelector("#popup_overlay");
 
-const popupCard = document.querySelector(".popup__card");
+const popupCard = document.querySelector("#popup_card");
 
 async function getTestimonialsData() {
   const result = await fetch("db_testimonials.json")
@@ -104,8 +104,28 @@ popupCard.addEventListener("click", (event) => {
   }
 });
 
+// document.addEventListener("click", (event) => {
+//   console.log(event.target);
+// });
+
 testimonialsSliderCards.addEventListener("click", (event) => {
-  popupOverlay.classList.toggle("popup__overlay_active");
+  // if (!event.target) return;
+
+  console.log(event.target);
+  const cardId = event.target.id;
+  // console.log(popupCard);
+  //   const avatar = currentCard.querySelector(".user-avatar > img");
+  //   const userName = currentCard.querySelector(".user-name");
+  //   const userLoacation = currentCard.querySelector(".user__location");
+  //   const dateTimePost = currentCard.querySelector(".date-time__post");
+  //   const cardText = currentCard.querySelector(".card__text");
+
+  //   avatar.src = allCards[cardId].avatar;
+  //   userName.innerText = allCards[cardId].name;
+  //   userLoacation.innerText = allCards[cardId].localiton;
+  //   dateTimePost.innerText = allCards[cardId].dateTime;
+  //   cardText.innerText = allCards[cardId].body;
+  // popupOverlay.classList.toggle("popup__overlay_active");
 });
 // const testimonialCards = [
 //   {
