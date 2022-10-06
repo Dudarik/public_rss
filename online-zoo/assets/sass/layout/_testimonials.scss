@@ -68,13 +68,12 @@
     width: 100%;
 
     .testimonials_slider_wrapper {
-      // border: 1px dotted green;
       position: relative;
       height: 500px;
       width: 100%;
       max-width: 1160px;
-      overflow: auto;
-      // border: 1px dotted green;
+      overflow: hidden;
+
       @media screen and (max-width: 1599px) {
         max-width: 940px;
       }
@@ -455,11 +454,11 @@
         }
 
         .card__text {
-          // width: 237px;
-          // height: 309px;
+          width: 100%;
+          height: 85%;
 
           // margin: 10px;
-          overflow-y: auto;
+          overflow: auto;
           &::-webkit-scrollbar {
             width: 0px;
           }

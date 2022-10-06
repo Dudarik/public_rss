@@ -109,23 +109,27 @@ popupCard.addEventListener("click", (event) => {
 // });
 
 testimonialsSliderCards.addEventListener("click", (event) => {
-  // if (!event.target) return;
+  if (document.documentElement.clientWidth > 999) return;
+  const elem = event.target;
+  const closestCard = elem.closest(".slider__card");
 
-  console.log(event.target);
-  const cardId = event.target.id;
-  // console.log(popupCard);
-  //   const avatar = currentCard.querySelector(".user-avatar > img");
-  //   const userName = currentCard.querySelector(".user-name");
-  //   const userLoacation = currentCard.querySelector(".user__location");
-  //   const dateTimePost = currentCard.querySelector(".date-time__post");
-  //   const cardText = currentCard.querySelector(".card__text");
+  const cardId = closestCard.dataset.cardid;
 
-  //   avatar.src = allCards[cardId].avatar;
-  //   userName.innerText = allCards[cardId].name;
-  //   userLoacation.innerText = allCards[cardId].localiton;
-  //   dateTimePost.innerText = allCards[cardId].dateTime;
-  //   cardText.innerText = allCards[cardId].body;
-  // popupOverlay.classList.toggle("popup__overlay_active");
+  if (!closestCard) return;
+
+  const avatar = popupCard.querySelector(".user-avatar > img");
+  const userName = popupCard.querySelector(".user-name");
+  const userLoacation = popupCard.querySelector(".user__location");
+  const dateTimePost = popupCard.querySelector(".date-time__post");
+  const cardText = popupCard.querySelector(".card__text");
+
+  avatar.src = store.renderCards[cardId].avatar;
+  userName.innerText = store.renderCards[cardId].name;
+  userLoacation.innerText = store.renderCards[cardId].localiton;
+  dateTimePost.innerText = store.renderCards[cardId].dateTime;
+  cardText.innerText = store.renderCards[cardId].body;
+
+  popupOverlay.classList.toggle("popup__overlay_active");
 });
 // const testimonialCards = [
 //   {
@@ -134,7 +138,7 @@ testimonialsSliderCards.addEventListener("click", (event) => {
 //     name: "Vasya Pupkin",
 //     localiton: "Austria",
 //     dateTime: "Today",
-//     body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea laudantium facere debitis consequuntur ut ad labore dolore odit voluptate.",
+//     body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea laudantium facere debitis consequuntur ut ad labore dolore odit voluptate. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea laudantium facere debitis consequuntur ut ad labore dolore odit voluptate. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea laudantium facere debitis consequuntur ut ad labore dolore odit voluptate. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea laudantium facere debitis consequuntur ut ad labore dolore odit voluptate. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea laudantium facere debitis consequuntur ut ad labore dolore odit voluptate. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea laudantium facere debitis consequuntur ut ad labore dolore odit voluptate. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea laudantium facere debitis consequuntur ut ad labore dolore odit voluptate. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea laudantium facere debitis consequuntur ut ad labore dolore odit voluptate. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea laudantium facere debitis consequuntur ut ad labore dolore odit voluptate. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea laudantium facere debitis consequuntur ut ad labore dolore odit voluptate. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea laudantium facere debitis consequuntur ut ad labore dolore odit voluptate. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea laudantium facere debitis consequuntur ut ad labore dolore odit voluptate. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea laudantium facere debitis consequuntur ut ad labore dolore odit voluptate. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea laudantium facere debitis consequuntur ut ad labore dolore odit voluptate. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea laudantium facere debitis consequuntur ut ad labore dolore odit voluptate.",
 //   },
 //   {
 //     id: 1,
@@ -142,7 +146,7 @@ testimonialsSliderCards.addEventListener("click", (event) => {
 //     name: "Robert De Niro",
 //     localiton: "Germany",
 //     dateTime: "Yesterday",
-//     body: "Take a walk on the wild side! Become a docent volunteer at the L.A. Zoo. Our docent class offers in-depth zoology, ecology, and conservation training, focusing on the animals and plants at the Zoo.",
+//     body: "Take a walk on the wild side! Become a docent volunteer at the L.A. Zoo. Our docent class offers in-depth zoology, ecology, and conservation training, focusing on the animals and plants at the Zoo. Take a walk on the wild side! Become a docent volunteer at the L.A. Zoo. Our docent class offers in-depth zoology, ecology, and conservation training, focusing on the animals and plants at the Zoo.",
 //   },
 //   {
 //     id: 2,
@@ -150,7 +154,7 @@ testimonialsSliderCards.addEventListener("click", (event) => {
 //     name: "Jack Nicholson",
 //     localiton: "Austria",
 //     dateTime: "Yesterday",
-//     body: "Let’s Take Flight! Come soar through the Zoo with our avian touring docents on another egg-cellent adventure. Which group of birds REALLY has green and red feathers and why? Which species of bird has the largest eye of any living land animal? Which eagle has the biggest beak (hint: the L.A. Zoo has a mated pair)? Why is Cyrano the scarlet ibis a different color from the others? Which birds seal their mates in trees? Come find out on October 22, and enjoy an autumn morning with the Zoo’s birds.",
+//     body: "Let’s Take Flight! Come soar through the Zoo with our avian touring docents on another egg-cellent adventure. Which group of birds REALLY has green and red feathers and why? Which species of bird has the largest eye of any living land animal? Which eagle has the biggest beak (hint: the L.A. Zoo has a mated pair)? Why is Cyrano the scarlet ibis a different color from the others? Which birds seal their mates in trees? Come find out on October 22, and enjoy an autumn morning with the Zoo’s birds. Let’s Take Flight! Come soar through the Zoo with our avian touring docents on another egg-cellent adventure. Which group of birds REALLY has green and red feathers and why? Which species of bird has the largest eye of any living land animal? Which eagle has the biggest beak (hint: the L.A. Zoo has a mated pair)? Why is Cyrano the scarlet ibis a different color from the others? Which birds seal their mates in trees? Come find out on October 22, and enjoy an autumn morning with the Zoo’s birds.",
 //   },
 //   {
 //     id: 3,
@@ -163,7 +167,7 @@ testimonialsSliderCards.addEventListener("click", (event) => {
 //   {
 //     id: 4,
 //     avatar: "../../assets/images/testimonials/avatars/avatar_2.jpg",
-//     name: "Vasya Pupkin",
+//     name: "Isabelle Huppert",
 //     localiton: "Austria",
 //     dateTime: "Yesterday",
 //     body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ut ad labore dolore odit voluptate.",
@@ -187,7 +191,7 @@ testimonialsSliderCards.addEventListener("click", (event) => {
 //   {
 //     id: 7,
 //     avatar: "../../assets/images/testimonials/avatars/avatar_5.jpg",
-//     name: "Vasya Pupkin",
+//     name: "Harrison Ford",
 //     localiton: "Austria",
 //     dateTime: "Today",
 //     body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea laudantium facere debitis consequuntur ut ad labore dolore odit voluptate.",
@@ -203,7 +207,7 @@ testimonialsSliderCards.addEventListener("click", (event) => {
 //   {
 //     id: 9,
 //     avatar: "../../assets/images/testimonials/avatars/avatar_7.png",
-//     name: "Vasya Pupkin",
+//     name: "Will Smith",
 //     localiton: "Austria",
 //     dateTime: "Yesterday",
 //     body: "sunt aut quae laboriosam sit ut impedit\nadipisci harum laborum totam deleniti voluptas odit rem ea\nnon iure distinctio ut velit doloribus\net non ex",
@@ -214,12 +218,12 @@ testimonialsSliderCards.addEventListener("click", (event) => {
 //     name: "Cate Blanchett",
 //     localiton: "France",
 //     dateTime: "Yesterday",
-//     body: "consequuntur quia voluptate assumenda et\nautem voluptatem reiciendis ipsum animi est provident\nearum aperiam sapiente ad vitae iste\naccusantium aperiam eius qui dolore voluptatem et",
+//     body: "consequuntur quia voluptate assumenda et\nautem voluptatem reiciendis ipsum animi est provident\nearum aperiam sapiente ad vitae iste\naccusantium aperiam eius qui dolore voluptatem et consequuntur quia voluptate assumenda et\nautem voluptatem reiciendis ipsum animi est provident\nearum aperiam sapiente ad vitae iste\naccusantium aperiam eius qui dolore voluptatem et",
 //   },
 //   {
 //     id: 11,
 //     avatar: "../../assets/images/testimonials/avatars/avatar_9.jpg",
-//     name: "Vasya Pupkin",
+//     name: "Bruce Lee",
 //     localiton: "France",
 //     dateTime: "Yesterday",
 //     body: "quia incidunt ut\naliquid est ut rerum deleniti iure est\nipsum quia ea sint et\nvoluptatem quaerat eaque repudiandae eveniet aut",
