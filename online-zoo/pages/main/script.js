@@ -116,34 +116,7 @@ testimonialsProgress.addEventListener("input", () => {
   }px`;
 });
 
-popupOverlay.addEventListener("click", (event) => {
-  event.stopPropagation();
-  event.preventDefault();
-
-  const body = document.body;
-  const scrollY = body.style.top;
-  body.style.position = "";
-  body.style.top = "";
-  window.scrollTo(0, parseInt(scrollY || "0") * -1);
-
-  popupOverlay.classList.remove("popup__overlay_active");
-});
-
-popupCard.addEventListener("click", (event) => {
-  event.stopPropagation();
-
-  const body = document.body;
-  const scrollY = body.style.top;
-  body.style.position = "";
-  body.style.top = "";
-  window.scrollTo(0, parseInt(scrollY || "0") * -1);
-
-  if (event.target.id === "close_popup") {
-    popupOverlay.classList.remove("popup__overlay_active");
-  }
-});
-
-testimonialsSliderCards.addEventListener("click", (event) => {
+const handleOpenPopup = (event) => {
   if (document.documentElement.clientWidth > 999) return;
   const elem = event.target;
   const closestCard = elem.closest(".slider__card");
@@ -170,7 +143,26 @@ testimonialsSliderCards.addEventListener("click", (event) => {
   cardText.innerText = store.renderCards[cardId].body;
 
   popupOverlay.classList.add("popup__overlay_active");
-});
+};
+
+const handleClosePopup = (event) => {
+  event.stopPropagation();
+  event.preventDefault();
+
+  const body = document.body;
+  const scrollY = body.style.top;
+  body.style.position = "";
+  body.style.top = "";
+  window.scrollTo(0, parseInt(scrollY || "0") * -1);
+
+  popupOverlay.classList.remove("popup__overlay_active");
+};
+
+popupOverlay.addEventListener("click", handleClosePopup);
+
+popupCard.addEventListener("click", handleClosePopup);
+
+testimonialsSliderCards.addEventListener("click", handleOpenPopup);
 
 PETS_BTN_LEFT.addEventListener("click", () => {});
 
