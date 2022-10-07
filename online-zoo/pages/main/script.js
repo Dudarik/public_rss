@@ -1,13 +1,24 @@
 "use strict";
 const store = { renderCards: {} };
+const PETS_BTN_LEFT = document.querySelector("#pets_button_left");
+const PETS_BTN_RIGHT = document.querySelector("#pets_button_right");
 
 /**
- * @params
- * @params
+ * @param {number} min
+ * @param {number} max
+ *
+ * @return {number}
  */
 
 const getRandomNum = (min, max) =>
   Math.floor(Math.random() * (max - min + 1) + min);
+
+/**
+ * @param {number} count - count of cards
+ *
+ * @return {number}
+ */
+
 const getRandomCardId = (count) => getRandomNum(0, count);
 
 const testimonialsProgress = document.querySelector(
@@ -21,12 +32,29 @@ const popupOverlay = document.querySelector("#popup_overlay");
 
 const popupCard = document.querySelector("#popup_card");
 
+window.addEventListener("scroll", () => {
+  document.documentElement.style.setProperty(
+    "--scroll-y",
+    `${window.scrollY}px`
+  );
+});
+
+/**
+ * @param {void}
+ * @returns {object} object with card info
+ */
 async function getTestimonialsData() {
   const result = await fetch("db_testimonials.json")
     .then((response) => response.json())
     .then((data) => data);
   return result;
 }
+
+/**
+ *
+ * @param {number} countCards
+ * @return {void} bad practice... in function mutate DOM
+ */
 
 async function generateRndTestimonialsCards(countCards) {
   const allCards = await getTestimonialsData();
@@ -38,9 +66,7 @@ async function generateRndTestimonialsCards(countCards) {
   const idsArray = new Array(allCards.length).fill(0).map((_, id) => id);
 
   for (let i = 0; i < countCards; i++) {
-    // console.log(idsArray);
     const cardId = idsArray[getRandomCardId(idsArray.length - 1)];
-    // console.log(cardId);
 
     idsArray.splice(
       idsArray.findIndex((val) => val === cardId),
@@ -72,6 +98,7 @@ async function generateRndTestimonialsCards(countCards) {
     $renderCards.appendChild(currentCard);
   }
 }
+
 generateRndTestimonialsCards(11);
 
 testimonialsProgress.addEventListener("input", () => {
@@ -92,21 +119,29 @@ testimonialsProgress.addEventListener("input", () => {
 popupOverlay.addEventListener("click", (event) => {
   event.stopPropagation();
   event.preventDefault();
-  console.log(event.target);
+
+  const body = document.body;
+  const scrollY = body.style.top;
+  body.style.position = "";
+  body.style.top = "";
+  window.scrollTo(0, parseInt(scrollY || "0") * -1);
 
   popupOverlay.classList.remove("popup__overlay_active");
 });
 
 popupCard.addEventListener("click", (event) => {
   event.stopPropagation();
+
+  const body = document.body;
+  const scrollY = body.style.top;
+  body.style.position = "";
+  body.style.top = "";
+  window.scrollTo(0, parseInt(scrollY || "0") * -1);
+
   if (event.target.id === "close_popup") {
     popupOverlay.classList.remove("popup__overlay_active");
   }
 });
-
-// document.addEventListener("click", (event) => {
-//   console.log(event.target);
-// });
 
 testimonialsSliderCards.addEventListener("click", (event) => {
   if (document.documentElement.clientWidth > 999) return;
@@ -116,6 +151,11 @@ testimonialsSliderCards.addEventListener("click", (event) => {
   const cardId = closestCard.dataset.cardid;
 
   if (!closestCard) return;
+
+  const scrollY = document.documentElement.style.getPropertyValue("--scroll-y");
+  const body = document.body;
+  body.style.position = "fixed";
+  body.style.top = `-${scrollY}`;
 
   const avatar = popupCard.querySelector(".user-avatar > img");
   const userName = popupCard.querySelector(".user-name");
@@ -129,8 +169,11 @@ testimonialsSliderCards.addEventListener("click", (event) => {
   dateTimePost.innerText = store.renderCards[cardId].dateTime;
   cardText.innerText = store.renderCards[cardId].body;
 
-  popupOverlay.classList.toggle("popup__overlay_active");
+  popupOverlay.classList.add("popup__overlay_active");
 });
+
+PETS_BTN_LEFT.addEventListener("click", () => {});
+
 // const testimonialCards = [
 //   {
 //     id: 0,
