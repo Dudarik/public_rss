@@ -146,6 +146,17 @@ const handleOpenPopup = (event) => {
 };
 
 const handleClosePopup = (event) => {
+  console.log(event.target);
+  if (
+    !(
+      event.target.id === "close_popup" ||
+      event.target.id === "popup_overlay" ||
+      event.target.id === "popup_content"
+    )
+  )
+    return;
+  // testimonialsSliderCards.removeEventListener('click', handleOpenPopup)
+
   event.stopPropagation();
   event.preventDefault();
 
@@ -154,6 +165,7 @@ const handleClosePopup = (event) => {
   body.style.position = "";
   body.style.top = "";
   window.scrollTo(0, parseInt(scrollY || "0") * -1);
+  console.log(event.target.id);
 
   popupOverlay.classList.remove("popup__overlay_active");
 };
