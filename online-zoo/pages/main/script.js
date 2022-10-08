@@ -1,11 +1,17 @@
 import petsCards from "./db_animals.json" assert { type: "json" };
 import testimonialCards from "./db_testimonials.json" assert { type: "json" };
 
-let store = { testimonialCards, petsCards };
+let store = { testimonialCards, petsCards, animation_direction: "" };
 console.log(store);
 const PETS_BTN_LEFT = document.querySelector("#pets_button_left");
 const PETS_BTN_RIGHT = document.querySelector("#pets_button_right");
 const PETS_CAROUSEL = document.querySelector("#slider_carousel");
+
+const PETS_CENTER_SLIDE = document.querySelector(
+  ".slider__cards.center__slide"
+);
+const PETS_LEFT_SLIDE = document.querySelector(".slider__cards.left__slide");
+const PETS_RIGHT_SLIDE = document.querySelector(".slider__cards.right__slide");
 
 /**
  * @param {number} min
@@ -91,11 +97,11 @@ const generateNewPetsCard = (cardId) => {
 };
 
 const generateNewPetsSlide = (countCards, $slide) => {
+  $slide.innerHTML = "";
   const idsArray = new Array(store.petsCards.length).fill(0).map((_, id) => id);
 
   for (let i = 0; i < countCards; i++) {
     const cardId = idsArray[getRandomCardId(idsArray.length - 1)];
-    // console.log(idsArray, cardId);
 
     idsArray.splice(
       idsArray.findIndex((id) => id === cardId),
@@ -105,12 +111,6 @@ const generateNewPetsSlide = (countCards, $slide) => {
     $slide.appendChild(generateNewPetsCard(cardId));
   }
 };
-
-let center = document.querySelector(".slider__cards.center__slide");
-center.innerHTML = "";
-console.log(center);
-
-generateNewPetsSlide(6, center);
 
 /**
  *
@@ -158,6 +158,10 @@ function generateRndTestimonialsCards(countCards) {
     $testimonialCards.appendChild($currentCard);
   }
 }
+
+generateNewPetsSlide(6, PETS_CENTER_SLIDE);
+generateNewPetsSlide(6, PETS_LEFT_SLIDE);
+generateNewPetsSlide(6, PETS_RIGHT_SLIDE);
 
 generateRndTestimonialsCards(11);
 
@@ -257,18 +261,29 @@ const removeClassesFromCarousel = () => {
 };
 
 const handleAnimationLeft = (event) => {
+  store.animation_direction = "left";
   removeHandlersFromButtons();
   document.querySelector("#slider_carousel").classList.add("pets__slide_left");
 };
 
 const handleAnimationRight = (event) => {
+  store.animation_direction = "right";
   removeHandlersFromButtons();
   document.querySelector("#slider_carousel").classList.add("pets__slide_right");
 };
+
 PETS_BTN_LEFT.addEventListener("click", handleAnimationLeft);
 PETS_BTN_RIGHT.addEventListener("click", handleAnimationRight);
 
 PETS_CAROUSEL.addEventListener("animationend", () => {
+  if (store.animation_direction === "left") {
+    PETS_CENTER_SLIDE.innerHTML = PETS_RIGHT_SLIDE.innerHTML;
+    generateNewPetsSlide(6, PETS_RIGHT_SLIDE);
+  }
+  if (store.animation_direction === "right") {
+    PETS_CENTER_SLIDE.innerHTML = PETS_LEFT_SLIDE.innerHTML;
+    generateNewPetsSlide(6, PETS_LEFT_SLIDE);
+  }
   removeClassesFromCarousel();
   addHandlersToButtons();
 });
