@@ -15,5 +15,9 @@ anotherAmount.addEventListener("keyup", (event) => {
   const anotherAmount = event.target.value;
   if (arrOfFixAmount.includes(+anotherAmount)) {
     document.querySelector(`#dollar_${anotherAmount}`).checked = true;
+    return;
   }
+  document
+    .querySelectorAll(`.radio-button__custom`)
+    .forEach((item) => (item.checked = false));
 });
