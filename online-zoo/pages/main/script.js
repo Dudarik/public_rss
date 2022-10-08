@@ -1,5 +1,6 @@
-"use strict";
-const store = { renderCards: {} };
+import petsCards from "./db_animals.json" assert { type: "json" };
+
+let store = { renderCards: {}, petsCards: {} };
 const PETS_BTN_LEFT = document.querySelector("#pets_button_left");
 const PETS_BTN_RIGHT = document.querySelector("#pets_button_right");
 const PETS_CAROUSEL = document.querySelector("#slider_carousel");
@@ -41,15 +42,15 @@ window.addEventListener("scroll", () => {
 });
 
 /**
- * @param {void}
+ * @param {string} fileName
  * @returns {object} object with card info
  */
-async function getTestimonialsData() {
-  const result = await fetch("db_testimonials.json")
+
+const getDataFromJson = async (fileName) => {
+  return await fetch(fileName)
     .then((response) => response.json())
     .then((data) => data);
-  return result;
-}
+};
 
 /**
  *
@@ -58,7 +59,7 @@ async function getTestimonialsData() {
  */
 
 async function generateRndTestimonialsCards(countCards) {
-  const allCards = await getTestimonialsData();
+  const allCards = await getDataFromJson("db_testimonials.json");
 
   let $renderCards = document.querySelector("#testimonials_slider_cards");
 
@@ -74,7 +75,7 @@ async function generateRndTestimonialsCards(countCards) {
       1
     );
 
-    store.renderCards[cardId] = { ...allCards[cardId] };
+    // store.renderCards[cardId] = { ...allCards[cardId] };
 
     const card_tpl = document.querySelector("#testimonialsSliderCard_tpl");
 
@@ -89,6 +90,7 @@ async function generateRndTestimonialsCards(countCards) {
     const userLoacation = currentCard.querySelector(".user__location");
     const dateTimePost = currentCard.querySelector(".date-time__post");
     const cardText = currentCard.querySelector(".card__text");
+    // console.log(allCards);
 
     avatar.src = allCards[cardId].avatar;
     userName.innerText = allCards[cardId].name;
@@ -172,7 +174,7 @@ const handleClosePopup = (event) => {
 };
 
 const generateNewCard = () => {};
-const generateNewSlide = () => {};
+const generateNewSlide = (countCards) => {};
 
 popupOverlay.addEventListener("click", handleClosePopup);
 
@@ -216,6 +218,126 @@ PETS_CAROUSEL.addEventListener("animationend", () => {
   removeClassesFromCarousel();
   addHandlersToButtons();
 });
+
+// const animals_db = [
+//   {
+//     id: 0,
+//     name: "ALLIGATORS",
+//     location: "Native to South America",
+//     image: "alligators.png",
+//     icon: "meet-fish_icon.svg",
+//   },
+//   {
+//     id: 1,
+//     name: "CHEETAHS",
+//     location: "Native to Africa",
+//     image: "cheetahs.jpg",
+//     icon: "meet-fish_icon.svg",
+//   },
+//   {
+//     id: 2,
+//     name: "EAGLES",
+//     location: "Native to South America",
+//     image: "eagles.png",
+//     icon: "meet-fish_icon.svg",
+//   },
+//   {
+//     id: 3,
+//     name: "GIANT PANDAS",
+//     location: "Native to Southwest China",
+//     image: "giant_pandas.png",
+//     icon: "banana-bamboo_icon.svg",
+//   },
+//   {
+//     id: 4,
+//     name: "GORILLAS",
+//     location: "Native to Congo",
+//     image: "gorillas.png",
+//     icon: "banana-bamboo_icon.svg",
+//   },
+//   {
+//     id: 5,
+//     name: "GORILLAS",
+//     location: "Native to Congo",
+//     image: "gorillas2.png",
+//     icon: "banana-bamboo_icon.svg",
+//   },
+//   {
+//     id: 6,
+//     name: "HORSES",
+//     location: "Native to South America",
+//     image: "horse.png",
+//     icon: "banana-bamboo_icon.svg",
+//   },
+//   {
+//     id: 7,
+//     name: "HYENA",
+//     location: "Native to Africa",
+//     image: "hyena.png",
+//     icon: "meet-fish_icon.svg",
+//   },
+//   {
+//     id: 8,
+//     name: "JERBOA",
+//     location: "Native to Asia west",
+//     image: "jerboa.png",
+//     icon: "banana-bamboo_icon.svg",
+//   },
+//   {
+//     id: 9,
+//     name: "KENGURU",
+//     location: "Native to Australia",
+//     image: "kenguru.png",
+//     icon: "banana-bamboo_icon.svg",
+//   },
+
+//   {
+//     id: 9,
+//     name: "OWL",
+//     location: "Native to Europe",
+//     image: "owl.png",
+//     icon: "meet-fish_icon.svg",
+//   },
+//   {
+//     id: 10,
+//     name: "PENGUINS",
+//     location: "Native to Antarctica",
+//     image: "pinguin.png",
+//     icon: "meet-fish_icon.svg",
+//   },
+//   {
+//     id: 11,
+//     name: "PUMA",
+//     location: "Native to America",
+//     image: "puma.png",
+//     icon: "meet-fish_icon.svg",
+//   },
+
+//   {
+//     id: 12,
+//     name: "TWO-TOED SLOTH",
+//     location: "Mesoamerica, South America",
+//     image: "two-toed_sloth.png",
+//     icon: "banana-bamboo_icon.svg",
+//   },
+
+//   {
+//     id: 13,
+//     name: "WOLF",
+//     location: "Native to Europe",
+//     image: "wolf.png",
+//     icon: "meet-fish_icon.svg",
+//   },
+
+//   {
+//     id: 14,
+//     name: "ZUBR",
+//     location: "Native to Eastern Europe",
+//     image: "zubr.png",
+//     icon: "banana-bamboo_icon.svg",
+//   },
+// ];
+// console.log(JSON.stringify(animals_db));
 
 // const testimonialCards = [
 //   {
