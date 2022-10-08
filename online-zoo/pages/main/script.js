@@ -1,6 +1,8 @@
 import petsCards from "./db_animals.json" assert { type: "json" };
+import testimonialCards from "./db_testimonials.json" assert { type: "json" };
 
-let store = { renderCards: {}, petsCards: {} };
+let store = { testimonialCards, petsCards };
+console.log(store);
 const PETS_BTN_LEFT = document.querySelector("#pets_button_left");
 const PETS_BTN_RIGHT = document.querySelector("#pets_button_right");
 const PETS_CAROUSEL = document.querySelector("#slider_carousel");
@@ -42,28 +44,17 @@ window.addEventListener("scroll", () => {
 });
 
 /**
- * @param {string} fileName
- * @returns {object} object with card info
- */
-
-const getDataFromJson = async (fileName) => {
-  return await fetch(fileName)
-    .then((response) => response.json())
-    .then((data) => data);
-};
-
-/**
  *
  * @param {number} countCards
  * @return {void} bad practice... in function mutate DOM
  */
 
-async function generateRndTestimonialsCards(countCards) {
-  const allCards = await getDataFromJson("db_testimonials.json");
+function generateRndTestimonialsCards(countCards) {
+  const allCards = store.testimonialCards;
 
-  let $renderCards = document.querySelector("#testimonials_slider_cards");
+  let $testimonialCards = document.querySelector("#testimonials_slider_cards");
 
-  $renderCards.innerHTML = "";
+  $testimonialCards.innerHTML = "";
 
   const idsArray = new Array(allCards.length).fill(0).map((_, id) => id);
 
@@ -75,30 +66,30 @@ async function generateRndTestimonialsCards(countCards) {
       1
     );
 
-    // store.renderCards[cardId] = { ...allCards[cardId] };
+    // store.testimonialCards[cardId] = { ...allCards[cardId] };
 
-    const card_tpl = document.querySelector("#testimonialsSliderCard_tpl");
+    const $card_tpl = document.querySelector("#testimonialsSliderCard_tpl");
 
-    const currentCard = card_tpl.content.cloneNode(true);
+    const $currentCard = $card_tpl.content.cloneNode(true);
 
-    currentCard
+    $currentCard
       .querySelector(".slider__card")
       .setAttribute("data-cardid", cardId);
 
-    const avatar = currentCard.querySelector(".user-avatar > img");
-    const userName = currentCard.querySelector(".user-name");
-    const userLoacation = currentCard.querySelector(".user__location");
-    const dateTimePost = currentCard.querySelector(".date-time__post");
-    const cardText = currentCard.querySelector(".card__text");
+    const $avatar = $currentCard.querySelector(".user-avatar > img");
+    const $userName = $currentCard.querySelector(".user-name");
+    const $userLoacation = $currentCard.querySelector(".user__location");
+    const $dateTimePost = $currentCard.querySelector(".date-time__post");
+    const $cardText = $currentCard.querySelector(".card__text");
     // console.log(allCards);
 
-    avatar.src = allCards[cardId].avatar;
-    userName.innerText = allCards[cardId].name;
-    userLoacation.innerText = allCards[cardId].localiton;
-    dateTimePost.innerText = allCards[cardId].dateTime;
-    cardText.innerText = allCards[cardId].body;
+    $avatar.src = allCards[cardId].avatar;
+    $userName.innerText = allCards[cardId].name;
+    $userLoacation.innerText = allCards[cardId].localiton;
+    $dateTimePost.innerText = allCards[cardId].dateTime;
+    $cardText.innerText = allCards[cardId].body;
 
-    $renderCards.appendChild(currentCard);
+    $testimonialCards.appendChild($currentCard);
   }
 }
 
@@ -139,11 +130,11 @@ const handleOpenPopup = (event) => {
   const dateTimePost = popupCard.querySelector(".date-time__post");
   const cardText = popupCard.querySelector(".card__text");
 
-  avatar.src = store.renderCards[cardId].avatar;
-  userName.innerText = store.renderCards[cardId].name;
-  userLoacation.innerText = store.renderCards[cardId].localiton;
-  dateTimePost.innerText = store.renderCards[cardId].dateTime;
-  cardText.innerText = store.renderCards[cardId].body;
+  avatar.src = store.testimonialCards[cardId].avatar;
+  userName.innerText = store.testimonialCards[cardId].name;
+  userLoacation.innerText = store.testimonialCards[cardId].localiton;
+  dateTimePost.innerText = store.testimonialCards[cardId].dateTime;
+  cardText.innerText = store.testimonialCards[cardId].body;
 
   popupOverlay.classList.add("popup__overlay_active");
 };
