@@ -82,8 +82,11 @@
   .slider-button__left,
   .slider-button__right {
     position: absolute;
-    // z-index: 10000;
-    top: 369px;
+    z-index: 10;
+    top: 403px;
+    @media screen and (max-width: 1599px) {
+      top: 370px;
+    }
     @media screen and (max-width: 999px) {
       top: 343px;
     }
@@ -111,252 +114,324 @@
       right: 231px;
     }
   }
-
-  .slider__cards {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-
-    grid-auto-flow: column;
-
-    row-gap: 19px;
-    column-gap: 31px;
-
-    max-height: 890px;
-    max-width: 1170px;
-
+  .slider__wrapper {
+    // border: 1px dotted green;
+    // max-width: 1166px;
+    width: 1168px;
+    height: 878px;
+    position: relative;
     overflow: hidden;
-    @media screen and (max-width: 1599px) {
-      row-gap: 90px;
 
+    @media screen and (max-width: 1599px) {
       max-height: 890px;
-      max-width: 950px;
+      max-width: 952px;
     }
     @media screen and (max-width: 999px) {
-      row-gap: 90px;
-      column-gap: 29px;
-
       max-height: 890px;
-      max-width: 610px;
+      max-width: 606px;
     }
     @media screen and (max-width: 639px) {
-      grid-template-columns: calc($card_pic_mobile + 4px);
-      grid-template-rows: auto;
-
-      grid-auto-flow: row;
-      row-gap: 19px;
-
       max-height: 1400px;
+      height: 1400px;
+      width: 289px;
+    }
+
+    .slider__carousel {
+      display: flex;
+      position: absolute;
+      // left: -1168px;
+      transform: translateX(-33.3333%);
+
+      @media screen and (max-width: 1599px) {
+        // left: -951px;
+        transform: translateX(-33.3333%);
+      }
+      @media screen and (max-width: 999px) {
+        // left: -610px;
+        transform: translateX(-33.3333%);
+      }
+      @media screen and (max-width: 639px) {
+        // left: 0;
+        transform: translateX(0);
+      }
+      .slider__cards {
+        //one slide
+
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+
+        grid-auto-flow: column;
+
+        row-gap: 19px;
+        column-gap: 31px;
+
+        max-height: 890px;
+        max-width: 1170px;
+        margin: 1px;
+        // overflow: hidden;
+        @media screen and (max-width: 1599px) {
+          row-gap: 90px;
+
+          max-height: 890px;
+          max-width: 950px;
+        }
+        @media screen and (max-width: 999px) {
+          row-gap: 90px;
+          column-gap: 29px;
+
+          max-height: 890px;
+          max-width: 610px;
+
+          overflow: hidden;
+        }
+        @media screen and (max-width: 639px) {
+          grid-template-columns: calc($card_pic_mobile + 4px);
+          grid-template-rows: auto;
+
+          grid-auto-flow: row;
+          row-gap: 19px;
+
+          overflow-y: auto;
+
+          max-height: 1400px;
+        }
+      }
+
+      .slider__card {
+        cursor: pointer;
+
+        width: 368px;
+        height: 428px;
+        position: relative;
+        background-color: $color_white;
+        box-sizing: border-box;
+
+        border-radius: 5px;
+        background-clip: padding-box;
+        border: solid 1px transparent;
+        transition: all 0.3;
+        @media screen and (max-width: 1599px) {
+          width: 296px;
+          height: 356px;
+        }
+        @media screen and (max-width: 999px) {
+          width: 287px;
+          height: 334px;
+        }
+
+        .card_image {
+          transition: all 0.5s;
+          width: $card_pic_1600;
+          height: $card_pic_1600;
+          overflow: hidden;
+          @media screen and (max-width: 1599px) {
+            width: $card_pic_1000;
+            height: $card_pic_1000;
+          }
+          @media screen and (max-width: 999px) {
+            width: $card_pic_tablet;
+            height: $card_pic_tablet;
+          }
+          // transform: scale(1);
+        }
+
+        .card-img__wrapper {
+          overflow: hidden;
+          position: relative;
+          &::before {
+            content: "";
+            position: absolute;
+            opacity: 0;
+            z-index: 10;
+            background-color: rgba(0, 0, 0, 0.65);
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+          }
+          @media screen and (max-width: 1599px) {
+            width: card_pic_1000;
+            height: card_pic_1000;
+          }
+          @media screen and (max-width: 999px) {
+            width: $card_pic_tablet;
+            height: $card_pic_tablet;
+          }
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: -1;
+          margin: -1px;
+          border-radius: inherit;
+          background: $color_orange;
+        }
+        img {
+          overflow: hidden;
+          border-radius: 5px 5px 0 0;
+        }
+
+        // &.slider__card_1 {
+        //   //pandas
+        //   order: 1;
+        // }
+        // &.slider__card_2 {
+        //   //two-toed sloth
+        //   order: 2;
+        //   @media screen and (max-width: 1599px) {
+        //     order: 7;
+        //   }
+        // }
+        // &.slider__card_3 {
+        //   // eagles
+        //   order: 3;
+        //   @media screen and (max-width: 639px) {
+        //     order: 2;
+        //   }
+        // }
+        // &.slider__card_4 {
+        //   // chetahs
+        //   order: 4;
+        //   @media screen and (max-width: 1599px) {
+        //     order: 5;
+        //   }
+        // }
+        // &.slider__card_5 {
+        //   // gorillas
+        //   order: 5;
+        //   @media screen and (max-width: 1599px) {
+        //     order: 2;
+        //   }
+        //   @media screen and (max-width: 639px) {
+        //     order: 3;
+        //   }
+        // }
+        // &.slider__card_6 {
+        //   //penguins
+        //   order: 6;
+        // }
+        // &.slider__card_7 {
+        //   // alligators in small devices
+        //   order: 7;
+        //   @media screen and (max-width: 1599px) {
+        //     order: 4;
+        //   }
+        // }
+        // &.slider__card_8 {
+        //   //empty --- default pandas
+        //   order: 8;
+        // }
+
+        .card__text {
+          position: absolute;
+          bottom: 14px;
+          left: 16px;
+          transition: all 0.5s;
+          @media screen and (max-width: 999px) {
+            bottom: 11px;
+            left: 14px;
+          }
+        }
+
+        .card__title {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 140%;
+          /* or 22px */
+
+          text-transform: uppercase;
+          @media screen and (max-width: 999px) {
+            font-size: 12.4695px;
+          }
+        }
+        .card__sub-title {
+          @media screen and (max-width: 999px) {
+            font-weight: 300;
+            font-size: 11.6901px;
+          }
+        }
+
+        .title__icon {
+          position: absolute;
+          right: 12px;
+          bottom: 13px;
+          @media screen and (max-width: 999px) {
+            right: 6px;
+            bottom: 8px;
+          }
+        }
+
+        &:hover .card_image {
+          // margin-top: -10px;
+          // margin-left: -10px;
+          // width: 386px;
+          // height: 386px;
+
+          transform: scale(1.05);
+          transition: all 0.5s;
+          overflow: hidden;
+        }
+
+        &:hover .card-img__wrapper::before {
+          opacity: 1;
+          transition: all 0.5s;
+        }
+
+        &:hover .card__text {
+          position: absolute;
+          z-index: 10;
+          bottom: 200px;
+          left: 50%;
+          transform: translateX(-50%);
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+
+          white-space: nowrap;
+
+          color: $color_white;
+          transition: all 0.5s;
+        }
+
+        &:hover .small-paragraph {
+          color: $color_white;
+          transition: all 0.5s;
+        }
+      }
     }
   }
+}
 
-  .slider__card {
-    cursor: pointer;
+.pets__slide_right {
+  animation: pets-slide-right 1.5s;
+}
+.pets__slide_left {
+  animation: pets-slide-left 1.5s;
+}
 
-    width: 368px;
-    height: 428px;
-    position: relative;
-    background-color: $color_white;
-    box-sizing: border-box;
+@keyframes pets-slide-right {
+  0% {
+    transform: translateX(-33.33333%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 
-    border-radius: 5px;
-    background-clip: padding-box;
-    border: solid 1px transparent;
-    transition: all 0.3;
-    @media screen and (max-width: 1599px) {
-      width: 296px;
-      height: 356px;
-    }
-    @media screen and (max-width: 999px) {
-      width: 287px;
-      height: 334px;
-    }
-
-    .card_image {
-      transition: all 0.5s;
-      width: $card_pic_1600;
-      height: $card_pic_1600;
-      overflow: hidden;
-      @media screen and (max-width: 1599px) {
-        width: $card_pic_1000;
-        height: $card_pic_1000;
-      }
-      @media screen and (max-width: 999px) {
-        width: $card_pic_tablet;
-        height: $card_pic_tablet;
-      }
-      // transform: scale(1);
-    }
-
-    .card-img__wrapper {
-      overflow: hidden;
-      position: relative;
-      &::before {
-        content: "";
-        position: absolute;
-        opacity: 0;
-        z-index: 10;
-        background-color: rgba(0, 0, 0, 0.65);
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-      }
-      @media screen and (max-width: 1599px) {
-        width: card_pic_1000;
-        height: card_pic_1000;
-      }
-      @media screen and (max-width: 999px) {
-        width: $card_pic_tablet;
-        height: $card_pic_tablet;
-      }
-    }
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: -1;
-      margin: -1px;
-      border-radius: inherit;
-      background: $color_orange;
-    }
-    img {
-      overflow: hidden;
-      border-radius: 5px 5px 0 0;
-    }
-
-    &.slider__card_1 {
-      //pandas
-      order: 1;
-    }
-    &.slider__card_2 {
-      //two-toed sloth
-      order: 2;
-      @media screen and (max-width: 1599px) {
-        order: 7;
-      }
-    }
-    &.slider__card_3 {
-      // eagles
-      order: 3;
-      @media screen and (max-width: 639px) {
-        order: 2;
-      }
-    }
-    &.slider__card_4 {
-      // chetahs
-      order: 4;
-      @media screen and (max-width: 1599px) {
-        order: 5;
-      }
-    }
-    &.slider__card_5 {
-      // gorillas
-      order: 5;
-      @media screen and (max-width: 1599px) {
-        order: 2;
-      }
-      @media screen and (max-width: 639px) {
-        order: 3;
-      }
-    }
-    &.slider__card_6 {
-      //penguins
-      order: 6;
-    }
-    &.slider__card_7 {
-      // alligators in small devices
-      order: 7;
-      @media screen and (max-width: 1599px) {
-        order: 4;
-      }
-    }
-    &.slider__card_8 {
-      //empty --- default pandas
-      order: 8;
-    }
-
-    .card__text {
-      position: absolute;
-      bottom: 14px;
-      left: 16px;
-      transition: all 0.5s;
-      @media screen and (max-width: 999px) {
-        bottom: 11px;
-        left: 14px;
-      }
-    }
-
-    .card__title {
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 140%;
-      /* or 22px */
-
-      text-transform: uppercase;
-      @media screen and (max-width: 999px) {
-        font-size: 12.4695px;
-      }
-    }
-    .card__sub-title {
-      @media screen and (max-width: 999px) {
-        font-weight: 300;
-        font-size: 11.6901px;
-      }
-    }
-
-    .title__icon {
-      position: absolute;
-      right: 12px;
-      bottom: 13px;
-      @media screen and (max-width: 999px) {
-        right: 6px;
-        bottom: 8px;
-      }
-    }
-
-    &:hover .card_image {
-      // margin-top: -10px;
-      // margin-left: -10px;
-      // width: 386px;
-      // height: 386px;
-
-      transform: scale(1.05);
-      transition: all 0.5s;
-      overflow: hidden;
-    }
-
-    &:hover .card-img__wrapper::before {
-      opacity: 1;
-      transition: all 0.5s;
-    }
-
-    &:hover .card__text {
-      position: absolute;
-      z-index: 10;
-      bottom: 200px;
-      left: 50%;
-      transform: translateX(-50%);
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-
-      white-space: nowrap;
-
-      color: $color_white;
-      transition: all 0.5s;
-    }
-
-    &:hover .small-paragraph {
-      color: $color_white;
-      transition: all 0.5s;
-    }
+@keyframes pets-slide-left {
+  0% {
+    transform: translateX(-33.33333%);
+  }
+  100% {
+    transform: translateX(-66.66666%);
   }
 }

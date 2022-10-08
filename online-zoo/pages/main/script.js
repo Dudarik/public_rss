@@ -2,6 +2,7 @@
 const store = { renderCards: {} };
 const PETS_BTN_LEFT = document.querySelector("#pets_button_left");
 const PETS_BTN_RIGHT = document.querySelector("#pets_button_right");
+const PETS_CAROUSEL = document.querySelector("#slider_carousel");
 
 /**
  * @param {number} min
@@ -170,18 +171,56 @@ const handleClosePopup = (event) => {
   popupOverlay.classList.remove("popup__overlay_active");
 };
 
+const generateNewCard = () => {};
+const generateNewSlide = () => {};
+
 popupOverlay.addEventListener("click", handleClosePopup);
 
 popupCard.addEventListener("click", handleClosePopup);
 
 testimonialsSliderCards.addEventListener("click", handleOpenPopup);
 
-PETS_BTN_LEFT.addEventListener("click", () => {});
+document.addEventListener("click", (e) => {
+  console.log(e.target);
+});
+
+const addHandlersToButtons = () => {
+  PETS_BTN_LEFT.addEventListener("click", handleAnimationLeft);
+  PETS_BTN_RIGHT.addEventListener("click", handleAnimationRight);
+};
+
+const removeHandlersFromButtons = () => {
+  PETS_BTN_LEFT.removeEventListener("click", handleAnimationLeft);
+  PETS_BTN_RIGHT.removeEventListener("click", handleAnimationRight);
+};
+
+const removeClassesFromCarousel = () => {
+  console.log("remove");
+  PETS_CAROUSEL.classList.remove("pets__slide_right");
+  PETS_CAROUSEL.classList.remove("pets__slide_left");
+};
+
+const handleAnimationLeft = (event) => {
+  removeHandlersFromButtons();
+  document.querySelector("#slider_carousel").classList.add("pets__slide_left");
+};
+
+const handleAnimationRight = (event) => {
+  removeHandlersFromButtons();
+  document.querySelector("#slider_carousel").classList.add("pets__slide_right");
+};
+PETS_BTN_LEFT.addEventListener("click", handleAnimationLeft);
+PETS_BTN_RIGHT.addEventListener("click", handleAnimationRight);
+
+PETS_CAROUSEL.addEventListener("animationend", () => {
+  removeClassesFromCarousel();
+  addHandlersToButtons();
+});
 
 // const testimonialCards = [
 //   {
 //     id: 0,
-//     avatar: "../../assets/images/testimonials/avatars/avatar1.png",
+//     avatar: "../../assets/images/desktop/testimonials/avatars/avatar1.png",
 //     name: "Vasya Pupkin",
 //     localiton: "Austria",
 //     dateTime: "Today",
@@ -189,7 +228,7 @@ PETS_BTN_LEFT.addEventListener("click", () => {});
 //   },
 //   {
 //     id: 1,
-//     avatar: "../../assets/images/testimonials/avatars/avatar2.png",
+//     avatar: "../../assets/images/desktop/testimonials/avatars/avatar2.png",
 //     name: "Robert De Niro",
 //     localiton: "Germany",
 //     dateTime: "Yesterday",
@@ -197,7 +236,7 @@ PETS_BTN_LEFT.addEventListener("click", () => {});
 //   },
 //   {
 //     id: 2,
-//     avatar: "../../assets/images/testimonials/avatars/avatar3.png",
+//     avatar: "../../assets/images/desktop/testimonials/avatars/avatar3.png",
 //     name: "Jack Nicholson",
 //     localiton: "Austria",
 //     dateTime: "Yesterday",
@@ -205,7 +244,7 @@ PETS_BTN_LEFT.addEventListener("click", () => {});
 //   },
 //   {
 //     id: 3,
-//     avatar: "../../assets/images/testimonials/avatars/avatar_1.png",
+//     avatar: "../../assets/images/desktop/testimonials/avatars/avatar_1.png",
 //     name: "Meryl Streep",
 //     localiton: "Germany",
 //     dateTime: "Today",
@@ -213,7 +252,7 @@ PETS_BTN_LEFT.addEventListener("click", () => {});
 //   },
 //   {
 //     id: 4,
-//     avatar: "../../assets/images/testimonials/avatars/avatar_2.jpg",
+//     avatar: "../../assets/images/desktop/testimonials/avatars/avatar_2.jpg",
 //     name: "Isabelle Huppert",
 //     localiton: "Austria",
 //     dateTime: "Yesterday",
@@ -221,7 +260,7 @@ PETS_BTN_LEFT.addEventListener("click", () => {});
 //   },
 //   {
 //     id: 5,
-//     avatar: "../../assets/images/testimonials/avatars/avatar_3.jpg",
+//     avatar: "../../assets/images/desktop/testimonials/avatars/avatar_3.jpg",
 //     name: "Tom Hanks",
 //     localiton: "Austria",
 //     dateTime: "Yesterday",
@@ -229,7 +268,7 @@ PETS_BTN_LEFT.addEventListener("click", () => {});
 //   },
 //   {
 //     id: 6,
-//     avatar: "../../assets/images/testimonials/avatars/avatar_4.png",
+//     avatar: "../../assets/images/desktop/testimonials/avatars/avatar_4.png",
 //     name: "Elizabeth Taylor",
 //     localiton: "Germany",
 //     dateTime: "Yesterday",
@@ -237,7 +276,7 @@ PETS_BTN_LEFT.addEventListener("click", () => {});
 //   },
 //   {
 //     id: 7,
-//     avatar: "../../assets/images/testimonials/avatars/avatar_5.jpg",
+//     avatar: "../../assets/images/desktop/testimonials/avatars/avatar_5.jpg",
 //     name: "Harrison Ford",
 //     localiton: "Austria",
 //     dateTime: "Today",
@@ -245,7 +284,7 @@ PETS_BTN_LEFT.addEventListener("click", () => {});
 //   },
 //   {
 //     id: 8,
-//     avatar: "../../assets/images/testimonials/avatars/avatar_6.jpg",
+//     avatar: "../../assets/images/desktop/testimonials/avatars/avatar_6.jpg",
 //     name: "Leonardo DiCaprio",
 //     localiton: "Austria",
 //     dateTime: "Today",
@@ -253,7 +292,7 @@ PETS_BTN_LEFT.addEventListener("click", () => {});
 //   },
 //   {
 //     id: 9,
-//     avatar: "../../assets/images/testimonials/avatars/avatar_7.png",
+//     avatar: "../../assets/images/desktop/testimonials/avatars/avatar_7.png",
 //     name: "Will Smith",
 //     localiton: "Austria",
 //     dateTime: "Yesterday",
@@ -261,7 +300,7 @@ PETS_BTN_LEFT.addEventListener("click", () => {});
 //   },
 //   {
 //     id: 10,
-//     avatar: "../../assets/images/testimonials/avatars/avatar_8.jpg",
+//     avatar: "../../assets/images/desktop/testimonials/avatars/avatar_8.jpg",
 //     name: "Cate Blanchett",
 //     localiton: "France",
 //     dateTime: "Yesterday",
@@ -269,7 +308,7 @@ PETS_BTN_LEFT.addEventListener("click", () => {});
 //   },
 //   {
 //     id: 11,
-//     avatar: "../../assets/images/testimonials/avatars/avatar_9.jpg",
+//     avatar: "../../assets/images/desktop/testimonials/avatars/avatar_9.jpg",
 //     name: "Bruce Lee",
 //     localiton: "France",
 //     dateTime: "Yesterday",
@@ -277,7 +316,7 @@ PETS_BTN_LEFT.addEventListener("click", () => {});
 //   },
 //   {
 //     id: 12,
-//     avatar: "../../assets/images/testimonials/avatars/avatar_10.jpg",
+//     avatar: "../../assets/images/desktop/testimonials/avatars/avatar_10.jpg",
 //     name: "Kate Winslet",
 //     localiton: "Austria",
 //     dateTime: "Today",
@@ -285,7 +324,7 @@ PETS_BTN_LEFT.addEventListener("click", () => {});
 //   },
 //   {
 //     id: 13,
-//     avatar: "../../assets/images/testimonials/avatars/avatar_11.jpg",
+//     avatar: "../../assets/images/desktop/testimonials/avatars/avatar_11.jpg",
 //     name: "Sophia Loren",
 //     localiton: "France",
 //     dateTime: "Yesterday",
@@ -293,7 +332,7 @@ PETS_BTN_LEFT.addEventListener("click", () => {});
 //   },
 //   {
 //     id: 14,
-//     avatar: "../../assets/images/testimonials/avatars/avatar_12.jpg",
+//     avatar: "../../assets/images/desktop/testimonials/avatars/avatar_12.jpg",
 //     name: "Steve McQueen",
 //     localiton: "Austria",
 //     dateTime: "Yesterday",
@@ -301,7 +340,7 @@ PETS_BTN_LEFT.addEventListener("click", () => {});
 //   },
 //   {
 //     id: 15,
-//     avatar: "../../assets/images/testimonials/avatars/avatar_13.jpg",
+//     avatar: "../../assets/images/desktop/testimonials/avatars/avatar_13.jpg",
 //     name: "Julia Roberts",
 //     localiton: "France",
 //     dateTime: "Yesterday",
@@ -309,7 +348,7 @@ PETS_BTN_LEFT.addEventListener("click", () => {});
 //   },
 //   {
 //     id: 16,
-//     avatar: "../../assets/images/testimonials/avatars/avatar_14.jpg",
+//     avatar: "../../assets/images/desktop/testimonials/avatars/avatar_14.jpg",
 //     name: "Morgan Freeman",
 //     localiton: "Austria",
 //     dateTime: "Yesterday",
@@ -317,7 +356,7 @@ PETS_BTN_LEFT.addEventListener("click", () => {});
 //   },
 //   {
 //     id: 17,
-//     avatar: "../../assets/images/testimonials/avatars/avatar_15.jpg",
+//     avatar: "../../assets/images/desktop/testimonials/avatars/avatar_15.jpg",
 //     name: "Helen Mirren",
 //     localiton: "France",
 //     dateTime: "Yesterday",

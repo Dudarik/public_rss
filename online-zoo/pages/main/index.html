@@ -100,7 +100,7 @@
       <section class="backstage">
         <picture>
           <source
-            srcset="../../assets/images/backstage/flower_foto1.png"
+            srcset="../../assets/images/desktop/backstage/flower_foto1.png"
             media="(min-width: 1300px)"
           />
           <source
@@ -116,7 +116,7 @@
           <div class="backstage__wrapper block__wrapper">
             <picture>
               <source
-                srcset="../../assets/images/backstage/bamboo-cap.png"
+                srcset="../../assets/images/desktop/backstage/bamboo-cap.png"
                 media="(min-width: 1300px)"
               />
               <img
@@ -146,7 +146,7 @@
       <section class="pets">
         <picture>
           <source
-            srcset="../../assets/images/pets/palm_foto.png"
+            srcset="../../assets/images/desktop/pets/palm_foto.png"
             media="(min-width: 1500px)"
           />
           <source
@@ -164,7 +164,7 @@
         </picture>
         <picture>
           <source
-            srcset="../../assets/images/pets/strelitzia.png"
+            srcset="../../assets/images/desktop/pets/strelitzia.png"
             media="(min-width: 1500px)"
           />
           <source
@@ -185,7 +185,10 @@
           <div class="pets_wrapper block__wrapper">
             <div class="pets__slider">
               <div class="slider">
-                <button class="btn btn__round slider-button__left">
+                <button
+                  class="btn btn__round slider-button__left"
+                  id="pets_button_left"
+                >
                   <svg
                     width="18"
                     height="10"
@@ -201,7 +204,10 @@
                     />
                   </svg>
                 </button>
-                <button class="btn btn__round slider-button__right">
+                <button
+                  class="btn btn__round slider-button__right"
+                  id="pets_button_right"
+                >
                   <svg
                     width="18"
                     height="10"
@@ -217,375 +223,802 @@
                     />
                   </svg>
                 </button>
-                <div class="slider__view">
-                  <div class="slider__cards">
-                    <div class="slider__card slider__card_1">
-                      <div class="card-img__wrapper">
+                <div class="slider__wrapper">
+                  <div class="slider__carousel" id="slider_carousel">
+                    <div class="slider__cards left__slide">
+                      <div class="slider__card slider__card_1">
+                        <div class="card-img__wrapper">
+                          <picture>
+                            <source
+                              srcset="
+                                ../../assets/images/desktop/pets/slider/giant_pandas.png
+                              "
+                              media="(min-width: 1599px)"
+                            />
+                            <source
+                              srcset="
+                                ../../assets/images/small_desktop/pets/slider/giant_pandas.png
+                              "
+                              media="(min-width: 999px)"
+                            />
+                            <source
+                              srcset="
+                                ../../assets/images/tablet/pets/slider/giant_pandas.png
+                              "
+                              media="(min-width: 639px)"
+                            />
+                            <img
+                              src="../../assets/images/mobile/pets/slider/giant_pandas.png"
+                              class="card_image"
+                              alt="giant pandas"
+                            />
+                          </picture>
+                        </div>
+
+                        <!-- <div class="card__text-wrapper"> -->
+                        <div class="card__text">
+                          <div class="card__title">giant Pandas</div>
+                          <div class="small-paragraph card__sub-title">
+                            Native to Southwest China
+                          </div>
+                          <!-- </div> -->
+                        </div>
+
                         <picture>
                           <source
                             srcset="
-                              ../../assets/images/pets/slider/giant_pandas.png
+                              ../../assets/icons/cards_icons/banana-bamboo_icon.svg
                             "
-                            media="(min-width: 1599px)"
-                          />
-                          <source
-                            srcset="
-                              ../../assets/images/small_desktop/pets/slider/giant_pandas.png
-                            "
-                            media="(min-width: 999px)"
-                          />
-                          <source
-                            srcset="
-                              ../../assets/images/tablet/pets/slider/giant_pandas.png
-                            "
-                            media="(min-width: 639px)"
+                            media="(min-width:641px)"
                           />
                           <img
-                            src="../../assets/images/mobile/pets/slider/giant_pandas.png"
-                            class="card_image"
-                            alt="giant pandas"
+                            src="../../assets/icons/cards_icons/mobile/banana-bamboo_icon.svg"
+                            alt="Banana and bamboo"
+                            class="title__icon"
                           />
                         </picture>
                       </div>
-
-                      <!-- <div class="card__text-wrapper"> -->
-                      <div class="card__text">
-                        <div class="card__title">giant Pandas</div>
-                        <div class="small-paragraph card__sub-title">
-                          Native to Southwest China
+                      <div class="slider__card slider__card_2">
+                        <div class="card-img__wrapper">
+                          <picture>
+                            <source
+                              srcset="
+                                ../../assets/images/desktop/pets/slider/two-toed_sloth.png
+                              "
+                              media="(min-width: 1599px)"
+                            />
+                            <source
+                              srcset="
+                                ../../assets/images/small_desktop/pets/slider/two-toed_sloth.png
+                              "
+                              media="(min-width: 641px)"
+                            />
+                            <img
+                              class="card_image"
+                              src="https://via.placeholder.com/320"
+                            />
+                          </picture>
                         </div>
-                        <!-- </div> -->
-                      </div>
 
-                      <picture>
-                        <source
-                          srcset="
-                            ../../assets/icons/cards_icons/banana-bamboo_icon.svg
-                          "
-                          media="(min-width:641px)"
-                        />
+                        <div class="card__text">
+                          <div class="card__title">Two-toed Sloth</div>
+                          <div class="small-paragraph card__sub-title">
+                            Mesoamerica, South America
+                          </div>
+                        </div>
                         <img
-                          src="../../assets/icons/cards_icons/mobile/banana-bamboo_icon.svg"
+                          src="../../assets/icons/cards_icons/banana-bamboo_icon.svg"
                           alt="Banana and bamboo"
                           class="title__icon"
                         />
-                      </picture>
+                      </div>
+                      <div class="slider__card slider__card_3">
+                        <div class="card-img__wrapper">
+                          <picture>
+                            <source
+                              srcset="
+                                ../../assets/images/desktop/pets/slider/eagles.png
+                              "
+                              media="(min-width: 1599px)"
+                            />
+                            <source
+                              srcset="
+                                ../../assets/images/small_desktop/pets/slider/eagles.png
+                              "
+                              media="(min-width: 999px)"
+                            />
+                            <source
+                              srcset="
+                                ../../assets/images/tablet/pets/slider/eagles.png
+                              "
+                              media="(min-width: 639px)"
+                            />
+                            <img
+                              class="card_image"
+                              src="../../assets/images/tablet/pets/slider/eagles.png"
+                              alt="eagles"
+                            />
+                          </picture>
+                        </div>
 
-                      <!-- <img
+                        <div class="card__text">
+                          <div class="card__title">Eagles</div>
+                          <div class="small-paragraph card__sub-title">
+                            Native to South America
+                          </div>
+                        </div>
+                        <picture>
+                          <source
+                            srcset="
+                              ../../assets/icons/cards_icons/meet-fish_icon.svg
+                            "
+                            media="(min-width:641px)"
+                          />
+                          <img
+                            src="../../assets/icons/cards_icons/mobile/meet-fish_icon.svg"
+                            alt="Meet and fish"
+                            class="title__icon"
+                          />
+                        </picture>
+                      </div>
+                      <div class="slider__card slider__card_4">
+                        <div class="card-img__wrapper">
+                          <picture>
+                            <source
+                              srcset="
+                                ../../assets/images/desktop/pets/slider/cheetahs.png
+                              "
+                              media="(min-width: 1599px)"
+                            />
+                            <source
+                              srcset="
+                                ../../assets/images/small_desktop/pets/slider/cheetahs.png
+                              "
+                              media="(min-width: 641px)"
+                            />
+                            <img
+                              class="card_image"
+                              src="https://via.placeholder.com/320"
+                            />
+                          </picture>
+                        </div>
+
+                        <div class="card__text">
+                          <div class="card__title">cheetahs</div>
+                          <div class="small-paragraph card__sub-title">
+                            Native to Africa
+                          </div>
+                        </div>
+                        <img
+                          src="../../assets/icons/cards_icons/meet-fish_icon.svg"
+                          alt="Meet and fish"
+                          class="title__icon"
+                        />
+                      </div>
+                      <div class="slider__card slider__card_5">
+                        <div class="card-img__wrapper">
+                          <picture>
+                            <source
+                              srcset="
+                                ../../assets/images/desktop/pets/slider/gorillas.png
+                              "
+                              media="(min-width: 1599px)"
+                            />
+                            <source
+                              srcset="
+                                ../../assets/images/small_desktop/pets/slider/gorillas.png
+                              "
+                              media="(min-width: 999px)"
+                            />
+                            <source
+                              srcset="
+                                ../../assets/images/tablet/pets/slider/gorillas.png
+                              "
+                              media="(min-width: 639px)"
+                            />
+                            <img
+                              class="card_image"
+                              src="../../assets/images/mobile/pets/slider/gorillas.png"
+                              alt="gorillas"
+                            />
+                          </picture>
+                        </div>
+
+                        <div class="card__text">
+                          <div class="card__title">Gorillas</div>
+                          <div class="small-paragraph card__sub-title">
+                            Native to Congo
+                          </div>
+                        </div>
+                        <picture>
+                          <source
+                            srcset="
+                              ../../assets/icons/cards_icons/banana-bamboo_icon.svg
+                            "
+                            media="(min-width:641px)"
+                          />
+                          <img
+                            src="../../assets/icons/cards_icons/mobile/banana-bamboo_icon.svg"
+                            alt="Banana and bamboo"
+                            class="title__icon"
+                          />
+                        </picture>
+                      </div>
+                      <div class="slider__card slider__card_6">
+                        <div class="card-img__wrapper">
+                          <picture>
+                            <source
+                              srcset="
+                                ../../assets/images/desktop/pets/slider/penguins.png
+                              "
+                              media="(min-width: 1599px)"
+                            />
+                            <source
+                              class="card_image"
+                              srcset="
+                                ../../assets/images/small_desktop/pets/slider/penguins.png
+                              "
+                              media="(min-width: 641px)"
+                            />
+                            <img
+                              src="https://via.placeholder.com/320"
+                              class="card_image"
+                            />
+                          </picture>
+                        </div>
+
+                        <div class="card__text">
+                          <div class="card__title">Penguins</div>
+                          <div class="small-paragraph card__sub-title">
+                            Native to Antarctica
+                          </div>
+                        </div>
+                        <img
+                          src="../../assets/icons/cards_icons/meet-fish_icon.svg"
+                          alt="Meet and fish"
+                          class="title__icon"
+                        />
+                      </div>
+                    </div>
+                    <div class="slider__cards center__slide">
+                      <div class="slider__card slider__card_1">
+                        <div class="card-img__wrapper">
+                          <picture>
+                            <source
+                              srcset="
+                                ../../assets/images/desktop/pets/slider/giant_pandas.png
+                              "
+                              media="(min-width: 1599px)"
+                            />
+                            <source
+                              srcset="
+                                ../../assets/images/small_desktop/pets/slider/giant_pandas.png
+                              "
+                              media="(min-width: 999px)"
+                            />
+                            <source
+                              srcset="
+                                ../../assets/images/tablet/pets/slider/giant_pandas.png
+                              "
+                              media="(min-width: 639px)"
+                            />
+                            <img
+                              src="../../assets/images/mobile/pets/slider/giant_pandas.png"
+                              class="card_image"
+                              alt="giant pandas"
+                            />
+                          </picture>
+                        </div>
+
+                        <!-- <div class="card__text-wrapper"> -->
+                        <div class="card__text">
+                          <div class="card__title">giant Pandas</div>
+                          <div class="small-paragraph card__sub-title">
+                            Native to Southwest China
+                          </div>
+                          <!-- </div> -->
+                        </div>
+
+                        <picture>
+                          <source
+                            srcset="
+                              ../../assets/icons/cards_icons/banana-bamboo_icon.svg
+                            "
+                            media="(min-width:641px)"
+                          />
+                          <img
+                            src="../../assets/icons/cards_icons/mobile/banana-bamboo_icon.svg"
+                            alt="Banana and bamboo"
+                            class="title__icon"
+                          />
+                        </picture>
+
+                        <!-- <img
                         src="../../assets/icons/cards_icons/banana-bamboo_icon.svg"
                         alt="Banana and bamboo"
                         class="title__icon"
                       /> -->
-                    </div>
-                    <div class="slider__card slider__card_2">
-                      <div class="card-img__wrapper">
-                        <picture>
-                          <source
-                            srcset="
-                              ../../assets/images/pets/slider/two-toed_sloth.png
-                            "
-                            media="(min-width: 1599px)"
-                          />
-                          <source
-                            srcset="
-                              ../../assets/images/small_desktop/pets/slider/two-toed_sloth.png
-                            "
-                            media="(min-width: 641px)"
-                          />
-                          <img
-                            class="card_image"
-                            src="https://via.placeholder.com/320"
-                          />
-                        </picture>
                       </div>
-                      <!-- <div class="card__text-wrapper"> -->
-                      <div class="card__text">
-                        <div class="card__title">Two-toed Sloth</div>
-                        <div class="small-paragraph card__sub-title">
-                          Mesoamerica, South America
+                      <div class="slider__card slider__card_2">
+                        <div class="card-img__wrapper">
+                          <picture>
+                            <source
+                              srcset="
+                                ../../assets/images/desktop/pets/slider/two-toed_sloth.png
+                              "
+                              media="(min-width: 1599px)"
+                            />
+                            <source
+                              srcset="
+                                ../../assets/images/small_desktop/pets/slider/two-toed_sloth.png
+                              "
+                              media="(min-width: 641px)"
+                            />
+                            <img
+                              class="card_image"
+                              src="https://via.placeholder.com/320"
+                            />
+                          </picture>
                         </div>
-                        <!-- </div> -->
-                      </div>
-                      <img
-                        src="../../assets/icons/cards_icons/banana-bamboo_icon.svg"
-                        alt="Banana and bamboo"
-                        class="title__icon"
-                      />
-                    </div>
-                    <div class="slider__card slider__card_3">
-                      <div class="card-img__wrapper">
-                        <picture>
-                          <source
-                            srcset="../../assets/images/pets/slider/eagles.png"
-                            media="(min-width: 1599px)"
-                          />
-                          <source
-                            srcset="
-                              ../../assets/images/small_desktop/pets/slider/eagles.png
-                            "
-                            media="(min-width: 999px)"
-                          />
-                          <source
-                            srcset="
-                              ../../assets/images/tablet/pets/slider/eagles.png
-                            "
-                            media="(min-width: 639px)"
-                          />
-                          <img
-                            class="card_image"
-                            src="../../assets/images/tablet/pets/slider/eagles.png"
-                            alt="eagles"
-                          />
-                        </picture>
-                      </div>
-                      <!-- <div class="card__text-wrapper"> -->
-                      <div class="card__text">
-                        <div class="card__title">Eagles</div>
-                        <div class="small-paragraph card__sub-title">
-                          Native to South America
+                        <!-- <div class="card__text-wrapper"> -->
+                        <div class="card__text">
+                          <div class="card__title">Two-toed Sloth</div>
+                          <div class="small-paragraph card__sub-title">
+                            Mesoamerica, South America
+                          </div>
+                          <!-- </div> -->
                         </div>
-                        <!-- </div> -->
-                      </div>
-                      <picture>
-                        <source
-                          srcset="
-                            ../../assets/icons/cards_icons/meet-fish_icon.svg
-                          "
-                          media="(min-width:641px)"
-                        />
                         <img
-                          src="../../assets/icons/cards_icons/mobile/meet-fish_icon.svg"
-                          alt="Meet and fish"
+                          src="../../assets/icons/cards_icons/banana-bamboo_icon.svg"
+                          alt="Banana and bamboo"
                           class="title__icon"
                         />
-                      </picture>
-                      <!-- <img
+                      </div>
+                      <div class="slider__card slider__card_3">
+                        <div class="card-img__wrapper">
+                          <picture>
+                            <source
+                              srcset="
+                                ../../assets/images/desktop/pets/slider/eagles.png
+                              "
+                              media="(min-width: 1599px)"
+                            />
+                            <source
+                              srcset="
+                                ../../assets/images/small_desktop/pets/slider/eagles.png
+                              "
+                              media="(min-width: 999px)"
+                            />
+                            <source
+                              srcset="
+                                ../../assets/images/tablet/pets/slider/eagles.png
+                              "
+                              media="(min-width: 639px)"
+                            />
+                            <img
+                              class="card_image"
+                              src="../../assets/images/tablet/pets/slider/eagles.png"
+                              alt="eagles"
+                            />
+                          </picture>
+                        </div>
+                        <!-- <div class="card__text-wrapper"> -->
+                        <div class="card__text">
+                          <div class="card__title">Eagles</div>
+                          <div class="small-paragraph card__sub-title">
+                            Native to South America
+                          </div>
+                          <!-- </div> -->
+                        </div>
+                        <picture>
+                          <source
+                            srcset="
+                              ../../assets/icons/cards_icons/meet-fish_icon.svg
+                            "
+                            media="(min-width:641px)"
+                          />
+                          <img
+                            src="../../assets/icons/cards_icons/mobile/meet-fish_icon.svg"
+                            alt="Meet and fish"
+                            class="title__icon"
+                          />
+                        </picture>
+                        <!-- <img
                         src="../../assets/icons/cards_icons/meet-fish_icon.svg"
                         alt="Meet and fish"
                         class="title__icon"
                       /> -->
-                    </div>
-                    <div class="slider__card slider__card_4">
-                      <div class="card-img__wrapper">
-                        <picture>
-                          <source
-                            srcset="
-                              ../../assets/images/pets/slider/cheetahs.png
-                            "
-                            media="(min-width: 1599px)"
-                          />
-                          <source
-                            srcset="
-                              ../../assets/images/small_desktop/pets/slider/cheetahs.png
-                            "
-                            media="(min-width: 641px)"
-                          />
-                          <img
-                            class="card_image"
-                            src="https://via.placeholder.com/320"
-                          />
-                        </picture>
-                        <!-- <img
-                          src="../../assets/images/pets/slider/cheetahs.png"
+                      </div>
+                      <div class="slider__card slider__card_4">
+                        <div class="card-img__wrapper">
+                          <picture>
+                            <source
+                              srcset="
+                                ../../assets/images/desktop/pets/slider/cheetahs.png
+                              "
+                              media="(min-width: 1599px)"
+                            />
+                            <source
+                              srcset="
+                                ../../assets/images/small_desktop/pets/slider/cheetahs.png
+                              "
+                              media="(min-width: 641px)"
+                            />
+                            <img
+                              class="card_image"
+                              src="https://via.placeholder.com/320"
+                            />
+                          </picture>
+                          <!-- <img
+                          src="../../assets/images/desktop/pets/slider/cheetahs.png"
                           alt="Cheetahs"
                           class="card_image"
                         /> -->
-                      </div>
-                      <!-- <div class="card__text-wrapper"> -->
-                      <div class="card__text">
-                        <div class="card__title">cheetahs</div>
-                        <div class="small-paragraph card__sub-title">
-                          Native to Africa
                         </div>
-                        <!-- </div> -->
-                      </div>
-                      <img
-                        src="../../assets/icons/cards_icons/meet-fish_icon.svg"
-                        alt="Meet and fish"
-                        class="title__icon"
-                      />
-                    </div>
-                    <div class="slider__card slider__card_5">
-                      <div class="card-img__wrapper">
-                        <picture>
-                          <source
-                            srcset="
-                              ../../assets/images/pets/slider/gorillas.png
-                            "
-                            media="(min-width: 1599px)"
-                          />
-                          <source
-                            srcset="
-                              ../../assets/images/small_desktop/pets/slider/gorillas.png
-                            "
-                            media="(min-width: 999px)"
-                          />
-                          <source
-                            srcset="
-                              ../../assets/images/tablet/pets/slider/gorillas.png
-                            "
-                            media="(min-width: 639px)"
-                          />
-                          <img
-                            class="card_image"
-                            src="../../assets/images/mobile/pets/slider/gorillas.png"
-                            alt="gorillas"
-                          />
-                        </picture>
-                        <!-- <img
-                          src="../../assets/images/pets/slider/gorrilas.png"
-                          alt="Gorillas"
-                          class="card_image"
-                        /> -->
-                      </div>
-                      <!-- <div class="card__text-wrapper"> -->
-                      <div class="card__text">
-                        <div class="card__title">Gorillas</div>
-                        <div class="small-paragraph card__sub-title">
-                          Native to Congo
+                        <!-- <div class="card__text-wrapper"> -->
+                        <div class="card__text">
+                          <div class="card__title">cheetahs</div>
+                          <div class="small-paragraph card__sub-title">
+                            Native to Africa
+                          </div>
+                          <!-- </div> -->
                         </div>
-                        <!-- </div> -->
-                      </div>
-                      <picture>
-                        <source
-                          srcset="
-                            ../../assets/icons/cards_icons/banana-bamboo_icon.svg
-                          "
-                          media="(min-width:641px)"
-                        />
                         <img
-                          src="../../assets/icons/cards_icons/mobile/banana-bamboo_icon.svg"
-                          alt="Banana and bamboo"
-                          class="title__icon"
-                        />
-                      </picture>
-                      <!-- <img
-                        src="../../assets/icons/cards_icons/banana-bamboo_icon.svg"
-                        alt="Banana and bamboo"
-                        class="title__icon"
-                      /> -->
-                    </div>
-                    <div class="slider__card slider__card_6">
-                      <div class="card-img__wrapper">
-                        <picture>
-                          <source
-                            srcset="
-                              ../../assets/images/pets/slider/penguins.png
-                            "
-                            media="(min-width: 1599px)"
-                          />
-                          <source
-                            class="card_image"
-                            srcset="
-                              ../../assets/images/small_desktop/pets/slider/penguins.png
-                            "
-                            media="(min-width: 641px)"
-                          />
-                          <img
-                            src="https://via.placeholder.com/320"
-                            class="card_image"
-                          />
-                        </picture>
-                        <!-- <img
-                          src="../../assets/images/pets/slider/penguins.png"
-                          alt="Penguins"
-                          class="card_image"
-                        /> -->
-                      </div>
-                      <!-- <div class="card__text-wrapper"> -->
-                      <div class="card__text">
-                        <div class="card__title">Penguins</div>
-                        <div class="small-paragraph card__sub-title">
-                          Native to Antarctica
-                        </div>
-                        <!-- </div> -->
-                      </div>
-                      <img
-                        src="../../assets/icons/cards_icons/meet-fish_icon.svg"
-                        alt="Meet and fish"
-                        class="title__icon"
-                      />
-                    </div>
-                    <div class="slider__card slider__card_7">
-                      <div class="card-img__wrapper">
-                        <picture class="card_image">
-                          <source
-                            srcset="
-                              ../../assets/images/pets/slider/alligators.png
-                            "
-                            media="(min-width: 1599px)"
-                          />
-                          <source
-                            srcset="
-                              ../../assets/images/small_desktop/pets/slider/alligators.png
-                            "
-                            media="(min-width: 999px)"
-                          />
-                          <source
-                            srcset="
-                              ../../assets/images/tablet/pets/slider/alligators.png
-                            "
-                            media="(min-width: 639px)"
-                          />
-                          <img
-                            src="../../assets/images/mobile/pets/slider/alligators.png"
-                            alt="alligators"
-                          />
-                        </picture>
-                        <!-- <img
-                          src="../../assets/images/pets/slider/empty.png"
-                          alt="Giant pandas"
-                          class="card_image"
-                        /> -->
-                      </div>
-                      <!-- <div class="card__text-wrapper"> -->
-                      <div class="card__text">
-                        <div class="card__title">Alligators</div>
-                        <div class="small-paragraph card__sub-title">
-                          Native to Southeastern U. S.
-                        </div>
-                        <!-- </div> -->
-                      </div>
-                      <picture>
-                        <source
-                          srcset="
-                            ../../assets/icons/cards_icons/meet-fish_icon.svg
-                          "
-                          media="(min-width:641px)"
-                        />
-                        <img
-                          src="../../assets/icons/cards_icons/mobile/meet-fish_icon.svg"
+                          src="../../assets/icons/cards_icons/meet-fish_icon.svg"
                           alt="Meet and fish"
                           class="title__icon"
                         />
-                      </picture>
-                      <!-- <img
-                        src="../../assets/icons/cards_icons/meet-fish_icon.svg"
-                        alt="Banana and bamboo"
-                        class="title__icon"
-                      /> -->
-                    </div>
-                    <div class="slider__card slider__card_8">
-                      <div class="card-img__wrapper">
-                        <img
-                          src="../../assets/images/pets/slider/giant_pandas.png"
-                          alt="Giant pandas"
-                          class="card_image"
-                        />
                       </div>
-                      <!-- <div class="card__text-wrapper"> -->
-                      <div class="card__text">
-                        <div class="card__title">giant Pandas</div>
-                        <div class="small-paragraph card__sub-title">
-                          Native to Southwest China
+                      <div class="slider__card slider__card_5">
+                        <div class="card-img__wrapper">
+                          <picture>
+                            <source
+                              srcset="
+                                ../../assets/images/desktop/pets/slider/gorillas.png
+                              "
+                              media="(min-width: 1599px)"
+                            />
+                            <source
+                              srcset="
+                                ../../assets/images/small_desktop/pets/slider/gorillas.png
+                              "
+                              media="(min-width: 999px)"
+                            />
+                            <source
+                              srcset="
+                                ../../assets/images/tablet/pets/slider/gorillas.png
+                              "
+                              media="(min-width: 639px)"
+                            />
+                            <img
+                              class="card_image"
+                              src="../../assets/images/mobile/pets/slider/gorillas.png"
+                              alt="gorillas"
+                            />
+                          </picture>
                         </div>
-                        <!-- </div> -->
-                      </div>
-                      <img
+
+                        <div class="card__text">
+                          <div class="card__title">Gorillas</div>
+                          <div class="small-paragraph card__sub-title">
+                            Native to Congo
+                          </div>
+                        </div>
+                        <picture>
+                          <source
+                            srcset="
+                              ../../assets/icons/cards_icons/banana-bamboo_icon.svg
+                            "
+                            media="(min-width:641px)"
+                          />
+                          <img
+                            src="../../assets/icons/cards_icons/mobile/banana-bamboo_icon.svg"
+                            alt="Banana and bamboo"
+                            class="title__icon"
+                          />
+                        </picture>
+                        <!-- <img
                         src="../../assets/icons/cards_icons/banana-bamboo_icon.svg"
                         alt="Banana and bamboo"
                         class="title__icon"
-                      />
+                      /> -->
+                      </div>
+                      <div class="slider__card slider__card_6">
+                        <div class="card-img__wrapper">
+                          <picture>
+                            <source
+                              srcset="
+                                ../../assets/images/desktop/pets/slider/penguins.png
+                              "
+                              media="(min-width: 1599px)"
+                            />
+                            <source
+                              class="card_image"
+                              srcset="
+                                ../../assets/images/small_desktop/pets/slider/penguins.png
+                              "
+                              media="(min-width: 641px)"
+                            />
+                            <img
+                              src="https://via.placeholder.com/320"
+                              class="card_image"
+                            />
+                          </picture>
+                          <!-- <img
+                          src="../../assets/images/desktop/pets/slider/penguins.png"
+                          alt="Penguins"
+                          class="card_image"
+                        /> -->
+                        </div>
+                        <!-- <div class="card__text-wrapper"> -->
+                        <div class="card__text">
+                          <div class="card__title">Penguins</div>
+                          <div class="small-paragraph card__sub-title">
+                            Native to Antarctica
+                          </div>
+                          <!-- </div> -->
+                        </div>
+                        <img
+                          src="../../assets/icons/cards_icons/meet-fish_icon.svg"
+                          alt="Meet and fish"
+                          class="title__icon"
+                        />
+                      </div>
+                    </div>
+                    <div class="slider__cards right__slide">
+                      <div class="slider__card slider__card_1">
+                        <div class="card-img__wrapper">
+                          <picture>
+                            <source
+                              srcset="
+                                ../../assets/images/desktop/pets/slider/giant_pandas.png
+                              "
+                              media="(min-width: 1599px)"
+                            />
+                            <source
+                              srcset="
+                                ../../assets/images/small_desktop/pets/slider/giant_pandas.png
+                              "
+                              media="(min-width: 999px)"
+                            />
+                            <source
+                              srcset="
+                                ../../assets/images/tablet/pets/slider/giant_pandas.png
+                              "
+                              media="(min-width: 639px)"
+                            />
+                            <img
+                              src="../../assets/images/mobile/pets/slider/giant_pandas.png"
+                              class="card_image"
+                              alt="giant pandas"
+                            />
+                          </picture>
+                        </div>
+
+                        <!-- <div class="card__text-wrapper"> -->
+                        <div class="card__text">
+                          <div class="card__title">giant Pandas</div>
+                          <div class="small-paragraph card__sub-title">
+                            Native to Southwest China
+                          </div>
+                          <!-- </div> -->
+                        </div>
+
+                        <picture>
+                          <source
+                            srcset="
+                              ../../assets/icons/cards_icons/banana-bamboo_icon.svg
+                            "
+                            media="(min-width:641px)"
+                          />
+                          <img
+                            src="../../assets/icons/cards_icons/mobile/banana-bamboo_icon.svg"
+                            alt="Banana and bamboo"
+                            class="title__icon"
+                          />
+                        </picture>
+                      </div>
+                      <div class="slider__card slider__card_2">
+                        <div class="card-img__wrapper">
+                          <picture>
+                            <source
+                              srcset="
+                                ../../assets/images/desktop/pets/slider/two-toed_sloth.png
+                              "
+                              media="(min-width: 1599px)"
+                            />
+                            <source
+                              srcset="
+                                ../../assets/images/small_desktop/pets/slider/two-toed_sloth.png
+                              "
+                              media="(min-width: 641px)"
+                            />
+                            <img
+                              class="card_image"
+                              src="https://via.placeholder.com/320"
+                            />
+                          </picture>
+                        </div>
+
+                        <div class="card__text">
+                          <div class="card__title">Two-toed Sloth</div>
+                          <div class="small-paragraph card__sub-title">
+                            Mesoamerica, South America
+                          </div>
+                        </div>
+                        <img
+                          src="../../assets/icons/cards_icons/banana-bamboo_icon.svg"
+                          alt="Banana and bamboo"
+                          class="title__icon"
+                        />
+                      </div>
+                      <div class="slider__card slider__card_3">
+                        <div class="card-img__wrapper">
+                          <picture>
+                            <source
+                              srcset="
+                                ../../assets/images/desktop/pets/slider/eagles.png
+                              "
+                              media="(min-width: 1599px)"
+                            />
+                            <source
+                              srcset="
+                                ../../assets/images/small_desktop/pets/slider/eagles.png
+                              "
+                              media="(min-width: 999px)"
+                            />
+                            <source
+                              srcset="
+                                ../../assets/images/tablet/pets/slider/eagles.png
+                              "
+                              media="(min-width: 639px)"
+                            />
+                            <img
+                              class="card_image"
+                              src="../../assets/images/tablet/pets/slider/eagles.png"
+                              alt="eagles"
+                            />
+                          </picture>
+                        </div>
+
+                        <div class="card__text">
+                          <div class="card__title">Eagles</div>
+                          <div class="small-paragraph card__sub-title">
+                            Native to South America
+                          </div>
+                        </div>
+                        <picture>
+                          <source
+                            srcset="
+                              ../../assets/icons/cards_icons/meet-fish_icon.svg
+                            "
+                            media="(min-width:641px)"
+                          />
+                          <img
+                            src="../../assets/icons/cards_icons/mobile/meet-fish_icon.svg"
+                            alt="Meet and fish"
+                            class="title__icon"
+                          />
+                        </picture>
+                      </div>
+                      <div class="slider__card slider__card_4">
+                        <div class="card-img__wrapper">
+                          <picture>
+                            <source
+                              srcset="
+                                ../../assets/images/desktop/pets/slider/cheetahs.png
+                              "
+                              media="(min-width: 1599px)"
+                            />
+                            <source
+                              srcset="
+                                ../../assets/images/small_desktop/pets/slider/cheetahs.png
+                              "
+                              media="(min-width: 641px)"
+                            />
+                            <img
+                              class="card_image"
+                              src="https://via.placeholder.com/320"
+                            />
+                          </picture>
+                        </div>
+
+                        <div class="card__text">
+                          <div class="card__title">cheetahs</div>
+                          <div class="small-paragraph card__sub-title">
+                            Native to Africa
+                          </div>
+                        </div>
+                        <img
+                          src="../../assets/icons/cards_icons/meet-fish_icon.svg"
+                          alt="Meet and fish"
+                          class="title__icon"
+                        />
+                      </div>
+                      <div class="slider__card slider__card_5">
+                        <div class="card-img__wrapper">
+                          <picture>
+                            <source
+                              srcset="
+                                ../../assets/images/desktop/pets/slider/gorillas.png
+                              "
+                              media="(min-width: 1599px)"
+                            />
+                            <source
+                              srcset="
+                                ../../assets/images/small_desktop/pets/slider/gorillas.png
+                              "
+                              media="(min-width: 999px)"
+                            />
+                            <source
+                              srcset="
+                                ../../assets/images/tablet/pets/slider/gorillas.png
+                              "
+                              media="(min-width: 639px)"
+                            />
+                            <img
+                              class="card_image"
+                              src="../../assets/images/mobile/pets/slider/gorillas.png"
+                              alt="gorillas"
+                            />
+                          </picture>
+                        </div>
+
+                        <div class="card__text">
+                          <div class="card__title">Gorillas</div>
+                          <div class="small-paragraph card__sub-title">
+                            Native to Congo
+                          </div>
+                        </div>
+                        <picture>
+                          <source
+                            srcset="
+                              ../../assets/icons/cards_icons/banana-bamboo_icon.svg
+                            "
+                            media="(min-width:641px)"
+                          />
+                          <img
+                            src="../../assets/icons/cards_icons/mobile/banana-bamboo_icon.svg"
+                            alt="Banana and bamboo"
+                            class="title__icon"
+                          />
+                        </picture>
+                      </div>
+                      <div class="slider__card slider__card_6">
+                        <div class="card-img__wrapper">
+                          <picture>
+                            <source
+                              srcset="
+                                ../../assets/images/desktop/pets/slider/penguins.png
+                              "
+                              media="(min-width: 1599px)"
+                            />
+                            <source
+                              class="card_image"
+                              srcset="
+                                ../../assets/images/small_desktop/pets/slider/penguins.png
+                              "
+                              media="(min-width: 641px)"
+                            />
+                            <img
+                              src="https://via.placeholder.com/320"
+                              class="card_image"
+                            />
+                          </picture>
+                        </div>
+
+                        <div class="card__text">
+                          <div class="card__title">Penguins</div>
+                          <div class="small-paragraph card__sub-title">
+                            Native to Antarctica
+                          </div>
+                        </div>
+                        <img
+                          src="../../assets/icons/cards_icons/meet-fish_icon.svg"
+                          alt="Meet and fish"
+                          class="title__icon"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -719,7 +1152,7 @@
       <section class="testimonials">
         <picture>
           <source
-            srcset="../../assets/images/testimonials/leav_foto.png"
+            srcset="../../assets/images/desktop/testimonials/leav_foto.png"
             media="(min-width: 1500px)"
           />
           <source
@@ -738,7 +1171,7 @@
           />
         </picture>
         <!-- <img
-          src="../../assets/images/testimonials/leav_foto.png"
+          src="../../assets/images/desktop/testimonials/leav_foto.png"
           alt="leaf"
           class="testimonials__leaf"
         /> -->
@@ -746,14 +1179,14 @@
           <div class="testimonials__wrapper block__wrapper">
             <!-- ------------------start popup---------------------------------------->
             <div class="popup__overlay" id="popup_overlay">
-              <div class="popup__content">
+              <div class="popup__content" id="popup_content">
                 <div class="popup__card-wrapper">
                   <div class="popup__card" id="popup_card">
                     <div class="close__popup" id="close_popup"></div>
                     <div class="card__header">
                       <div class="user-avatar">
                         <img
-                          src="../../assets/images/testimonials/avatars/no_avatar.png"
+                          src="../../assets/images/desktop/testimonials/avatars/no_avatar.png"
                           alt="no avatar"
                           width="37"
                           height="37"
@@ -784,7 +1217,7 @@
                       <div class="card__header">
                         <div class="user-avatar">
                           <img
-                            src="../../assets/images/testimonials/avatars/no_avatar.png"
+                            src="../../assets/images/desktop/testimonials/avatars/no_avatar.png"
                             alt="no avatar"
                             width="37"
                             height="37"
@@ -822,7 +1255,7 @@
                       <div class="card__header">
                         <div class="user-avatar">
                           <img
-                            src="../../assets/images/testimonials/avatars/avatar1.png"
+                            src="../../assets/images/desktop/testimonials/avatars/avatar1.png"
                             alt="Oskar Samborsky"
                             width="37"
                             height="37"
@@ -864,7 +1297,7 @@
                       <div class="card__header">
                         <div class="user-avatar">
                           <img
-                            src="../../assets/images/testimonials/avatars/avatar2.png"
+                            src="../../assets/images/desktop/testimonials/avatars/avatar2.png"
                             alt="Fredericka Michelin"
                             width="37"
                             height="37"
@@ -906,7 +1339,7 @@
                       <div class="card__header">
                         <div class="user-avatar">
                           <img
-                            src="../../assets/images/testimonials/avatars/avatar3.png"
+                            src="../../assets/images/desktop/testimonials/avatars/avatar3.png"
                             alt="Mila Riksha"
                             width="37"
                             height="37"
@@ -947,7 +1380,7 @@
                       <div class="card__header">
                         <div class="user-avatar">
                           <img
-                            src="../../assets/images/testimonials/avatars/avatar3.png"
+                            src="../../assets/images/desktop/testimonials/avatars/avatar3.png"
                             alt="Mila Riksha"
                             width="37"
                             height="37"
@@ -984,7 +1417,7 @@
                       <div class="card__header">
                         <div class="user-avatar">
                           <img
-                            src="../../assets/images/testimonials/avatars/avatar2.png"
+                            src="../../assets/images/desktop/testimonials/avatars/avatar2.png"
                             alt="Fredericka Michelin"
                             width="37"
                             height="37"
@@ -1021,7 +1454,7 @@
                       <div class="card__header">
                         <div class="user-avatar">
                           <img
-                            src="../../assets/images/testimonials/avatars/avatar2.png"
+                            src="../../assets/images/desktop/testimonials/avatars/avatar2.png"
                             alt="Fredericka Michelin"
                             width="37"
                             height="37"
@@ -1058,7 +1491,7 @@
                       <div class="card__header">
                         <div class="user-avatar">
                           <img
-                            src="../../assets/images/testimonials/avatars/avatar2.png"
+                            src="../../assets/images/desktop/testimonials/avatars/avatar2.png"
                             alt="Fredericka Michelin"
                             width="37"
                             height="37"
@@ -1095,7 +1528,7 @@
                       <div class="card__header">
                         <div class="user-avatar">
                           <img
-                            src="../../assets/images/testimonials/avatars/avatar2.png"
+                            src="../../assets/images/desktop/testimonials/avatars/avatar2.png"
                             alt="Fredericka Michelin"
                             width="37"
                             height="37"
@@ -1132,7 +1565,7 @@
                       <div class="card__header">
                         <div class="user-avatar">
                           <img
-                            src="../../assets/images/testimonials/avatars/avatar2.png"
+                            src="../../assets/images/desktop/testimonials/avatars/avatar2.png"
                             alt="Fredericka Michelin"
                             width="37"
                             height="37"
@@ -1169,7 +1602,7 @@
                       <div class="card__header">
                         <div class="user-avatar">
                           <img
-                            src="../../assets/images/testimonials/avatars/avatar2.png"
+                            src="../../assets/images/desktop/testimonials/avatars/avatar2.png"
                             alt="Fredericka Michelin"
                             width="37"
                             height="37"
@@ -1355,7 +1788,7 @@
         <div class="card__header">
           <div class="user-avatar">
             <img
-              src="../../assets/images/testimonials/avatars/avatar2.png"
+              src="../../assets/images/desktop/testimonials/avatars/avatar2.png"
               alt=""
               width="37"
               height="37"
@@ -1371,6 +1804,52 @@
           </div>
         </div>
         <p class="card__text small-paragraph"></p>
+      </div>
+    </template>
+    <template id="petsSliderCard_tpl">
+      <div class="slider__card">
+        <div class="card-img__wrapper">
+          <picture>
+            <source
+              srcset="../../assets/images/desktop/pets/slider/giant_pandas.png"
+              media="(min-width: 1599px)"
+            />
+            <source
+              srcset="
+                ../../assets/images/small_desktop/pets/slider/giant_pandas.png
+              "
+              media="(min-width: 999px)"
+            />
+            <source
+              srcset="../../assets/images/tablet/pets/slider/giant_pandas.png"
+              media="(min-width: 639px)"
+            />
+            <img
+              src="../../assets/images/mobile/pets/slider/giant_pandas.png"
+              class="card_image"
+              alt="giant pandas"
+            />
+          </picture>
+        </div>
+
+        <div class="card__text">
+          <div class="card__title">giant Pandas</div>
+          <div class="small-paragraph card__sub-title">
+            Native to Southwest China
+          </div>
+        </div>
+
+        <picture>
+          <source
+            srcset="../../assets/icons/cards_icons/banana-bamboo_icon.svg"
+            media="(min-width:641px)"
+          />
+          <img
+            src="../../assets/icons/cards_icons/mobile/banana-bamboo_icon.svg"
+            alt="Banana and bamboo"
+            class="title__icon"
+          />
+        </picture>
       </div>
     </template>
     <script src="../../assets/js/main.js"></script>
