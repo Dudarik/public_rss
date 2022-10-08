@@ -318,7 +318,8 @@
           // width: 115.19px;
           width: 12.5%;
           height: 6px;
-          -webkit-appearance: none;
+          appearance: none;
+          // -webkit-appearance: none;
           @media screen and (max-width: 1599px) {
             width: 75px;
           }
@@ -331,7 +332,7 @@
           cursor: pointer;
           width: 115.19px;
           height: 6px;
-          -webkit-appearance: none;
+          appearance: none;
         }
       }
     }

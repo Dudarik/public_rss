@@ -462,7 +462,7 @@
       // padding-left: px;
       background-color: transparent;
 
-      -moz-appearance: textfield;
+      appearance: textfield;
 
       outline: none;
 
@@ -488,7 +488,7 @@
 
       &::-webkit-outer-spin-button,
       &::-webkit-inner-spin-button {
-        -webkit-appearance: none;
+        appearance: none;
         margin: 0;
       }
       &::placeholder {
