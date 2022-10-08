@@ -1,7 +1,12 @@
 import petsCards from "./db_animals.json" assert { type: "json" };
 import testimonialCards from "./db_testimonials.json" assert { type: "json" };
 
-let store = { testimonialCards, petsCards, animation_direction: "" };
+const store = {
+  testimonialCards,
+  petsCards,
+  animation_direction: "",
+  petsSliderCardsCount: petsSliderCardsCount(),
+};
 console.log(store);
 const PETS_BTN_LEFT = document.querySelector("#pets_button_left");
 const PETS_BTN_RIGHT = document.querySelector("#pets_button_right");
@@ -30,6 +35,10 @@ const getRandomNum = (min, max) =>
  */
 
 const getRandomCardId = (count) => getRandomNum(0, count);
+
+function petsSliderCardsCount() {
+  return window.innerWidth > 640 ? 6 : 4;
+}
 
 const testimonialsProgress = document.querySelector(
   "#testimonials_slider_range"
@@ -159,9 +168,9 @@ function generateRndTestimonialsCards(countCards) {
   }
 }
 
-generateNewPetsSlide(6, PETS_CENTER_SLIDE);
-generateNewPetsSlide(6, PETS_LEFT_SLIDE);
-generateNewPetsSlide(6, PETS_RIGHT_SLIDE);
+generateNewPetsSlide(store.petsSliderCardsCount, PETS_CENTER_SLIDE);
+generateNewPetsSlide(store.petsSliderCardsCount, PETS_LEFT_SLIDE);
+generateNewPetsSlide(store.petsSliderCardsCount, PETS_RIGHT_SLIDE);
 
 generateRndTestimonialsCards(11);
 
@@ -278,11 +287,11 @@ PETS_BTN_RIGHT.addEventListener("click", handleAnimationRight);
 PETS_CAROUSEL.addEventListener("animationend", () => {
   if (store.animation_direction === "left") {
     PETS_CENTER_SLIDE.innerHTML = PETS_RIGHT_SLIDE.innerHTML;
-    generateNewPetsSlide(6, PETS_RIGHT_SLIDE);
+    generateNewPetsSlide(store.petsSliderCardsCount, PETS_RIGHT_SLIDE);
   }
   if (store.animation_direction === "right") {
     PETS_CENTER_SLIDE.innerHTML = PETS_LEFT_SLIDE.innerHTML;
-    generateNewPetsSlide(6, PETS_LEFT_SLIDE);
+    generateNewPetsSlide(store.petsSliderCardsCount, PETS_LEFT_SLIDE);
   }
   removeClassesFromCarousel();
   addHandlersToButtons();
