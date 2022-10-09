@@ -1,13 +1,8 @@
-import petsCards from "./db_animals.json" assert { type: "json" };
-import testimonialCards from "./db_testimonials.json" assert { type: "json" };
+import { store } from "../js/store.js";
+import { getRandomCardId } from "./helpers.js";
+import { generateNewPetsSlide } from "./petsSlider.js";
 
-const store = {
-  testimonialCards,
-  petsCards,
-  animation_direction: "",
-  petsSliderCardsCount: petsSliderCardsCount(),
-};
-console.log(store);
+// console.log(store);
 const PETS_BTN_LEFT = document.querySelector("#pets_button_left");
 const PETS_BTN_RIGHT = document.querySelector("#pets_button_right");
 const PETS_CAROUSEL = document.querySelector("#slider_carousel");
@@ -17,28 +12,6 @@ const PETS_CENTER_SLIDE = document.querySelector(
 );
 const PETS_LEFT_SLIDE = document.querySelector(".slider__cards.left__slide");
 const PETS_RIGHT_SLIDE = document.querySelector(".slider__cards.right__slide");
-
-/**
- * @param {number} min
- * @param {number} max
- *
- * @return {number}
- */
-
-const getRandomNum = (min, max) =>
-  Math.floor(Math.random() * (max - min + 1) + min);
-
-/**
- * @param {number} count - count of cards
- *
- * @return {number}
- */
-
-const getRandomCardId = (count) => getRandomNum(0, count);
-
-function petsSliderCardsCount() {
-  return window.innerWidth > 640 ? 6 : 4;
-}
 
 const testimonialsProgress = document.querySelector(
   "#testimonials_slider_range"
@@ -57,69 +30,6 @@ window.addEventListener("scroll", () => {
     `${window.scrollY}px`
   );
 });
-
-const generateNewPetsCard = (cardId) => {
-  const allCards = store.petsCards;
-
-  const $card_tpl = document.querySelector("#petsSliderCard_tpl");
-
-  const $currentCard = $card_tpl.content.cloneNode(true);
-
-  const pathToImages = {
-    desktop: "../../assets/images/desktop/pets/slider/",
-    small_desktop: "../../assets/images/small_desktop/pets/slider/",
-    tablet: "../../assets/images/tablet/pets/slider/",
-    mobile: "../../assets/images/mobile/pets/slider/",
-  };
-
-  const BASE_ICON_PATH = "../../assets/icons/cards_icons/";
-  const pathToIcons = {
-    desktop: BASE_ICON_PATH,
-    mobile: BASE_ICON_PATH + "mobile/",
-  };
-
-  const $desktop_img = $currentCard.querySelector("#slider_card_desktop_image");
-  const $small_desktop_img = $currentCard.querySelector(
-    "#slider_card_small_desktop_image"
-  );
-  const $tablet_img = $currentCard.querySelector("#slider_card_tablet_image");
-  const $mobile_img = $currentCard.querySelector("#slider_card_mobile_image");
-
-  const $cardTitle = $currentCard.querySelector(".card__title");
-  const $cardSubtitle = $currentCard.querySelector(".card__sub-title");
-
-  const $iconCardBig = $currentCard.querySelector("#icon_card_big");
-  const $iconCardSmall = $currentCard.querySelector("#icon_card_small");
-
-  $desktop_img.srcset = pathToImages.desktop + allCards[cardId].image;
-  $small_desktop_img.srcset =
-    pathToImages.small_desktop + allCards[cardId].image;
-  $tablet_img.srcset = pathToImages.tablet + allCards[cardId].image;
-  $mobile_img.srcset = pathToImages.mobile + allCards[cardId].image;
-
-  $cardTitle.innerText = allCards[cardId].name;
-  $cardSubtitle.innerText = allCards[cardId].location;
-
-  $iconCardBig.srcset = pathToIcons.desktop + allCards[cardId].icon;
-  $iconCardSmall.srcset = pathToIcons.mobile + allCards[cardId].icon;
-  return $currentCard;
-};
-
-const generateNewPetsSlide = (countCards, $slide) => {
-  $slide.innerHTML = "";
-  const idsArray = new Array(store.petsCards.length).fill(0).map((_, id) => id);
-
-  for (let i = 0; i < countCards; i++) {
-    const cardId = idsArray[getRandomCardId(idsArray.length - 1)];
-
-    idsArray.splice(
-      idsArray.findIndex((id) => id === cardId),
-      1
-    );
-
-    $slide.appendChild(generateNewPetsCard(cardId));
-  }
-};
 
 /**
  *
@@ -168,9 +78,21 @@ function generateRndTestimonialsCards(countCards) {
   }
 }
 
-generateNewPetsSlide(store.petsSliderCardsCount, PETS_CENTER_SLIDE);
-generateNewPetsSlide(store.petsSliderCardsCount, PETS_LEFT_SLIDE);
-generateNewPetsSlide(store.petsSliderCardsCount, PETS_RIGHT_SLIDE);
+generateNewPetsSlide(
+  store.petsSliderCardsCount,
+  PETS_CENTER_SLIDE,
+  store.petsCards
+);
+generateNewPetsSlide(
+  store.petsSliderCardsCount,
+  PETS_LEFT_SLIDE,
+  store.petsCards
+);
+generateNewPetsSlide(
+  store.petsSliderCardsCount,
+  PETS_RIGHT_SLIDE,
+  store.petsCards
+);
 
 generateRndTestimonialsCards(11);
 
@@ -287,14 +209,22 @@ PETS_BTN_RIGHT.addEventListener("click", handleAnimationRight);
 PETS_CAROUSEL.addEventListener("animationend", () => {
   if (store.animation_direction === "left") {
     PETS_CENTER_SLIDE.innerHTML = PETS_LEFT_SLIDE.innerHTML;
-    generateNewPetsSlide(store.petsSliderCardsCount, PETS_LEFT_SLIDE);
+    generateNewPetsSlide(
+      store.petsSliderCardsCount,
+      PETS_LEFT_SLIDE,
+      store.petsCards
+    );
 
     // PETS_CENTER_SLIDE.innerHTML = PETS_RIGHT_SLIDE.innerHTML;
     // generateNewPetsSlide(store.petsSliderCardsCount, PETS_RIGHT_SLIDE);
   }
   if (store.animation_direction === "right") {
     PETS_CENTER_SLIDE.innerHTML = PETS_RIGHT_SLIDE.innerHTML;
-    generateNewPetsSlide(store.petsSliderCardsCount, PETS_RIGHT_SLIDE);
+    generateNewPetsSlide(
+      store.petsSliderCardsCount,
+      PETS_RIGHT_SLIDE,
+      store.petsCards
+    );
     // PETS_CENTER_SLIDE.innerHTML = PETS_LEFT_SLIDE.innerHTML;
     // generateNewPetsSlide(store.petsSliderCardsCount, PETS_LEFT_SLIDE);
   }
