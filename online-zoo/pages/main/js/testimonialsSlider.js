@@ -1,6 +1,14 @@
 import { store } from "./store.js";
 import { getRandomCardId } from "./helpers.js";
 
+export const testimonialsProgress = document.querySelector(
+  "#testimonials_slider_range"
+);
+
+export const testimonialsSliderCards = document.querySelector(
+  "#testimonials_slider_cards"
+);
+
 /**
  *
  * @param {number} cardId
@@ -62,12 +70,7 @@ export const generateRndTestimonialsCards = (countCards) => {
   $testimonialCards.append(...$cardsArray);
 };
 
-export const handleProgressBar = (event) => {
-  const testimonialsProgress = event.currentTarget;
-  const testimonialsSliderCards = document.querySelector(
-    "#testimonials_slider_cards"
-  );
-
+export const handleProgressBar = () => {
   const gap = +getComputedStyle(testimonialsSliderCards)
     .gap.slice(7)
     .slice(0, -2);

@@ -1,5 +1,7 @@
 import { store } from "../js/store.js";
 import {
+  testimonialsProgress,
+  testimonialsSliderCards,
   generateRndTestimonialsCards,
   handleProgressBar,
 } from "./testimonialsSlider.js";
@@ -20,18 +22,6 @@ const PETS_CENTER_SLIDE = document.querySelector(
 );
 const PETS_LEFT_SLIDE = document.querySelector(".slider__cards.left__slide");
 const PETS_RIGHT_SLIDE = document.querySelector(".slider__cards.right__slide");
-
-const testimonialsProgress = document.querySelector(
-  "#testimonials_slider_range"
-);
-
-const testimonialsSliderCards = document.querySelector(
-  "#testimonials_slider_cards"
-);
-
-// const popupOverlay = document.querySelector("#popup_overlay");
-
-// const popupCard = document.querySelector("#popup_card");
 
 window.addEventListener("scroll", () => {
   document.documentElement.style.setProperty(
