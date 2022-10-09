@@ -1,5 +1,5 @@
 import { store } from "../js/store.js";
-import { getRandomCardId } from "./helpers.js";
+import { generateRndTestimonialsCards } from "./testimonialsSlider.js";
 import { generateNewPetsSlide } from "./petsSlider.js";
 
 // console.log(store);
@@ -30,53 +30,6 @@ window.addEventListener("scroll", () => {
     `${window.scrollY}px`
   );
 });
-
-/**
- *
- * @param {number} countCards
- * @return {void} bad practice... in function mutate DOM
- */
-
-function generateRndTestimonialsCards(countCards) {
-  const allCards = store.testimonialCards;
-
-  let $testimonialCards = document.querySelector("#testimonials_slider_cards");
-
-  $testimonialCards.innerHTML = "";
-
-  const idsArray = new Array(allCards.length).fill(0).map((_, id) => id);
-
-  for (let i = 0; i < countCards; i++) {
-    const cardId = idsArray[getRandomCardId(idsArray.length - 1)];
-
-    idsArray.splice(
-      idsArray.findIndex((val) => val === cardId),
-      1
-    );
-
-    const $card_tpl = document.querySelector("#testimonialsSliderCard_tpl");
-
-    const $currentCard = $card_tpl.content.cloneNode(true);
-
-    $currentCard
-      .querySelector(".slider__card")
-      .setAttribute("data-cardid", cardId);
-
-    const $avatar = $currentCard.querySelector(".user-avatar > img");
-    const $userName = $currentCard.querySelector(".user-name");
-    const $userLoacation = $currentCard.querySelector(".user__location");
-    const $dateTimePost = $currentCard.querySelector(".date-time__post");
-    const $cardText = $currentCard.querySelector(".card__text");
-
-    $avatar.src = allCards[cardId].avatar;
-    $userName.innerText = allCards[cardId].name;
-    $userLoacation.innerText = allCards[cardId].localiton;
-    $dateTimePost.innerText = allCards[cardId].dateTime;
-    $cardText.innerText = allCards[cardId].body;
-
-    $testimonialCards.appendChild($currentCard);
-  }
-}
 
 generateNewPetsSlide(store.petsSliderCardsCount, PETS_CENTER_SLIDE);
 generateNewPetsSlide(store.petsSliderCardsCount, PETS_LEFT_SLIDE);

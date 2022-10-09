@@ -37,7 +37,6 @@ const generateNewPetsCard = (cardId) => {
 
   const $iconCardBig = $currentCard.querySelector("#icon_card_big");
   const $iconCardSmall = $currentCard.querySelector("#icon_card_small");
-  console.log($desktop_img);
 
   $desktop_img.srcset = pathToImages.desktop + allCards[cardId].image;
   $small_desktop_img.srcset =
