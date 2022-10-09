@@ -1,8 +1,16 @@
 import { store } from "../js/store.js";
-import { generateRndTestimonialsCards } from "./testimonialsSlider.js";
+import {
+  generateRndTestimonialsCards,
+  handleProgressBar,
+} from "./testimonialsSlider.js";
+import {
+  handleOpenPopup,
+  handleClosePopup,
+  popupOverlay,
+  popupCard,
+} from "./testimonialsPopup.js";
 import { generateNewPetsSlide } from "./petsSlider.js";
 
-// console.log(store);
 const PETS_BTN_LEFT = document.querySelector("#pets_button_left");
 const PETS_BTN_RIGHT = document.querySelector("#pets_button_right");
 const PETS_CAROUSEL = document.querySelector("#slider_carousel");
@@ -16,13 +24,14 @@ const PETS_RIGHT_SLIDE = document.querySelector(".slider__cards.right__slide");
 const testimonialsProgress = document.querySelector(
   "#testimonials_slider_range"
 );
+
 const testimonialsSliderCards = document.querySelector(
   "#testimonials_slider_cards"
 );
 
-const popupOverlay = document.querySelector("#popup_overlay");
+// const popupOverlay = document.querySelector("#popup_overlay");
 
-const popupCard = document.querySelector("#popup_card");
+// const popupCard = document.querySelector("#popup_card");
 
 window.addEventListener("scroll", () => {
   document.documentElement.style.setProperty(
@@ -37,74 +46,7 @@ generateNewPetsSlide(store.petsSliderCardsCount, PETS_RIGHT_SLIDE);
 
 generateRndTestimonialsCards(11);
 
-testimonialsProgress.addEventListener("input", () => {
-  const gap = +getComputedStyle(testimonialsSliderCards)
-    .gap.slice(7)
-    .slice(0, -2);
-  const border = 2.7;
-  const countCards = 11;
-  const cardsWidth = testimonialsSliderCards.getBoundingClientRect().width;
-  const oneOffset =
-    (cardsWidth - gap * (countCards - 2)) / countCards + gap - border;
-
-  testimonialsSliderCards.style.left = `${
-    -1 * oneOffset * testimonialsProgress.value
-  }px`;
-});
-
-const handleOpenPopup = (event) => {
-  if (document.documentElement.clientWidth > 999) return;
-  const elem = event.target;
-  const closestCard = elem.closest(".slider__card");
-
-  const cardId = closestCard.dataset.cardid;
-
-  if (!closestCard) return;
-
-  const scrollY = document.documentElement.style.getPropertyValue("--scroll-y");
-  const body = document.body;
-  body.style.position = "fixed";
-  body.style.top = `-${scrollY}`;
-
-  const avatar = popupCard.querySelector(".user-avatar > img");
-  const userName = popupCard.querySelector(".user-name");
-  const userLoacation = popupCard.querySelector(".user__location");
-  const dateTimePost = popupCard.querySelector(".date-time__post");
-  const cardText = popupCard.querySelector(".card__text");
-
-  avatar.src = store.testimonialCards[cardId].avatar;
-  userName.innerText = store.testimonialCards[cardId].name;
-  userLoacation.innerText = store.testimonialCards[cardId].localiton;
-  dateTimePost.innerText = store.testimonialCards[cardId].dateTime;
-  cardText.innerText = store.testimonialCards[cardId].body;
-
-  popupOverlay.classList.add("popup__overlay_active");
-};
-
-const handleClosePopup = (event) => {
-  console.log(event.target);
-  if (
-    !(
-      event.target.id === "close_popup" ||
-      event.target.id === "popup_overlay" ||
-      event.target.id === "popup_content"
-    )
-  )
-    return;
-  // testimonialsSliderCards.removeEventListener('click', handleOpenPopup)
-
-  event.stopPropagation();
-  event.preventDefault();
-
-  const body = document.body;
-  const scrollY = body.style.top;
-  body.style.position = "";
-  body.style.top = "";
-  window.scrollTo(0, parseInt(scrollY || "0") * -1);
-  console.log(event.target.id);
-
-  popupOverlay.classList.remove("popup__overlay_active");
-};
+testimonialsProgress.addEventListener("input", handleProgressBar);
 
 popupOverlay.addEventListener("click", handleClosePopup);
 
