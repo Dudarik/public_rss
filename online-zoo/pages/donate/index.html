@@ -15,10 +15,41 @@
             <div class="logo"><h1 class="no-visible">Petstory online</h1></div>
           </a>
           <nav class="main-menu">
-            <div class="menu__burger">
+            <div class="burger__toggle-button">
               <span></span>
               <span></span>
               <span></span>
+            </div>
+            <div class="burger__menu_overlay">
+              <div class="burger__menu_content">
+                <a href="../main/" class="logo__link">
+                  <div class="burger__logo"></div>
+                </a>
+                <ul class="menu">
+                  <li class="menu__item">
+                    <a href="../main/" class="menu__link">About</a>
+                  </li>
+                  <li class="menu__item">
+                    <a href="#" class="menu__link">Map</a>
+                  </li>
+                  <li class="menu__item">
+                    <a href="#" class="menu__link">Zoos</a>
+                  </li>
+                  <li class="menu__item">
+                    <a href="" class="menu__link_backlight">Donate</a>
+                  </li>
+                  <li class="menu__item">
+                    <a href="#" class="menu__link">Contact us</a>
+                  </li>
+                  <li class="menu__item">
+                    <a
+                      href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online"
+                      class="menu__link"
+                      >Designed by &copy;</a
+                    >
+                  </li>
+                </ul>
+              </div>
             </div>
 
             <ul class="menu">
@@ -130,12 +161,12 @@
                           <input
                             class="radio-button__custom"
                             type="radio"
-                            id="dollar_1"
+                            id="dollar_5000"
                             name="dollars"
                             value="5000"
                           />
-                          <label class="label__radio" for="dollar_1"></label>
-                          <label class="dollar__label" for="dollar_1">
+                          <label class="label__radio" for="dollar_5000"></label>
+                          <label class="dollar__label" for="dollar_5000">
                             <div class="radio-button__count">$5000</div>
                           </label>
                         </div>
@@ -143,12 +174,12 @@
                           <input
                             class="radio-button__custom"
                             type="radio"
-                            id="dollar_2"
+                            id="dollar_2000"
                             name="dollars"
                             value="2000"
                           />
-                          <label class="label__radio" for="dollar_2"></label>
-                          <label class="dollar__label" for="dollar_2">
+                          <label class="label__radio" for="dollar_2000"></label>
+                          <label class="dollar__label" for="dollar_2000">
                             <div class="radio-button__count">$2000</div>
                           </label>
                         </div>
@@ -156,12 +187,12 @@
                           <input
                             class="radio-button__custom"
                             type="radio"
-                            id="dollar_3"
+                            id="dollar_1000"
                             name="dollars"
                             value="1000"
                           />
-                          <label class="label__radio" for="dollar_3"></label>
-                          <label class="dollar__label" for="dollar_3">
+                          <label class="label__radio" for="dollar_1000"></label>
+                          <label class="dollar__label" for="dollar_1000">
                             <div class="radio-button__count">$1000</div>
                           </label>
                         </div>
@@ -169,12 +200,12 @@
                           <input
                             class="radio-button__custom"
                             type="radio"
-                            id="dollar_4"
+                            id="dollar_500"
                             name="dollars"
                             value="500"
                           />
-                          <label class="label__radio" for="dollar_4"></label>
-                          <label class="dollar__label" for="dollar_4">
+                          <label class="label__radio" for="dollar_500"></label>
+                          <label class="dollar__label" for="dollar_500">
                             <div class="radio-button__count">$500</div>
                           </label>
                         </div>
@@ -182,12 +213,12 @@
                           <input
                             class="radio-button__custom"
                             type="radio"
-                            id="dollar_5"
+                            id="dollar_250"
                             name="dollars"
                             value="250"
                           />
-                          <label class="label__radio" for="dollar_5"></label>
-                          <label class="dollar__label" for="dollar_5">
+                          <label class="label__radio" for="dollar_250"></label>
+                          <label class="dollar__label" for="dollar_250">
                             <div class="radio-button__count">$250</div>
                           </label>
                         </div>
@@ -195,13 +226,13 @@
                           <input
                             class="radio-button__custom"
                             type="radio"
-                            id="dollar_6"
+                            id="dollar_100"
                             name="dollars"
                             value="100"
                             checked
                           />
-                          <label class="label__radio" for="dollar_6"></label>
-                          <label class="dollar__label" for="dollar_6">
+                          <label class="label__radio" for="dollar_100"></label>
+                          <label class="dollar__label" for="dollar_100">
                             <div class="radio-button__count">$100</div>
                           </label>
                         </div>
@@ -209,12 +240,12 @@
                           <input
                             class="radio-button__custom"
                             type="radio"
-                            id="dollar_7"
+                            id="dollar_50"
                             name="dollars"
                             value="50"
                           />
-                          <label class="label__radio" for="dollar_7"></label>
-                          <label class="dollar__label" for="dollar_7">
+                          <label class="label__radio" for="dollar_50"></label>
+                          <label class="dollar__label" for="dollar_50">
                             <div class="radio-button__count">$50</div>
                           </label>
                         </div>
@@ -222,12 +253,12 @@
                           <input
                             class="radio-button__custom"
                             type="radio"
-                            id="dollar_8"
+                            id="dollar_25"
                             name="dollars"
                             value="25"
                           />
-                          <label class="label__radio" for="dollar_8"></label>
-                          <label class="dollar__label" for="dollar_8">
+                          <label class="label__radio" for="dollar_25"></label>
+                          <label class="dollar__label" for="dollar_25">
                             <div class="radio-button__count">$25</div>
                           </label>
                         </div>
@@ -240,11 +271,13 @@
                       <input
                         placeholder="Another amount"
                         type="number"
+                        id="another_amount"
                         class="amount__input"
                         maxlength="4"
                         oninput="this.value = this.value.slice(0, this.maxLength);"
                         min="0"
                         max="9999"
+                        value="100"
                       />
 
                       <svg
@@ -416,5 +449,7 @@
         </div>
       </div>
     </footer>
+    <script src="../../assets/js/main.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>

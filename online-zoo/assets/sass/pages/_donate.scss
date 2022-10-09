@@ -6,7 +6,7 @@
 .donate__watch-you-animal {
   display: block;
   height: 387px;
-  background-image: url("../../assets/images/main_header/panda_bg.png");
+  background-image: url("../../assets/images/desktop/main_header/panda_bg.png");
   background-repeat: no-repeat;
   background-position: center -4px;
   transition: all 0.3s;
@@ -307,6 +307,7 @@
           display: flex;
           flex-direction: column;
           align-items: center;
+          transition: all 0.5s;
           @media screen and (max-width: 1599px) {
             &:first-child {
               display: none;
@@ -461,7 +462,7 @@
       // padding-left: px;
       background-color: transparent;
 
-      -moz-appearance: textfield;
+      appearance: textfield;
 
       outline: none;
 
@@ -487,7 +488,7 @@
 
       &::-webkit-outer-spin-button,
       &::-webkit-inner-spin-button {
-        -webkit-appearance: none;
+        appearance: none;
         margin: 0;
       }
       &::placeholder {
