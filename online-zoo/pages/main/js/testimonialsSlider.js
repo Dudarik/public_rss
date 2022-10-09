@@ -1,6 +1,12 @@
 import { store } from "./store.js";
 import { getRandomCardId } from "./helpers.js";
 
+/**
+ *
+ * @param {number} cardId
+ * @returns {HTMLElement}
+ */
+
 const generateTestimonialsCard = (cardId) => {
   const allCards = store.testimonialCards;
 
@@ -54,4 +60,24 @@ export const generateRndTestimonialsCards = (countCards) => {
     $cardsArray.push(generateTestimonialsCard(cardId));
   }
   $testimonialCards.append(...$cardsArray);
+};
+
+export const handleProgressBar = (event) => {
+  const testimonialsProgress = event.currentTarget;
+  const testimonialsSliderCards = document.querySelector(
+    "#testimonials_slider_cards"
+  );
+
+  const gap = +getComputedStyle(testimonialsSliderCards)
+    .gap.slice(7)
+    .slice(0, -2);
+  const border = 2.7;
+  const countCards = 11;
+  const cardsWidth = testimonialsSliderCards.getBoundingClientRect().width;
+  const oneOffset =
+    (cardsWidth - gap * (countCards - 2)) / countCards + gap - border;
+
+  testimonialsSliderCards.style.left = `${
+    -1 * oneOffset * testimonialsProgress.value
+  }px`;
 };
