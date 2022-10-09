@@ -78,21 +78,9 @@ function generateRndTestimonialsCards(countCards) {
   }
 }
 
-generateNewPetsSlide(
-  store.petsSliderCardsCount,
-  PETS_CENTER_SLIDE,
-  store.petsCards
-);
-generateNewPetsSlide(
-  store.petsSliderCardsCount,
-  PETS_LEFT_SLIDE,
-  store.petsCards
-);
-generateNewPetsSlide(
-  store.petsSliderCardsCount,
-  PETS_RIGHT_SLIDE,
-  store.petsCards
-);
+generateNewPetsSlide(store.petsSliderCardsCount, PETS_CENTER_SLIDE);
+generateNewPetsSlide(store.petsSliderCardsCount, PETS_LEFT_SLIDE);
+generateNewPetsSlide(store.petsSliderCardsCount, PETS_RIGHT_SLIDE);
 
 generateRndTestimonialsCards(11);
 
@@ -209,22 +197,14 @@ PETS_BTN_RIGHT.addEventListener("click", handleAnimationRight);
 PETS_CAROUSEL.addEventListener("animationend", () => {
   if (store.animation_direction === "left") {
     PETS_CENTER_SLIDE.innerHTML = PETS_LEFT_SLIDE.innerHTML;
-    generateNewPetsSlide(
-      store.petsSliderCardsCount,
-      PETS_LEFT_SLIDE,
-      store.petsCards
-    );
+    generateNewPetsSlide(store.petsSliderCardsCount, PETS_LEFT_SLIDE);
 
     // PETS_CENTER_SLIDE.innerHTML = PETS_RIGHT_SLIDE.innerHTML;
     // generateNewPetsSlide(store.petsSliderCardsCount, PETS_RIGHT_SLIDE);
   }
   if (store.animation_direction === "right") {
     PETS_CENTER_SLIDE.innerHTML = PETS_RIGHT_SLIDE.innerHTML;
-    generateNewPetsSlide(
-      store.petsSliderCardsCount,
-      PETS_RIGHT_SLIDE,
-      store.petsCards
-    );
+    generateNewPetsSlide(store.petsSliderCardsCount, PETS_RIGHT_SLIDE);
     // PETS_CENTER_SLIDE.innerHTML = PETS_LEFT_SLIDE.innerHTML;
     // generateNewPetsSlide(store.petsSliderCardsCount, PETS_LEFT_SLIDE);
   }
