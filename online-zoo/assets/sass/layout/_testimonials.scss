@@ -59,6 +59,10 @@
       margin-bottom: 51px;
       // width: 100%;
     }
+    @media screen and (max-width: 640px) {
+      margin-bottom: 28px;
+      // width: 100%;
+    }
   }
   .slider {
     display: flex;
