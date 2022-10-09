@@ -2,6 +2,10 @@
   margin-left: 63px;
   width: 100%;
   position: relative;
+  transition: all 0.5s;
+  @media screen and (max-width: 680px) {
+    margin-left: 25px;
+  }
 }
 
 .menu {
@@ -65,7 +69,11 @@
   @media screen and (max-width: 1599px) {
     gap: 48px;
   }
-  @media screen and (max-width: 999px) {
+  @media screen and (max-width: 810px) {
+    gap: 25px;
+  }
+
+  @media screen and (max-width: 640px) {
     display: none;
   }
 }
@@ -79,20 +87,16 @@
   display: none;
   position: absolute;
   z-index: 5001;
-  left: calc(100vw - 150px);
-  right: 1vh;
+  // left: calc(100vw - 150px);
+  right: 0;
   // right: 3px;
   top: -2px;
   width: 18px;
   height: 10px;
   cursor: pointer;
 
-  @media screen and (max-width: 999px) {
-    left: calc(100vw - 168px);
+  @media screen and (max-width: 640px) {
     display: block;
-  }
-  @media screen and (max-width: 400px) {
-    left: calc(100vw - 148px);
   }
 
   span {
