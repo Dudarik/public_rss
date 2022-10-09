@@ -64,13 +64,13 @@ const removeClassesFromCarousel = () => {
   PETS_CAROUSEL.classList.remove("pets__slide_left");
 };
 
-const handleAnimationLeft = (event) => {
+const handleAnimationLeft = () => {
   store.animation_direction = "left";
   removeHandlersFromButtons();
   document.querySelector("#slider_carousel").classList.add("pets__slide_left");
 };
 
-const handleAnimationRight = (event) => {
+const handleAnimationRight = () => {
   store.animation_direction = "right";
   removeHandlersFromButtons();
   document.querySelector("#slider_carousel").classList.add("pets__slide_right");

@@ -102,7 +102,7 @@
     }
     @media screen and (max-width: 999px) {
       // max-width: 600px;
-      left: 0;
+      left: 0 !important;
       grid-template-columns: auto;
       grid-template-rows: repeat(4, auto);
 
