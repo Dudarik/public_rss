@@ -18,10 +18,11 @@
   .menu__item {
     list-style-type: none;
     display: block;
-
+    transition: all 1s;
     &:last-child {
       margin-left: auto;
-      @media screen and (max-width: 999px) {
+
+      @media screen and (max-width: 700px) {
         margin-left: 0;
       }
     }

@@ -136,6 +136,11 @@
   @media screen and (max-width: 639px) {
     position: absolute;
     left: 0px;
+    bottom: -85px;
+  }
+  @media screen and (max-width: 321px) {
+    position: absolute;
+    left: 0px;
     bottom: -115px;
   }
   // left: calc(50% - 298px/2 + 332px);
