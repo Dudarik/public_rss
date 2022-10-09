@@ -62,6 +62,8 @@ export const generateNewPetsSlide = (countCards, $slide) => {
   $slide.innerHTML = "";
   const idsArray = new Array(store.petsCards.length).fill(0).map((_, id) => id);
 
+  const $cardsArray = [];
+
   for (let i = 0; i < countCards; i++) {
     const cardId = idsArray[getRandomCardId(idsArray.length - 1)];
 
@@ -70,6 +72,7 @@ export const generateNewPetsSlide = (countCards, $slide) => {
       1
     );
 
-    $slide.appendChild(generateNewPetsCard(cardId));
+    $cardsArray.push(generateNewPetsCard(cardId));
   }
+  $slide.append(...$cardsArray);
 };
