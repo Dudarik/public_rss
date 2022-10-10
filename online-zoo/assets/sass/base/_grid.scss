@@ -1,8 +1,15 @@
-// html {
-//   overflow-x: hidden;
-//   margin-right: calc(-1 * (100vw - 100%));
-// }
+html {
+  overflow-x: hidden;
+  margin-right: calc(-1 * (100vw - 100%));
+}
 
+.body_fixed {
+  position: fixed;
+  // top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 .container {
   width: auto;
   max-width: 1600px;
