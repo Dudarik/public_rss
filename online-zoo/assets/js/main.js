@@ -2,6 +2,7 @@ const burger_toggle_button = document.querySelector(".burger__toggle-button");
 const overlay = document.querySelector(".burger__menu_overlay");
 
 let scrollY = "0px";
+let flagStopScroll = false;
 
 burger_toggle_button.addEventListener("click", () => {
   burger_toggle_button.classList.toggle("burger__menu_active");
@@ -18,17 +19,28 @@ overlay.addEventListener("click", () => {
 window.addEventListener("resize", () => {
   const width = window.innerWidth;
 
-  if (width > 998) {
-    const popupOverlay = document.querySelector("#popup_overlay");
+  if (width > 640) {
     burger_toggle_button.classList.remove("burger__menu_active");
+
+    flagStopScroll && startScroll();
+
+    const body = document.body;
+    body.style.position = "";
+  }
+
+  if (width > 999) {
+    const popupOverlay = document.querySelector("#popup_overlay");
     popupOverlay.classList.remove("popup__overlay_active");
-    startScroll();
+
+    flagStopScroll && startScroll();
+
     const body = document.body;
     body.style.position = "";
   }
 });
 
 export const stopScroll = () => {
+  flagStopScroll = true;
   const currentOffsetY =
     document.documentElement.style.getPropertyValue("--scroll-y");
   if (
@@ -44,6 +56,7 @@ export const stopScroll = () => {
 };
 
 export const startScroll = () => {
+  flagStopScroll = false;
   const body = document.body;
   const currY = parseInt(scrollY) * -1 + "px"; //body.style.top;
   body.classList.remove("body_fixed");
