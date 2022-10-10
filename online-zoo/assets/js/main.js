@@ -13,6 +13,18 @@ overlay.addEventListener("click", () => {
   startScroll();
 });
 
+window.addEventListener("resize", () => {
+  const width = window.innerWidth;
+
+  if (width > 998) {
+    const popupOverlay = document.querySelector("#popup_overlay");
+
+    burger_toggle_button.classList.remove("burger__menu_active");
+    popupOverlay.classList.remove("popup__overlay_active");
+    startScroll();
+  }
+});
+
 export const stopScroll = () => {
   const scrollY = document.documentElement.style.getPropertyValue("--scroll-y");
   const body = document.body;
