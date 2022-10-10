@@ -1,3 +1,4 @@
+import { startScroll, stopScroll } from "../../../assets/js/main.js";
 import { store } from "./store.js";
 
 export const popupOverlay = document.querySelector("#popup_overlay");
@@ -15,10 +16,7 @@ export const handleOpenPopup = (event) => {
 
   if (!closestCard) return;
 
-  const scrollY = document.documentElement.style.getPropertyValue("--scroll-y");
-  const body = document.body;
-  body.style.position = "fixed";
-  body.style.top = `-${scrollY}`;
+  stopScroll();
 
   const avatar = popupCard.querySelector(".user-avatar > img");
   const userName = popupCard.querySelector(".user-name");
@@ -50,11 +48,7 @@ export const handleClosePopup = (event) => {
   event.stopPropagation();
   event.preventDefault();
 
-  const body = document.body;
-  const scrollY = body.style.top;
-  body.style.position = "";
-  body.style.top = "";
-  window.scrollTo(0, parseInt(scrollY || "0") * -1);
+  startScroll();
   // console.log(event.target.id);
 
   popupOverlay.classList.remove("popup__overlay_active");
