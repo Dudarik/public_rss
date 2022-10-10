@@ -1,6 +1,6 @@
 import { petsSliderCardsCount } from "./helpers.js";
-import { petsCards } from "../db_animals.js";
-import { testimonialCards } from "../db_testimonials.js";
+import { petsCards } from "./db/db_animals.js";
+import { testimonialCards } from "./db/db_testimonials.js";
 // import petsCards from "../db_animals.json" assert { type: "json" };
 // import testimonialCards from "../db_testimonials.json" assert { type: "json" };
 

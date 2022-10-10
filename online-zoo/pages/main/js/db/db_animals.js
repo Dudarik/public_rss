@@ -50,8 +50,8 @@ export const petsCards = [
   },
   {
     id: 7,
-    name: "GORILLAS",
-    location: "Native to Congo",
+    name: "KING KONG",
+    location: "Native to New York",
     image: "gorillas2.png",
     icon: "banana-bamboo_icon.svg",
   },
