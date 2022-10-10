@@ -12,9 +12,9 @@ export const handleOpenPopup = (event) => {
 
   const closestCard = elem.closest(".slider__card");
 
-  const cardId = closestCard.dataset.cardid;
-
   if (!closestCard) return;
+
+  const cardId = closestCard.dataset.cardid;
 
   stopScroll();
 
@@ -34,7 +34,7 @@ export const handleOpenPopup = (event) => {
 };
 
 export const handleClosePopup = (event) => {
-  console.log(event.target);
+  // console.log(event.target);
   if (
     !(
       event.target.id === "close_popup" ||

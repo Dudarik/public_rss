@@ -41,7 +41,7 @@ export const testimonialCards = [
   },
   {
     id: 5,
-    avatar: "../../assets/images/desktop/testimonials/avatars/avatar_3.jpg",
+    avatar: "../../assets/images/desktop/testimonials/avatars/avatar_21.jpeg",
     name: "Tom Hanks",
     localiton: "Austria",
     dateTime: "Yesterday",
@@ -89,7 +89,7 @@ export const testimonialCards = [
   },
   {
     id: 11,
-    avatar: "../../assets/images/desktop/testimonials/avatars/avatar_9.jpg",
+    avatar: "../../assets/images/desktop/testimonials/avatars/avatar_20.jpeg",
     name: "Bruce Lee",
     localiton: "France",
     dateTime: "Yesterday",
