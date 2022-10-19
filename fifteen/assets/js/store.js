@@ -29,6 +29,7 @@ export const store = {
 
   records: [],
 
+  timeStartGame: "",
   playTime: "",
   movesCount: 0,
 

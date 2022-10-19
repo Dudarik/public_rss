@@ -1,0 +1,15 @@
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  button {
+    width: 6rem;
+    height: 3rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 1rem;
+  }
+}
