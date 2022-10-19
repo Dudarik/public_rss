@@ -19,7 +19,7 @@ export const store = {
       BOARD_SIZE_7,
       BOARD_SIZE_8,
     ],
-    currentBoardSize: BOARD_SIZE_4,
+    currentBoardSize: BOARD_SIZE_5,
   },
 
   ls_available: false,

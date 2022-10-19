@@ -1,5 +1,11 @@
 import { store } from "../store.js";
-import { handlePause, handleStart } from "./handlers.js";
+import { generateGameArrays } from "./genArrays.js";
+import {
+  handleBoard,
+  handlePause,
+  handleSelect,
+  handleStart,
+} from "./handlers.js";
 import { isLSAvailabel } from "./localstorage.js";
 
 export const initContainer = () => {
@@ -28,6 +34,8 @@ export const initButtons = () => {
     option.innerText = `${options[i]} X ${options[i]}`;
     newSelect.append(option);
   }
+
+  newSelect.addEventListener("change", handleSelect);
 
   newDiv.append(newSelect);
 
@@ -75,28 +83,14 @@ const initBoard = () => {
   const newDiv = document.createElement("div");
   newDiv.classList.add("board");
   newDiv.setAttribute("id", "board");
+  newDiv.addEventListener("mousedown", handleBoard);
   return newDiv;
-};
-
-const generateGameArray = () => {
-  const bSize = store.gameSettings.currentBoardSize;
-
-  for (let i = 0; i < bSize; i++) {
-    const row = [];
-    for (let j = 0; j < bSize; j++) {
-      row.push(i * bSize + j + 1);
-    }
-    store.gameArray.push(row);
-  }
-  store.gameArray[bSize - 1][bSize - 1] = 0;
-
-  store.gameWinArray = store.gameArray.slice();
 };
 
 export const initGame = () => {
   store.ls_available = isLSAvailabel();
 
-  if (store.ls_available) generateGameArray();
+  if (store.ls_available) generateGameArrays();
 
   const mainContainer = initContainer();
   mainContainer.append(initButtons(), initStats(), initBoard());
