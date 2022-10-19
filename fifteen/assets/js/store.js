@@ -6,6 +6,10 @@ export const store = {
     timerEnable: false,
   },
 
+  ls_available: false,
+  ls_key_data: "fifteen_data",
+  ls_key_settings: "fifteen_settings",
+
   records: [],
 
   playTime: "",
