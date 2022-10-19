@@ -60,8 +60,7 @@ const initStats = () => {
   const newDiv = document.createElement("div");
   newDiv.classList.add("stats");
   const moves = initStat("Moves", 0, ["moves_count"]);
-  const time = initStat("Time", "00:00:00", ["game_time"]);
-  // console.log(moves, time);
+  const time = initStat("Time", "00:00:00", ["play_time"]);
   newDiv.append(moves, time);
   return newDiv;
 };

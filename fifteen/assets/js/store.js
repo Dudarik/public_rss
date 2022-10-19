@@ -32,6 +32,7 @@ export const store = {
   timeStartGame: "",
   playTime: "",
   movesCount: 0,
+  inGame: false,
 
   dragableStartPosX: 0,
   dragableStartPosY: 0,

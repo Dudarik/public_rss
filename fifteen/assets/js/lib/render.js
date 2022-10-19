@@ -1,4 +1,5 @@
 import { store } from "../store.js";
+import { initGame } from "./initGame.js";
 
 export const renderBoard = () => {
   const bSize = store.gameSettings.currentBoardSize;
@@ -22,6 +23,16 @@ export const renderBoard = () => {
   board.append(...cells);
 };
 
+export const renderMoves = () => {
+  const moves = document.querySelector(".moves_count");
+  moves.innerText = `Moves: ${store.movesCount}`;
+};
+export const renderTime = () => {
+  const palyTime = document.querySelector(".play_time");
+  palyTime.innerText = `Time: ${store.playTime}`;
+};
+
 export const initRender = () => {
+  initGame();
   renderBoard();
 };

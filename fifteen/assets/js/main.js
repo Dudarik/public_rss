@@ -1,7 +1,5 @@
 import { store } from "./store.js";
-import { initGame } from "./lib/index.js";
-import { initRender, renderBoard } from "./lib/render.js";
 
-initGame();
+import { initRender } from "./lib/render.js";
+
 initRender();
-// renderBoard();
