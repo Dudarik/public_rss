@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="container">
-      <form class="buttons">
+      <div class="buttons">
         <select name="select" id="boardsize">
           <option value="value1">3 X 3</option>
           <option value="value2" selected>4 X 4</option>
@@ -24,14 +24,14 @@
         <button>Stop</button>
         <button>Save</button>
         <button>Results</button>
-      </form>
+      </div>
       <div class="stats">
         <span class="moves_count">Moves: 5</span>
         <span class="game_time">Time: 10:56</span>
       </div>
-      <div class="board__wrapper">
-        <div class="board" id="board"></div>
-      </div>
+      <!-- <div class="board__wrapper"> -->
+      <div class="board" id="board"></div>
+      <!-- </div> -->
     </div>
     <script type="module" src="./assets/js/main.js"></script>
   </body>

@@ -22,19 +22,6 @@ export const renderBoard = () => {
   board.append(...cells);
 };
 
-export const renderButtons = () => {
-  console.log("renderButtons");
-};
-
-export const renderSettings = () => {
-  console.log("renderSettings");
-};
-
 export const initRender = () => {
-  const bSize = store.gameSettings.currentBoardSize;
-  const data = store.gameArray;
-
-  renderButtons();
-  renderSettings();
   renderBoard();
 };
