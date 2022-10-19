@@ -1,4 +1,5 @@
 import { store } from "../store.js";
+import { handleStart } from "./handlers.js";
 import { isLSAvailabel } from "./localstorage.js";
 
 export const initContainer = () => {
@@ -41,6 +42,8 @@ export const initButtons = () => {
   btnPause.innerText = "Pause OFF";
   btnSave.innerText = "Save";
   btnResults.innerText = "Results";
+
+  btnShuffleStart.addEventListener("click", handleStart);
 
   newDiv.append(btnShuffleStart, btnSoundOn, btnPause, btnSave, btnResults);
 

@@ -1,3 +1,4 @@
+import { formatTime } from "../helpers/index.js";
 import { store } from "../store.js";
 import { initGame } from "./initGame.js";
 
@@ -29,7 +30,7 @@ export const renderMoves = () => {
 };
 export const renderTime = () => {
   const palyTime = document.querySelector(".play_time");
-  palyTime.innerText = `Time: ${store.playTime}`;
+  palyTime.innerText = `Time: ${formatTime(store.playTime)}`;
 };
 
 export const initRender = () => {

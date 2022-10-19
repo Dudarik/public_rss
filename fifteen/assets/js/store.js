@@ -11,7 +11,6 @@ export const store = {
   gameSettings: {
     sound: false,
     numbers: true,
-    timerEnable: false,
     boardSizes: [
       BOARD_SIZE_3,
       BOARD_SIZE_4,
@@ -29,10 +28,10 @@ export const store = {
 
   records: [],
 
-  timeStartGame: "",
-  playTime: "",
+  playTime: 0,
   movesCount: 0,
   inGame: false,
+  gameTimerId: null,
 
   dragableStartPosX: 0,
   dragableStartPosY: 0,
