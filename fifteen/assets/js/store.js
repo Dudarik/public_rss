@@ -7,6 +7,7 @@ const BOARD_SIZE_8 = 8;
 
 export const store = {
   gameArray: [],
+  gameWinArray: [],
   gameSettings: {
     sound: false,
     numbers: true,

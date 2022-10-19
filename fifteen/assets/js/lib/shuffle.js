@@ -3,4 +3,6 @@
  * @param {[]} arr
  * @return {[]}
  */
-export const shuffle = (arr) => {};
+export const shuffle = (arr) => {
+  return arr;
+};
