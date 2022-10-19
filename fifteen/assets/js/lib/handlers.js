@@ -3,10 +3,13 @@ import { store } from "../store.js";
 import { renderTime } from "./render.js";
 
 export const handleStart = () => {
-  if (store.gameTimerId) {
+  if (store.inGame) {
     clearInterval(store.gameTimerId);
     store.playTime = 0;
+    store.gameTimerId = null;
   }
+
+  document.querySelector("#btnpause").innerText = "Pause OFF";
 
   store.gameArray = shuffle(store.gameArray);
   store.inGame = true;
@@ -16,4 +19,25 @@ export const handleStart = () => {
     renderTime();
   }, 1000);
   store.inGame = true;
+};
+
+export const handlePause = (event) => {
+  if (!store.inGame) return;
+  if (store.gameTimerId) {
+    clearInterval(store.gameTimerId);
+    store.gameTimerId = null;
+    // store.inGame = false;
+    event.target.innerText = "Pause ON";
+  } else {
+    store.gameTimerId = setInterval(() => {
+      store.playTime = incrementTimer(store.playTime);
+      renderTime();
+    }, 1000);
+    // store.inGame = true;
+    event.target.innerText = "Pause OFF";
+  }
+};
+
+export const handleBoard = (event) => {
+  console.log(event.target);
 };
