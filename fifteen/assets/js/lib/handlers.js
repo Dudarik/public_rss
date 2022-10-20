@@ -1,14 +1,11 @@
 import { incrementTimer, shuffle } from "../helpers/index.js";
 import { store } from "../store.js";
+import { stopGame } from "./gameFunc.js";
 import { generateGameArrays } from "./genArrays.js";
 import { renderBoard, renderTime } from "./render.js";
 
 export const handleStart = () => {
-  if (store.inGame) {
-    clearInterval(store.gameTimerId);
-    store.playTime = 0;
-    store.gameTimerId = null;
-  }
+  if (store.inGame) stopGame();
 
   document.querySelector("#btnpause").innerText = "Pause OFF";
 
@@ -42,6 +39,7 @@ export const handlePause = (event) => {
 export const handleSelect = (event) => {
   console.log(event.target.value);
   // console.log(store);
+  if (store.inGame) stopGame();
   store.gameSettings.currentBoardSize = event.target.value;
   generateGameArrays();
   renderBoard();
