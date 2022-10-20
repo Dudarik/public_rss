@@ -9,8 +9,11 @@ export const handleStart = () => {
 
   document.querySelector("#btnpause").innerText = "Pause OFF";
 
+  console.log(store.gameArray);
+
   store.gameArray = shuffle(store.gameArray);
   store.inGame = true;
+  renderBoard();
 
   store.gameTimerId = setInterval(() => {
     store.playTime = incrementTimer(store.playTime);
