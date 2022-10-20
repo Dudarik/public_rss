@@ -2,6 +2,8 @@ import { store } from "../store.js";
 import { generateGameArrays } from "./genArrays.js";
 import {
   handleBoard,
+  handleBoardMouseDown,
+  handleBoardMouseUp,
   handlePause,
   handleSelect,
   handleStart,
@@ -83,7 +85,8 @@ const initBoard = () => {
   const newDiv = document.createElement("div");
   newDiv.classList.add("board");
   newDiv.setAttribute("id", "board");
-  newDiv.addEventListener("mousedown", handleBoard);
+  newDiv.addEventListener("mousedown", handleBoardMouseDown);
+  newDiv.addEventListener("mouseup", handleBoardMouseUp);
   return newDiv;
 };
 

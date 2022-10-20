@@ -10,3 +10,7 @@ export const stopGame = () => {
   renderMoves();
   renderTime();
 };
+
+export const moveCell = (element, moveTo) => {
+  element.classList.add(`move_${moveTo}`);
+};

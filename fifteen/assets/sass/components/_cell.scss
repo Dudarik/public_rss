@@ -16,4 +16,28 @@
   //   opacity: 0;
   //   cursor: default;
   // }
+  &.move_up {
+    transform: translateY(-110%);
+    transition-property: transform;
+    transition-duration: 400ms;
+    transition-timing-function: cubic-bezier;
+  }
+  &.move_down {
+    transform: translateY(110%);
+    transition-property: transform;
+    transition-duration: 400ms;
+    transition-timing-function: cubic-bezier;
+  }
+  &.move_right {
+    transform: translateX(110%);
+    transition-property: transform;
+    transition-duration: 400ms;
+    transition-timing-function: cubic-bezier;
+  }
+  &.move_left {
+    transform: translateX(-110%);
+    transition-property: transform;
+    transition-duration: 400ms;
+    transition-timing-function: cubic-bezier;
+  }
 }

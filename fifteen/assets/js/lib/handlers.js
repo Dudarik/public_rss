@@ -1,6 +1,6 @@
 import { incrementTimer, shuffle } from "../helpers/index.js";
 import { store } from "../store.js";
-import { stopGame } from "./gameFunc.js";
+import { moveCell, stopGame } from "./gameFunc.js";
 import { generateGameArrays } from "./genArrays.js";
 import { renderBoard, renderTime } from "./render.js";
 
@@ -48,6 +48,19 @@ export const handleSelect = (event) => {
   renderBoard();
 };
 
+let timeStart = null;
+
+// const timerId = null;
+
 export const handleBoard = (event) => {
-  console.log(event.target);
+  console.log(event);
+};
+
+export const handleBoardMouseDown = (event) => {
+  timeStart = new Date();
+  moveCell(event.target, "up");
+};
+
+export const handleBoardMouseUp = (event) => {
+  console.log(new Date() - timeStart);
 };
