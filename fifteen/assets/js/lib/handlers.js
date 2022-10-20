@@ -57,6 +57,8 @@ export const handleBoard = (event) => {
 };
 
 export const handleBoardMouseDown = (event) => {
+  const cell = event.target;
+  console.log(cell);
   timeStart = new Date();
   moveCell(event.target, "up");
 };
