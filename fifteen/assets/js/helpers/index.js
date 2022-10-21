@@ -101,22 +101,22 @@ export const isCellShift = (arr, row, col) => {
       if (i === 0)
         return {
           direction: "up",
-          coords: [row + rowShift[i]][col + colShift[i]],
+          coords: [row + rowShift[i], col + colShift[i]],
         };
       if (i === 1)
         return {
           direction: "right",
-          coords: [row + rowShift[i]][col + colShift[i]],
+          coords: [row + rowShift[i], col + colShift[i]],
         };
       if (i === 2)
         return {
           direction: "down",
-          coords: [row + rowShift[i]][col + colShift[i]],
+          coords: [row + rowShift[i], col + colShift[i]],
         };
       if (i === 3)
         return {
           direction: "left",
-          coords: [row + rowShift[i]][col + colShift[i]],
+          coords: [row + rowShift[i], col + colShift[i]],
         };
     }
   }
