@@ -78,6 +78,18 @@ export const shuffle = (arr, shuffleCount = 1000, customShuffle = false) => {
   return arr;
 };
 
+export const isCellShift = (arr, row, col) => {
+  const rowShift = [-1, 0, 1, 0];
+  const colShift = [0, 1, 0, -1];
+
+  for (let i = 0; i < rowShift.length; i++) {
+    if (arr[row + rowShift][col + colShift] === 0) {
+      return [row + rowShift, col + colShift];
+    }
+  }
+  return null;
+};
+
 // console.log(
 //   arr.slice(),
 //   zcr,
