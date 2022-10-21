@@ -1,4 +1,4 @@
-import { incrementTimer, shuffle } from "../helpers/index.js";
+import { incrementTimer, isCellShift, shuffle } from "../helpers/index.js";
 import { store } from "../store.js";
 import { moveCell, stopGame } from "./gameFunc.js";
 import { generateGameArrays } from "./genArrays.js";
@@ -60,7 +60,18 @@ export const handleBoardMouseDown = (event) => {
   const cell = event.target;
   console.log(cell);
   timeStart = new Date();
-  moveCell(event.target, "up");
+  if (cell) {
+    const shiftSell = isCellShift(
+      store.gameArray,
+      +cell.dataset.i,
+      +cell.dataset.j
+    );
+    console.log(shiftSell);
+    if (shiftSell) {
+      moveCell(event.target, shiftSell.direction);
+      removeEventListener("mousedown", handleBoardMouseDown);
+    }
+  }
 };
 
 export const handleBoardMouseUp = (event) => {

@@ -93,7 +93,8 @@ const initBoard = () => {
 export const initGame = () => {
   store.ls_available = isLSAvailabel();
 
-  if (store.ls_available) generateGameArrays();
+  // if (store.ls_available)
+  generateGameArrays();
 
   const mainContainer = initContainer();
   mainContainer.append(initButtons(), initStats(), initBoard());

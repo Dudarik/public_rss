@@ -78,37 +78,48 @@ export const shuffle = (arr, shuffleCount = 1000, customShuffle = false) => {
   return arr;
 };
 
+const isInMatrix = (row, col, matRow, matCol) => {
+  if (row < 0 || col < 0 || row > matRow || col > matCol) return false;
+  return true;
+};
+
 export const isCellShift = (arr, row, col) => {
+  if (isNaN(row) || isNaN(col)) return null;
+  // console.log(arr, row, col);
   const rowShift = [-1, 0, 1, 0];
   const colShift = [0, 1, 0, -1];
+  const rows = arr.length - 1;
+  const cols = arr[0].length - 1;
   // const shifts = [[-1,0], [0,1], [1,0], [0,-1]]
 
-  if (arr[row + rowShift[0]][col + colShift[0]] === 0)
-    return { direction: "up", coords: [row + rowShift[0]][col + colShift[0]] };
-
-  if (arr[row + rowShift[1]][col + colShift[1]] === 0)
-    return {
-      direction: "right",
-      coords: [row + rowShift[1]][col + colShift[1]],
-    };
-
-  if (arr[row + rowShift[2]][col + colShift[2]] === 0)
-    return {
-      direction: "down",
-      coords: [row + rowShift[2]][col + colShift[2]],
-    };
-
-  if (arr[row + rowShift[3]][col + colShift[3]] === 0)
-    return {
-      direction: "left",
-      coords: [row + rowShift[3]][col + colShift[3]],
-    };
-
-  // for (let i = 0; i < rowShift.length; i++) {
-  //   if (arr[row + rowShift][col + colShift] === 0) {
-  //     return [row + rowShift, col + colShift];
-  //   }
-  // }
+  for (let i = 0; i < rowShift.length; i++) {
+    // debugger;
+    if (
+      isInMatrix(row + rowShift[i], col + colShift[i], rows, cols) &&
+      arr[row + rowShift[i]][col + colShift[i]] === 0
+    ) {
+      if (i === 0)
+        return {
+          direction: "up",
+          coords: [row + rowShift[i]][col + colShift[i]],
+        };
+      if (i === 1)
+        return {
+          direction: "right",
+          coords: [row + rowShift[i]][col + colShift[i]],
+        };
+      if (i === 2)
+        return {
+          direction: "down",
+          coords: [row + rowShift[i]][col + colShift[i]],
+        };
+      if (i === 3)
+        return {
+          direction: "left",
+          coords: [row + rowShift[i]][col + colShift[i]],
+        };
+    }
+  }
   return null;
 };
 
