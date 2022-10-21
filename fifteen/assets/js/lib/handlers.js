@@ -1,6 +1,6 @@
 import { incrementTimer, isCellShift, shuffle } from "../helpers/index.js";
 import { store } from "../store.js";
-import { moveCell, stopGame } from "./gameFunc.js";
+import { moveCell, endMoveCell, stopGame } from "./gameFunc.js";
 import { generateGameArrays } from "./genArrays.js";
 import { renderBoard, renderTime } from "./render.js";
 
@@ -56,17 +56,27 @@ export const handleBoard = (event) => {
   console.log(event);
 };
 
+const handleAnimationEnd = (event) => {
+  // console.log("animend");
+  endMoveCell(event.target);
+};
+
 export const handleBoardMouseDown = (event) => {
   const cell = event.target;
-  console.log(cell);
+  // console.log(event.target);
+
   timeStart = new Date();
   if (cell) {
+    const $cell = document.querySelector(`#${event.target.id}`);
+    // console.log($cell);
+    $cell.addEventListener("transitionend", handleAnimationEnd);
+    // cell.addEventListner("animationend", handleAnimationEnd);
     const shiftSell = isCellShift(
       store.gameArray,
       +cell.dataset.i,
       +cell.dataset.j
     );
-    console.log(shiftSell);
+    // console.log(shiftSell);
     if (shiftSell) {
       moveCell(event.target, shiftSell.direction);
       removeEventListener("mousedown", handleBoardMouseDown);

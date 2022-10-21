@@ -33,12 +33,14 @@ export const store = {
   inGame: false,
   gameTimerId: null,
 
+  animationDirection: null,
+
   dragableStartPosX: 0,
   dragableStartPosY: 0,
   dragableEndPosX: 0,
   dragableEndPosY: 0,
 
-  animationDropableTime: 500,
+  animationDropableTime: 400,
 
   dropablePosX: 0,
   dropablePosY: 0,

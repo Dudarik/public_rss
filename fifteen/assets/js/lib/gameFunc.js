@@ -12,5 +12,13 @@ export const stopGame = () => {
 };
 
 export const moveCell = (element, moveTo) => {
+  store.animationDirection = moveTo;
   element.classList.add(`move_${moveTo}`);
+};
+
+export const endMoveCell = (element) => {
+  // console.log("endmove", element);
+  // console.log(store.animationDirection);
+  element.classList.remove(`move_${store.animationDirection}`);
+  store.animationDirection = null;
 };
