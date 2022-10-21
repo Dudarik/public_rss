@@ -17,25 +17,25 @@
   //   cursor: default;
   // }
   &.move_up {
-    transform: translateY(calc(-100% - 0.5rem));
+    transform: translateY(calc(-100% - $grid_gap));
     transition-property: transform;
     transition-duration: 400ms;
     transition-timing-function: cubic-bezier;
   }
   &.move_down {
-    transform: translateY(calc(100% + 0.5rem));
+    transform: translateY(calc(100% + $grid_gap));
     transition-property: transform;
     transition-duration: 400ms;
     transition-timing-function: cubic-bezier;
   }
   &.move_right {
-    transform: translateX(calc(100% + 0.5rem));
+    transform: translateX(calc(100% + $grid_gap));
     transition-property: transform;
     transition-duration: 400ms;
     transition-timing-function: cubic-bezier;
   }
   &.move_left {
-    transform: translateX(calc(-100% - 0.5rem));
+    transform: translateX(calc(-100% - $grid_gap));
     transition-property: transform;
     transition-duration: 400ms;
     transition-timing-function: cubic-bezier;
