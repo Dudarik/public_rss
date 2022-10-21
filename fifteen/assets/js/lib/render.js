@@ -10,7 +10,7 @@ export const renderBoard = () => {
   const board = document.getElementById("board");
   const cells = [];
   // board.innerHTML = "";
-  console.log(store.gameArray.slice());
+  // console.log(store.gameArray.slice());
   board.className = "";
   board.classList.add("board", `board_${bSize}_${bSize}`);
 
@@ -21,8 +21,8 @@ export const renderBoard = () => {
       newCell.id = `cell_${cellId}`;
       newCell.classList.add("cell");
       if (data[i][j] === 0) newCell.classList.add("dropable");
-      newCell.dataset.i = i;
-      newCell.dataset.j = j;
+      newCell.dataset.r = i;
+      newCell.dataset.c = j;
       newCell.innerText = data[i][j];
       cells.push(newCell);
     }

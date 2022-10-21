@@ -1,4 +1,9 @@
-import { incrementTimer, isCellShift, shuffle } from "../helpers/index.js";
+import {
+  incrementTimer,
+  isCellShift,
+  shuffle,
+  swap,
+} from "../helpers/index.js";
 import { store } from "../store.js";
 import { moveCell, endMoveCell, stopGame } from "./gameFunc.js";
 import { generateGameArrays } from "./genArrays.js";
@@ -56,9 +61,19 @@ export const handleBoard = (event) => {
   console.log(event);
 };
 
-const handleAnimationEnd = (event) => {
+const handleTransitionEnd = (event) => {
   // console.log("animend");
+  const nzcr = event.target.dataset.r;
+  const nzcc = event.target.dataset.c;
+  const $zero = document.querySelector(".dropable");
+  const zcr = $zero.dataset.r;
+  const zcc = $zero.dataset.c;
+
+  // console.log(store.gameArray.slice());
+  swap(store.gameArray, zcr, zcc, nzcr, nzcc);
+  // console.log(store.gameArray.slice());
   endMoveCell(event.target);
+  renderBoard();
 };
 
 export const handleBoardMouseDown = (event) => {
@@ -69,12 +84,12 @@ export const handleBoardMouseDown = (event) => {
   if (cell) {
     const $cell = document.querySelector(`#${event.target.id}`);
     // console.log($cell);
-    $cell.addEventListener("transitionend", handleAnimationEnd);
+    $cell.addEventListener("transitionend", handleTransitionEnd);
     // cell.addEventListner("animationend", handleAnimationEnd);
     const shiftSell = isCellShift(
       store.gameArray,
-      +cell.dataset.i,
-      +cell.dataset.j
+      +cell.dataset.r,
+      +cell.dataset.c
     );
     // console.log(shiftSell);
     if (shiftSell) {
