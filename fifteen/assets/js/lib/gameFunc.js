@@ -25,10 +25,10 @@ export const endMoveCell = (element) => {
 
 export const dragndropStart = () => {
   store.dragndrop = true;
-  console.log("dragstart");
+  // console.log("dragstart");
 };
 
 export const dragndropEnd = () => {
   store.dragndrop = false;
-  console.log("dragend");
+  // console.log("dragend");
 };
