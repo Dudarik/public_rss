@@ -22,3 +22,13 @@ export const endMoveCell = (element) => {
   element.classList.remove(`move_${store.animationDirection}`);
   store.animationDirection = null;
 };
+
+export const dragndropStart = () => {
+  store.dragndrop = true;
+  console.log("dragstart");
+};
+
+export const dragndropEnd = () => {
+  store.dragndrop = false;
+  console.log("dragend");
+};

@@ -20,7 +20,11 @@ export const renderBoard = () => {
       const newCell = document.createElement("div");
       newCell.id = `cell_${cellId}`;
       newCell.classList.add("cell");
-      if (data[i][j] === 0) newCell.classList.add("dropable");
+      if (data[i][j] === 0) {
+        newCell.classList.add("dropable");
+        newCell.setAttribute("id", "dropable");
+      }
+
       newCell.dataset.r = i;
       newCell.dataset.c = j;
       newCell.innerText = data[i][j];

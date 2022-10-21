@@ -5,7 +5,13 @@ import {
   swap,
 } from "../helpers/index.js";
 import { store } from "../store.js";
-import { moveCell, endMoveCell, stopGame } from "./gameFunc.js";
+import {
+  moveCell,
+  endMoveCell,
+  stopGame,
+  dragndropStart,
+  dragndropEnd,
+} from "./gameFunc.js";
 import { generateGameArrays } from "./genArrays.js";
 import { renderBoard, renderTime } from "./render.js";
 
@@ -45,7 +51,7 @@ export const handlePause = (event) => {
 };
 
 export const handleSelect = (event) => {
-  console.log(event.target.value);
+  // console.log(event.target.value);
   // console.log(store);
   if (store.inGame) stopGame();
   store.gameSettings.currentBoardSize = event.target.value;
@@ -53,7 +59,7 @@ export const handleSelect = (event) => {
   renderBoard();
 };
 
-let timeStart = null;
+// let timeStart = null;
 
 // const timerId = null;
 
@@ -74,31 +80,153 @@ const handleTransitionEnd = (event) => {
   // console.log(store.gameArray.slice());
   endMoveCell(event.target);
   renderBoard();
+  const $board = document.querySelector("#board");
+  $board.addEventListener("mouseup", handleBoardMouseUp);
 };
 
 export const handleBoardMouseDown = (event) => {
+  // timeStart = new Date();
+  dragndropStart(event.target);
   const cell = event.target;
-  // console.log(event.target);
+  if (!cell || cell.id === "dropable") return;
 
-  timeStart = new Date();
-  if (cell) {
-    const $cell = document.querySelector(`#${event.target.id}`);
-    // console.log($cell);
-    $cell.addEventListener("transitionend", handleTransitionEnd);
-    // cell.addEventListner("animationend", handleAnimationEnd);
-    const shiftSell = isCellShift(
-      store.gameArray,
-      +cell.dataset.r,
-      +cell.dataset.c
-    );
-    // console.log(shiftSell);
-    if (shiftSell) {
-      moveCell(event.target, shiftSell.direction);
-      removeEventListener("mousedown", handleBoardMouseDown);
+  const $cell = document.querySelector(`#${event.target.id}`);
+
+  let shiftX = event.clientX - $cell.getBoundingClientRect().left;
+  let shiftY = event.clientY - $cell.getBoundingClientRect().top;
+
+  const dragCopy = document.createElement("div");
+  dragCopy.classList.add("cell");
+  dragCopy.innerHTML = $cell.innerHTML;
+  dragCopy.style.cursor = "grabbing";
+  dragCopy.style.width = $cell.getBoundingClientRect().width + "px";
+  dragCopy.style.height = $cell.getBoundingClientRect().height + "px";
+
+  document.body.append(dragCopy);
+
+  dragCopy.style.position = "absolute";
+  dragCopy.style.zIndex = 1000;
+
+  store.dragableStartPosX = $cell.getBoundingClientRect().left;
+  store.dragableStartPosY = $cell.getBoundingClientRect().top;
+  // console.log(store.dragableStartPosX);
+
+  const dndMoveAt = (pageX, pageY) => {
+    dragCopy.style.left = pageX - shiftX + "px";
+    dragCopy.style.top = pageY - shiftY + "px";
+  };
+
+  let currentDroppable = null;
+
+  const enterDroppable = (elem) => {
+    store.inDropable = true;
+    elem.style.background = "green";
+  };
+
+  const leaveDroppable = (elem) => {
+    store.inDropable = false;
+    elem.style.background = "";
+  };
+
+  const handleMouseMove = (event) => {
+    dndMoveAt(event.pageX, event.pageY);
+
+    dragCopy.classList.add("displaynone");
+    // console.log(dragCopy);
+    let elemBelow = document.elementFromPoint(event.clientX, event.clientY);
+    dragCopy.classList.remove("displaynone");
+
+    // console.log(elemBelow);
+
+    if (!elemBelow) return;
+
+    let droppableBelow = elemBelow.closest("#dropable");
+    // console.log(droppableBelow);
+
+    if (currentDroppable != droppableBelow) {
+      if (currentDroppable) {
+        leaveDroppable(currentDroppable);
+      }
+
+      currentDroppable = droppableBelow;
+
+      if (currentDroppable) {
+        enterDroppable(currentDroppable);
+      }
     }
-  }
+  };
+
+  const handleMouseUp = (event) => {
+    // console.log(store);
+    if (store.inDropable) {
+      const dropable = document.querySelector("#dropable");
+      // console.log(
+      //   dropable.getBoundingClientRect(),
+      //   dragCopy.getBoundingClientRect()
+      // );
+      store.dragableStartPosX = dropable.getBoundingClientRect().left;
+      store.dragableStartPosY = dropable.getBoundingClientRect().top;
+    }
+
+    store.dragableEndPosX = dragCopy.getBoundingClientRect().left;
+    store.dragableEndPosY = dragCopy.getBoundingClientRect().top;
+
+    dragCopy.style.transition = `all ${store.animationDropableTime}ms`;
+    dragCopy.style.transform = `translate(${
+      store.dragableStartPosX - store.dragableEndPosX
+    }px, ${store.dragableStartPosY - store.dragableEndPosY}px)`;
+    // console.log(store);
+
+    setTimeout(() => {
+      dragCopy.remove();
+    }, store.animationDropableTime);
+
+    document.removeEventListener("mousemove", handleMouseMove);
+    dragCopy.removeEventListener("mouseup", handleMouseUp);
+  };
+
+  document.addEventListener("mousemove", handleMouseMove);
+
+  dragCopy.addEventListener("mouseup", handleMouseUp);
+
+  dndMoveAt(event.pageX, event.pageY);
+
+  // console.log($cell.getBoundingClientRect());
+};
+
+export const handleDocumentMouseMove = (event) => {
+  // console.log(store.dragndrop);
+  // if (store.dragndrop) console.log(new Date() - timeStart);
+  if (!store.dragndrop) return;
+};
+
+export const handleDocumentMouseUp = (event) => {
+  dragndropEnd(event.target);
 };
 
 export const handleBoardMouseUp = (event) => {
-  console.log(new Date() - timeStart);
+  // console.log(new Date() - timeStart);
+  // console.log(store.dragndrop);
+
+  if (!store.dragndrop) {
+    const cell = event.target;
+
+    if (cell) {
+      const $board = document.querySelector("#board");
+      const $cell = document.querySelector(`#${event.target.id}`);
+
+      $cell.addEventListener("transitionend", handleTransitionEnd);
+
+      const shiftSell = isCellShift(
+        store.gameArray,
+        +cell.dataset.r,
+        +cell.dataset.c
+      );
+      // console.log(shiftSell);
+      if (shiftSell) {
+        $board.removeEventListener("mouseup", handleBoardMouseUp);
+        moveCell(event.target, shiftSell.direction);
+      }
+    }
+  }
 };

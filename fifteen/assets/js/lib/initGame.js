@@ -4,6 +4,8 @@ import {
   handleBoard,
   handleBoardMouseDown,
   handleBoardMouseUp,
+  handleDocumentMouseMove,
+  handleDocumentMouseUp,
   handlePause,
   handleSelect,
   handleStart,
@@ -98,4 +100,6 @@ export const initGame = () => {
 
   const mainContainer = initContainer();
   mainContainer.append(initButtons(), initStats(), initBoard());
+  // document.addEventListener("mousemove", handleDocumentMouseMove);
+  // document.addEventListener("mouseup", handleDocumentMouseUp);
 };

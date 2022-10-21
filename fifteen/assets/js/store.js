@@ -35,6 +35,8 @@ export const store = {
 
   animationDirection: null,
 
+  dragndropElement: null,
+  dragndrop: false,
   dragableStartPosX: 0,
   dragableStartPosY: 0,
   dragableEndPosX: 0,
@@ -42,6 +44,7 @@ export const store = {
 
   animationDropableTime: 400,
 
+  inDropable: false,
   dropablePosX: 0,
   dropablePosY: 0,
 };
