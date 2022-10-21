@@ -14,13 +14,13 @@ import {
   movesIncrement,
 } from "./gameFunc.js";
 import { generateGameArrays } from "./genArrays.js";
-import { isLSAvailabel, saveToLS } from "./localstorage.js";
-import { renderBoard, renderTime } from "./render.js";
+import { isLSAvailabel, loadFromLS, saveToLS } from "./localstorage.js";
+import { renderBoard, renderMoves, renderTime } from "./render.js";
 
 export const handleStart = () => {
   if (store.inGame) stopGame();
 
-  document.querySelector("#btnpause").innerText = "Pause OFF";
+  // document.querySelector("#btnpause").innerText = "Pause OFF";
 
   console.log(store.gameArray);
 
@@ -130,6 +130,7 @@ export const handleBoardMouseDown = (event) => {
 
     dragCopy.style.position = "absolute";
     dragCopy.style.zIndex = 1000;
+    dragCopy.style.opacity = 0.75;
 
     store.dragableStartPosX = $cell.getBoundingClientRect().left;
     store.dragableStartPosY = $cell.getBoundingClientRect().top;
@@ -283,4 +284,19 @@ export const handleSaveGame = () => {
       "Для того, чтобы сохранения были доступны, включите возможность записи в localstorage! В насатройках вашего браузера!"
     );
   saveToLS(store.ls_key_data, store);
+};
+
+export const handleLoadGame = () => {
+  if (!isLSAvailabel()) {
+    alert(
+      "Для того, чтобы сохранения были доступны, включите возможность записи в localstorage! В насатройках вашего браузера!"
+    );
+    return;
+  }
+  const data = loadFromLS(store.ls_key_data);
+  // console.log(data);
+  store = data;
+  renderBoard();
+  renderMoves();
+  renderTime();
 };

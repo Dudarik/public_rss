@@ -4,6 +4,7 @@ import {
   handleBoard,
   handleBoardMouseDown,
   handleBoardMouseUp,
+  handleLoadGame,
   // handleDocumentMouseMove,
   // handleDocumentMouseUp,
   handlePause,
@@ -46,23 +47,26 @@ export const initButtons = () => {
 
   const btnShuffleStart = document.createElement("button");
   const btnSoundOn = document.createElement("button");
-  const btnPause = document.createElement("button");
+  // const btnPause = document.createElement("button");
   const btnSave = document.createElement("button");
+  const btnLoad = document.createElement("button");
   const btnResults = document.createElement("button");
 
   btnShuffleStart.innerText = "Shuffle and start";
   btnSoundOn.innerText = "Sound ON";
-  btnPause.innerText = "Pause OFF";
+  // btnPause.innerText = "Pause OFF";
   btnSave.innerText = "Save";
+  btnLoad.innerText = "Load";
   btnResults.innerText = "Results";
 
-  btnPause.setAttribute("id", "btnpause");
+  // btnPause.setAttribute("id", "btnpause");
 
   btnShuffleStart.addEventListener("click", handleStart);
-  btnPause.addEventListener("click", handlePause);
+  // btnPause.addEventListener("click", handlePause);
   btnSave.addEventListener("click", handleSaveGame);
+  btnLoad.addEventListener("click", handleLoadGame);
 
-  newDiv.append(btnShuffleStart, btnSoundOn, btnPause, btnSave, btnResults);
+  newDiv.append(btnShuffleStart, btnSoundOn, btnSave, btnLoad, btnResults);
 
   return newDiv;
   // const c = document.querySelector(".container");
