@@ -81,12 +81,34 @@ export const shuffle = (arr, shuffleCount = 1000, customShuffle = false) => {
 export const isCellShift = (arr, row, col) => {
   const rowShift = [-1, 0, 1, 0];
   const colShift = [0, 1, 0, -1];
+  // const shifts = [[-1,0], [0,1], [1,0], [0,-1]]
 
-  for (let i = 0; i < rowShift.length; i++) {
-    if (arr[row + rowShift][col + colShift] === 0) {
-      return [row + rowShift, col + colShift];
-    }
-  }
+  if (arr[row + rowShift[0]][col + colShift[0]] === 0)
+    return { direction: "up", coords: [row + rowShift[0]][col + colShift[0]] };
+
+  if (arr[row + rowShift[1]][col + colShift[1]] === 0)
+    return {
+      direction: "right",
+      coords: [row + rowShift[1]][col + colShift[1]],
+    };
+
+  if (arr[row + rowShift[2]][col + colShift[2]] === 0)
+    return {
+      direction: "down",
+      coords: [row + rowShift[2]][col + colShift[2]],
+    };
+
+  if (arr[row + rowShift[3]][col + colShift[3]] === 0)
+    return {
+      direction: "left",
+      coords: [row + rowShift[3]][col + colShift[3]],
+    };
+
+  // for (let i = 0; i < rowShift.length; i++) {
+  //   if (arr[row + rowShift][col + colShift] === 0) {
+  //     return [row + rowShift, col + colShift];
+  //   }
+  // }
   return null;
 };
 
