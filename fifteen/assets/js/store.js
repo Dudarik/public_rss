@@ -33,9 +33,9 @@ export const store = {
   inGame: false,
   gameTimerId: null,
 
-  animationDirection: null,
+  // animationDirection: null,
 
-  dragndropElement: null,
+  // dragndropElement: null,
   dragndrop: false,
   dragableStartPosX: 0,
   dragableStartPosY: 0,
@@ -45,6 +45,6 @@ export const store = {
   animationDropableTime: 400,
 
   inDropable: false,
-  dropablePosX: 0,
-  dropablePosY: 0,
+  // dropablePosX: 0,
+  // dropablePosY: 0,
 };

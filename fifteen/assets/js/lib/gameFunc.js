@@ -32,3 +32,8 @@ export const dragndropEnd = () => {
   store.dragndrop = false;
   // console.log("dragend");
 };
+
+export const movesIncrement = () => {
+  store.movesCount += 1;
+  renderMoves();
+};

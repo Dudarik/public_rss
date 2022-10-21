@@ -11,6 +11,7 @@ import {
   stopGame,
   dragndropStart,
   dragndropEnd,
+  movesIncrement,
 } from "./gameFunc.js";
 import { generateGameArrays } from "./genArrays.js";
 import { renderBoard, renderTime } from "./render.js";
@@ -23,6 +24,7 @@ export const handleStart = () => {
   console.log(store.gameArray);
 
   store.gameArray = shuffle(store.gameArray);
+  store.movesCount = 0;
   store.inGame = true;
   renderBoard();
 
@@ -77,6 +79,7 @@ const handleTransitionEnd = (event) => {
 
   // console.log(store.gameArray.slice());
   swap(store.gameArray, zcr, zcc, nzcr, nzcc);
+  movesIncrement();
   // console.log(store.gameArray.slice());
   endMoveCell(event.target);
   renderBoard();
@@ -208,6 +211,8 @@ export const handleBoardMouseDown = (event) => {
           const zcc = $zero.dataset.c;
 
           swap(store.gameArray, zcr, zcc, nzcr, nzcc);
+
+          movesIncrement();
 
           renderBoard();
 
