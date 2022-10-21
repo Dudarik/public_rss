@@ -7,6 +7,7 @@ import {
   // handleDocumentMouseMove,
   // handleDocumentMouseUp,
   handlePause,
+  handleSaveGame,
   handleSelect,
   handleStart,
 } from "./handlers.js";
@@ -59,6 +60,7 @@ export const initButtons = () => {
 
   btnShuffleStart.addEventListener("click", handleStart);
   btnPause.addEventListener("click", handlePause);
+  btnSave.addEventListener("click", handleSaveGame);
 
   newDiv.append(btnShuffleStart, btnSoundOn, btnPause, btnSave, btnResults);
 

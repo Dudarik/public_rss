@@ -14,6 +14,7 @@ import {
   movesIncrement,
 } from "./gameFunc.js";
 import { generateGameArrays } from "./genArrays.js";
+import { isLSAvailabel, saveToLS } from "./localstorage.js";
 import { renderBoard, renderTime } from "./render.js";
 
 export const handleStart = () => {
@@ -274,4 +275,12 @@ export const handleBoardMouseUp = (event) => {
     }
   }
   // }
+};
+
+export const handleSaveGame = () => {
+  if (!isLSAvailabel())
+    alert(
+      "Для того, чтобы сохранения были доступны, включите возможность записи в localstorage! В насатройках вашего браузера!"
+    );
+  saveToLS(store.ls_key_data, store);
 };

@@ -6,7 +6,7 @@ import { store } from "../store.js";
 export const isLSAvailabel = () => {
   try {
     const t = "test";
-    localStorage.setItem(t, t);
+    localStorage.setItem(t, JSON.stringify(t));
     localStorage.removeItem(t);
     return true;
   } catch (error) {
