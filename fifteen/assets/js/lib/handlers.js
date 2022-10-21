@@ -86,147 +86,187 @@ const handleTransitionEnd = (event) => {
 
 export const handleBoardMouseDown = (event) => {
   // timeStart = new Date();
-  dragndropStart(event.target);
-  const cell = event.target;
-  if (!cell || cell.id === "dropable") return;
+  // const $board = document.querySelector("#board");
+  // console.log(
+  //   isCellShift(
+  //     store.gameArray,
+  //     +event.target.dataset.r,
+  //     +event.target.dataset.c
+  //   )
+  // );
+  if (
+    isCellShift(
+      store.gameArray,
+      +event.target.dataset.r,
+      +event.target.dataset.c
+    ) === null
+  )
+    return;
 
-  const $cell = document.querySelector(`#${event.target.id}`);
+  dragndropStart();
 
-  let shiftX = event.clientX - $cell.getBoundingClientRect().left;
-  let shiftY = event.clientY - $cell.getBoundingClientRect().top;
+  setTimeout(() => {
+    if (!store.dragndrop) return;
+    const cell = event.target;
+    if (!cell || cell.id === "dropable") return;
 
-  const dragCopy = document.createElement("div");
-  dragCopy.classList.add("cell");
-  dragCopy.innerHTML = $cell.innerHTML;
-  dragCopy.style.cursor = "grabbing";
-  dragCopy.style.width = $cell.getBoundingClientRect().width + "px";
-  dragCopy.style.height = $cell.getBoundingClientRect().height + "px";
+    const $cell = document.querySelector(`#${event.target.id}`);
 
-  document.body.append(dragCopy);
+    let shiftX = event.clientX - $cell.getBoundingClientRect().left;
+    let shiftY = event.clientY - $cell.getBoundingClientRect().top;
 
-  dragCopy.style.position = "absolute";
-  dragCopy.style.zIndex = 1000;
+    const dragCopy = document.createElement("div");
+    dragCopy.classList.add("cell");
+    dragCopy.innerHTML = $cell.innerHTML;
+    dragCopy.style.cursor = "grabbing";
+    dragCopy.style.width = $cell.getBoundingClientRect().width + "px";
+    dragCopy.style.height = $cell.getBoundingClientRect().height + "px";
 
-  store.dragableStartPosX = $cell.getBoundingClientRect().left;
-  store.dragableStartPosY = $cell.getBoundingClientRect().top;
-  // console.log(store.dragableStartPosX);
+    document.body.append(dragCopy);
 
-  const dndMoveAt = (pageX, pageY) => {
-    dragCopy.style.left = pageX - shiftX + "px";
-    dragCopy.style.top = pageY - shiftY + "px";
-  };
+    dragCopy.style.position = "absolute";
+    dragCopy.style.zIndex = 1000;
 
-  let currentDroppable = null;
+    store.dragableStartPosX = $cell.getBoundingClientRect().left;
+    store.dragableStartPosY = $cell.getBoundingClientRect().top;
+    // console.log(store.dragableStartPosX);
 
-  const enterDroppable = (elem) => {
-    store.inDropable = true;
-    elem.style.background = "green";
-  };
+    const dndMoveAt = (pageX, pageY) => {
+      dragCopy.style.left = pageX - shiftX + "px";
+      dragCopy.style.top = pageY - shiftY + "px";
+    };
 
-  const leaveDroppable = (elem) => {
-    store.inDropable = false;
-    elem.style.background = "";
-  };
+    let currentDroppable = null;
 
-  const handleMouseMove = (event) => {
+    const enterDroppable = (elem) => {
+      store.inDropable = true;
+      elem.style.background = "green";
+    };
+
+    const leaveDroppable = (elem) => {
+      store.inDropable = false;
+      elem.style.background = "";
+    };
+
+    const handleMouseMove = (event) => {
+      dndMoveAt(event.pageX, event.pageY);
+
+      dragCopy.classList.add("displaynone");
+      // console.log(dragCopy);
+      let elemBelow = document.elementFromPoint(event.clientX, event.clientY);
+      dragCopy.classList.remove("displaynone");
+
+      // console.log(elemBelow);
+
+      if (!elemBelow) return;
+
+      let droppableBelow = elemBelow.closest("#dropable");
+      // console.log(droppableBelow);
+
+      if (currentDroppable != droppableBelow) {
+        if (currentDroppable) {
+          leaveDroppable(currentDroppable);
+        }
+
+        currentDroppable = droppableBelow;
+
+        if (currentDroppable) {
+          enterDroppable(currentDroppable);
+        }
+      }
+    };
+
+    const handleMouseUp = (event) => {
+      // console.log(store);
+      if (store.inDropable) {
+        const dropable = document.querySelector("#dropable");
+        // console.log(
+        //   dropable.getBoundingClientRect(),
+        //   dragCopy.getBoundingClientRect()
+        // );
+        store.dragableStartPosX = dropable.getBoundingClientRect().left;
+        store.dragableStartPosY = dropable.getBoundingClientRect().top;
+      }
+
+      store.dragableEndPosX = dragCopy.getBoundingClientRect().left;
+      store.dragableEndPosY = dragCopy.getBoundingClientRect().top;
+
+      dragCopy.style.transition = `all ${store.animationDropableTime}ms`;
+      dragCopy.style.transform = `translate(${
+        store.dragableStartPosX - store.dragableEndPosX
+      }px, ${store.dragableStartPosY - store.dragableEndPosY}px)`;
+      // console.log(store);
+
+      setTimeout(() => {
+        // dragndropEnd();
+        dragCopy.remove();
+        if (store.inDropable) {
+          const nzcr = $cell.dataset.r;
+          const nzcc = $cell.dataset.c;
+          const $zero = document.querySelector("#dropable");
+          const zcr = $zero.dataset.r;
+          const zcc = $zero.dataset.c;
+
+          swap(store.gameArray, zcr, zcc, nzcr, nzcc);
+
+          renderBoard();
+
+          leaveDroppable(currentDroppable);
+        }
+      }, store.animationDropableTime);
+      // store.inDropable = false;
+      document.removeEventListener("mousemove", handleMouseMove);
+      dragCopy.removeEventListener("mouseup", handleMouseUp);
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+
+    dragCopy.addEventListener("mouseup", handleMouseUp);
+
+    // dragCopy.remove();
     dndMoveAt(event.pageX, event.pageY);
+    dragndropEnd();
+  }, 110);
 
-    dragCopy.classList.add("displaynone");
-    // console.log(dragCopy);
-    let elemBelow = document.elementFromPoint(event.clientX, event.clientY);
-    dragCopy.classList.remove("displaynone");
-
-    // console.log(elemBelow);
-
-    if (!elemBelow) return;
-
-    let droppableBelow = elemBelow.closest("#dropable");
-    // console.log(droppableBelow);
-
-    if (currentDroppable != droppableBelow) {
-      if (currentDroppable) {
-        leaveDroppable(currentDroppable);
-      }
-
-      currentDroppable = droppableBelow;
-
-      if (currentDroppable) {
-        enterDroppable(currentDroppable);
-      }
-    }
-  };
-
-  const handleMouseUp = (event) => {
-    // console.log(store);
-    if (store.inDropable) {
-      const dropable = document.querySelector("#dropable");
-      // console.log(
-      //   dropable.getBoundingClientRect(),
-      //   dragCopy.getBoundingClientRect()
-      // );
-      store.dragableStartPosX = dropable.getBoundingClientRect().left;
-      store.dragableStartPosY = dropable.getBoundingClientRect().top;
-    }
-
-    store.dragableEndPosX = dragCopy.getBoundingClientRect().left;
-    store.dragableEndPosY = dragCopy.getBoundingClientRect().top;
-
-    dragCopy.style.transition = `all ${store.animationDropableTime}ms`;
-    dragCopy.style.transform = `translate(${
-      store.dragableStartPosX - store.dragableEndPosX
-    }px, ${store.dragableStartPosY - store.dragableEndPosY}px)`;
-    // console.log(store);
-
-    setTimeout(() => {
-      dragCopy.remove();
-    }, store.animationDropableTime);
-
-    document.removeEventListener("mousemove", handleMouseMove);
-    dragCopy.removeEventListener("mouseup", handleMouseUp);
-  };
-
-  document.addEventListener("mousemove", handleMouseMove);
-
-  dragCopy.addEventListener("mouseup", handleMouseUp);
-
-  dndMoveAt(event.pageX, event.pageY);
-
-  // console.log($cell.getBoundingClientRect());
+  // clearTimeout(timerId);
 };
 
-export const handleDocumentMouseMove = (event) => {
-  // console.log(store.dragndrop);
-  // if (store.dragndrop) console.log(new Date() - timeStart);
-  if (!store.dragndrop) return;
-};
+// export const handleDocumentMouseMove = (event) => {
+//   // console.log(store.dragndrop);
+//   // if (store.dragndrop) console.log(new Date() - timeStart);
+//   if (!store.dragndrop) return;
+// };
 
-export const handleDocumentMouseUp = (event) => {
-  dragndropEnd(event.target);
-};
+// export const handleDocumentMouseUp = (event) => {
+//   console.log("document mouse up", store.dragndrop);
+//   dragndropEnd(event.target);
+// };
 
 export const handleBoardMouseUp = (event) => {
   // console.log(new Date() - timeStart);
   // console.log(store.dragndrop);
 
-  if (!store.dragndrop) {
-    const cell = event.target;
+  dragndropEnd();
+  console.log("board mouse up", store.dragndrop);
+  // if (!store.dragndrop) {
+  const cell = event.target;
 
-    if (cell) {
-      const $board = document.querySelector("#board");
-      const $cell = document.querySelector(`#${event.target.id}`);
+  if (cell) {
+    // const $board = document.querySelector("#board");
+    const $cell = document.querySelector(`#${event.target.id}`);
 
-      $cell.addEventListener("transitionend", handleTransitionEnd);
+    $cell.addEventListener("transitionend", handleTransitionEnd);
 
-      const shiftSell = isCellShift(
-        store.gameArray,
-        +cell.dataset.r,
-        +cell.dataset.c
-      );
-      // console.log(shiftSell);
-      if (shiftSell) {
-        $board.removeEventListener("mouseup", handleBoardMouseUp);
-        moveCell(event.target, shiftSell.direction);
-      }
+    const shiftSell = isCellShift(
+      store.gameArray,
+      +cell.dataset.r,
+      +cell.dataset.c
+    );
+    // console.log(shiftSell);
+    if (shiftSell) {
+      // $board.removeEventListener("mouseup", handleBoardMouseUp);
+      moveCell(event.target, shiftSell.direction);
     }
   }
+  // }
 };
