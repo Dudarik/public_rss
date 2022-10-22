@@ -1,4 +1,5 @@
 import { store } from "../store.js";
+import { loadRecordsFromLS } from "./gameFunc.js";
 import { generateGameArrays } from "./genArrays.js";
 import {
   handleBoard,
@@ -33,7 +34,7 @@ export const initContainer = () => {
   newPopupCard.classList.add("popup_card");
 
   newOverlay.addEventListener("click", (event) => {
-    console.log(event.target);
+    // console.log(event.target);
     if (!(event.target.id === "popup_overlay")) return;
     // testimonialsSliderCards.removeEventListener('click', handleOpenPopup)
 
@@ -155,6 +156,7 @@ export const initGame = () => {
     }
   }
 
+  loadRecordsFromLS();
   generateGameArrays();
 
   const mainContainer = initContainer();

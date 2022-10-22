@@ -1,6 +1,6 @@
 import { formatTime, incrementTimer } from "../helpers/index.js";
 import { store } from "../store.js";
-import { saveToLS } from "./localstorage.js";
+import { loadFromLS, saveToLS } from "./localstorage.js";
 import { renderMoves, renderTime } from "./render.js";
 
 export const startGame = () => {
@@ -57,6 +57,32 @@ export const checkWin = () => {
 export const onWin = () => {
   clearInterval(store.gameTimerId);
   store.inGame = false;
+  console.log(store.movesCount);
+
+  if (
+    store.movesCount <
+    store.records[store.gameSettings.currentBoardSize][9].movesCount
+  ) {
+    const $popupOverlay = document.querySelector(".popup_overlay");
+    const $popupCard = document.querySelector(".popup_card");
+
+    const newinput = document.createElement("input");
+    newinput.type = "text";
+    newinput.className = "name";
+    newinput.onchange = () => {
+      if (newinput.value > 3) newinput.value = newinput.value.slice(0, 3);
+    };
+    const savebutton = document.createElement("button");
+    savebutton.innerText = "SAVE";
+    savebutton.addEventListener("click", () => {
+      saveRecord(newinput.value);
+      $popupOverlay.classList.remove("popup_overlay_active");
+    });
+    $popupCard.innerHTML = "";
+    $popupCard.append(newinput, savebutton);
+
+    $popupOverlay.classList.add("popup_overlay_active");
+  }
 };
 
 export const saveRecord = (name) => {
@@ -64,11 +90,20 @@ export const saveRecord = (name) => {
 
   const { movesCount, playTime } = store;
 
-  store.records[bSize]
-    .push({ name, movesCount, playTime })
-    .sort((a, b) => a.movesCount - b.movesCount);
+  console.log(store.records[bSize]);
+  // debugger;
+  store.records[bSize].push({ name, movesCount, playTime });
+  store.records[bSize].sort((a, b) => a.movesCount - b.movesCount);
+
   store.records[bSize] = store.records[bSize].slice(0, 10);
-  saveToLS(ls_key_records, store);
+
+  console.log(store.records[bSize]);
+  saveToLS(store.ls_key_records, store.records);
+};
+
+export const loadRecordsFromLS = () => {
+  const lsrec = loadFromLS(store.ls_key_records);
+  if (lsrec) store.records = lsrec;
 };
 
 export const getRecords = (bSize) => {

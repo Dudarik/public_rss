@@ -365,14 +365,19 @@ const handleRecordsBtn = (event) => {
   // console.log(btnArr, event.target.dataset);
   const bSize = event.target.dataset.bSize;
 
+  const $resultTitle = document.querySelector("#restitle");
+
   for (let i = 0; i < btnArr.length; i++) {
     btnArr[i].classList.remove("btnRecords_active");
 
-    if (btnArr[i].dataset.bSize === bSize)
+    if (btnArr[i].dataset.bSize === bSize) {
       btnArr[i].classList.add("btnRecords_active");
+      $resultTitle.innerHTML = `Best of the best ${bSize} X ${bSize}`;
+    }
   }
 
   const $recordTable = document.querySelector(".record_table");
+
   $recordTable.innerHTML = "";
   $recordTable.append(...getRecords(bSize));
 };
@@ -381,7 +386,7 @@ export const handleRecordClick = () => {
   const newRecordControlPanel = document.createElement("div");
   const bSize = store.gameSettings.currentBoardSize;
   const bSizeArr = store.gameSettings.boardSizes;
-  newRecordControlPanel.innerHTML = `<h3>Best of the best ${bSize} X ${bSize}</h3>`;
+  newRecordControlPanel.innerHTML = `<h3 id='restitle'>Best of the best ${bSize} X ${bSize}</h3>`;
 
   for (let i = 0; i < bSizeArr.length; i++) {
     const button = document.createElement("button");
