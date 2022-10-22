@@ -44,17 +44,30 @@
   }
 }
 
-.btnRecords {
-  width: 4rem;
-  height: 2rem;
-  font-size: 1.2rem;
-  padding: 0.1rem;
-  // margin-bottom: 1rem;
-  // border: none;
-  // border-radius: 1rem;
-  cursor: pointer;
-  &.btnRecords_active {
-    color: green;
-    font-weight: bold;
+.btn_rec_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem;
+  .btnRecords {
+    width: 5rem;
+    height: 1.7rem;
+    font-size: 1rem;
+    padding: 0.1rem;
+    background-color: $color_dark_blue;
+    color: white;
+    font-weight: 500;
+    border: none;
+    border-radius: 0.2rem;
+
+    // margin-bottom: 1rem;
+    // border: none;
+    // border-radius: 1rem;
+    cursor: pointer;
+    &.btnRecords_active {
+      background-color: $color_mid_blue;
+    }
   }
 }

@@ -381,10 +381,23 @@ const handleRecordsBtn = (event) => {
 };
 
 export const handleRecordClick = () => {
+  const $popupOverlay = document.querySelector(".popup_overlay");
+  const $popupCard = document.querySelector(".popup_card");
+
   const newRecordControlPanel = document.createElement("div");
   const bSize = store.gameSettings.currentBoardSize;
   const bSizeArr = store.gameSettings.boardSizes;
   newRecordControlPanel.innerHTML = `<h3 id='restitle'>Best of the best ${bSize} X ${bSize}</h3>`;
+
+  const newPopupClose = document.createElement("div");
+  newPopupClose.classList.add("close_popup");
+  newPopupClose.addEventListener("click", () =>
+    $popupOverlay.classList.remove("popup_overlay_active")
+  );
+  newRecordControlPanel.append(newPopupClose);
+
+  const btnsRecWrapper = document.createElement("div");
+  btnsRecWrapper.classList.add("btn_rec_wrapper");
 
   for (let i = 0; i < bSizeArr.length; i++) {
     const button = document.createElement("button");
@@ -393,8 +406,9 @@ export const handleRecordClick = () => {
     button.classList.add("btnRecords");
     button.dataset.bSize = bSizeArr[i];
     if (bSizeArr[i] === bSize) button.classList.add("btnRecords_active");
-    newRecordControlPanel.append(button);
+    btnsRecWrapper.append(button);
   }
+  newRecordControlPanel.append(btnsRecWrapper);
 
   const newRecordTable = document.createElement("div");
   newRecordTable.classList.add("record_table");
@@ -403,9 +417,6 @@ export const handleRecordClick = () => {
   newRecordTable.append(...currRecords);
 
   // console.log(currRecordsArr);
-
-  const $popupOverlay = document.querySelector(".popup_overlay");
-  const $popupCard = document.querySelector(".popup_card");
 
   $popupCard.innerHTML = "";
 
