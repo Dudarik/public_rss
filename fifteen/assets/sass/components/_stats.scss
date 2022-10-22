@@ -5,7 +5,9 @@
 
   margin-bottom: 2rem;
   span {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background-color: white;
     color: $color_dark_blueV2;
     border: 2px solid $color_dark_blue;
@@ -15,6 +17,9 @@
     padding: 0.5rem;
     width: 40%;
     text-align: center;
+    @media screen and (max-width: 470px) {
+      height: 5rem;
+    }
   }
   .play_time {
     margin-left: 0.7rem;

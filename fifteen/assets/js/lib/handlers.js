@@ -145,6 +145,8 @@ export const handleBoardMouseDown = (event) => {
     dragCopy.style.position = "absolute";
     dragCopy.style.zIndex = 1000;
     dragCopy.style.opacity = 0.75;
+    dragCopy.style.fontSize =
+      store.gameSettings.currentBoardSize < 6 ? "2rem" : "1rem";
 
     store.dragableStartPosX = $cell.getBoundingClientRect().left;
     store.dragableStartPosY = $cell.getBoundingClientRect().top;
