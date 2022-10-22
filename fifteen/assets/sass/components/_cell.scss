@@ -9,18 +9,18 @@
   border: 1px solid $color_dark_blue;
   color: $color_dark_blue;
 
-  font-size: 3em;
+  // font-size: 3em;
   // font-size: 6vw;
 
   user-select: none;
-  border-radius: 0.5rem;
+  // border-radius: 0.5rem;
 
-  @media screen and (max-width: 768px) {
-    font-size: 1.5rem;
-  }
-  @media screen and (max-width: 500px) {
-    font-size: 1.3rem;
-  }
+  // @media screen and (max-width: 768px) {
+  //   font-size: 1.5rem;
+  // }
+  // @media screen and (max-width: 500px) {
+  //   font-size: 1.3rem;
+  // }
   // &.dropable {
   //   opacity: 0;
   //   cursor: default;

@@ -1,10 +1,4 @@
-import {
-  formatTime,
-  incrementTimer,
-  isCellShift,
-  shuffle,
-  swap,
-} from "../helpers/index.js";
+import { isCellShift, shuffle, swap } from "../helpers/index.js";
 import { store } from "../store.js";
 import {
   moveCell,
