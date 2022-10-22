@@ -7,7 +7,7 @@ import {
   handleLoadGame,
   // handleDocumentMouseMove,
   // handleDocumentMouseUp,
-  handlePause,
+  // handlePause,
   handleSaveGame,
   handleSelect,
   handleStart,

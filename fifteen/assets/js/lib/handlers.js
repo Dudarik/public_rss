@@ -14,13 +14,14 @@ import {
   movesIncrement,
   checkWin,
   onWin,
+  startGame,
 } from "./gameFunc.js";
 import { generateGameArrays } from "./genArrays.js";
 import { loadFromLS, saveToLS } from "./localstorage.js";
 import { renderBoard, renderMoves, renderTime } from "./render.js";
 
 export const handleStart = () => {
-  if (store.inGame) stopGame();
+  stopGame();
   // debugger;
   // document.querySelector("#btnpause").innerText = "Pause OFF";
 
@@ -31,41 +32,44 @@ export const handleStart = () => {
   store.inGame = true;
 
   renderBoard();
+  startGame();
 
-  store.gameTimerId = setInterval(() => {
-    store.playTime = incrementTimer(store.playTime);
-    renderTime();
-  }, 1000);
-  store.inGame = true;
+  // store.gameTimerId = setInterval(() => {
+  //   store.playTime = incrementTimer(store.playTime);
+  //   renderTime();
+  // }, 1000);
+  // store.inGame = true;
 };
 
-export const handlePause = (event) => {
-  if (!store.inGame) return;
-  if (store.gameTimerId) {
-    clearInterval(store.gameTimerId);
-    store.gameTimerId = null;
-    // store.inGame = false;
-    event.target.innerText = "Pause ON";
-  } else {
-    store.gameTimerId = setInterval(() => {
-      store.playTime = incrementTimer(store.playTime);
-      renderTime();
-    }, 1000);
-    // store.inGame = true;
-    event.target.innerText = "Pause OFF";
-  }
-};
+// export const handlePause = (event) => {
+//   if (!store.inGame) return;
+//   if (store.gameTimerId) {
+//     clearInterval(store.gameTimerId);
+//     store.gameTimerId = null;
+//     // store.inGame = false;
+//     event.target.innerText = "Pause ON";
+//   } else {
+//     store.gameTimerId = setInterval(() => {
+//       store.playTime = incrementTimer(store.playTime);
+//       renderTime();
+//     }, 1000);
+//     // store.inGame = true;
+//     event.target.innerText = "Pause OFF";
+//   }
+// };
 
 export const handleSelect = (event) => {
   // console.log(event.target.value);
   // console.log(store);
-  if (store.inGame) stopGame();
+  stopGame();
+
   store.gameSettings.currentBoardSize = event.target.value;
   const saveSettingsObj = {
     sound: store.gameSettings.sound,
     currentBoardSize: store.gameSettings.currentBoardSize,
   };
   saveToLS(store.ls_key_settings, saveSettingsObj);
+
   generateGameArrays();
   renderBoard();
 };
@@ -308,6 +312,9 @@ export const handleSaveGame = () => {
     playTime: store.playTime,
     movesCount: store.movesCount,
     inGame: store.inGame,
+    gameSettings: {
+      currentBoardSize: store.gameSettings.currentBoardSize,
+    },
   };
   saveToLS(store.ls_key_data, saveGameObj);
 };
@@ -322,12 +329,21 @@ export const handleLoadGame = () => {
   const loadGameObj = loadFromLS(store.ls_key_data);
   if (loadGameObj) {
     for (const key in loadGameObj) {
+      console.log(key);
+      if (key === "gameSettings") {
+        store.gameSettings.currentBoardSize =
+          +loadGameObj.gameSettings.currentBoardSize;
+        continue;
+      }
       if (Object.hasOwnProperty.call(loadGameObj, key)) {
         store[key] = loadGameObj[key];
       }
     }
+    console.log(store);
+
     renderBoard();
     renderMoves();
     renderTime();
+    startGame();
   }
 };

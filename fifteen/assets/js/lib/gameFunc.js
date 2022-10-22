@@ -1,5 +1,14 @@
+import { incrementTimer } from "../helpers/index.js";
 import { store } from "../store.js";
 import { renderMoves, renderTime } from "./render.js";
+
+export const startGame = () => {
+  store.gameTimerId = setInterval(() => {
+    store.playTime = incrementTimer(store.playTime);
+    renderTime();
+  }, 1000);
+  store.inGame = true;
+};
 
 export const stopGame = () => {
   if (store.gameTimerId) clearInterval(store.gameTimerId);
