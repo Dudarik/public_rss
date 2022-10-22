@@ -58,6 +58,11 @@ export const handleSelect = (event) => {
   // console.log(store);
   if (store.inGame) stopGame();
   store.gameSettings.currentBoardSize = event.target.value;
+  const saveSettingsObj = {
+    sound: store.gameSettings.sound,
+    currentBoardSize: store.gameSettings.currentBoardSize,
+  };
+  saveToLS(store.ls_key_settings, saveSettingsObj);
   generateGameArrays();
   renderBoard();
 };
@@ -280,7 +285,7 @@ export const handleBoardMouseUp = (event) => {
 };
 
 export const handleSaveGame = () => {
-  if (!isLSAvailabel())
+  if (!store.ls_available)
     alert(
       "Для того, чтобы сохранения были доступны, включите возможность записи в localstorage! В насатройках вашего браузера!"
     );
@@ -295,7 +300,7 @@ export const handleSaveGame = () => {
 };
 
 export const handleLoadGame = () => {
-  if (!isLSAvailabel()) {
+  if (!store.ls_available) {
     alert(
       "Для того, чтобы сохранения были доступны, включите возможность записи в localstorage! В насатройках вашего браузера!"
     );

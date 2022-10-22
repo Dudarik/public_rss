@@ -25,6 +25,7 @@ export const store = {
   ls_available: false,
   ls_key_data: "fifteen_data",
   ls_key_settings: "fifteen_settings",
+  ls_key_records: "fifteen_records",
 
   records: [],
 

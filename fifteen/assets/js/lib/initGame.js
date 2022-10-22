@@ -12,7 +12,7 @@ import {
   handleSelect,
   handleStart,
 } from "./handlers.js";
-import { isLSAvailabel } from "./localstorage.js";
+import { isLSAvailabel, loadFromLS } from "./localstorage.js";
 
 export const initContainer = () => {
   const newContainer = document.createElement("div");
@@ -102,6 +102,15 @@ export const initGame = () => {
   store.ls_available = isLSAvailabel();
 
   // if (store.ls_available)
+  // console.log(store);
+  if (store.ls_available) {
+    const loadSettingsObj = loadFromLS(store.ls_key_settings);
+    if (loadSettingsObj) {
+      store.gameSettings.sound = loadSettingsObj.sound;
+      store.gameSettings.currentBoardSize = +loadSettingsObj.currentBoardSize;
+    }
+  }
+
   generateGameArrays();
 
   const mainContainer = initContainer();
