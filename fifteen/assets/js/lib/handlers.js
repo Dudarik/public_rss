@@ -23,7 +23,7 @@ export const handleStart = () => {
   // document.querySelector("#btnpause").innerText = "Pause OFF";
 
   console.log(store.gameArray);
-
+  generateGameArrays();
   store.gameArray = shuffle(store.gameArray);
   store.movesCount = 0;
   store.inGame = true;
@@ -98,6 +98,7 @@ export const handleBoardMouseDown = (event) => {
   //     +event.target.dataset.c
   //   )
   // );
+  if (!store.inGame) return;
   if (
     isCellShift(
       store.gameArray,
@@ -233,7 +234,7 @@ export const handleBoardMouseDown = (event) => {
     // dragCopy.remove();
     dndMoveAt(event.pageX, event.pageY);
     dragndropEnd();
-  }, 110);
+  }, 150);
 
   // clearTimeout(timerId);
 };
@@ -252,7 +253,7 @@ export const handleBoardMouseDown = (event) => {
 export const handleBoardMouseUp = (event) => {
   // console.log(new Date() - timeStart);
   // console.log(store.dragndrop);
-
+  if (!store.inGame) return;
   dragndropEnd();
   console.log("board mouse up", store.dragndrop);
   // if (!store.dragndrop) {
