@@ -36,10 +36,13 @@ export const initButtons = () => {
     // console.log(options[i]);
     option.setAttribute("value", options[i]);
     if (options[i] === store.gameSettings.currentBoardSize)
-      option.setAttribute("selected", true);
+      option.selected = true;
+    // option.setAttribute("selected", true);
     option.innerText = `${options[i]} X ${options[i]}`;
     newSelect.append(option);
   }
+
+  newSelect.setAttribute("id", "boardsize");
 
   newSelect.addEventListener("change", handleSelect);
 

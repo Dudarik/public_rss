@@ -13,6 +13,7 @@ export const startGame = () => {
 export const stopGame = () => {
   if (store.gameTimerId) clearInterval(store.gameTimerId);
 
+  store.inGame = false;
   store.playTime = 0;
   store.movesCount = 0;
   store.gameTimerId = null;
@@ -43,6 +44,7 @@ export const dragndropEnd = () => {
 };
 
 export const movesIncrement = () => {
+  console.log("incr");
   store.movesCount += 1;
   renderMoves();
 };

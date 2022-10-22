@@ -326,6 +326,7 @@ export const handleLoadGame = () => {
     );
     return;
   }
+  stopGame();
   const loadGameObj = loadFromLS(store.ls_key_data);
   if (loadGameObj) {
     for (const key in loadGameObj) {
@@ -339,7 +340,16 @@ export const handleLoadGame = () => {
         store[key] = loadGameObj[key];
       }
     }
-    console.log(store);
+
+    const $boardSizeSelect = document.querySelectorAll("#boardsize > option");
+
+    for (let i = 0; i < $boardSizeSelect.length; i++) {
+      $boardSizeSelect[i].selected = false;
+      if (+$boardSizeSelect[i].value === store.gameSettings.currentBoardSize)
+        $boardSizeSelect[i].selected = true;
+    }
+    console.log($boardSizeSelect);
+    // console.log(store);
 
     renderBoard();
     renderMoves();
