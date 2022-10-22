@@ -22,7 +22,7 @@ export const handleStart = () => {
 
   // document.querySelector("#btnpause").innerText = "Pause OFF";
 
-  console.log(store.gameArray);
+  // console.log(store.gameArray);
   generateGameArrays();
   store.gameArray = shuffle(store.gameArray);
   store.movesCount = 0;
@@ -284,7 +284,14 @@ export const handleSaveGame = () => {
     alert(
       "Для того, чтобы сохранения были доступны, включите возможность записи в localstorage! В насатройках вашего браузера!"
     );
-  saveToLS(store.ls_key_data, store);
+  const saveGameObj = {
+    gameArray: store.gameArray,
+    gameWinArray: store.gameWinArray,
+    playTime: store.playTime,
+    movesCount: store.movesCount,
+    inGame: store.inGame,
+  };
+  saveToLS(store.ls_key_data, saveGameObj);
 };
 
 export const handleLoadGame = () => {
@@ -294,10 +301,15 @@ export const handleLoadGame = () => {
     );
     return;
   }
-  const data = loadFromLS(store.ls_key_data);
-  // console.log(data);
-  store = data;
-  renderBoard();
-  renderMoves();
-  renderTime();
+  const loadGameObj = loadFromLS(store.ls_key_data);
+  if (loadGameObj) {
+    for (const key in loadGameObj) {
+      if (Object.hasOwnProperty.call(loadGameObj, key)) {
+        store[key] = loadGameObj[key];
+      }
+    }
+    renderBoard();
+    renderMoves();
+    renderTime();
+  }
 };
