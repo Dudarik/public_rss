@@ -16,5 +16,7 @@ export const generateGameArrays = () => {
   store.gameArray[bSize - 1][bSize - 1] = 0;
   // console.log(store.gameArray.slice());
 
-  store.gameWinArray = store.gameArray.slice();
+  for (let i = 0; i < store.gameArray.length; i++) {
+    store.gameWinArray.push([...store.gameArray[i]]);
+  }
 };

@@ -37,3 +37,12 @@ export const movesIncrement = () => {
   store.movesCount += 1;
   renderMoves();
 };
+
+export const checkWin = () => {
+  return store.gameArray.flat().join("") === store.gameWinArray.flat().join("");
+};
+
+export const onWin = () => {
+  clearInterval(store.gameTimerId);
+  store.inGame = false;
+};

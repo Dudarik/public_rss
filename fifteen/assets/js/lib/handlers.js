@@ -12,21 +12,24 @@ import {
   dragndropStart,
   dragndropEnd,
   movesIncrement,
+  checkWin,
+  onWin,
 } from "./gameFunc.js";
 import { generateGameArrays } from "./genArrays.js";
-import { isLSAvailabel, loadFromLS, saveToLS } from "./localstorage.js";
+import { loadFromLS, saveToLS } from "./localstorage.js";
 import { renderBoard, renderMoves, renderTime } from "./render.js";
 
 export const handleStart = () => {
   if (store.inGame) stopGame();
-
+  // debugger;
   // document.querySelector("#btnpause").innerText = "Pause OFF";
 
-  // console.log(store.gameArray);
   generateGameArrays();
-  store.gameArray = shuffle(store.gameArray);
+
+  store.gameArray = shuffle(store.gameArray, 5, true);
   store.movesCount = 0;
   store.inGame = true;
+
   renderBoard();
 
   store.gameTimerId = setInterval(() => {
@@ -89,6 +92,11 @@ const handleTransitionEnd = (event) => {
   // console.log(store.gameArray.slice());
   endMoveCell(event.target);
   renderBoard();
+
+  if (checkWin()) {
+    console.log("win");
+    onWin();
+  }
   const $board = document.querySelector("#board");
   $board.addEventListener("mouseup", handleBoardMouseUp);
 };
@@ -223,6 +231,11 @@ export const handleBoardMouseDown = (event) => {
           movesIncrement();
 
           renderBoard();
+
+          if (checkWin()) {
+            console.log("win");
+            onWin();
+          }
 
           leaveDroppable(currentDroppable);
         }
