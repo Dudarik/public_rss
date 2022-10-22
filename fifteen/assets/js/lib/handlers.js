@@ -165,12 +165,14 @@ export const handleBoardMouseDown = (event) => {
 
     const enterDroppable = (elem) => {
       store.inDropable = true;
-      elem.style.background = "green";
+      elem.style.background = "#e2f5fc";
+      elem.style.opacity = 0.2;
     };
 
     const leaveDroppable = (elem) => {
       store.inDropable = false;
       elem.style.background = "";
+      elem.style.opacity = 0;
     };
 
     const handleMouseMove = (event) => {
