@@ -1,4 +1,5 @@
 import {
+  formatTime,
   incrementTimer,
   isCellShift,
   shuffle,
@@ -15,6 +16,7 @@ import {
   checkWin,
   onWin,
   startGame,
+  getRecords,
 } from "./gameFunc.js";
 import { generateGameArrays } from "./genArrays.js";
 import { loadFromLS, saveToLS } from "./localstorage.js";
@@ -358,17 +360,54 @@ export const handleLoadGame = () => {
   }
 };
 
-const handleRecordClick = () => {
+const handleRecordsBtn = (event) => {
+  const btnArr = document.querySelectorAll(".btnRecords");
+  // console.log(btnArr, event.target.dataset);
+  const bSize = event.target.dataset.bSize;
+
+  for (let i = 0; i < btnArr.length; i++) {
+    btnArr[i].classList.remove("btnRecords_active");
+
+    if (btnArr[i].dataset.bSize === bSize)
+      btnArr[i].classList.add("btnRecords_active");
+  }
+
+  const $recordTable = document.querySelector(".record_table");
+  $recordTable.innerHTML = "";
+  $recordTable.append(...getRecords(bSize));
+};
+
+export const handleRecordClick = () => {
   const newRecordControlPanel = document.createElement("div");
   const bSize = store.gameSettings.currentBoardSize;
-  newRecordControlPanel.innerHTML = "<h3>Best of the best</h3>";
+  const bSizeArr = store.gameSettings.boardSizes;
+  newRecordControlPanel.innerHTML = `<h3>Best of the best ${bSize} X ${bSize}</h3>`;
 
-  for (let i = 0; i < store.gameSettings.boardSizes.length; i++) {
-    const button = createElement("button");
-    button.innerText = `${bSize} X ${bSize}`;
+  for (let i = 0; i < bSizeArr.length; i++) {
+    const button = document.createElement("button");
+    button.innerText = `${bSizeArr[i]} X ${bSizeArr[i]}`;
+    button.addEventListener("click", handleRecordsBtn);
+    button.classList.add("btnRecords");
+    button.dataset.bSize = bSizeArr[i];
+    if (bSizeArr[i] === bSize) button.classList.add("btnRecords_active");
     newRecordControlPanel.append(button);
   }
 
-  $popupOverlay = document.querySelector(".popup_overlay");
-  $popupCard = document.querySelector(".popup_card");
+  const newRecordTable = document.createElement("div");
+  newRecordTable.classList.add("record_table");
+
+  const currRecords = getRecords(bSize);
+  newRecordTable.append(...currRecords);
+
+  // console.log(currRecordsArr);
+
+  const $popupOverlay = document.querySelector(".popup_overlay");
+  const $popupCard = document.querySelector(".popup_card");
+
+  $popupCard.innerHTML = "";
+
+  $popupCard.append(newRecordControlPanel);
+  $popupCard.append(newRecordTable);
+
+  $popupOverlay.classList.add("popup_overlay_active");
 };

@@ -5,6 +5,7 @@ import {
   handleBoardMouseDown,
   handleBoardMouseUp,
   handleLoadGame,
+  handleRecordClick,
   // handleDocumentMouseMove,
   // handleDocumentMouseUp,
   // handlePause,
@@ -19,18 +20,28 @@ export const initContainer = () => {
   newContainer.classList.add("container");
 
   const newOverlay = document.createElement("div");
-  newOverlay.classList.add("popup_overlay", "popup_overlay_active");
+  newOverlay.classList.add("popup_overlay"); //popup_overlay_active
+  newOverlay.setAttribute("id", "popup_overlay");
 
   // const newPopupContent = document.createElement("div");
   // newPopupContent.classList.add("popup_content");
 
-  const newPopupCard = document.createElement("div");
-  newPopupCard.classList.add("popup_card");
-
   const newPopupClose = document.createElement("div");
   newPopupClose.classList.add("close_popup");
 
-  newOverlay.addEventListener("click", () => {
+  const newPopupCard = document.createElement("div");
+  newPopupCard.classList.add("popup_card");
+
+  newOverlay.addEventListener("click", (event) => {
+    console.log(event.target);
+    if (!(event.target.id === "popup_overlay")) return;
+    // testimonialsSliderCards.removeEventListener('click', handleOpenPopup)
+
+    event.stopPropagation();
+    event.preventDefault();
+
+    // console.log(event.target.id);
+
     newOverlay.classList.remove("popup_overlay_active");
   });
 
@@ -45,6 +56,7 @@ export const initContainer = () => {
   newOverlay.append(newPopupCard);
 
   newContainer.append(newOverlay);
+
   document.body.innerHTML = "";
   document.body.append(newContainer);
   return newContainer;
@@ -96,6 +108,7 @@ export const initButtons = () => {
   // btnPause.addEventListener("click", handlePause);
   btnSave.addEventListener("click", handleSaveGame);
   btnLoad.addEventListener("click", handleLoadGame);
+  btnResults.addEventListener("click", handleRecordClick);
 
   newDiv.append(btnShuffleStart, btnSoundOn, btnSave, btnLoad, btnResults);
 

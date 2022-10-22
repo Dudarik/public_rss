@@ -1,4 +1,4 @@
-import { incrementTimer } from "../helpers/index.js";
+import { formatTime, incrementTimer } from "../helpers/index.js";
 import { store } from "../store.js";
 import { saveToLS } from "./localstorage.js";
 import { renderMoves, renderTime } from "./render.js";
@@ -69,4 +69,22 @@ export const saveRecord = (name) => {
     .sort((a, b) => a.movesCount - b.movesCount);
   store.records[bSize] = store.records[bSize].slice(0, 10);
   saveToLS(ls_key_records, store);
+};
+
+export const getRecords = (bSize) => {
+  const currRecordsArr = store.records[bSize];
+
+  const retArr = [];
+
+  for (let i = 0; i < currRecordsArr.length; i++) {
+    const newStr = document.createElement("div");
+
+    newStr.classList.add("record_str");
+    newStr.innerText = `${currRecordsArr[i].name} | ${
+      currRecordsArr[i].movesCount
+    } | ${formatTime(currRecordsArr[i].playTime)}`;
+    retArr.push(newStr);
+    // newRecordTable.append(newStr);
+  }
+  return retArr;
 };

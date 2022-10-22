@@ -20,13 +20,20 @@
   //   opacity: 0 !important;
   //   transform: translateY(-2000px);
   // }
+
   .popup_card {
-    height: 90%;
-    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    // height: 70%;
+    // width: 70%;
     padding: 10px;
     box-sizing: border-box;
     position: relative;
+    z-index: 2030;
     // overflow: auto;
+    // content: "asdas";
     border-radius: 0.5rem;
 
     background-color: lightcyan;
@@ -54,5 +61,23 @@
     .popup_content {
       transform: translateY(0);
     }
+  }
+}
+
+.record_table {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  // border: 1px dotted green;
+
+  width: 95%;
+  .record_str {
+    padding: 0.3rem;
+    display: flex;
+    align-items: space-between;
+    width: 100%;
+    font-size: 1rem;
+    border: 1px solid green;
   }
 }
