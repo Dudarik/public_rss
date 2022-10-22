@@ -357,3 +357,18 @@ export const handleLoadGame = () => {
     startGame();
   }
 };
+
+const handleRecordClick = () => {
+  const newRecordControlPanel = document.createElement("div");
+  const bSize = store.gameSettings.currentBoardSize;
+  newRecordControlPanel.innerHTML = "<h3>Best of the best</h3>";
+
+  for (let i = 0; i < store.gameSettings.boardSizes.length; i++) {
+    const button = createElement("button");
+    button.innerText = `${bSize} X ${bSize}`;
+    newRecordControlPanel.append(button);
+  }
+
+  $popupOverlay = document.querySelector(".popup_overlay");
+  $popupCard = document.querySelector(".popup_card");
+};

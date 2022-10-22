@@ -1,5 +1,6 @@
 import { incrementTimer } from "../helpers/index.js";
 import { store } from "../store.js";
+import { saveToLS } from "./localstorage.js";
 import { renderMoves, renderTime } from "./render.js";
 
 export const startGame = () => {
@@ -56,4 +57,16 @@ export const checkWin = () => {
 export const onWin = () => {
   clearInterval(store.gameTimerId);
   store.inGame = false;
+};
+
+export const saveRecord = (name) => {
+  const bSize = store.gameSettings.currentBoardSize;
+
+  const { movesCount, playTime } = store;
+
+  store.records[bSize]
+    .push({ name, movesCount, playTime })
+    .sort((a, b) => a.movesCount - b.movesCount);
+  store.records[bSize] = store.records[bSize].slice(0, 10);
+  saveToLS(ls_key_records, store);
 };
