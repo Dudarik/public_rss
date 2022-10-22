@@ -2,10 +2,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
+
+  margin-bottom: 2rem;
   span {
     display: inline-block;
+    background-color: white;
+    color: $color_dark_blueV2;
+    border: 2px solid $color_dark_blue;
+    border-radius: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 0.5rem;
+    width: 40%;
+    text-align: center;
   }
   .play_time {
     margin-left: 0.7rem;
