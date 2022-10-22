@@ -17,6 +17,34 @@ import { isLSAvailabel, loadFromLS } from "./localstorage.js";
 export const initContainer = () => {
   const newContainer = document.createElement("div");
   newContainer.classList.add("container");
+
+  const newOverlay = document.createElement("div");
+  newOverlay.classList.add("popup_overlay", "popup_overlay_active");
+
+  // const newPopupContent = document.createElement("div");
+  // newPopupContent.classList.add("popup_content");
+
+  const newPopupCard = document.createElement("div");
+  newPopupCard.classList.add("popup_card");
+
+  const newPopupClose = document.createElement("div");
+  newPopupClose.classList.add("close_popup");
+
+  newOverlay.addEventListener("click", () => {
+    newOverlay.classList.remove("popup_overlay_active");
+  });
+
+  newPopupClose.addEventListener("click", () => {
+    newOverlay.classList.remove("popup_overlay_active");
+  });
+
+  newPopupCard.append(newPopupClose);
+
+  // newPopupContent.append(newPopupCard);
+
+  newOverlay.append(newPopupCard);
+
+  newContainer.append(newOverlay);
   document.body.innerHTML = "";
   document.body.append(newContainer);
   return newContainer;
