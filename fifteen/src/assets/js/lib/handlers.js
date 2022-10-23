@@ -375,10 +375,13 @@ export const handleLoadGame = () => {
 const handleRecordsBtn = (event) => {
   const btnArr = document.querySelectorAll(".btnRecords");
   // console.log(btnArr, event.target.dataset);
-
   const bSize = event.target.dataset.bSize;
 
   const $resultTitle = document.querySelector("#restitle");
+
+  const $recordTable = document.querySelector(".record_table");
+
+  $recordTable.innerHTML = "";
 
   for (let i = 0; i < btnArr.length; i++) {
     btnArr[i].classList.remove("btnRecords_active");
@@ -389,9 +392,6 @@ const handleRecordsBtn = (event) => {
     }
   }
 
-  const $recordTable = document.querySelector(".record_table");
-
-  $recordTable.innerHTML = "";
   $recordTable.append(...getRecords(bSize));
 };
 
@@ -422,7 +422,7 @@ export const handleRecordClick = () => {
     button.addEventListener("click", handleRecordsBtn);
     button.classList.add("btnRecords");
     button.dataset.bSize = bSizeArr[i];
-    if (bSizeArr[i] === bSize) button.classList.add("btnRecords_active");
+    if (bSizeArr[i] === +bSize) button.classList.add("btnRecords_active");
     btnsRecWrapper.append(button);
   }
   newRecordControlPanel.append(btnsRecWrapper);
