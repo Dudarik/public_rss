@@ -122,25 +122,3 @@ export const isCellShift = (arr, row, col) => {
   }
   return null;
 };
-
-// console.log(
-//   arr.slice(),
-//   zcr,
-//   zcc,
-//   arr[zcr][zcc],
-//   arr[zcr - 1][zcc]
-// );
-// const t = arr[zcr][zcc];
-// arr[zcr][zcc] = arr[zcr - 1][zcc];
-// arr[zcr - 1][zcc] = t;
-
-// console.log(
-//   arr.slice(),
-//   zcr,
-//   zcc,
-//   arr[zcr][zcc],
-//   arr[zcr - 1][zcc]
-// );
-// }
-
-// [arr[zcr][zcc], arr[--zcr][zcc]] = [arr[--zcr][zcc], arr[zcr][zcc]];

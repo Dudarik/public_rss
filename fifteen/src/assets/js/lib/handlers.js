@@ -27,27 +27,23 @@ import soundOpenRecords from "../../sound/openrecords.mp3";
 
 export const handleStart = () => {
   stopGame();
-  // debugger;
-  // document.querySelector("#btnpause").innerText = "Pause OFF";
 
   generateGameArrays();
 
   if (store.gameSettings.sound) new Audio(soundStartGame).play();
 
-  store.gameArray = store.cheatMode
-    ? shuffle(store.gameArray, 7, true)
-    : shuffle(store.gameArray);
+  if (store.cheatMode) {
+    store.gameArray = shuffle(store.gameArray, 10, true);
+    if (store.gameArray.flat().join("") === store.gameWinArray.flat().join(""))
+      store.gameArray = shuffle(store.gameArray, 10, true);
+  } else {
+    store.gameArray = shuffle(store.gameArray);
+  }
   store.movesCount = 0;
   store.inGame = true;
 
   renderBoard();
   startGame();
-
-  // store.gameTimerId = setInterval(() => {
-  //   store.playTime = incrementTimer(store.playTime);
-  //   renderTime();
-  // }, 1000);
-  // store.inGame = true;
 };
 
 // export const handlePause = (event) => {
