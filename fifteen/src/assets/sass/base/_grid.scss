@@ -1,0 +1,23 @@
+html {
+  overflow-x: hidden;
+  margin-right: calc(-1 * (100vw - 100%));
+}
+
+.container {
+  max-width: 35rem;
+  background-color: #e2f5fc;
+  padding: 0.5rem;
+  margin: 0 auto;
+}
+
+.displaynone {
+  display: none !important;
+}
+
+// .board__wrapper {
+//   width: 90vw;
+//   height: 90vw;
+//   max-width: 33rem;
+//   max-height: 33rem;
+//   margin: 0 auto;
+// }

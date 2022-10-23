@@ -1,0 +1,18 @@
+@mixin font-settings {
+  font-family: "Roboto", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #000000;
+}
+@mixin button-settings {
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  font-size: 16px;
+  line-height: 140%;
+  text-align: center;
+
+  color: #ffffff;
+  background-image: $color_orange;
+}

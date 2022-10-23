@@ -1,0 +1,73 @@
+.buttons {
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  margin-bottom: 2rem;
+
+  select {
+    background-color: $color_mid_blue;
+    border: none;
+    color: white;
+
+    font-weight: bold;
+    border-radius: 0.2rem;
+    font-size: 2.3rem;
+    width: 100%;
+    height: 3rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  button {
+    width: 6rem;
+    height: 2.3rem;
+    font-size: 1rem;
+    padding: 0.1rem;
+    background-color: $color_dark_blue;
+    color: white;
+    font-weight: 500;
+    line-height: 0.9rem;
+    // margin-bottom: 1rem;
+    border: none;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    &:hover {
+      background-color: $color_mid_blue;
+    }
+    &:active {
+      background-color: green;
+    }
+  }
+}
+
+.btn_rec_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem;
+  .btnRecords {
+    width: 4rem;
+    height: 1.7rem;
+    font-size: 1rem;
+    padding: 0.1rem;
+    background-color: $color_dark_blue;
+    color: white;
+    font-weight: 500;
+    border: none;
+    border-radius: 0.2rem;
+
+    // margin-bottom: 1rem;
+    // border: none;
+    // border-radius: 1rem;
+    cursor: pointer;
+    &.btnRecords_active {
+      background-color: $color_mid_blue;
+    }
+  }
+}

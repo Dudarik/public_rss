@@ -1,0 +1,40 @@
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: grab;
+
+  background-color: white;
+  border: 1px solid $color_dark_blue;
+  color: $color_dark_blue;
+  border-radius: 0.3rem;
+  user-select: none;
+
+  @mixin move-mixin {
+    transition-property: transform;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier;
+  }
+  &.move_up {
+    transform: translateY(calc(-100% - $grid_gap));
+    @include move-mixin;
+  }
+  &.move_down {
+    transform: translateY(calc(100% + $grid_gap));
+    @include move-mixin;
+  }
+  &.move_right {
+    transform: translateX(calc(100% + $grid_gap));
+    @include move-mixin;
+  }
+  &.move_left {
+    transform: translateX(calc(-100% - $grid_gap));
+    @include move-mixin;
+  }
+
+  &.dropable {
+    font-size: 0px;
+    opacity: 0;
+  }
+}

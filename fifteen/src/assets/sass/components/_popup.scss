@@ -1,0 +1,126 @@
+.popup_overlay {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  top: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+
+  pointer-events: none;
+  background-color: rgba($color: #000000, $alpha: 0.6);
+  transition: 0.5s;
+  // @media (min-width: 999px) {
+  //   opacity: 0 !important;
+  //   transform: translateY(-2000px);
+  // }
+
+  .popup_card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    // height: 70%;
+    // width: 70%;
+    padding: 10px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2030;
+    // overflow: auto;
+    // content: "asdas";
+    border-radius: 0.5rem;
+
+    text-align: center;
+
+    background-color: $color_ligt_blue;
+    color: $color_dark_blue;
+
+    .close_popup {
+      width: 14px;
+      height: 14px;
+      top: 12px;
+      right: 14px;
+      position: absolute;
+      z-index: 2010;
+      background-image: url("../icons/close_popup.png");
+      cursor: pointer;
+      // box-sizing: border-box;
+      &:hover {
+        box-shadow: 0px 0px 10px 8px $color_mid_blue;
+      }
+    }
+    h4 {
+      margin-top: 2rem;
+    }
+
+    .record_name {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      // width: 100%;
+      max-width: 10rem;
+      text-align: center;
+    }
+    .btnRecords_save {
+      width: 5rem;
+      height: 1.7rem;
+      font-size: 1rem;
+      padding: 0.1rem;
+      background-color: $color_dark_blue;
+      color: white;
+      font-weight: 500;
+      border: none;
+      border-radius: 0.2rem;
+
+      // margin-bottom: 1rem;
+      // border: none;
+      // border-radius: 1rem;
+      cursor: pointer;
+      &:hover {
+        background-color: $color_mid_blue;
+      }
+    }
+  }
+  &.popup_overlay_active {
+    pointer-events: all;
+    z-index: 2000;
+    opacity: 1;
+    transition: opacity 0.3s;
+    .popup_content {
+      transform: translateY(0);
+    }
+  }
+}
+
+.record_table {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 0.7rem;
+  // border: 1px dotted green;
+  background-color: $color_gray;
+  border: 1px solid $color_dark_blue;
+  border-radius: 0.3rem;
+
+  width: 95%;
+  .record_str {
+    padding: 0.3rem;
+    display: grid;
+    grid-template-columns: 1rem repeat(3, 1fr);
+    justify-content: space-between;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 500;
+    border-bottom: 1px dotted $color_dark_blue;
+    &:last-child {
+      border: none;
+    }
+    // border: 1px solid $color_dark_blue;
+  }
+}
