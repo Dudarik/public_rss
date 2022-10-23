@@ -3,6 +3,8 @@ import { store } from "../store.js";
 import { loadFromLS, saveToLS } from "./localstorage.js";
 import { renderMoves, renderTime } from "./render.js";
 
+import soundWinGame from "../../sound/wingame.mp3";
+
 export const startGame = () => {
   store.gameTimerId = setInterval(() => {
     store.playTime = incrementTimer(store.playTime);
@@ -45,7 +47,7 @@ export const dragndropEnd = () => {
 };
 
 export const movesIncrement = () => {
-  console.log("incr");
+  // console.log("incr");
   store.movesCount += 1;
   renderMoves();
 };
@@ -57,7 +59,8 @@ export const checkWin = () => {
 export const onWin = () => {
   clearInterval(store.gameTimerId);
   store.inGame = false;
-  console.log(store.movesCount);
+  // console.log(store.movesCount);
+  if (store.gameSettings.sound) new Audio(soundWinGame).play();
   const $popupOverlay = document.querySelector(".popup_overlay");
   const $popupCard = document.querySelector(".popup_card");
 
@@ -195,4 +198,12 @@ export const getRecords = (bSize) => {
     // newRecordTable.append(newStr);
   }
   return retArr;
+};
+
+export const saveSettingsToLS = () => {
+  const saveSettingsObj = {
+    sound: store.gameSettings.sound,
+    currentBoardSize: store.gameSettings.currentBoardSize,
+  };
+  saveToLS(store.ls_key_settings, saveSettingsObj);
 };

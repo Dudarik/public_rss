@@ -11,12 +11,17 @@ import {
   onWin,
   startGame,
   getRecords,
+  saveSettingsToLS,
 } from "./gameFunc.js";
 import { generateGameArrays } from "./genArrays.js";
 import { loadFromLS, saveToLS } from "./localstorage.js";
 import { renderBoard, renderMoves, renderTime } from "./render.js";
 
 import soundMove from "../../sound/move_fiu.mp3";
+import soundStartGame from "../../sound/startgame.mp3";
+import soundMoveDnd from "../../sound/move_dnd.mp3";
+
+import soundOpenRecords from "../../sound/openrecords.mp3";
 
 export const handleStart = () => {
   stopGame();
@@ -24,6 +29,8 @@ export const handleStart = () => {
   // document.querySelector("#btnpause").innerText = "Pause OFF";
 
   generateGameArrays();
+
+  if (store.gameSettings.sound) new Audio(soundStartGame).play();
 
   store.gameArray = shuffle(store.gameArray, 5, true);
   store.movesCount = 0;
@@ -62,11 +69,12 @@ export const handleSelect = (event) => {
   stopGame();
 
   store.gameSettings.currentBoardSize = event.target.value;
-  const saveSettingsObj = {
-    sound: store.gameSettings.sound,
-    currentBoardSize: store.gameSettings.currentBoardSize,
-  };
-  saveToLS(store.ls_key_settings, saveSettingsObj);
+  // const saveSettingsObj = {
+  //   sound: store.gameSettings.sound,
+  //   currentBoardSize: store.gameSettings.currentBoardSize,
+  // };
+  // saveToLS(store.ls_key_settings, saveSettingsObj);
+  saveSettingsToLS();
 
   generateGameArrays();
   renderBoard();
@@ -234,12 +242,13 @@ export const handleBoardMouseDown = (event) => {
 
           swap(store.gameArray, zcr, zcc, nzcr, nzcc);
 
+          if (store.gameSettings.sound) new Audio(soundMoveDnd).play();
           movesIncrement();
 
           renderBoard();
 
           if (checkWin()) {
-            console.log("win");
+            // console.log("win");
             onWin();
           }
 
@@ -333,7 +342,7 @@ export const handleLoadGame = () => {
   const loadGameObj = loadFromLS(store.ls_key_data);
   if (loadGameObj) {
     for (const key in loadGameObj) {
-      console.log(key);
+      // console.log(key);
       if (key === "gameSettings") {
         store.gameSettings.currentBoardSize =
           +loadGameObj.gameSettings.currentBoardSize;
@@ -351,7 +360,7 @@ export const handleLoadGame = () => {
       if (+$boardSizeSelect[i].value === store.gameSettings.currentBoardSize)
         $boardSizeSelect[i].selected = true;
     }
-    console.log($boardSizeSelect);
+    // console.log($boardSizeSelect);
     // console.log(store);
 
     renderBoard();
@@ -364,6 +373,7 @@ export const handleLoadGame = () => {
 const handleRecordsBtn = (event) => {
   const btnArr = document.querySelectorAll(".btnRecords");
   // console.log(btnArr, event.target.dataset);
+
   const bSize = event.target.dataset.bSize;
 
   const $resultTitle = document.querySelector("#restitle");
@@ -384,6 +394,8 @@ const handleRecordsBtn = (event) => {
 };
 
 export const handleRecordClick = () => {
+  if (store.gameSettings.sound) new Audio(soundOpenRecords).play();
+
   const $popupOverlay = document.querySelector(".popup_overlay");
   const $popupCard = document.querySelector(".popup_card");
 
@@ -427,4 +439,18 @@ export const handleRecordClick = () => {
   $popupCard.append(newRecordTable);
 
   $popupOverlay.classList.add("popup_overlay_active");
+};
+
+export const handleSound = (event) => {
+  if (store.gameSettings.sound) {
+    store.gameSettings.sound = false;
+    event.target.innerText = "Sound OFF";
+    event.target.classList.add("btn_sound_disable");
+    saveSettingsToLS();
+  } else {
+    store.gameSettings.sound = true;
+    event.target.innerText = "Sound ON";
+    event.target.classList.remove("btn_sound_disable");
+    saveSettingsToLS();
+  }
 };

@@ -41,6 +41,9 @@
     &:active {
       background-color: green;
     }
+    &.btn_sound_disable {
+      background-color: $color_gray;
+    }
   }
 }
 

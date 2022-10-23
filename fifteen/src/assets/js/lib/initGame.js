@@ -2,7 +2,7 @@ import { store } from "../store.js";
 import { loadRecordsFromLS } from "./gameFunc.js";
 import { generateGameArrays } from "./genArrays.js";
 import {
-  handleBoard,
+  // handleBoard,
   handleBoardMouseDown,
   handleBoardMouseUp,
   handleLoadGame,
@@ -12,6 +12,7 @@ import {
   // handlePause,
   handleSaveGame,
   handleSelect,
+  handleSound,
   handleStart,
 } from "./handlers.js";
 import { isLSAvailabel, loadFromLS } from "./localstorage.js";
@@ -97,16 +98,18 @@ export const initButtons = () => {
   const btnResults = document.createElement("button");
 
   btnShuffleStart.innerText = "Shuffle and start";
-  btnSoundOn.innerText = "Sound ON";
+  btnSoundOn.innerText = store.gameSettings.sound ? "Sound ON" : "Sound OFF";
   // btnPause.innerText = "Pause OFF";
   btnSave.innerText = "Save";
   btnLoad.innerText = "Load";
   btnResults.innerText = "Results";
 
+  if (!store.gameSettings.sound) btnSoundOn.classList.add("btn_sound_disable");
   // btnPause.setAttribute("id", "btnpause");
 
   btnShuffleStart.addEventListener("click", handleStart);
   // btnPause.addEventListener("click", handlePause);
+  btnSoundOn.addEventListener("click", handleSound);
   btnSave.addEventListener("click", handleSaveGame);
   btnLoad.addEventListener("click", handleLoadGame);
   btnResults.addEventListener("click", handleRecordClick);
