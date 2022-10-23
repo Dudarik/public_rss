@@ -137,7 +137,7 @@ const initCheatModeCheckbox = () => {
   labelFor.innerText = "cheat mode";
   labelFor.classList.add("cheat_mode");
   labelFor.title =
-    "Включи этот режим, чтобы уменшить количество перемешиваний. И нажми старт!";
+    "Включи этот режим, чтобы уменшить количество перемешиваний. И нажми 'shuffle and start!'";
 
   const newInput = document.createElement("input");
   newInput.type = "checkbox";
