@@ -9,7 +9,7 @@ export const store = {
   gameArray: [],
   gameWinArray: [],
   gameSettings: {
-    sound: false,
+    sound: true,
     numbers: true,
     boardSizes: [
       BOARD_SIZE_3,

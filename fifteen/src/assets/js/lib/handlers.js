@@ -16,7 +16,7 @@ import { generateGameArrays } from "./genArrays.js";
 import { loadFromLS, saveToLS } from "./localstorage.js";
 import { renderBoard, renderMoves, renderTime } from "./render.js";
 
-// import soundMove from "../../sound/move_fiu.mp3";
+import soundMove from "../../sound/move_fiu.mp3";
 
 export const handleStart = () => {
   stopGame();
@@ -296,7 +296,7 @@ export const handleBoardMouseUp = (event) => {
     );
     // console.log(shiftSell);
     if (shiftSell) {
-      // if (store.gameSettings.sound) new Audio(soundMove).play();
+      if (store.gameSettings.sound) new Audio(soundMove).play();
       // $board.removeEventListener("mouseup", handleBoardMouseUp);
       moveCell(event.target, shiftSell.direction);
     }
