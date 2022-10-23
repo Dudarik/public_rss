@@ -1,5 +1,5 @@
 import { store } from "../store.js";
-import { loadRecordsFromLS } from "./gameFunc.js";
+import { gameResume, loadRecordsFromLS } from "./gameFunc.js";
 import { generateGameArrays } from "./genArrays.js";
 import {
   // handleBoard,
@@ -46,10 +46,12 @@ export const initContainer = () => {
     // console.log(event.target.id);
 
     newOverlay.classList.remove("popup_overlay_active");
+    if (store.inGame) gameResume();
   });
 
   newPopupClose.addEventListener("click", () => {
     newOverlay.classList.remove("popup_overlay_active");
+    if (store.inGame) gameResume();
   });
 
   newPopupCard.append(newPopupClose);

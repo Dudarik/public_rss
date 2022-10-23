@@ -129,14 +129,14 @@ export const saveRecord = (name) => {
 
   const { movesCount, playTime } = store;
 
-  console.log(store.records[bSize]);
+  // console.log(store.records[bSize]);
   // debugger;
   store.records[bSize].push({ name, movesCount, playTime });
   store.records[bSize].sort((a, b) => a.movesCount - b.movesCount);
 
   store.records[bSize] = store.records[bSize].slice(0, 10);
 
-  console.log(store.records[bSize]);
+  // console.log(store.records[bSize]);
   saveToLS(store.ls_key_records, store.records);
 };
 
@@ -206,4 +206,18 @@ export const saveSettingsToLS = () => {
     currentBoardSize: store.gameSettings.currentBoardSize,
   };
   saveToLS(store.ls_key_settings, saveSettingsObj);
+};
+
+export const gamePause = () => {
+  if (store.gameTimerId) {
+    clearInterval(store.gameTimerId);
+    store.gameTimerId = null;
+  }
+};
+
+export const gameResume = () => {
+  store.gameTimerId = setInterval(() => {
+    store.playTime = incrementTimer(store.playTime);
+    renderTime();
+  }, 1000);
 };

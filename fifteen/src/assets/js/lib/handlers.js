@@ -12,6 +12,8 @@ import {
   startGame,
   getRecords,
   saveSettingsToLS,
+  gameResume,
+  gamePause,
 } from "./gameFunc.js";
 import { generateGameArrays } from "./genArrays.js";
 import { loadFromLS, saveToLS } from "./localstorage.js";
@@ -86,9 +88,9 @@ export const handleSelect = (event) => {
 
 // const timerId = null;
 
-export const handleBoard = (event) => {
-  console.log(event);
-};
+// export const handleBoard = (event) => {
+//   console.log(event);
+// };
 
 const handleTransitionEnd = (event) => {
   // console.log("animend");
@@ -106,7 +108,7 @@ const handleTransitionEnd = (event) => {
   renderBoard();
 
   if (checkWin()) {
-    console.log("win");
+    // console.log("win");
     onWin();
   }
   const $board = document.querySelector("#board");
@@ -408,9 +410,10 @@ export const handleRecordClick = () => {
 
   const newPopupClose = document.createElement("div");
   newPopupClose.classList.add("close_popup");
-  newPopupClose.addEventListener("click", () =>
-    $popupOverlay.classList.remove("popup_overlay_active")
-  );
+  newPopupClose.addEventListener("click", () => {
+    $popupOverlay.classList.remove("popup_overlay_active");
+    gameResume();
+  });
   newRecordControlPanel.append(newPopupClose);
 
   const btnsRecWrapper = document.createElement("div");
@@ -441,6 +444,8 @@ export const handleRecordClick = () => {
   $popupCard.append(newRecordTable);
 
   $popupOverlay.classList.add("popup_overlay_active");
+
+  gamePause();
 };
 
 export const handleSound = (event) => {
