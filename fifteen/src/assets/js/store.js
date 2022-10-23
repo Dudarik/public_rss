@@ -23,9 +23,9 @@ export const store = {
   },
 
   ls_available: false,
-  ls_key_data: "fifteen_data",
-  ls_key_settings: "fifteen_settings",
-  ls_key_records: "fifteen_records",
+  ls_key_data: "dudarik_fifteen_data",
+  ls_key_settings: "dudarik_fifteen_settings",
+  ls_key_records: "dudarik_fifteen_records",
 
   records: {
     [BOARD_SIZE_3]: [
