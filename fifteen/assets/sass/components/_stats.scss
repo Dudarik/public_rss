@@ -8,18 +8,30 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     background-color: white;
     color: $color_dark_blueV2;
+
     border: 2px solid $color_dark_blue;
     border-radius: 0.5rem;
+
     font-size: 1.3rem;
     font-weight: 600;
+
     padding: 0.5rem;
     width: 40%;
-    text-align: center;
-    @media screen and (max-width: 470px) {
-      height: 5rem;
+
+    // text-align: center;
+    @media screen and (max-width: 420px) {
+      // height: 5rem;
+      padding: 0.2rem;
+      font-size: 1rem;
     }
+
+    // @media screen and (max-width: 345px) {
+    //   // height: 5rem;
+    //   font-size: 0.9rem;
+    // }
   }
   .play_time {
     margin-left: 0.7rem;
