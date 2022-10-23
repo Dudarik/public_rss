@@ -58,14 +58,25 @@ export const onWin = () => {
   clearInterval(store.gameTimerId);
   store.inGame = false;
   console.log(store.movesCount);
+  const $popupOverlay = document.querySelector(".popup_overlay");
+  const $popupCard = document.querySelector(".popup_card");
+
+  $popupCard.innerHTML = "";
+
+  const victoryDiv = document.createElement("div");
+  victoryDiv.classList.add("victory_title");
+
+  $popupCard.innerHTML = `
+    <h3 class='victory_title'>!!! VICTORY !!!</h3>
+    <div class='victory_subtitle'>Hooray! You solved the puzzle in ${formatTime(
+      store.playTime
+    )} and ${store.movesCount} moves!</div>
+  `;
 
   if (
     store.movesCount <
     store.records[store.gameSettings.currentBoardSize][9].movesCount
   ) {
-    const $popupOverlay = document.querySelector(".popup_overlay");
-    const $popupCard = document.querySelector(".popup_card");
-
     const newinput = document.createElement("input");
     newinput.type = "text";
     newinput.className = "name";
@@ -78,11 +89,9 @@ export const onWin = () => {
       saveRecord(newinput.value);
       $popupOverlay.classList.remove("popup_overlay_active");
     });
-    $popupCard.innerHTML = "";
     $popupCard.append(newinput, savebutton);
-
-    $popupOverlay.classList.add("popup_overlay_active");
   }
+  $popupOverlay.classList.add("popup_overlay_active");
 };
 
 export const saveRecord = (name) => {
