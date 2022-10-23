@@ -32,7 +32,9 @@ export const handleStart = () => {
 
   if (store.gameSettings.sound) new Audio(soundStartGame).play();
 
-  store.gameArray = shuffle(store.gameArray, 5, true);
+  store.gameArray = store.cheatMode
+    ? shuffle(store.gameArray, 7, true)
+    : shuffle(store.gameArray);
   store.movesCount = 0;
   store.inGame = true;
 
@@ -453,4 +455,8 @@ export const handleSound = (event) => {
     event.target.classList.remove("btn_sound_disable");
     saveSettingsToLS();
   }
+};
+
+export const handleCheat = (event) => {
+  store.cheatMode = event.target.checked;
 };

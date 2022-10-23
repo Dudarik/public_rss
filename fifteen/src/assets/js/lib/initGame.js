@@ -5,6 +5,7 @@ import {
   // handleBoard,
   handleBoardMouseDown,
   handleBoardMouseUp,
+  handleCheat,
   handleLoadGame,
   handleRecordClick,
   // handleDocumentMouseMove,
@@ -128,6 +129,23 @@ const initStat = (title, value, classlist) => {
   return newDiv;
 };
 
+const initCheatModeCheckbox = () => {
+  const labelFor = document.createElement("label");
+  labelFor.setAttribute("for", "cheat");
+  labelFor.innerText = "cheat mode";
+  labelFor.classList.add("cheat_mode");
+  labelFor.title =
+    "Включи этот режим, чтобы уменшить количество перемешиваний. И нажми старт!";
+
+  const newInput = document.createElement("input");
+  newInput.type = "checkbox";
+  newInput.id = "cheat";
+  newInput.checked = store.cheatMode;
+  newInput.addEventListener("change", handleCheat);
+  labelFor.append(newInput);
+  return labelFor;
+};
+
 const initStats = () => {
   const newDiv = document.createElement("div");
   newDiv.classList.add("stats");
@@ -149,8 +167,6 @@ const initBoard = () => {
 export const initGame = () => {
   store.ls_available = isLSAvailabel();
 
-  // if (store.ls_available)
-  // console.log(store);
   if (store.ls_available) {
     const loadSettingsObj = loadFromLS(store.ls_key_settings);
     if (loadSettingsObj) {
@@ -163,7 +179,10 @@ export const initGame = () => {
   generateGameArrays();
 
   const mainContainer = initContainer();
-  mainContainer.append(initButtons(), initStats(), initBoard());
-  // document.addEventListener("mousemove", handleDocumentMouseMove);
-  // document.addEventListener("mouseup", handleDocumentMouseUp);
+  mainContainer.append(
+    initButtons(),
+    initStats(),
+    initBoard(),
+    initCheatModeCheckbox()
+  );
 };
