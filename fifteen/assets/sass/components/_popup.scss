@@ -102,15 +102,25 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-bottom: 0.7rem;
   // border: 1px dotted green;
+  background-color: $color_gray;
+  border: 1px solid $color_dark_blue;
+  border-radius: 0.3rem;
 
   width: 95%;
   .record_str {
     padding: 0.3rem;
-    display: flex;
-    align-items: space-between;
+    display: grid;
+    grid-template-columns: 1rem repeat(3, 1fr);
+    justify-content: space-between;
     width: 100%;
-    font-size: 1.2rem;
-    border: 1px solid $color_dark_blue;
+    font-size: 1rem;
+    font-weight: 500;
+    border-bottom: 1px dotted $color_dark_blue;
+    &:last-child {
+      border: none;
+    }
+    // border: 1px solid $color_dark_blue;
   }
 }

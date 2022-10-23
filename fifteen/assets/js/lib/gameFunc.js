@@ -145,15 +145,52 @@ export const loadRecordsFromLS = () => {
 export const getRecords = (bSize) => {
   const currRecordsArr = store.records[bSize];
 
+  // const newResTime = document.createElement("div");
+
+  const getStrRecord = (num, name, moves, time) => {
+    const newResNumber = document.createElement("div");
+    const newResName = document.createElement("div");
+    const newResMoves = document.createElement("div");
+    const newResTime = document.createElement("div");
+
+    newResNumber.classList.add("records_num");
+    newResName.classList.add("records_name");
+    newResMoves.classList.add("records_moves");
+    newResTime.classList.add("records_time");
+
+    newResNumber.innerText = num;
+    newResName.innerText = name;
+    newResMoves.innerText = moves;
+    newResTime.innerText = time;
+
+    return [newResNumber, newResName, newResMoves, newResTime];
+  };
+
   const retArr = [];
+
+  const headerTable = getStrRecord("№", "NAME", "MOVES", "TIME");
+  const newHeadStr = document.createElement("div");
+
+  newHeadStr.classList.add("record_str");
+  newHeadStr.append(...headerTable);
+  retArr.push(newHeadStr);
 
   for (let i = 0; i < currRecordsArr.length; i++) {
     const newStr = document.createElement("div");
 
     newStr.classList.add("record_str");
-    newStr.innerText = `${currRecordsArr[i].name} | ${
-      currRecordsArr[i].movesCount
-    } | ${formatTime(currRecordsArr[i].playTime)}`;
+
+    const str = getStrRecord(
+      i + 1,
+      currRecordsArr[i].name,
+      currRecordsArr[i].movesCount,
+      formatTime(currRecordsArr[i].playTime)
+    );
+
+    // newStr.innerText = `${currRecordsArr[i].name} | ${
+    //   currRecordsArr[i].movesCount
+    // } | ${formatTime(currRecordsArr[i].playTime)}`;
+    newStr.append(...str);
     retArr.push(newStr);
     // newRecordTable.append(newStr);
   }
