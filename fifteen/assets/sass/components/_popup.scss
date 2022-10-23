@@ -36,6 +36,8 @@
     // content: "asdas";
     border-radius: 0.5rem;
 
+    text-align: center;
+
     background-color: $color_ligt_blue;
     color: $color_dark_blue;
 
@@ -51,6 +53,36 @@
       // box-sizing: border-box;
       &:hover {
         box-shadow: 0px 0px 10px 8px $color_mid_blue;
+      }
+    }
+    h4 {
+      margin-top: 2rem;
+    }
+
+    .record_name {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      // width: 100%;
+      max-width: 10rem;
+      text-align: center;
+    }
+    .btnRecords_save {
+      width: 5rem;
+      height: 1.7rem;
+      font-size: 1rem;
+      padding: 0.1rem;
+      background-color: $color_dark_blue;
+      color: white;
+      font-weight: 500;
+      border: none;
+      border-radius: 0.2rem;
+
+      // margin-bottom: 1rem;
+      // border: none;
+      // border-radius: 1rem;
+      cursor: pointer;
+      &:hover {
+        background-color: $color_mid_blue;
       }
     }
   }
@@ -70,15 +102,25 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-bottom: 0.7rem;
   // border: 1px dotted green;
+  background-color: $color_gray;
+  border: 1px solid $color_dark_blue;
+  border-radius: 0.3rem;
 
   width: 95%;
   .record_str {
     padding: 0.3rem;
-    display: flex;
-    align-items: space-between;
+    display: grid;
+    grid-template-columns: 1rem repeat(3, 1fr);
+    justify-content: space-between;
     width: 100%;
-    font-size: 1.2rem;
-    border: 1px solid $color_dark_blue;
+    font-size: 1rem;
+    font-weight: 500;
+    border-bottom: 1px dotted $color_dark_blue;
+    &:last-child {
+      border: none;
+    }
+    // border: 1px solid $color_dark_blue;
   }
 }
