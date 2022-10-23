@@ -72,19 +72,46 @@ export const onWin = () => {
       store.playTime
     )} and ${store.movesCount} moves!</div>
   `;
+  const newPopupClose = document.createElement("div");
+
+  newPopupClose.classList.add("close_popup");
+
+  newPopupClose.addEventListener("click", () => {
+    $popupOverlay.classList.remove("popup_overlay_active");
+  });
+
+  $popupCard.append(newPopupClose);
 
   if (
     store.movesCount <
     store.records[store.gameSettings.currentBoardSize][9].movesCount
   ) {
     const newinput = document.createElement("input");
+
+    const newDivRec = document.createElement("div");
+    newDivRec.classList.add("newrecord_title");
+
+    const newH4 = document.createElement("h4");
+    newH4.innerText = "Congratulations! This is a new record!";
+
+    const br = document.createElement("br");
+
+    const newSpan = document.createElement("span");
+    newSpan.innerText = "Enter your name:";
+
+    $popupCard.append(newDivRec, newH4, br, newSpan);
+
     newinput.type = "text";
-    newinput.className = "name";
-    newinput.onchange = () => {
-      if (newinput.value > 3) newinput.value = newinput.value.slice(0, 3);
+    newinput.className = "record_name";
+    newinput.placeholder = "Input your name here... max 10 symbols";
+    newinput.oninput = () => {
+      if (newinput.value.length > 8)
+        newinput.value = newinput.value.slice(0, 8);
     };
     const savebutton = document.createElement("button");
     savebutton.innerText = "SAVE";
+    savebutton.classList.add("btnRecords_save");
+
     savebutton.addEventListener("click", () => {
       saveRecord(newinput.value);
       $popupOverlay.classList.remove("popup_overlay_active");
