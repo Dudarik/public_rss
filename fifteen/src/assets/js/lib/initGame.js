@@ -136,7 +136,7 @@ const initStat = (title, value, classlist) => {
 const initCheatModeCheckbox = () => {
   const labelFor = document.createElement("label");
   labelFor.setAttribute("for", "cheat");
-  labelFor.innerText = "cheat mode";
+  labelFor.innerText = "easy mode";
   labelFor.classList.add("cheat_mode");
   labelFor.title =
     "Включи этот режим, чтобы уменшить количество перемешиваний. И нажми 'shuffle and start!'";
