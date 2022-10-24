@@ -6,15 +6,20 @@ html {
 body {
   background-image: url("../images/back_body.svg");
   background-repeat: no-repeat;
-  background-size: cover; //(180% 180%);
+  background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   height: 100vh;
   padding-top: 2rem;
   transition: padding 1s;
+
+  @media screen and (max-height: 800px) {
+    padding-top: 0;
+  }
+
   @media screen and (max-width: 565px) {
     padding-top: 0;
   }
-  // background-position: center;
 }
 
 .container {
