@@ -12,6 +12,7 @@ import {
   // handleDocumentMouseUp,
   // handlePause,
   handleSaveGame,
+  handleSaveNotWork,
   handleSelect,
   handleSound,
   handleStart,
@@ -114,6 +115,7 @@ export const initButtons = () => {
   // btnPause.addEventListener("click", handlePause);
   btnSoundOn.addEventListener("click", handleSound);
   btnSave.addEventListener("click", handleSaveGame);
+  btnSave.addEventListener("animationend", handleSaveNotWork);
   btnLoad.addEventListener("click", handleLoadGame);
   btnResults.addEventListener("click", handleRecordClick);
 

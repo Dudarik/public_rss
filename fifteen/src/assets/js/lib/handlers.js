@@ -25,6 +25,7 @@ import soundMoveDnd from "../../sound/move_dnd.mp3";
 
 import soundOpenRecords from "../../sound/openrecords.mp3";
 import soundSaveGame from "../../sound/savegame.mp3";
+import soundSaveNotWork from "../../sound/savenotwork.mp3";
 import soundLoadGame from "../../sound/loadgame.mp3";
 
 export const handleStart = () => {
@@ -322,11 +323,24 @@ export const handleBoardMouseUp = (event) => {
   // }
 };
 
-export const handleSaveGame = () => {
+export const handleSaveNotWork = (event) => {
+  event.target.classList.remove("save_not_work");
+};
+
+export const handleSaveGame = (event) => {
   if (!store.ls_available)
     alert(
       "Для того, чтобы сохранения были доступны, включите возможность записи в localstorage! В насатройках вашего браузера!"
     );
+  if (!store.inGame) {
+    if (store.gameSettings.sound) {
+      const ssnw = new Audio(soundSaveNotWork);
+      ssnw.volume = 0.5;
+      ssnw.play();
+    }
+    event.target.classList.add("save_not_work");
+    return;
+  }
   if (store.gameSettings.sound) new Audio(soundSaveGame).play();
   const saveGameObj = {
     gameArray: store.gameArray,
