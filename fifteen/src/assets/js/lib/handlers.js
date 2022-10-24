@@ -424,7 +424,7 @@ export const handleRecordClick = () => {
   newPopupClose.classList.add("close_popup");
   newPopupClose.addEventListener("click", () => {
     $popupOverlay.classList.remove("popup_overlay_active");
-    gameResume();
+    if (store.inGame) gameResume();
   });
   newRecordControlPanel.append(newPopupClose);
 
