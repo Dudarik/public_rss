@@ -177,7 +177,8 @@ export const initGame = () => {
       store.gameSettings.sound = loadSettingsObj.sound;
       store.gameSettings.currentBoardSize = +loadSettingsObj.currentBoardSize;
     }
-    saveRecord("test", true);
+    const ls_records = loadRecordsFromLS();
+    if (!ls_records) saveRecord("test", true);
   }
 
   loadRecordsFromLS();

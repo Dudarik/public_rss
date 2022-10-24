@@ -133,10 +133,14 @@ export const saveRecord = (name, fakeData = false) => {
 
   let { movesCount, playTime } = store;
 
+  console.log(movesCount, playTime);
+
   if (fakeData) {
     movesCount = 10000;
     playTime = 4000;
   }
+
+  console.log(movesCount, playTime);
 
   // console.log(store.records[bSize]);
   // debugger;
