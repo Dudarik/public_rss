@@ -221,6 +221,11 @@ export const handleBoardMouseDown = (event) => {
 
     const handleMouseUp = (event) => {
       // console.log(store);
+
+      const cellDisappears = (event) => {
+        event.target.classList.remove("disappears");
+      };
+
       if (store.inDropable) {
         const dropable = document.querySelector("#dropable");
         // console.log(
@@ -229,6 +234,8 @@ export const handleBoardMouseDown = (event) => {
         // );
         store.dragableStartPosX = dropable.getBoundingClientRect().left;
         store.dragableStartPosY = dropable.getBoundingClientRect().top;
+        // console.log($cell);
+        $cell.classList.add("disappears");
       }
 
       store.dragableEndPosX = dragCopy.getBoundingClientRect().left;
@@ -243,7 +250,15 @@ export const handleBoardMouseDown = (event) => {
       setTimeout(() => {
         // dragndropEnd();
         dragCopy.remove();
+
         if (store.inDropable) {
+          //-----------------
+          // console.log($cell);
+          $cell.addEventListener("transitionend", cellDisappears);
+          // console.log($cell);
+          $cell.removeEventListener("transitionend", cellDisappears);
+          // console.log($cell);
+          //-------------------
           const nzcr = $cell.dataset.r;
           const nzcc = $cell.dataset.c;
           const $zero = document.querySelector("#dropable");

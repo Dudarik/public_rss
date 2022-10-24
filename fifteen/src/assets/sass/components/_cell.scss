@@ -41,6 +41,11 @@
     font-size: 0px;
     opacity: 0;
   }
+
+  &.disappears {
+    transform: scale(0);
+    transition: transform 400ms;
+  }
 }
 
 @keyframes startcellanim {
