@@ -107,9 +107,14 @@ export const onWin = () => {
     newinput.type = "text";
     newinput.className = "record_name";
     newinput.placeholder = "Input your name here... max 10 symbols";
-    newinput.oninput = () => {
+    newinput.onkeydown = (event) => {
       if (newinput.value.length > 8)
         newinput.value = newinput.value.slice(0, 8);
+
+      if (event.key === "Enter") {
+        saveRecord(newinput.value);
+        $popupOverlay.classList.remove("popup_overlay_active");
+      }
     };
     const savebutton = document.createElement("button");
     savebutton.innerText = "SAVE";
