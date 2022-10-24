@@ -4,6 +4,10 @@
   justify-content: center;
 
   margin-bottom: 2rem;
+
+  @media screen and (max-height: 800px) {
+    margin-bottom: 0.5rem;
+  }
   span {
     display: inline-flex;
     align-items: center;
@@ -20,6 +24,10 @@
 
     padding: 0.5rem;
     width: 40%;
+
+    @media screen and (max-height: 800px) {
+      padding: 0.1rem;
+    }
 
     // text-align: center;
     @media screen and (max-width: 420px) {
