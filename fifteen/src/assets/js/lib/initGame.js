@@ -1,5 +1,5 @@
 import { store } from "../store.js";
-import { gameResume, loadRecordsFromLS } from "./gameFunc.js";
+import { gameResume, loadRecordsFromLS, saveRecord } from "./gameFunc.js";
 import { generateGameArrays } from "./genArrays.js";
 import {
   // handleBoard,
@@ -177,6 +177,7 @@ export const initGame = () => {
       store.gameSettings.sound = loadSettingsObj.sound;
       store.gameSettings.currentBoardSize = +loadSettingsObj.currentBoardSize;
     }
+    saveRecord("test", true);
   }
 
   loadRecordsFromLS();

@@ -47,7 +47,6 @@ export const dragndropEnd = () => {
 };
 
 export const movesIncrement = () => {
-  // console.log("incr");
   store.movesCount += 1;
   renderMoves();
 };
@@ -129,10 +128,15 @@ export const onWin = () => {
   $popupOverlay.classList.add("popup_overlay_active");
 };
 
-export const saveRecord = (name) => {
+export const saveRecord = (name, fakeData = false) => {
   const bSize = store.gameSettings.currentBoardSize;
 
-  const { movesCount, playTime } = store;
+  let { movesCount, playTime } = store;
+
+  if (fakeData) {
+    movesCount = 10000;
+    playTime = 4000;
+  }
 
   // console.log(store.records[bSize]);
   // debugger;
