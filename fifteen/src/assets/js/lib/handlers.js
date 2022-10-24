@@ -320,10 +320,10 @@ export const handleBoardMouseUp = (event) => {
   if (cell) {
     // const $board = document.querySelector("#board");
     const $cell = document.querySelector(`#${event.target.id}`);
-    console.log($cell);
+    // console.log($cell);
     if ($cell.id === "dropable" || $cell.id === "board") return;
 
-    console.log("no board or dropable");
+    // console.log("no board or dropable");
     $cell.addEventListener("transitionend", handleTransitionEnd);
 
     const shiftSell = isCellShift(
