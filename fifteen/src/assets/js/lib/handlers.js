@@ -106,7 +106,7 @@ const handleTransitionEnd = (event) => {
   const zcr = $zero.dataset.r;
   const zcc = $zero.dataset.c;
 
-  // console.log(store.gameArray.slice());
+  // console.log("tEND");
   swap(store.gameArray, zcr, zcc, nzcr, nzcc);
   movesIncrement();
   // console.log(store.gameArray.slice());
@@ -320,7 +320,10 @@ export const handleBoardMouseUp = (event) => {
   if (cell) {
     // const $board = document.querySelector("#board");
     const $cell = document.querySelector(`#${event.target.id}`);
+    console.log($cell);
+    if ($cell.id === "dropable" || $cell.id === "board") return;
 
+    console.log("no board or dropable");
     $cell.addEventListener("transitionend", handleTransitionEnd);
 
     const shiftSell = isCellShift(
