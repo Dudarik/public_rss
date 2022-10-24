@@ -20,7 +20,7 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
       {
-        test: /\.(?:ico|gif|jpg|jpeg|png|svg|mp3)$/i,
+        test: /\.(?:ico|gif|jpg|jpeg|png|webp|svg|mp3)$/i,
         type: "asset/resource", //asset/resource
       },
     ],
