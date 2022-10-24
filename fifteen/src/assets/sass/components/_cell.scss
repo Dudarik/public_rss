@@ -11,6 +11,10 @@
   border-radius: 0.3rem;
   user-select: none;
 
+  &.start_cell_anim {
+    animation: startcellanim 1.2s;
+  }
+
   @mixin move-mixin {
     transition-property: transform;
     transition-duration: 250ms;
@@ -36,5 +40,21 @@
   &.dropable {
     font-size: 0px;
     opacity: 0;
+  }
+}
+
+@keyframes startcellanim {
+  0% {
+    transform: scale(0.5);
+  }
+
+  // 10% {
+  //   transform: scale(0.01);
+  // }
+  20% {
+    transform: scale(0.01);
+  }
+  100% {
+    transform: scale(1);
   }
 }

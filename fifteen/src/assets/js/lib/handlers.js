@@ -24,6 +24,8 @@ import soundStartGame from "../../sound/startgame.mp3";
 import soundMoveDnd from "../../sound/move_dnd.mp3";
 
 import soundOpenRecords from "../../sound/openrecords.mp3";
+import soundSaveGame from "../../sound/savegame.mp3";
+import soundLoadGame from "../../sound/loadgame.mp3";
 
 export const handleStart = () => {
   stopGame();
@@ -43,7 +45,14 @@ export const handleStart = () => {
   store.inGame = true;
 
   renderBoard();
+
   startGame();
+  document.querySelectorAll(".cell").forEach((item) => {
+    item.classList.add("start_cell_anim");
+  });
+  // document
+  //   .querySelectorAll(".cell")
+  //   .forEach((item) => item.classList.remove("start_cell_anim"));
 };
 
 // export const handlePause = (event) => {
@@ -318,6 +327,7 @@ export const handleSaveGame = () => {
     alert(
       "Для того, чтобы сохранения были доступны, включите возможность записи в localstorage! В насатройках вашего браузера!"
     );
+  if (store.gameSettings.sound) new Audio(soundSaveGame).play();
   const saveGameObj = {
     gameArray: store.gameArray,
     gameWinArray: store.gameWinArray,
@@ -338,6 +348,7 @@ export const handleLoadGame = () => {
     );
     return;
   }
+  if (store.gameSettings.sound) new Audio(soundLoadGame).play();
   stopGame();
   const loadGameObj = loadFromLS(store.ls_key_data);
   if (loadGameObj) {
@@ -394,7 +405,12 @@ const handleRecordsBtn = (event) => {
 };
 
 export const handleRecordClick = () => {
-  if (store.gameSettings.sound) new Audio(soundOpenRecords).play();
+  if (store.gameSettings.sound) {
+    // new Audio(soundOpenRecords).play();
+    const recordSound = new Audio(soundOpenRecords);
+    recordSound.volume = 0.5;
+    recordSound.play();
+  }
 
   const $popupOverlay = document.querySelector(".popup_overlay");
   const $popupCard = document.querySelector(".popup_card");
