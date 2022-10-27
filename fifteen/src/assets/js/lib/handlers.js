@@ -242,7 +242,7 @@ export const handleBoardMouseDown = (event) => {
     };
 
     const handleMouseUp = (event) => {
-      console.log("mousseUP");
+      // console.log("mousseUP");
 
       const cellDisappears = (event) => {
         event.target.classList.remove("disappears");
@@ -304,6 +304,7 @@ export const handleBoardMouseDown = (event) => {
       }, store.animationDropableTime);
       // store.inDropable = false;
       window.removeEventListener("pointermove", handleMouseMove);
+      window.removeEventListener('pointerup',handleMouseUp)
       dragCopy.removeEventListener("pointerup", handleMouseUp);
     };
 
