@@ -131,7 +131,11 @@ export const handleBoardMouseDown = (event) => {
   //     +event.target.dataset.c
   //   )
   // );
+  // console.log(event.isPrimary)
+  // if(store.dragndrop) return
+  if (!event.isPrimary) return;
   if (!store.inGame) return;
+
   if (
     isCellShift(
       store.gameArray,
@@ -143,6 +147,7 @@ export const handleBoardMouseDown = (event) => {
 
   dragndropStart();
   const b= document.getElementById('board')
+
   // b.style.touchAction = 'none'
 
 
@@ -150,6 +155,7 @@ export const handleBoardMouseDown = (event) => {
   // console.log(event.pointerId)
 
   setTimeout(() => {
+    if (!event.isPrimary) return;
     if (!store.dragndrop) return;
     const cell = event.target;
     if (!cell || cell.id === "dropable") return;
@@ -214,6 +220,7 @@ export const handleBoardMouseDown = (event) => {
     };
 
     const handleMouseMove = (event) => {
+      if (!event.isPrimary) return;
       dndMoveAt(event.pageX, event.pageY);
       b.releasePointerCapture(event.pointerId)
       dragCopy.classList.add("displaynone");
@@ -332,6 +339,7 @@ export const handleBoardMouseDown = (event) => {
 // };
 
 export const handleBoardMouseUp = (event) => {
+  if (!event.isPrimary) return;
   // console.log(new Date() - timeStart);
   // console.log(store.dragndrop);
   if (!store.inGame) return;
