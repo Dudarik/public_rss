@@ -185,7 +185,17 @@ export const handleBoardMouseDown = (event) => {
 
 
     const dndMoveAt = (pageX, pageY) => {
+      const cellWidth =$cell.getBoundingClientRect().width
+      const cellHeight =$cell.getBoundingClientRect().height
+
+      const maxDocX = document.documentElement.clientWidth - cellWidth/2
+      const maxDocY = document.documentElement.clientHeight - cellHeight/2
+      // const winSize = window.
+      // console.log(winSize, '1')
+      // console.log(pageX, pageY, maxDocX, maxDocY)
+      if (pageX < maxDocX && pageX > cellWidth/2)
       dragCopy.style.left = pageX - shiftX + "px";
+      if (pageY < maxDocY && pageY > cellHeight/2)
       dragCopy.style.top = pageY - shiftY + "px";
     };
 
@@ -232,7 +242,7 @@ export const handleBoardMouseDown = (event) => {
     };
 
     const handleMouseUp = (event) => {
-      // console.log(store);
+      console.log("mousseUP");
 
       const cellDisappears = (event) => {
         event.target.classList.remove("disappears");
@@ -293,12 +303,12 @@ export const handleBoardMouseDown = (event) => {
         }
       }, store.animationDropableTime);
       // store.inDropable = false;
-      document.removeEventListener("pointermove", handleMouseMove);
+      window.removeEventListener("pointermove", handleMouseMove);
       dragCopy.removeEventListener("pointerup", handleMouseUp);
     };
 
-    document.addEventListener("pointermove", handleMouseMove);
-
+    window.addEventListener("pointermove", handleMouseMove);
+    window.addEventListener('pointerup',handleMouseUp)
     dragCopy.addEventListener("pointerup", handleMouseUp);
 
     // dragCopy.remove();
