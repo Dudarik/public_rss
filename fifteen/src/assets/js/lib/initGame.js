@@ -163,8 +163,8 @@ const initBoard = () => {
   const newDiv = document.createElement("div");
   newDiv.classList.add("board");
   newDiv.setAttribute("id", "board");
-  newDiv.addEventListener("mousedown", handleBoardMouseDown);
-  newDiv.addEventListener("mouseup", handleBoardMouseUp);
+  newDiv.addEventListener("pointerdown", handleBoardMouseDown);
+  newDiv.addEventListener("pointerup", handleBoardMouseUp);
   return newDiv;
 };
 

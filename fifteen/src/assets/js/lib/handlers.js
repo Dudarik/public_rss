@@ -118,7 +118,7 @@ const handleTransitionEnd = (event) => {
     onWin();
   }
   const $board = document.querySelector("#board");
-  $board.addEventListener("mouseup", handleBoardMouseUp);
+  $board.addEventListener("pointerup", handleBoardMouseUp);
 };
 
 export const handleBoardMouseDown = (event) => {
@@ -142,12 +142,18 @@ export const handleBoardMouseDown = (event) => {
     return;
 
   dragndropStart();
+  const b= document.getElementById('board')
+  // b.style.touchAction = 'none'
+
+
+  console.log(b)
+  console.log(event.pointerId)
 
   setTimeout(() => {
     if (!store.dragndrop) return;
     const cell = event.target;
     if (!cell || cell.id === "dropable") return;
-
+    b.setPointerCapture(event.pointerId);
     const $cell = document.querySelector(`#${event.target.id}`);
 
     let shiftX = event.clientX - $cell.getBoundingClientRect().left;
@@ -162,6 +168,9 @@ export const handleBoardMouseDown = (event) => {
 
     document.body.append(dragCopy);
 
+    dragCopy.style.touchAction = 'none'
+
+
     dragCopy.style.position = "absolute";
     dragCopy.style.zIndex = 1000;
     dragCopy.style.opacity = 0.75;
@@ -171,6 +180,9 @@ export const handleBoardMouseDown = (event) => {
     store.dragableStartPosX = $cell.getBoundingClientRect().left;
     store.dragableStartPosY = $cell.getBoundingClientRect().top;
     // console.log(store.dragableStartPosX);
+
+
+
 
     const dndMoveAt = (pageX, pageY) => {
       dragCopy.style.left = pageX - shiftX + "px";
@@ -193,7 +205,7 @@ export const handleBoardMouseDown = (event) => {
 
     const handleMouseMove = (event) => {
       dndMoveAt(event.pageX, event.pageY);
-
+      b.releasePointerCapture(event.pointerId)
       dragCopy.classList.add("displaynone");
       // console.log(dragCopy);
       let elemBelow = document.elementFromPoint(event.clientX, event.clientY);
@@ -281,13 +293,13 @@ export const handleBoardMouseDown = (event) => {
         }
       }, store.animationDropableTime);
       // store.inDropable = false;
-      document.removeEventListener("mousemove", handleMouseMove);
-      dragCopy.removeEventListener("mouseup", handleMouseUp);
+      document.removeEventListener("pointermove", handleMouseMove);
+      dragCopy.removeEventListener("pointerup", handleMouseUp);
     };
 
-    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("pointermove", handleMouseMove);
 
-    dragCopy.addEventListener("mouseup", handleMouseUp);
+    dragCopy.addEventListener("pointerup", handleMouseUp);
 
     // dragCopy.remove();
     dndMoveAt(event.pageX, event.pageY);
