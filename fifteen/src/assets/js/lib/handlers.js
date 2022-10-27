@@ -146,8 +146,8 @@ export const handleBoardMouseDown = (event) => {
   // b.style.touchAction = 'none'
 
 
-  console.log(b)
-  console.log(event.pointerId)
+  // console.log(b)
+  // console.log(event.pointerId)
 
   setTimeout(() => {
     if (!store.dragndrop) return;
