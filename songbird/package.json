@@ -1,0 +1,39 @@
+{
+  "name": "songbird",
+  "version": "1.0.0",
+  "description": "RSS stage-1 final project.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack serve",
+    "deploy": "npm run build && npx gh-pages -d dist -e songbird"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rolling-scopes-school/dudarik-JSFE2022Q3.git"
+  },
+  "keywords": [
+    "songbird",
+    "RSS"
+  ],
+  "author": "Alexander Reznichenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rolling-scopes-school/dudarik-JSFE2022Q3/issues"
+  },
+  "homepage": "https://rolling-scopes-school.github.io/dudarik-JSFE2022Q3/songbird/",
+  "devDependencies": {
+    "css-loader": "^6.7.1",
+    "gh-pages": "^4.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "path": "^0.12.7",
+    "sass": "^1.56.1",
+    "sass-loader": "^13.2.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1"
+  }
+}
