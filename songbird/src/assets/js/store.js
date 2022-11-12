@@ -1,1 +1,19 @@
-export const store = {};
+export const store = {
+  currentPoints: 0,
+  questionPoints: 5,
+
+  currentQuestion: {
+    id: 0,
+    name: '',
+    species: '',
+    description: '',
+    audio: '',
+    image: '',
+  },
+
+  settings: {
+    isLSAvailabel: false,
+    language: 'en',
+    volume: 50,
+  },
+};
