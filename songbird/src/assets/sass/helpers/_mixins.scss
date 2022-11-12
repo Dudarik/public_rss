@@ -1,0 +1,25 @@
+@mixin font-settings {
+  font-family: 'Oks Free', 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: $color_white;
+}
+
+@mixin button-settings {
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  width: 99px;
+  height: 26px;
+
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 34px;
+
+  color: $color_green;
+
+  text-align: center;
+}

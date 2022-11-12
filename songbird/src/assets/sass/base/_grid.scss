@@ -1,0 +1,35 @@
+html {
+  overflow-x: hidden;
+  margin-right: calc(-1 * (100vw - 100%));
+}
+
+body {
+  background-image: url('../images/back_body.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+  padding-top: 2rem;
+  transition: padding 1s;
+
+  @media screen and (max-height: 800px) {
+    padding-top: 0;
+  }
+
+  @media screen and (max-width: 565px) {
+    padding-top: 0;
+  }
+}
+
+.container {
+  max-width: 35rem;
+  background-color: #e2f5fc;
+  padding: 0.5rem;
+  margin: 0 auto;
+  border-radius: 0.3rem;
+}
+
+.displaynone {
+  display: none !important;
+}
