@@ -1,0 +1,20 @@
+.main_page {
+  color: $color_white;
+
+  .main_title {
+    font-family: 'Oks Free', sans-serif;
+    font-size: 11rem;
+    font-weight: 400;
+  }
+
+  .main_subtitle {
+    font-size: 5.4rem;
+    font-weight: 500;
+  }
+
+  .main_text {
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 60px;
+  }
+}

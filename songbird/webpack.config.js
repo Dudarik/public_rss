@@ -27,6 +27,12 @@ module.exports = {
   },
   devServer: {
     port: 3000,
+    hot: false,
+    // client: {
+    //   overlay: true,
+    //   progress: true,
+    // },
+    liveReload: true,
   },
   plugins: [
     new MiniCssExtractPlugin({
