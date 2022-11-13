@@ -1,0 +1,14 @@
+.menu {
+  display: flex;
+  gap: 3rem;
+
+  .menu_item {
+    list-style: none;
+
+    & > a {
+      font-size: 1.3rem;
+      font-style: normal;
+      line-height: 23px;
+    }
+  }
+}

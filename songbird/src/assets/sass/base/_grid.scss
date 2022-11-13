@@ -9,6 +9,7 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+
   height: 100vh;
   padding-top: 2rem;
   transition: padding 1s;
@@ -23,8 +24,8 @@ body {
 }
 
 .container {
-  max-width: 35rem;
-  background-color: #e2f5fc;
+  max-width: 70rem;
+  background-color: rgba($color: #ffffff, $alpha: 0.1);
   padding: 0.5rem;
   margin: 0 auto;
   border-radius: 0.3rem;

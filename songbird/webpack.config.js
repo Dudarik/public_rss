@@ -29,10 +29,12 @@ module.exports = {
     port: 3000,
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'css/bundle.[name].css',
+    }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
       filename: 'index.html',
     }),
-    new MiniCssExtractPlugin({ filename: 'css/bundle.[name].[chunkhash].css' }),
   ],
 };
