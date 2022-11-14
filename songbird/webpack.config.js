@@ -42,5 +42,25 @@ module.exports = {
       template: './src/index.html',
       filename: 'index.html',
     }),
+    new HtmlWebpackPlugin({
+      template: './src/quiz.html',
+      filename: 'quiz.html',
+      inject: false,
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/main.html',
+      filename: 'main.html',
+      inject: false,
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/results.html',
+      filename: 'results.html',
+      inject: false,
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/gallery.html',
+      filename: 'gallery.html',
+      inject: false,
+    }),
   ],
 };
