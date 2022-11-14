@@ -1,6 +1,22 @@
 const path = require('path');
+const { readdirSync } = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const TPL_FOLDER = path.join(__dirname, 'src', 'templates');
+
+const getTemplatesNames = (tplDirName) => readdirSync(tplDirName);
+
+const templateList = getTemplatesNames(TPL_FOLDER);
+
+const templates = templateList.map(
+  (templateName) =>
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, 'src', 'templates', templateName),
+      filename: templateName,
+      inject: false,
+    })
+);
 
 module.exports = {
   mode: 'development',
@@ -28,6 +44,9 @@ module.exports = {
   devServer: {
     port: 3000,
     hot: false,
+    devMiddleware: {
+      publicPath: '/dudarik-JSFE2022Q3/songbird/',
+    },
     // client: {
     //   overlay: true,
     //   progress: true,
@@ -42,25 +61,6 @@ module.exports = {
       template: './src/index.html',
       filename: 'index.html',
     }),
-    new HtmlWebpackPlugin({
-      template: './src/quiz.html',
-      filename: 'quiz.html',
-      inject: false,
-    }),
-    new HtmlWebpackPlugin({
-      template: './src/main.html',
-      filename: 'main.html',
-      inject: false,
-    }),
-    new HtmlWebpackPlugin({
-      template: './src/results.html',
-      filename: 'results.html',
-      inject: false,
-    }),
-    new HtmlWebpackPlugin({
-      template: './src/gallery.html',
-      filename: 'gallery.html',
-      inject: false,
-    }),
+    ...templates,
   ],
 };
