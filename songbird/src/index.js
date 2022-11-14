@@ -1,7 +1,7 @@
 // import './assets/js/helpers/location.js';
 import './assets/sass/styles.scss';
-// const BASE_NAME =
-('https://rolling-scopes-school.github.io/dudarik-JSFE2022Q3/songbird/');
+const BASE_NAME =
+  'https://rolling-scopes-school.github.io/dudarik-JSFE2022Q3/songbird/';
 console.log('working');
 
 window.addEventListener('popstate', () => {
@@ -15,9 +15,9 @@ const getMenuItems = () => {
 const changePage = async (href) => {
   const newPage = await fetch(href)
     .then((response) => response.text())
-    .then((html) => {
+    .then((text) => {
       const domParcer = new DOMParser();
-      html = domParcer.parseFromString(html, 'text/html');
+      const html = domParcer.parseFromString(text, 'text/html');
       return html.querySelector('#page');
     });
 
