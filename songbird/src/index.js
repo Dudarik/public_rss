@@ -1,5 +1,7 @@
 // import './assets/js/helpers/location.js';
 import './assets/sass/styles.scss';
+// const BASE_NAME =
+('https://rolling-scopes-school.github.io/dudarik-JSFE2022Q3/songbird/');
 console.log('working');
 
 window.addEventListener('popstate', () => {
