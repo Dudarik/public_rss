@@ -1,0 +1,26 @@
+.quiz_page {
+  color: $color_white;
+
+  .left_background,
+  .right_background {
+    position: fixed;
+    z-index: -1;
+  }
+  .left_background {
+    left: 0;
+  }
+  .game_levels {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    .game_level {
+      list-style-type: none;
+      font-weight: 700;
+      font-size: 1.5rem;
+      line-height: 1.7rem;
+    }
+  }
+}
