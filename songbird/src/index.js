@@ -21,7 +21,7 @@ window.addEventListener('load', () => {
       return;
     }
   }
-  changePage('main.html');
+  changePage(location.href + 'main.html');
   history.pushState(null, null, 'main.html');
 });
 

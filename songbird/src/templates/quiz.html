@@ -1,4 +1,35 @@
 <script type="text/javascript">
   location = '/dudarik-JSFE2022Q3/songbird/';
 </script>
-<div id="page">QUIZZZ</div>
+<div class="quiz_page" id="page">
+  <picture>
+    <source
+      srcset="<%= require('../assets/images/quiz_siskin_1920.webp') %>"
+      media="(min-width: 1750px)"
+    />
+    <source
+      srcset="<%= require('../assets/images/quiz_siskin_1600.webp') %>"
+      media="(min-width: 1300px)"
+    />
+    <source
+      srcset="<%= require('../assets/images/quiz_siskin_1200.webp') %>"
+      media="(min-width: 1000px)"
+    />
+    <source
+      srcset="<%= require('../assets/images/quiz_siskin_900.webp') %>"
+      media="(min-width: 730px)"
+    />
+    <img
+      class="left_background"
+      src="<%= require('../assets/images/quiz_siskin_700.webp') %>"
+    />
+  </picture>
+  <ul class="game_levels" id="game_levels">
+    <li class="game_level" data-level="warmup"></li>
+    <li class="game_level" data-level="sparrow"></li>
+    <li class="game_level" data-level="forest"></li>
+    <li class="game_level" data-level="songbirds"></li>
+    <li class="game_level" data-level="predatory"></li>
+    <li class="game_level" data-level="seabirds"></li>
+  </ul>
+</div>

@@ -18,7 +18,7 @@ export const store = {
 
   settings: {
     isLSAvailabel: false,
-    language: 'en',
+    language: 'ru',
     volume: 50,
   },
 };

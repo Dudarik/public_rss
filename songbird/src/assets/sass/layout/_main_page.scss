@@ -62,6 +62,9 @@
     @media screen and (max-width: 1300px) {
       top: 10rem;
     }
+    @media screen and (max-width: 600px) {
+      opacity: 0.15;
+    }
   }
   .left_background {
     left: -3rem;
