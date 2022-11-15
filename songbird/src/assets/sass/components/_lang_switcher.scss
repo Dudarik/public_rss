@@ -1,0 +1,18 @@
+.language_switcher {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  // padding: 0.3rem;
+
+  font-size: 2rem;
+
+  width: 3.5rem;
+  height: 3.5rem;
+
+  color: $color_orange;
+  background-color: $color_green;
+
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}

@@ -1,20 +1,70 @@
 .main_page {
   color: $color_white;
+  // border: 1px dotted green;
 
   .main_title {
     font-family: 'Oks Free', sans-serif;
     font-size: 11rem;
     font-weight: 400;
+
+    @media screen and (max-width: 1200px) {
+      font-size: 9rem;
+    }
+    @media screen and (max-width: 900px) {
+      font-size: 7rem;
+    }
+    @media screen and (max-width: 680px) {
+      font-size: 5rem;
+    }
   }
 
   .main_subtitle {
     font-size: 5.4rem;
     font-weight: 500;
+
+    @media screen and (max-width: 1200px) {
+      font-size: 4.4rem;
+    }
+    @media screen and (max-width: 900px) {
+      font-size: 3.4rem;
+    }
+    @media screen and (max-width: 680px) {
+      font-size: 2.6rem;
+    }
   }
 
   .main_text {
     font-size: 3rem;
     font-weight: 500;
     line-height: 60px;
+
+    @media screen and (max-width: 1200px) {
+      font-size: 2.2rem;
+    }
+    @media screen and (max-width: 900px) {
+      font-size: 1.8rem;
+    }
+    @media screen and (max-width: 680px) {
+      font-size: 1.5rem;
+    }
+  }
+  .right_background,
+  .left_background {
+    position: fixed;
+    z-index: -1;
+  }
+  .right_background {
+    right: -1rem;
+    top: 0;
+    @media screen and (max-width: 1750px) {
+      top: 7rem;
+    }
+    @media screen and (max-width: 1300px) {
+      top: 10rem;
+    }
+  }
+  .left_background {
+    left: -3rem;
+    bottom: 0;
   }
 }

@@ -13,27 +13,47 @@
         <a href="main.html" class="menu_link" id="menu_main">
           <div class="logo_app"></div>
         </a>
-        <menu class="main_menu">
+        <menu class="main_menu" id="main_menu">
           <ul class="menu">
             <li class="menu_item">
-              <a href="main.html" class="menu_link" id="menu_main">Main</a>
-            </li>
-            <li class="menu_item">
-              <a href="quiz.html" class="menu_link" id="menu_quiz">Викторина</a>
-            </li>
-            <li class="menu_item">
-              <a href="results.html" class="menu_link" id="main_results"
-                >Результаты</a
+              <a
+                href="main.html"
+                class="menu_link"
+                id="menu_main"
+                data-menu-link="main"
+                >main</a
               >
             </li>
             <li class="menu_item">
-              <a href="gallery.html" class="menu_link" id="menu_galery"
-                >Галлерея</a
+              <a
+                href="quiz.html"
+                class="menu_link"
+                id="menu_quiz"
+                data-menu-link="quiz"
+                >quiz</a
+              >
+            </li>
+            <li class="menu_item">
+              <a
+                href="results.html"
+                class="menu_link"
+                id="main_results"
+                data-menu-link="results"
+                >results</a
+              >
+            </li>
+            <li class="menu_item">
+              <a
+                href="gallery.html"
+                class="menu_link"
+                id="menu_galery"
+                data-menu-link="gallery"
+                >gallery</a
               >
             </li>
           </ul>
         </menu>
-        <button class="language_selector" id="lang_selector">RU</button>
+        <button class="language_switcher" id="lang_switcher">RU</button>
       </header>
       <main class="main" id="app">
         <!-- <div class="main_page" id="tpl_main_page">

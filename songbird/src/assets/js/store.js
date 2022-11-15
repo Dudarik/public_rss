@@ -1,4 +1,5 @@
 export const store = {
+  currentPage: 'main',
   currentPoints: 0,
   questionPoints: 5,
 

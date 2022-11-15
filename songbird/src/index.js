@@ -3,6 +3,7 @@ import {
   addHandlersToMenu,
   changePage,
 } from './assets/js/helpers/location.js';
+import { appInit } from './assets/js/lib/appInit.js';
 import './assets/sass/styles.scss';
 
 window.addEventListener('popstate', () => {
@@ -25,3 +26,4 @@ window.addEventListener('load', () => {
 });
 
 addHandlersToMenu(getMenuItems());
+appInit();
