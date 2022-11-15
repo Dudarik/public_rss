@@ -8,12 +8,18 @@ window.addEventListener('popstate', () => {
   changePage(location.pathname);
 });
 window.addEventListener('load', () => {
+  // console.log(url);
   if (!document.referrer) {
     changePage('main.html');
     history.pushState(null, null, 'main.html');
+    return;
   }
+
   if (document.referrer) {
-    changePage(document.referrer);
+    let url = document.referrer.split('');
+
+    url = url.splice(0, url.lastIndexOf('/') + 1).join('');
+    if (url === location.href) changePage(document.referrer);
     history.pushState(null, null, document.referrer);
   }
 });
