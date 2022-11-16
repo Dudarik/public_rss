@@ -1,9 +1,63 @@
 .round_pleer {
   grid-area: r_player;
+  --size: 12rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+
+    background: url('../images/icon_speaker_volume.svg') no-repeat center center;
+
+    width: 2rem;
+    height: 2rem;
+    right: 1rem;
+    top: 13rem;
+  }
+
+  .pleer_volume {
+    -webkit-appearance: none;
+    appearance: none;
+
+    overflow: hidden;
+    position: absolute;
+    transform: rotate(-90deg) translateX(-45%);
+
+    cursor: pointer;
+
+    right: -4rem;
+
+    background-color: rgba($color: #000000, $alpha: 0.2);
+
+    width: var(--size);
+    height: 1rem;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 2rem;
+      height: 1rem;
+      cursor: pointer;
+      background: $color_white; //#f0cc88;
+      box-shadow: -5rem 0 0 5rem $color_orange;
+    }
+
+    &::-webkit-slider-runnable-track {
+      -webkit-appearance: none;
+      appearance: none;
+      cursor: pointer;
+      height: 10px;
+      -webkit-appearance: none;
+      margin-top: -0.4rem;
+    }
+  }
   .roundpleer_progressbar {
     --percentage: var(--value);
-    width: 12rem;
-    height: 12rem;
+    width: var(--size);
+    height: var(--size);
     border-radius: 50%;
     display: grid;
     place-items: center center;
@@ -15,15 +69,25 @@
       );
 
     position: relative;
+
+    @media screen and (max-width: 1000px) {
+      --size: 11rem;
+      width: var(--size);
+      height: var(--size);
+    }
   }
 
   .roundpleer_progressbar::after {
     content: attr(data-seconds);
     position: absolute;
     font-weight: 500;
-    font-size: 47px;
-    line-height: 57px;
+    font-size: 3rem;
+
     bottom: -4rem;
+    @media screen and (max-width: 1000px) {
+      font-size: 2rem;
+      bottom: -2.5rem;
+    }
   }
   .rndPBtn {
     background: none;

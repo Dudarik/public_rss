@@ -35,7 +35,16 @@
     </ul>
 
     <div class="round_pleer ml-5">
-      <audio src="" id="roundpleer" type="audio/mpeg"></audio>
+      <audio src="" id="round_pleer" type="audio/mpeg"></audio>
+      <input
+        class="pleer_volume"
+        role="volume"
+        type="range"
+        name="round_volume"
+        id="round_volume"
+        min="0"
+        max="100"
+      />
       <div
         id="roundpleer_pbar"
         role="progressbar"
@@ -91,10 +100,11 @@
         />
         <img src="<%= require('../assets/images/unknown_bird_700.webp') %>" />
       </picture>
+      <h3 class="birds_photo_title">*******</h3>
     </div>
 
     <ul class="choice_bird_panel mr-5">
-      <li class="panel_item wrong" data-choice-bird="">1</li>
+      <li class="panel_item wrong" data-choice-bird="">Певчий дрозд</li>
       <li class="panel_item success" data-choice-bird="">2</li>
       <li class="panel_item" data-choice-bird="">3</li>
       <li class="panel_item" data-choice-bird="">4</li>

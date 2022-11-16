@@ -9,6 +9,7 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  background-color: $color_green;
 
   height: 100vh;
   padding-top: 2rem;
@@ -37,7 +38,13 @@ body {
 
 .mr-5 {
   margin-right: 5rem;
+  @media screen and (max-width: 1000px) {
+    margin: 0;
+  }
 }
 .ml-5 {
   margin-left: 5rem;
+  @media screen and (max-width: 1000px) {
+    margin: 0;
+  }
 }
