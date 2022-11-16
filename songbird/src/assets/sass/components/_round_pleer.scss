@@ -90,7 +90,10 @@
     }
   }
   .rndPBtn {
+    // border: 1px dotted white;
+    border-radius: 50%;
     background: none;
+    margin-left: 0.8rem;
     border: none;
     cursor: pointer;
   }
