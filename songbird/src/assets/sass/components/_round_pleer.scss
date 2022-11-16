@@ -1,0 +1,25 @@
+.roundpleer_progressbar {
+  --size: 20rem;
+  --fg: #green;
+  /* --bg: #def; */
+  --fg: $color_orange;
+  --bg: rgba(0, 0, 0, 0.2);
+  --pgPercentage: var(--value);
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  display: grid;
+  place-items: center center;
+
+  background: radial-gradient(closest-side, --fg 80%, transparent 0 2%),
+    conic-gradient(var(--fg) calc(var(--pgPercentage) * 1%), var(--bg) 0);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: calc(var(--size) / 5);
+  color: var(--bg);
+}
+
+.roundpleer_progressbar::before {
+  /* counter-reset: percentage var(--value); */
+  /* content: counter(percentage); */
+  content: attr(data-seconds);
+}
