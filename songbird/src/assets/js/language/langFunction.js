@@ -10,4 +10,6 @@ export const langFunction = {
       gameLevel.innerText = langs[newLanguage].gameLevels[levelTitle];
     });
   },
+  results: () => {},
+  gallery: () => {},
 };
