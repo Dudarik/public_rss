@@ -20,7 +20,7 @@ export const langs = {
       main: 'Главная',
       quiz: 'Викторина',
       results: 'Результаты',
-      gallery: 'Галлерея',
+      gallery: 'Галерея',
     },
     gameLevels: {
       warmup: 'Разминка',

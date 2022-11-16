@@ -24,26 +24,103 @@
       src="<%= require('../assets/images/quiz_siskin_700.webp') %>"
     />
   </picture>
-  <ul class="game_levels" id="game_levels">
-    <li class="game_level" data-level="warmup"></li>
-    <li class="game_level" data-level="sparrow"></li>
-    <li class="game_level" data-level="forest"></li>
-    <li class="game_level" data-level="songbirds"></li>
-    <li class="game_level" data-level="predatory"></li>
-    <li class="game_level" data-level="seabirds"></li>
-  </ul>
-  <div class="quiz" id="quiz">
-    <div class="round_pleer">
-      <audio src="./music.mp3" id="roundpleer" type="audio/mpeg"></audio>
+  <div class="page_wrapper">
+    <ul class="game_levels" id="game_levels">
+      <li class="game_level active_level" data-level="warmup"></li>
+      <li class="game_level" data-level="sparrow"></li>
+      <li class="game_level" data-level="forest"></li>
+      <li class="game_level" data-level="songbirds"></li>
+      <li class="game_level" data-level="predatory"></li>
+      <li class="game_level" data-level="seabirds"></li>
+    </ul>
+
+    <div class="round_pleer ml-5">
+      <audio src="" id="roundpleer" type="audio/mpeg"></audio>
       <div
         id="roundpleer_pbar"
         role="progressbar"
         class="roundpleer_progressbar"
-        style="--value: 0"
+        data-seconds="00:00"
+        style="--value: 5"
       >
-        <button class="rndPBtn roundpleer_play" id="roundpleer_play"></button>
-        <button class="rndPBtn roundpleer_pause" id="roundpleer_pause"></button>
+        <button class="rndPBtn btnPlay" id="roundpleer_play">
+          <svg
+            width="69"
+            height="80"
+            viewBox="0 0 69 80"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M69 40L-3.75206e-06 79.8372L-2.69386e-07 0.162831L69 40Z"
+              fill="#CD8E18"
+            />
+          </svg>
+        </button>
+        <button class="rndPBtn displaynone" id="roundpleer_pause">
+          <svg
+            width="33"
+            height="47"
+            viewBox="0 0 33 47"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="9" height="47" fill="#CD8E18" />
+            <rect x="24" width="9" height="47" fill="#CD8E18" />
+          </svg>
+        </button>
       </div>
     </div>
+
+    <div class="bird_photo">
+      <picture>
+        <source
+          srcset="<%= require('../assets/images/unknown_bird_1920.webp') %>"
+          media="(min-width: 1750px)"
+        />
+        <source
+          srcset="<%= require('../assets/images/unknown_bird_1600.webp') %>"
+          media="(min-width: 1300px)"
+        />
+        <source
+          srcset="<%= require('../assets/images/unknown_bird_1200.webp') %>"
+          media="(min-width: 1000px)"
+        />
+        <source
+          srcset="<%= require('../assets/images/unknown_bird_900.webp') %>"
+          media="(min-width: 730px)"
+        />
+        <img src="<%= require('../assets/images/unknown_bird_700.webp') %>" />
+      </picture>
+    </div>
+
+    <ul class="choice_bird_panel mr-5">
+      <li class="panel_item wrong" data-choice-bird="">1</li>
+      <li class="panel_item success" data-choice-bird="">2</li>
+      <li class="panel_item" data-choice-bird="">3</li>
+      <li class="panel_item" data-choice-bird="">4</li>
+      <li class="panel_item" data-choice-bird="">6</li>
+      <li class="panel_item" data-choice-bird="">7</li>
+    </ul>
+
+    <div class="bird_info" data-bird-id="">
+      <div class="birds_photo">
+        <img src="" alt="" />
+        <div class="bird_name">Грач</div>
+      </div>
+      <div class="bird_description">
+        <h3 class="description_title">ROck</h3>
+        <p class="description_text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
+          suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
+          lacus vel facilisis.
+        </p>
+      </div>
+    </div>
+
+    <div class="player">player</div>
+
+    <div class="score">score</div>
   </div>
+  <div class="btn" disabled>Next level</div>
 </div>

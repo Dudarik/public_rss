@@ -1,25 +1,33 @@
-.roundpleer_progressbar {
-  --size: 20rem;
-  --fg: #green;
-  /* --bg: #def; */
-  --fg: $color_orange;
-  --bg: rgba(0, 0, 0, 0.2);
-  --pgPercentage: var(--value);
-  width: var(--size);
-  height: var(--size);
-  border-radius: 50%;
-  display: grid;
-  place-items: center center;
+.round_pleer {
+  grid-area: r_player;
+  .roundpleer_progressbar {
+    --percentage: var(--value);
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center center;
 
-  background: radial-gradient(closest-side, --fg 80%, transparent 0 2%),
-    conic-gradient(var(--fg) calc(var(--pgPercentage) * 1%), var(--bg) 0);
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: calc(var(--size) / 5);
-  color: var(--bg);
-}
+    background: radial-gradient(closest-side, #475c36 80%, transparent 0 2%),
+      conic-gradient(
+        $color_orange calc(var(--percentage) * 1%),
+        rgba(0, 0, 0, 0.2) 0
+      );
 
-.roundpleer_progressbar::before {
-  /* counter-reset: percentage var(--value); */
-  /* content: counter(percentage); */
-  content: attr(data-seconds);
+    position: relative;
+  }
+
+  .roundpleer_progressbar::after {
+    content: attr(data-seconds);
+    position: absolute;
+    font-weight: 500;
+    font-size: 47px;
+    line-height: 57px;
+    bottom: -4rem;
+  }
+  .rndPBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
 }

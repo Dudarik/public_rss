@@ -2,6 +2,10 @@
   width: 23rem;
   height: 4.5rem;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   cursor: pointer;
 
   background-color: $color_orange;
@@ -19,5 +23,8 @@
   &:active {
     background-color: $color_green;
     color: $color_orange;
+  }
+  &:disabled {
+    background-color: $color_gray;
   }
 }
