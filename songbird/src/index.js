@@ -2,8 +2,10 @@ import {
   getMenuItems,
   addHandlersToMenu,
   changePage,
-} from './assets/js/helpers/location.js';
-import { appInit } from './assets/js/lib/appInit.js';
+} from './assets/js/helpers/location';
+import { appInit } from './assets/js/lib/appInit';
+import { getBirdNames } from '../src/assets/js/lib/gameFunc';
+
 import './assets/sass/styles.scss';
 
 window.addEventListener('popstate', () => {
@@ -27,3 +29,5 @@ window.addEventListener('load', () => {
 
 addHandlersToMenu(getMenuItems());
 appInit();
+
+console.log(getBirdNames(1));
