@@ -27,21 +27,22 @@
 
     @media screen and (max-width: 1040px) {
       gap: 1rem;
-      grid-template-rows: repeat(5, auto);
+      grid-template-rows: repeat(6, auto);
       grid-template-columns: repeat(2, 1fr);
 
       grid-template-areas:
         'levels levels'
         'r_player bird_photo'
         'answer_bird answer'
-        'player score'
-        'next_lvl_button next_lvl_button';
+        'answer_bird next_lvl_button'
+        'answer_bird score'
+        'answer_bird player';
     }
 
-    @media screen and (max-width: 670px) {
-      row-gap: 0;
+    @media screen and (max-width: 700px) {
+      row-gap: 1rem;
       grid-template-columns: auto;
-      grid-template-rows: repeat(7, auto);
+      grid-template-rows: repeat(8, auto);
 
       grid-template-areas:
         'score'
@@ -49,8 +50,9 @@
         'bird_photo'
         'r_player'
         'answer'
+        'next_lvl_button'
         'answer_bird'
-        'player ';
+        'player';
     }
 
     .game_levels {
@@ -110,7 +112,10 @@
       // justify-content: center;
       flex-direction: column;
       .birds_photo_title {
-        font-size: 5rem;
+        font-size: 2.5rem;
+        @media screen and (max-width: 1040px) {
+          font-size: 2rem;
+        }
       }
     }
     .choice_bird_panel {
@@ -214,7 +219,7 @@
         flex-direction: column;
       }
       .birds_photo {
-        min-width: 22rem;
+        min-width: 20rem;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -226,10 +231,11 @@
           border: 2px solid $color_green;
           border-radius: 0.6rem;
           top: -7rem;
-          left: 2.6rem;
+          left: 1.6rem;
 
           @media screen and (max-width: 1040px) {
             position: static;
+            margin-bottom: 0.5rem;
           }
         }
         .bird_name {
@@ -244,13 +250,16 @@
       .bird_description {
         padding: 1rem 0;
 
+        @media screen and (max-width: 1040px) {
+          padding: 0.5rem;
+        }
+
         .description_title {
           font-weight: 500;
           font-size: 1.8rem;
           line-height: 34px;
 
           display: inline-block;
-          // width: 30rem;
           padding-bottom: 1rem;
 
           border-bottom: 2px solid $color_green;
@@ -262,11 +271,19 @@
           font-weight: 400;
           font-size: 1.6rem;
           line-height: 34px;
+          overflow-y: scroll;
+
+          @media screen and (max-width: 1040px) {
+            font-size: 1.4rem;
+            line-height: 34px;
+          }
         }
       }
     }
     .player_wrapper_quiz {
       grid-area: player;
+      width: 100%;
+      place-self: center center;
     }
     .score {
       grid-area: score;
@@ -285,6 +302,7 @@
     .next_lvl_btn {
       grid-area: next_lvl_button;
       place-self: center center;
+      width: 90%;
       // place-items: center center;
     }
   }
