@@ -14,8 +14,19 @@
 
     width: 2rem;
     height: 2rem;
+
     right: 1rem;
     top: 13rem;
+    transition: right 0.3s;
+    @media screen and (max-width: 1300px) {
+      right: 0;
+    }
+    @media screen and (max-width: 1100px) {
+      right: -1rem;
+    }
+    @media screen and (max-width: 1040px) {
+      right: 1rem;
+    }
   }
 
   .pleer_volume {
@@ -34,6 +45,18 @@
 
     width: var(--size);
     height: 1rem;
+    transition: right 0.3s;
+
+    @media screen and (max-width: 1300px) {
+      right: -5rem;
+    }
+    @media screen and (max-width: 1100px) {
+      right: -6rem;
+    }
+
+    @media screen and (max-width: 1040px) {
+      right: -4rem;
+    }
 
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
