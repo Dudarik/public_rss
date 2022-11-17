@@ -199,10 +199,24 @@
       border: 2px solid $color_light_green;
       border-radius: var(--rad);
 
+      min-height: 14rem;
+
       color: $color_green;
 
       display: flex;
       align-items: space-around;
+
+      position: relative;
+      .birds_photo {
+        min-width: 20rem;
+      }
+      .birds_photo_img {
+        position: absolute;
+        border: 2px solid $color_green;
+        border-radius: 0.6rem;
+        top: -7rem;
+        left: 3rem;
+      }
     }
     .player {
       grid-area: player;
