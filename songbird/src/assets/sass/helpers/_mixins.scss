@@ -46,7 +46,8 @@
   background-color: $color_mid_green;
 
   height: 0.5rem;
-  width: 20rem;
+  // max-width: 20rem;
+  width: 100%;
   transition: border-radius 0.3s, height 0.3s;
 
   &:hover {

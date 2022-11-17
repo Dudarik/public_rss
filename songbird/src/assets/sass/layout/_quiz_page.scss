@@ -23,18 +23,19 @@
       'levels levels levels'
       'r_player bird_photo answer'
       'answer_bird answer_bird answer_bird'
-      'player player score';
+      'player next_lvl_button score';
 
     @media screen and (max-width: 1040px) {
       gap: 1rem;
-
+      grid-template-rows: repeat(5, auto);
       grid-template-columns: repeat(2, 1fr);
 
       grid-template-areas:
         'levels levels'
         'r_player bird_photo'
         'answer_bird answer'
-        'player score';
+        'player score'
+        'next_lvl_button next_lvl_button';
     }
 
     @media screen and (max-width: 670px) {
@@ -126,7 +127,7 @@
       list-style-type: none;
 
       padding: 1rem;
-      padding-bottom: 7rem;
+      padding-bottom: 6rem;
 
       @media screen and (max-width: 1300px) {
         padding-bottom: 5rem;
@@ -193,13 +194,14 @@
         }
       }
     }
+
     .bird_info {
       grid-area: answer_bird;
       background-color: $color_white;
       border: 2px solid $color_light_green;
       border-radius: $border_radius;
 
-      min-height: 14rem;
+      // min-height: 14rem;
 
       color: $color_green;
 
@@ -207,6 +209,10 @@
       align-items: space-around;
 
       position: relative;
+
+      @media screen and (max-width: 1040px) {
+        flex-direction: column;
+      }
       .birds_photo {
         min-width: 22rem;
         display: flex;
@@ -221,7 +227,10 @@
           border-radius: 0.6rem;
           top: -7rem;
           left: 2.6rem;
-          // display: none;
+
+          @media screen and (max-width: 1040px) {
+            position: static;
+          }
         }
         .bird_name {
           @include background-mixin;
@@ -241,7 +250,7 @@
           line-height: 34px;
 
           display: inline-block;
-          width: 30rem;
+          // width: 30rem;
           padding-bottom: 1rem;
 
           border-bottom: 2px solid $color_green;
@@ -261,14 +270,22 @@
     }
     .score {
       grid-area: score;
+      place-self: center center;
+
       @include background-mixin;
 
       max-width: 20rem;
-      padding: 0.5rem;
+      padding: 1rem;
       margin: 0.5rem;
 
       font-size: 3rem;
       line-height: 57px;
+    }
+
+    .next_lvl_btn {
+      grid-area: next_lvl_button;
+      place-self: center center;
+      // place-items: center center;
     }
   }
 }
