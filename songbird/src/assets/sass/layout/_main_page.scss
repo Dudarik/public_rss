@@ -1,8 +1,17 @@
 .main_page {
   color: $color_white;
   // border: 1px dotted green;
+  @media screen and (max-width: 1500px) {
+    padding-left: 5rem;
+  }
+
+  @media screen and (max-width: 480px) {
+    padding-left: 0;
+  }
 
   .main_title {
+    margin: 2rem 0;
+
     font-family: 'Oks Free', sans-serif;
     font-size: 11rem;
     font-weight: 400;
@@ -21,6 +30,7 @@
   .main_subtitle {
     font-size: 5.4rem;
     font-weight: 500;
+    margin-bottom: 2rem;
 
     @media screen and (max-width: 1200px) {
       font-size: 4.4rem;
@@ -37,6 +47,8 @@
     font-size: 3rem;
     font-weight: 500;
     line-height: 60px;
+
+    margin-bottom: 2rem;
 
     @media screen and (max-width: 1200px) {
       font-size: 2.2rem;
@@ -69,5 +81,9 @@
   .left_background {
     left: -3rem;
     bottom: 0;
+  }
+
+  .btn_main {
+    width: 20rem;
   }
 }
