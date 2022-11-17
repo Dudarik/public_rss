@@ -25,6 +25,14 @@
       right: -1rem;
     }
     @media screen and (max-width: 1040px) {
+      right: -4rem;
+    }
+
+    @media screen and (max-width: 670px) {
+      right: 1rem;
+    }
+
+    @media screen and (max-width: 450px) {
       right: 1rem;
     }
   }
@@ -55,6 +63,14 @@
     }
 
     @media screen and (max-width: 1040px) {
+      right: -4rem;
+    }
+
+    @media screen and (max-width: 670px) {
+      right: 0rem;
+    }
+
+    @media screen and (max-width: 450px) {
       right: -4rem;
     }
 
