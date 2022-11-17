@@ -1,0 +1,62 @@
+.player {
+  @include background-mixin;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+
+  max-width: 30rem;
+  min-height: 8rem;
+  .player_time {
+    @include player_controls;
+  }
+  .player_volume {
+    @include player_controls;
+  }
+
+  .player_time_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    .input_wrapper {
+      .time_value {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  .player_volume_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+    gap: 2rem;
+  }
+  .btn_play {
+    @include player_btn;
+
+    background-image: url('../images/play_img.svg');
+    background-position: 60% 45%;
+
+    &.pause {
+      background-image: url('../images/pause_img.svg');
+      background-position: 50% 45%;
+    }
+  }
+  .btn_volume {
+    @include player_btn;
+
+    --size: 2rem;
+
+    width: var(--size);
+    height: var(--size);
+    background-image: url('../images/icon_speaker_volume.svg');
+    background-position: 50% 50%;
+
+    &.mute {
+      background-image: url('../images/icon_speaker_volume_mute.svg');
+    }
+  }
+}

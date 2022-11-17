@@ -23,3 +23,67 @@
 
   text-align: center;
 }
+
+@mixin background-mixin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: $color_green;
+  border-radius: $border_radius;
+  color: $color_white;
+}
+
+@mixin player_controls {
+  -webkit-appearance: none;
+  appearance: none;
+
+  overflow: hidden;
+  // position: absolute;
+  position: relative;
+  cursor: pointer;
+
+  background-color: $color_mid_green;
+
+  height: 0.5rem;
+  width: 20rem;
+  transition: border-radius 0.3s, height 0.3s;
+
+  &:hover {
+    height: 1.2rem;
+    border-radius: $border_radius;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1rem;
+    height: 2rem;
+    cursor: pointer;
+    background: $color_white; //#f0cc88;
+    color: green;
+    box-shadow: -20rem 0 0 20rem $color_orange;
+  }
+
+  &::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    height: 10px;
+    margin-top: -0.6rem;
+  }
+}
+
+@mixin player_btn {
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+
+  background-color: transparent;
+
+  background-size: 1.5rem;
+  background-position: 60% 45%;
+  background-repeat: no-repeat;
+
+  transition: all 0.5s;
+}

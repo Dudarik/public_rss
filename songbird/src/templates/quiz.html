@@ -34,7 +34,7 @@
       <li class="game_level" data-level="seabirds"></li>
     </ul>
 
-    <div class="round_pleer ml-5 player_wrapper_quiz">
+    <div class="round_pleer ml-5 round_player_wrapper_quiz">
       <audio src="" id="round_pleer" type="audio/mpeg"></audio>
       <input
         class="pleer_volume"
@@ -118,11 +118,11 @@
           src="<%= require('../assets/images/unknown_bird_1920.webp') %>"
           alt="target bird"
         />
+        <h2 class="bird_name">Певчий дрозд</h2>
       </div>
-      <div class="bird_name">Грач</div>
 
       <div class="bird_description">
-        <h3 class="description_title">ROck</h3>
+        <h3 class="description_title">Rock</h3>
         <p class="description_text">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
@@ -132,9 +132,46 @@
       </div>
     </div>
 
-    <div class="player">player</div>
-
-    <div class="score">score</div>
+    <div class="player player_wrapper_quiz" id="player">
+      <div class="player_time_wrapper">
+        <button class="btn_play">
+          <svg
+            width="67"
+            height="67"
+            viewBox="0 0 67 67"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M33.5001 67C52.0015 67 67.0003 52.0015 67.0003 33.4999C67.0003 14.9983 52.0015 0 33.5001 0C14.9988 0 0 14.9985 0 33.5001C0 52.0017 14.9985 67 33.5001 67ZM33.5001 5.35994C49.016 5.35994 61.6401 17.984 61.6401 33.4999C61.6401 49.0158 49.016 61.6398 33.5001 61.6398C17.9842 61.6398 5.36019 49.0158 5.36019 33.4999C5.36019 17.984 17.9828 5.35994 33.5001 5.35994Z"
+              fill="#CD8E18"
+            />
+          </svg>
+        </button>
+        <div class="input_wrapper">
+          <input
+            type="range"
+            name="palyer_time"
+            id="palyer_time"
+            class="player_time"
+          />
+          <div class="time_value">
+            <div class="zero_time">00:00</div>
+            <div class="end_time">00:35</div>
+          </div>
+        </div>
+      </div>
+      <div class="player_volume_wrapper">
+        <button class="btn_volume"></button>
+        <input
+          type="range"
+          name="player_volume"
+          id="player_volume"
+          class="player_volume"
+        />
+      </div>
+    </div>
+    <div class="score" data-score="" data-score-value="11">Score: 11</div>
   </div>
   <div class="btn" disabled>Next level</div>
 </div>
