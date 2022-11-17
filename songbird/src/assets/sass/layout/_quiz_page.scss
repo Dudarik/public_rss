@@ -19,17 +19,12 @@
     display: grid;
     grid-template-rows: repeat(4, auto);
     grid-template-columns: repeat(3, 1fr);
-    // grid-row-gap: 5rem;
 
     grid-template-areas:
       'levels levels levels'
       'r_player bird_photo answer'
       'answer_bird answer_bird answer_bird'
       'player player score';
-
-    // & > * {
-    //   border: 1px dotted green;
-    // }
 
     @media screen and (max-width: 1040px) {
       gap: 1rem;
@@ -76,7 +71,6 @@
       @media screen and (max-width: 1040px) {
         margin-bottom: 0;
       }
-      // padding: 0.5rem;
 
       .game_level {
         display: flex;
@@ -98,6 +92,13 @@
         &.active_level {
           background: rgba($color: $color_orange, $alpha: 0.8);
         }
+      }
+    }
+
+    .player_wrapper_quiz {
+      margin-bottom: 0;
+      @media screen and (max-width: 670px) {
+        margin-bottom: 5rem;
       }
     }
 
