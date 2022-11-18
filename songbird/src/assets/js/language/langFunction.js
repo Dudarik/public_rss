@@ -11,7 +11,13 @@ export const langFunction = {
     });
   },
 
-  main: () => {},
+  main: (newLanguage) => {
+    const mainPageElems = document.querySelectorAll(`[data-main-lang]`);
+    mainPageElems.forEach((elem) => {
+      const title = elem.dataset.mainLang;
+      elem.innerText = langs[newLanguage].main[title];
+    });
+  },
   quiz: (newLanguage) => {
     const gameLevels = document.querySelectorAll('.game_level');
 

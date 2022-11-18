@@ -16,4 +16,5 @@ export const appInit = () => {
   langSwitcherBtn.addEventListener('click', handleSwitchLanguage);
 
   langFunction['mainMenu'](store.settings.language);
+  langFunction['main'](store.settings.language);
 };

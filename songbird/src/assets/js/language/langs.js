@@ -6,6 +6,11 @@ export const langs = {
       results: 'Results',
       gallery: 'Gallery',
     },
+    main: {
+      subtitle: 'Quiz',
+      main_text: `recognizing birds \n by their voices`,
+      main_btn: 'Play',
+    },
     gameLevels: {
       warmup: 'Warm up',
       sparrow: 'Sparrow',
@@ -21,6 +26,11 @@ export const langs = {
       quiz: 'Викторина',
       results: 'Результаты',
       gallery: 'Галерея',
+    },
+    main: {
+      subtitle: 'Викторина',
+      main_text: 'распознавание птиц \n по их голосам',
+      main_btn: 'Играть',
     },
     gameLevels: {
       warmup: 'Разминка',
