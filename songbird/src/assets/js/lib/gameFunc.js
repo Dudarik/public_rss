@@ -17,7 +17,7 @@ export const getBirdNames = (level = 0) =>
 
 export const startGame = () => {
   store.currentPoints = 0;
-  store.questionPoints = 5;
+  store.questionPoints = 6;
   store.currentLevel = 0;
   store.lastLevel = store.levels.length - 1;
   store.isInGame = true;
@@ -78,4 +78,20 @@ export const getCurrentQuestion = (lvlId) => {
 
 export const setSuccesAnswer = () => {
   store.isNextQuestion = true;
+};
+
+export const fillBirdInfo = (idBird) => {
+  const birdInfo = document.querySelector('#bird_info');
+
+  const birdsPhotoImg = birdInfo.querySelector('#birds_photo_img');
+  const birdName = birdInfo.querySelector('#bird_name');
+  const descriptionTitle = birdInfo.querySelector('#description_title');
+  const descriptionText = birdInfo.querySelector('#description_text');
+
+  const curBird = store.currentLevelData[idBird - 1];
+
+  birdsPhotoImg.src = curBird.image;
+  birdName.innerText = curBird.name;
+  descriptionTitle.innerText = curBird.species;
+  descriptionText.innerText = curBird.description;
 };

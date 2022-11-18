@@ -1,5 +1,6 @@
 import { birdsData } from '../data';
 import { langs } from '../language/langs';
+import { fillBirdInfo } from '../lib/gameFunc';
 import { store } from '../store';
 
 export const langFunction = {
@@ -24,7 +25,10 @@ export const langFunction = {
   quiz: (newLanguage) => {
     const gameLevels = document.querySelectorAll('.game_level');
     const ctrlElems = document.querySelectorAll('[data-quiz-lang]');
-    const $panelItems = document.querySelectorAll('.panel_item');
+    const panelItems = document.querySelectorAll('.panel_item');
+    const birdDescription = document.querySelector(
+      '[data-quiz-answer-description-text]'
+    );
 
     store.currentLevelData =
       birdsData[store.settings.language][store.currentLevel];
@@ -40,9 +44,16 @@ export const langFunction = {
     });
 
     store.currentLevelData.forEach((item, index) => {
-      $panelItems[index].innerText = item.name;
-      $panelItems[index].dataset.idBird = item.id;
+      panelItems[index].innerText = item.name;
+      panelItems[index].dataset.idBird = item.id;
     });
+
+    if (store.currentClickedBirdId === -1) {
+      birdDescription.innerText = langs[newLanguage].quiz.answer.blank;
+      return;
+    }
+
+    fillBirdInfo(store.currentClickedBirdId);
   },
   results: () => {},
   gallery: () => {},

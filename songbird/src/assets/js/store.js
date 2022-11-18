@@ -7,12 +7,13 @@ export const store = {
 
   levels: ['warmup', 'sparrow', 'forest', 'songbirds', 'predatory', 'seabirds'],
   currentPoints: 0,
-  questionPoints: 5,
+  questionPoints: 6,
   currentLevel: 0,
+  currentClickedBirdId: -1,
+  currentLvlChecked: [],
 
   lastLevel: 0,
 
-  isClickedChoicePanel: false,
   isPlaySound: false,
   isInGame: false,
   isNextQuestion: false,

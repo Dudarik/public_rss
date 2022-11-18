@@ -1,5 +1,6 @@
 import { langFunction } from '../language/langFunction';
 import { store } from '../store';
+import { fillBirdInfo } from './gameFunc';
 import { saveGameSettingsToLS } from './localstorage';
 
 const ONE_HUNDRED_PERCENT = 100;
@@ -108,24 +109,28 @@ export const handleRoundPlayerSaveVolumeValue = (event) => {
 };
 
 export const handleChoiceBirdPanelClick = (event) => {
-  const target = event.target.closest('li');
+  const target = event.target;
 
-  if (!target) return;
+  if (target.tagName !== 'LI') return;
 
-  const birdInfo = document.querySelector('#bird_info');
+  store.currentClickedBirdId = target.dataset.idBird;
+  console.log(store.currentClickedBirdId, store.currentQuestionTarget.id);
 
-  const birdsPhotoImg = birdInfo.querySelector('#birds_photo_img');
-  console.log(birdInfo);
-  const birdName = birdInfo.querySelector('#bird_name');
-  const descriptionTitle = birdInfo.querySelector('#description_title');
-  const descriptionText = birdInfo.querySelector('#description_text');
+  if (!store.isNextQuestion) {
+    if (!store.currentLvlChecked.includes(store.currentClickedBirdId)) {
+      //play music
+      store.currentLvlChecked.push(store.currentClickedBirdId);
+      store.questionPoints -= 1;
 
-  const curBird = store.currentLevelData[target.dataset.idBird - 1];
+      if (+store.currentClickedBirdId === store.currentQuestionTarget.id) {
+        console.log(event.target);
+        store.isNextQuestion = true;
+        event.target.classList.add('success');
+        return;
+      }
+      event.target.classList.add('wrong');
+    }
+  }
 
-  birdsPhotoImg.src = curBird.image;
-  birdName.innerText = curBird.name;
-  descriptionTitle.innerText = curBird.species;
-  descriptionText.innerText = curBird.description;
-
-  console.log(target);
+  fillBirdInfo(target.dataset.idBird);
 };
