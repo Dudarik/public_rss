@@ -16,12 +16,16 @@ export const handleSwitchLanguage = (event) => {
 };
 
 export const handleRoundPlayerMouseDown = () => {
+  const ONE_HUNDRED_PERCENT = 100;
+  const ONE_SECTOR = 3.6;
+  const HALF_ROUND = 180;
+
   const calcAngl = (x, y, midX, midY) => {
     const arcctg = (x) => Math.PI / 2 - Math.atan(x);
 
-    let angl = (arcctg((midY - y) / (x - midX)) * 180) / Math.PI;
+    let angl = (arcctg((midY - y) / (x - midX)) * HALF_ROUND) / Math.PI;
 
-    if (x < midX) angl += 180;
+    if (x < midX) angl += HALF_ROUND;
 
     return angl;
   };
@@ -35,13 +39,17 @@ export const handleRoundPlayerMouseDown = () => {
     const midX = cords.x + cords.width / 2;
     const midY = cords.y + cords.height / 2;
 
-    if (store.isPlaySound) audio.pause();
+    if (store.isPlaySound) $audio.pause();
 
     let angl = calcAngl(event.clientX, event.clientY, midX, midY);
-    event.target.setAttribute('style', `--value: ${Math.floor(angl / 3.6)}`);
+    event.target.setAttribute(
+      'style',
+      `--value: ${Math.floor(angl / ONE_SECTOR)}`
+    );
     event.target.dataset.seconds = Math.floor($audio.currentTime);
 
-    $audio.currentTime = ($audio.duration * angl) / 3.6 / 100;
+    $audio.currentTime =
+      ($audio.duration * angl) / ONE_SECTOR / ONE_HUNDRED_PERCENT;
     if (store.isPlaySound) $audio.play();
   };
 
@@ -61,7 +69,10 @@ export const handleRoundPlayerTimeUpdate = () => {
 
   $pbar.dataset.seconds = Math.floor($audio.currentTime);
 
-  $pbar.setAttribute('style', `--value: ${Math.floor((100 * c) / d)}`);
+  $pbar.setAttribute(
+    'style',
+    `--value: ${Math.floor((ONE_HUNDRED_PERCENT * c) / d)}`
+  );
 };
 
 export const handleRoundPlayerPlay = () => {
