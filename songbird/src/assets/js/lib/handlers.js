@@ -2,6 +2,10 @@ import { langFunction } from '../language/langFunction';
 import { store } from '../store';
 import { saveGameSettingsToLS } from './localstorage';
 
+const ONE_HUNDRED_PERCENT = 100;
+const ONE_SECTOR = 3.6;
+const HALF_ROUND = 180;
+
 export const handleSwitchLanguage = (event) => {
   const lang = store.settings.language;
   if (lang === 'ru') store.settings.language = 'en';
@@ -16,10 +20,6 @@ export const handleSwitchLanguage = (event) => {
 };
 
 export const handleRoundPlayerMouseDown = () => {
-  const ONE_HUNDRED_PERCENT = 100;
-  const ONE_SECTOR = 3.6;
-  const HALF_ROUND = 180;
-
   const calcAngl = (x, y, midX, midY) => {
     const arcctg = (x) => Math.PI / 2 - Math.atan(x);
 
@@ -75,13 +75,34 @@ export const handleRoundPlayerTimeUpdate = () => {
   );
 };
 
-export const handleRoundPlayerPlay = () => {
+export const handleRoundPlayerPlay = (event) => {
   const $audio = document.querySelector('#round_pleer');
-  $audio.volume = 0.5;
-  $audio.play();
+  $audio.volume = store.settings.volume / ONE_HUNDRED_PERCENT;
+
+  if (!store.isPlaySound) {
+    $audio.play();
+    event.target.classList.add('pause');
+    store.isPlaySound = true;
+  } else {
+    $audio.pause();
+    event.target.classList.remove('pause');
+    store.isPlaySound = false;
+  }
 };
 
-export const handleRoundPlayerPause = () => {
+export const handleRoundPlayerEndAudio = () => {
+  const $playBtn = document.querySelector('#roundpleer_play');
+  $playBtn.classList.remove('pause');
+  store.isPlaySound = false;
+};
+
+export const handleRoundPlayerSetVolume = (event) => {
   const $audio = document.querySelector('#round_pleer');
-  $audio.pause();
+
+  $audio.volume = event.target.value / ONE_HUNDRED_PERCENT;
+};
+
+export const handleRoundPlayerSaveVolumeValue = (event) => {
+  store.settings.volume = event.target.value / ONE_HUNDRED_PERCENT;
+  saveGameSettingsToLS();
 };

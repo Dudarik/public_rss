@@ -128,23 +128,23 @@
     }
   }
   .rnd_control_btn {
-    background: none;
-    border: none;
-    cursor: pointer;
+    @include player_btn;
+    $bg_size: 6.5rem;
+    background-image: url('../images/play_img.svg');
+    background-position: 70% 45%;
+    background-size: $bg_size - 1.9rem;
 
-    .rnd_control_btn_img {
-      fill: $color_orange;
-      transition: 0.5s;
-      &:hover {
-        fill: lighten($color_orange, 10%);
-      }
-      &:active {
-        fill: $color_green;
-      }
-    }
+    width: $bg_size;
+    height: $bg_size;
 
-    &.play_btn {
-      margin-left: 0.8rem;
+    &.pause {
+      background-image: url('../images/pause_img.svg');
+      background-position: 50% 45%;
+
+      background-size: $bg_size - 1.9rem;
+
+      width: $bg_size;
+      height: $bg_size;
     }
   }
 }

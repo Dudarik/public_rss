@@ -2,9 +2,12 @@ import { store } from '../store';
 import { birdsData } from '../data';
 import { getRandomBirdId } from '../helpers';
 import {
+  handleRoundPlayerEndAudio,
   handleRoundPlayerMouseDown,
-  handleRoundPlayerPause,
+  // handleRoundPlayerPause,
   handleRoundPlayerPlay,
+  handleRoundPlayerSaveVolumeValue,
+  handleRoundPlayerSetVolume,
   handleRoundPlayerTimeUpdate,
 } from './handlers';
 
@@ -22,6 +25,8 @@ export const startGame = () => {
 
   setLevel(store.currentLevel);
   getCurrentQuestion(store.currentLevel);
+  const $roundVolume = document.querySelector('#round_volume');
+  $roundVolume.value = store.settings.volume * 100;
 };
 
 export const setLevel = (num) => {
@@ -39,16 +44,17 @@ export const getCurrentQuestion = async (lvlId) => {
   const $audio = document.querySelector('#round_pleer');
   const $pbar = document.querySelector('#roundpleer_pbar');
   const $playBtn = document.querySelector('#roundpleer_play');
-  const $pauseBtn = document.querySelector('#roundpleer_pause');
+  const $roundVolume = document.querySelector('#round_volume');
 
   store.currentQuestionTarget = currentLevelData[getRandomBirdId()];
 
   $audio.src = store.currentQuestionTarget.audio;
-
+  $roundVolume.addEventListener('input', handleRoundPlayerSetVolume);
+  $roundVolume.addEventListener('change', handleRoundPlayerSaveVolumeValue);
   $pbar.addEventListener('mousedown', handleRoundPlayerMouseDown);
   $audio.addEventListener('timeupdate', handleRoundPlayerTimeUpdate);
+  $audio.addEventListener('ended', handleRoundPlayerEndAudio);
   $playBtn.addEventListener('click', handleRoundPlayerPlay);
-  $pauseBtn.addEventListener('click', handleRoundPlayerPause);
 
   console.log(store);
 };
