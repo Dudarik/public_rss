@@ -232,6 +232,9 @@
           border-radius: 0.6rem;
           top: -7rem;
           left: 1.6rem;
+          width: 268px;
+          height: 226px;
+          object-fit: cover;
 
           @media screen and (max-width: 1040px) {
             position: static;

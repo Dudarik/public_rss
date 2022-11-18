@@ -106,3 +106,26 @@ export const handleRoundPlayerSaveVolumeValue = (event) => {
   store.settings.volume = event.target.value / ONE_HUNDRED_PERCENT;
   saveGameSettingsToLS();
 };
+
+export const handleChoiceBirdPanelClick = (event) => {
+  const target = event.target.closest('li');
+
+  if (!target) return;
+
+  const birdInfo = document.querySelector('#bird_info');
+
+  const birdsPhotoImg = birdInfo.querySelector('#birds_photo_img');
+  console.log(birdInfo);
+  const birdName = birdInfo.querySelector('#bird_name');
+  const descriptionTitle = birdInfo.querySelector('#description_title');
+  const descriptionText = birdInfo.querySelector('#description_text');
+
+  const curBird = store.currentLevelData[target.dataset.idBird - 1];
+
+  birdsPhotoImg.src = curBird.image;
+  birdName.innerText = curBird.name;
+  descriptionTitle.innerText = curBird.species;
+  descriptionText.innerText = curBird.description;
+
+  console.log(target);
+};

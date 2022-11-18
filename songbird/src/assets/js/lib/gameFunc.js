@@ -2,6 +2,7 @@ import { store } from '../store';
 import { birdsData } from '../data';
 import { getRandomBirdId } from '../helpers';
 import {
+  handleChoiceBirdPanelClick,
   handleRoundPlayerEndAudio,
   handleRoundPlayerMouseDown,
   // handleRoundPlayerPause,
@@ -56,12 +57,14 @@ export const getCurrentQuestion = (lvlId) => {
   store.currentLevelData = birdsData[store.settings.language][lvlId];
 
   const $audio = document.querySelector('#round_pleer');
+  const $choiceBirdPanel = document.querySelector('#choice_bird_panel');
 
   store.currentQuestionTarget = store.currentLevelData[getRandomBirdId()];
 
   $audio.src = store.currentQuestionTarget.audio;
 
   setHandlersToRoundPlayer();
+  $choiceBirdPanel.addEventListener('click', handleChoiceBirdPanelClick);
 
   const $panelItems = document.querySelectorAll('.panel_item');
 

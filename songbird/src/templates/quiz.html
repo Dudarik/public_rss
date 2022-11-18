@@ -65,7 +65,7 @@
       <h3 class="birds_photo_title">*******</h3>
     </div>
 
-    <ul class="choice_bird_panel mr-5">
+    <ul class="choice_bird_panel mr-5" id="choice_bird_panel">
       <li class="panel_item wrong" data-id-bird=""></li>
       <li class="panel_item success" data-id-bird=""></li>
       <li class="panel_item" data-id-bird=""></li>
@@ -74,19 +74,26 @@
       <li class="panel_item" data-id-bird=""></li>
     </ul>
 
-    <div class="bird_info" data-bird-id="">
+    <div class="bird_info" data-bird-id="" id="bird_info">
       <div class="birds_photo">
         <img
           class="birds_photo_img"
+          id="birds_photo_img"
           src="<%= require('../assets/images/unknown_bird_1920.webp') %>"
           alt="target bird"
         />
-        <h2 class="bird_name" data-quiz-answer-bird-name>*******</h2>
+        <h2 class="bird_name" id="bird_name" data-quiz-answer-bird-name="">
+          *******
+        </h2>
       </div>
 
       <div class="bird_description">
-        <h3 class="description_title">*******</h3>
-        <p class="description_text" data-quiz-answer-description-text></p>
+        <h3 class="description_title" id="description_title">*******</h3>
+        <p
+          class="description_text"
+          id="description_text"
+          data-quiz-answer-description-text=""
+        ></p>
       </div>
     </div>
 
