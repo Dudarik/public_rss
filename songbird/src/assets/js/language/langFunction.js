@@ -18,12 +18,19 @@ export const langFunction = {
       elem.innerText = langs[newLanguage].main[title];
     });
   },
+
   quiz: (newLanguage) => {
     const gameLevels = document.querySelectorAll('.game_level');
+    const ctrlElems = document.querySelectorAll('[data-quiz-lang]');
 
     gameLevels.forEach((gameLevel) => {
       const levelTitle = gameLevel.dataset.level;
-      gameLevel.innerText = langs[newLanguage].gameLevels[levelTitle];
+      gameLevel.innerText = langs[newLanguage].quiz.gameLevels[levelTitle];
+    });
+
+    ctrlElems.forEach((elem) => {
+      const title = elem.dataset.quizLang;
+      elem.innerText = langs[newLanguage].quiz.controls[title];
     });
   },
   results: () => {},
