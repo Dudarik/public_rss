@@ -36,3 +36,7 @@ export const loadFromLS = (key) => {
   if (!store.ls_available) return false;
   return JSON.parse(localStorage.getItem(key));
 };
+
+export const saveGameSettingsToLS = (key) => saveToLS(key, store.settings);
+
+export const loadGameSettingsFromLS = (key) => loadFromLS(key);
