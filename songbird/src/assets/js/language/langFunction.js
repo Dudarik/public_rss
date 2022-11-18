@@ -1,6 +1,16 @@
-import { langs } from '../language/langs.js';
+import { langs } from '../language/langs';
 
 export const langFunction = {
+  mainMenu: (newLanguage) => {
+    const mainMenu = document.querySelector('#main_menu');
+    const menuLinks = mainMenu.querySelectorAll('.menu_link');
+
+    menuLinks.forEach((link) => {
+      const linkTitle = link.dataset.menuLink;
+      link.innerText = langs[newLanguage].menu[linkTitle];
+    });
+  },
+
   main: () => {},
   quiz: (newLanguage) => {
     const gameLevels = document.querySelectorAll('.game_level');

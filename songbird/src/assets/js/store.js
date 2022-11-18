@@ -1,6 +1,10 @@
 export const store = {
   currentPage: 'main',
 
+  ls_key_data: 'dudarik_songbird_data',
+  ls_key_settings: 'dudarik_songbird_settings',
+  ls_key_records: 'dudarik_songbird_records',
+
   levels: ['warmup', 'sparrow', 'forest', 'songbirds', 'predatory', 'seabirds'],
   currentPoints: 0,
   questionPoints: 5,

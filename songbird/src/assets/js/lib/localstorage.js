@@ -5,7 +5,7 @@ import { store } from '../store.js';
  */
 export const isLSAvailabel = () => {
   try {
-    const t = 'test';
+    const t = 'Dudarik_test';
     localStorage.setItem(t, JSON.stringify(t));
     localStorage.removeItem(t);
     return true;
@@ -22,7 +22,7 @@ export const isLSAvailabel = () => {
  *
  */
 export const saveToLS = (key, data) => {
-  if (!store.ls_available) return false;
+  if (!store.settings.isLSAvailabel) return false;
 
   localStorage.setItem(key, JSON.stringify(data));
   return true;
@@ -33,10 +33,19 @@ export const saveToLS = (key, data) => {
  * @return {object|false}
  */
 export const loadFromLS = (key) => {
-  if (!store.ls_available) return false;
+  if (!store.settings.isLSAvailabel) return false;
   return JSON.parse(localStorage.getItem(key));
 };
 
-export const saveGameSettingsToLS = (key) => saveToLS(key, store.settings);
+export const saveGameSettingsToLS = () => {
+  console.log(store);
+  saveToLS(store.ls_key_settings, store.settings);
+};
 
-export const loadGameSettingsFromLS = (key) => loadFromLS(key);
+export const loadGameSettingsFromLS = () => {
+  const ls_settings = loadFromLS(store.ls_key_settings);
+  if (!ls_settings) return false;
+
+  store.settings = ls_settings;
+  return true;
+};
