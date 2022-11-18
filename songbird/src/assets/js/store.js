@@ -17,7 +17,7 @@ export const store = {
   isNextQuestion: false,
   isLastQuestion: false,
 
-  currentQuestion: {
+  currentQuestionTarget: {
     id: 0,
     name: '',
     species: '',

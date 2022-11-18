@@ -3,6 +3,7 @@ import {
   addHandlersToMenu,
   changePage,
 } from './assets/js/helpers/location';
+
 import { appInit } from './assets/js/lib/appInit';
 import { getBirdNames } from '../src/assets/js/lib/gameFunc';
 

@@ -8,7 +8,7 @@ export const appInit = () => {
 
   if (store.settings.isLSAvailabel) loadGameSettingsFromLS();
 
-  console.log(store);
+  // console.log(store);
 
   const langSwitcherBtn = document.querySelector('#lang_switcher');
   langSwitcherBtn.innerText = store.settings.language.toUpperCase();
