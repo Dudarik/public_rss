@@ -17,7 +17,7 @@ export const getBirdNames = (level = 0) =>
 export const startGame = () => {
   store.currentPoints = 0;
   store.questionPoints = 5;
-  store.currentLevel = 1;
+  store.currentLevel = 0;
   store.lastLevel = store.levels.length - 1;
   store.isInGame = true;
   store.isNextQuestion = false;
@@ -38,23 +38,37 @@ export const setLevel = (num) => {
   $levels[store.currentLevel].classList.add('active_level');
 };
 
-export const getCurrentQuestion = async (lvlId) => {
-  const currentLevelData = birdsData[store.settings.language][lvlId];
-
+const setHandlersToRoundPlayer = () => {
   const $audio = document.querySelector('#round_pleer');
   const $pbar = document.querySelector('#roundpleer_pbar');
   const $playBtn = document.querySelector('#roundpleer_play');
   const $roundVolume = document.querySelector('#round_volume');
 
-  store.currentQuestionTarget = currentLevelData[getRandomBirdId()];
-
-  $audio.src = store.currentQuestionTarget.audio;
   $roundVolume.addEventListener('input', handleRoundPlayerSetVolume);
   $roundVolume.addEventListener('change', handleRoundPlayerSaveVolumeValue);
   $pbar.addEventListener('mousedown', handleRoundPlayerMouseDown);
   $audio.addEventListener('timeupdate', handleRoundPlayerTimeUpdate);
   $audio.addEventListener('ended', handleRoundPlayerEndAudio);
   $playBtn.addEventListener('click', handleRoundPlayerPlay);
+};
+
+export const getCurrentQuestion = (lvlId) => {
+  store.currentLevelData = birdsData[store.settings.language][lvlId];
+
+  const $audio = document.querySelector('#round_pleer');
+
+  store.currentQuestionTarget = store.currentLevelData[getRandomBirdId()];
+
+  $audio.src = store.currentQuestionTarget.audio;
+
+  setHandlersToRoundPlayer();
+
+  const $panelItems = document.querySelectorAll('.panel_item');
+
+  store.currentLevelData.forEach((item, index) => {
+    $panelItems[index].innerText = item.name;
+    $panelItems[index].dataset.idBird = item.id;
+  });
 
   console.log(store);
 };

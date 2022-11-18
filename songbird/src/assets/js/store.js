@@ -12,10 +12,13 @@ export const store = {
 
   lastLevel: 0,
 
+  isClickedChoicePanel: false,
   isPlaySound: false,
   isInGame: false,
   isNextQuestion: false,
   isLastQuestion: false,
+
+  currentLevelData: [],
 
   currentQuestionTarget: {
     id: 0,

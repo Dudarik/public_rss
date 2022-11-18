@@ -29,6 +29,9 @@ export const langs = {
         score: 'Score',
         next_level: 'Next level',
       },
+      answer: {
+        blank: 'Listen to the player .\n Select a bird from the list',
+      },
     },
   },
   ru: {
@@ -58,6 +61,9 @@ export const langs = {
       controls: {
         score: 'Очки',
         next_level: 'Вперед',
+      },
+      answer: {
+        blank: 'Послушайте плеер. \n Выберите птицу из списка',
       },
     },
   },

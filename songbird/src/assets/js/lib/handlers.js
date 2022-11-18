@@ -77,7 +77,7 @@ export const handleRoundPlayerTimeUpdate = () => {
 
 export const handleRoundPlayerPlay = (event) => {
   const $audio = document.querySelector('#round_pleer');
-  $audio.volume = store.settings.volume / ONE_HUNDRED_PERCENT;
+  $audio.volume = store.settings.volume;
 
   if (!store.isPlaySound) {
     $audio.play();
