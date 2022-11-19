@@ -130,6 +130,7 @@ export const handleChoiceBirdPanelClick = (event) => {
         store.isNextQuestion = true;
 
         gs.innerText = store.currentPoints;
+        document.querySelector('#next_level_btn').removeAttribute('disabled');
 
         event.target.classList.add('success');
       } else {
@@ -142,8 +143,9 @@ export const handleChoiceBirdPanelClick = (event) => {
   fillBirdInfo(target.dataset.idBird);
 };
 
-export const handleNextButtonClick = () => {
+export const handleNextButtonClick = (event) => {
   if (!store.isLastQuestion) {
+    event.target.setAttribute('disabled', true);
     nextLevel();
     return;
   }
