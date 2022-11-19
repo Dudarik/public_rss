@@ -4,6 +4,9 @@ import { getRandomBirdId } from '../helpers';
 import {
   handleChoiceBirdPanelClick,
   handleNextButtonClick,
+  handlePlayerInput,
+  handlePlayerPlay,
+  handlePlayerTimeUpdate,
   handleRoundPlayerEndAudio,
   handleRoundPlayerMouseDown,
   // handleRoundPlayerPause,
@@ -33,6 +36,18 @@ const setHandlersToRoundPlayer = () => {
   $audio.addEventListener('timeupdate', handleRoundPlayerTimeUpdate);
   $audio.addEventListener('ended', handleRoundPlayerEndAudio);
   $playBtn.addEventListener('click', handleRoundPlayerPlay);
+};
+
+const setHandlersToPlayer = () => {
+  const $audio = document.querySelector('#pleer');
+
+  const $pbar = document.querySelector('#player_time');
+  const $playBtn = document.querySelector('#player_play');
+  // const $roundVolume = document.querySelector('#round_volume');
+
+  $audio.addEventListener('timeupdate', handlePlayerTimeUpdate);
+  $pbar.addEventListener('input', handlePlayerInput);
+  $playBtn.addEventListener('click', handlePlayerPlay);
 };
 
 export const setToDefaultQuizPage = () => {
@@ -80,6 +95,9 @@ export const startGame = () => {
   const $roundVolume = document.querySelector('#round_volume');
   $roundVolume.value = store.settings.volume * 100;
 
+  const $playerVolume = document.querySelector('#player_volume');
+  $playerVolume.value = store.settings.volume * 100;
+
   const $nextLevelBtn = document.querySelector('#next_level_btn');
   $nextLevelBtn.addEventListener('click', handleNextButtonClick);
 
@@ -87,6 +105,7 @@ export const startGame = () => {
   $choiceBirdPanel.addEventListener('click', handleChoiceBirdPanelClick);
 
   setHandlersToRoundPlayer();
+  setHandlersToPlayer();
 };
 
 export const nextLevel = () => {

@@ -11,7 +11,7 @@
   }
   .player_volume {
     @include player_controls;
-    justify-self: flex-end;
+    justify-self: center;
   }
 
   .player_time_wrapper {
@@ -25,7 +25,7 @@
       display: flex;
       flex-direction: column;
       // align-items: flex-end;
-      width: 100%;
+      width: 80%;
 
       .time_value {
         display: flex;
@@ -45,8 +45,14 @@
   .btn_play {
     @include player_btn;
 
+    $btn_size: 4rem;
     background-image: url('../images/play_img.svg');
     background-position: 60% 45%;
+    width: $btn_size;
+    height: $btn_size;
+
+    border: 0.4rem solid $color_orange;
+    border-radius: 50%;
 
     &.pause {
       background-image: url('../images/pause_img.svg');

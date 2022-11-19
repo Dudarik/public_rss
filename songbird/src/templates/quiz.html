@@ -96,31 +96,29 @@
     </div>
 
     <div class="player player_wrapper_quiz" id="player">
+      <audio src="" id="pleer" type="audio/mpeg"></audio>
       <div class="player_time_wrapper">
-        <button class="btn_play" id="player_play">
-          <svg
-            width="67"
-            height="67"
-            viewBox="0 0 67 67"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M33.5001 67C52.0015 67 67.0003 52.0015 67.0003 33.4999C67.0003 14.9983 52.0015 0 33.5001 0C14.9988 0 0 14.9985 0 33.5001C0 52.0017 14.9985 67 33.5001 67ZM33.5001 5.35994C49.016 5.35994 61.6401 17.984 61.6401 33.4999C61.6401 49.0158 49.016 61.6398 33.5001 61.6398C17.9842 61.6398 5.36019 49.0158 5.36019 33.4999C5.36019 17.984 17.9828 5.35994 33.5001 5.35994Z"
-              fill="#CD8E18"
-            />
-          </svg>
-        </button>
+        <button class="btn_play" id="player_play"></button>
         <div class="input_wrapper">
           <input
             type="range"
-            name="palyer_time"
-            id="palyer_time"
+            name="player_time"
+            id="player_time"
             class="player_time"
+            min="0"
+            max="100"
+          />
+          <input
+            type="range"
+            name="player_time1"
+            id="player_time1"
+            class="player_time1"
+            min="0"
+            max="100"
           />
           <div class="time_value">
             <div class="zero_time">00:00</div>
-            <div class="end_time">00:35</div>
+            <div class="end_time" id="audio_duration">00:35</div>
           </div>
         </div>
       </div>
@@ -131,6 +129,8 @@
           name="player_volume"
           id="player_volume"
           class="player_volume"
+          min="0"
+          max="100"
         />
       </div>
     </div>

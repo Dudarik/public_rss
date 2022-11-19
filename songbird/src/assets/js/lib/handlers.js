@@ -20,6 +20,8 @@ const stopPlayAllPlayers = () => {
   });
 };
 
+// =================LANGS===================
+
 export const handleSwitchLanguage = (event) => {
   const lang = store.settings.language;
   if (lang === 'ru') store.settings.language = 'en';
@@ -32,6 +34,8 @@ export const handleSwitchLanguage = (event) => {
   langFunction[store.currentPage](store.settings.language);
   langFunction['mainMenu'](store.settings.language);
 };
+
+//==================ROUND PLAYER===========================
 
 export const handleRoundPlayerMouseDown = (event) => {
   const calcAngl = (x, y, midX, midY) => {
@@ -125,6 +129,41 @@ export const handleRoundPlayerSaveVolumeValue = (event) => {
   saveGameSettingsToLS();
 };
 
+// ====================Player==========================
+
+export const handlePlayerPlay = (event) => {
+  const $audio = document.querySelector('#pleer');
+
+  if (!store.isPlaySound) {
+    $audio.play();
+    event.target.classList.add('pause');
+    store.isPlaySound = true;
+  } else {
+    $audio.pause();
+    event.target.classList.remove('pause');
+    store.isPlaySound = false;
+  }
+};
+
+export const handlePlayerTimeUpdate = () => {
+  const $audio = document.querySelector('#pleer');
+  const d = $audio.duration;
+  const c = $audio.currentTime;
+  const $pbar = document.querySelector('#player_time');
+  // console.log($pbar);
+
+  // $pbar.dataset.seconds = Math.floor($audio.currentTime);
+
+  $pbar.value = Math.floor((ONE_HUNDRED_PERCENT * c) / d);
+};
+
+export const handlePlayerInput = (event) => {
+  const $audio = document.querySelector('#pleer');
+  $audio.currentTime =
+    ($audio.duration / ONE_HUNDRED_PERCENT) * +event.target.value;
+};
+//=====================GAME HANDLERS===================
+
 export const handleChoiceBirdPanelClick = (event) => {
   const target = event.target;
 
@@ -132,6 +171,27 @@ export const handleChoiceBirdPanelClick = (event) => {
 
   store.currentClickedBirdId = target.dataset.idBird;
   // console.log(store.currentClickedBirdId, store.currentQuestionTarget.id);
+
+  const $player = document.querySelector('#player');
+  const $audio = $player.querySelector('#pleer');
+  const endTime = document.querySelector('#audio_duration');
+
+  setTimeout(() => {
+    document.querySelector('#player_time').value = 0;
+  }, 20);
+
+  store.settings.language === 'en'
+    ? (endTime.innerText = 'Loading...')
+    : (endTime.innerText = 'Загрузка...');
+
+  setTimeout(() => {
+    $audio.addEventListener('loadedmetadata', (event) => {
+      endTime.innerText = Math.round(event.target.duration);
+    });
+  }, 0);
+
+  $audio.src = store.currentLevelData[store.currentClickedBirdId - 1].audio;
+  $player.classList.add('visible');
 
   if (!store.isNextQuestion) {
     if (!store.currentLvlChecked.includes(store.currentClickedBirdId)) {
@@ -143,7 +203,7 @@ export const handleChoiceBirdPanelClick = (event) => {
         const $gameScore = document.querySelector('#game_score');
         const $targetBirdPhoto = document.querySelector('#target_bird_photo');
 
-        console.log($targetBirdPhoto);
+        // console.log($targetBirdPhoto);
 
         const $targetImg = $targetBirdPhoto.querySelector('img');
         const $targetName =
