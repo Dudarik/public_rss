@@ -124,12 +124,12 @@ export const handleChoiceBirdPanelClick = (event) => {
 
       if (+store.currentClickedBirdId === store.currentQuestionTarget.id) {
         //play music success
-        const gs = document.querySelector('#game_score');
+        const $gameScore = document.querySelector('#game_score');
 
         store.currentPoints += store.questionPoints;
         store.isNextQuestion = true;
 
-        gs.innerText = store.currentPoints;
+        $gameScore.innerText = store.currentPoints;
         document.querySelector('#next_level_btn').removeAttribute('disabled');
 
         event.target.classList.add('success');
@@ -144,6 +144,12 @@ export const handleChoiceBirdPanelClick = (event) => {
 };
 
 export const handleNextButtonClick = (event) => {
+  const $audioPlayers = document.querySelectorAll('audio');
+  $audioPlayers.forEach((player) => {
+    player.pause();
+    player.currentTime = 0;
+  });
+
   if (!store.isLastQuestion) {
     event.target.setAttribute('disabled', true);
     nextLevel();
