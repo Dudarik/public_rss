@@ -4,8 +4,11 @@ import { getRandomBirdId } from '../helpers';
 import {
   handleChoiceBirdPanelClick,
   handleNextButtonClick,
+  handlePlayerEndAudio,
   handlePlayerInput,
   handlePlayerPlay,
+  handlePlayerSaveVolumeValue,
+  handlePlayerSetVolume,
   handlePlayerTimeUpdate,
   handleRoundPlayerEndAudio,
   handleRoundPlayerMouseDown,
@@ -43,8 +46,12 @@ const setHandlersToPlayer = () => {
 
   const $pbar = document.querySelector('#player_time');
   const $playBtn = document.querySelector('#player_play');
-  // const $roundVolume = document.querySelector('#round_volume');
+  const $playerVolume = document.querySelector('#player_volume');
 
+  $playerVolume.addEventListener('input', handlePlayerSetVolume);
+  $playerVolume.addEventListener('change', handlePlayerSaveVolumeValue);
+
+  $audio.addEventListener('ended', handlePlayerEndAudio);
   $audio.addEventListener('timeupdate', handlePlayerTimeUpdate);
   $pbar.addEventListener('input', handlePlayerInput);
   $playBtn.addEventListener('click', handlePlayerPlay);

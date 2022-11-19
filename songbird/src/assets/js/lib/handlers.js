@@ -126,6 +126,7 @@ export const handleRoundPlayerSetVolume = (event) => {
 
 export const handleRoundPlayerSaveVolumeValue = (event) => {
   store.settings.volume = event.target.value / ONE_HUNDRED_PERCENT;
+  document.querySelector('#player_volume').value = event.target.value;
   saveGameSettingsToLS();
 };
 
@@ -150,10 +151,7 @@ export const handlePlayerTimeUpdate = () => {
   const d = $audio.duration;
   const c = $audio.currentTime;
   const $pbar = document.querySelector('#player_time');
-  // console.log($pbar);
-
   // $pbar.dataset.seconds = Math.floor($audio.currentTime);
-
   $pbar.value = Math.floor((ONE_HUNDRED_PERCENT * c) / d);
 };
 
@@ -161,6 +159,27 @@ export const handlePlayerInput = (event) => {
   const $audio = document.querySelector('#pleer');
   $audio.currentTime =
     ($audio.duration / ONE_HUNDRED_PERCENT) * +event.target.value;
+};
+
+export const handlePlayerEndAudio = () => {
+  const $playBtn = document.querySelector('#player_play');
+  $playBtn.classList.remove('pause');
+  store.isPlaySound = false;
+};
+
+export const handlePlayerSetVolume = (event) => {
+  const $audio = document.querySelector('#pleer');
+
+  $audio.volume = event.target.value / ONE_HUNDRED_PERCENT;
+};
+
+export const handlePlayerSaveVolumeValue = (event) => {
+  store.settings.volume = event.target.value / ONE_HUNDRED_PERCENT;
+
+  console.log(document.querySelector('#round_volume'));
+  document.querySelector('#round_volume').value = event.target.value;
+
+  saveGameSettingsToLS();
 };
 //=====================GAME HANDLERS===================
 
