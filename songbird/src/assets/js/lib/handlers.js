@@ -8,6 +8,18 @@ const ONE_HUNDRED_PERCENT = 100;
 const ONE_SECTOR = 3.6;
 const HALF_ROUND = 180;
 
+const stopPlayAllPlayers = () => {
+  const $audioPlayers = document.querySelectorAll('audio');
+  const $playBtns = document.querySelectorAll('.play_btn');
+
+  $playBtns.forEach((btn) => btn.classList.remove('pause'));
+  store.isPlaySound = false;
+  $audioPlayers.forEach((player) => {
+    player.pause();
+    player.currentTime = 0;
+  });
+};
+
 export const handleSwitchLanguage = (event) => {
   const lang = store.settings.language;
   if (lang === 'ru') store.settings.language = 'en';
@@ -21,7 +33,7 @@ export const handleSwitchLanguage = (event) => {
   langFunction['mainMenu'](store.settings.language);
 };
 
-export const handleRoundPlayerMouseDown = () => {
+export const handleRoundPlayerMouseDown = (event) => {
   const calcAngl = (x, y, midX, midY) => {
     const arcctg = (x) => Math.PI / 2 - Math.atan(x);
 
@@ -41,7 +53,7 @@ export const handleRoundPlayerMouseDown = () => {
     const midX = cords.x + cords.width / 2;
     const midY = cords.y + cords.height / 2;
 
-    if (store.isPlaySound) $audio.pause();
+    // if (store.isPlaySound) $audio.pause();
 
     let angl = calcAngl(event.clientX, event.clientY, midX, midY);
     event.target.setAttribute(
@@ -52,11 +64,15 @@ export const handleRoundPlayerMouseDown = () => {
 
     $audio.currentTime =
       ($audio.duration * angl) / ONE_SECTOR / ONE_HUNDRED_PERCENT;
-    if (store.isPlaySound) $audio.play();
+    // if (store.isPlaySound) $audio.play();
   };
 
   event.target.addEventListener('mousemove', handleMouseMove);
   event.target.addEventListener('click', handleMouseMove);
+
+  document.addEventListener('mouseup', () => {
+    event.target.removeEventListener('mousemove', handleMouseMove);
+  });
 
   event.target.addEventListener('mouseup', () => {
     event.target.removeEventListener('mousemove', handleMouseMove);
@@ -142,6 +158,8 @@ export const handleChoiceBirdPanelClick = (event) => {
         $gameScore.innerText = store.currentPoints;
         document.querySelector('#next_level_btn').removeAttribute('disabled');
 
+        stopPlayAllPlayers();
+
         event.target.classList.add('success');
       } else {
         //play music wrong
@@ -154,11 +172,13 @@ export const handleChoiceBirdPanelClick = (event) => {
 };
 
 export const handleNextButtonClick = (event) => {
-  const $audioPlayers = document.querySelectorAll('audio');
-  $audioPlayers.forEach((player) => {
-    player.pause();
-    player.currentTime = 0;
-  });
+  stopPlayAllPlayers();
+  // const $audioPlayers = document.querySelectorAll('audio');
+  // store.isPlaySound = false;
+  // $audioPlayers.forEach((player) => {
+  //   player.pause();
+  //   player.currentTime = 0;
+  // });
 
   if (!store.isLastQuestion) {
     event.target.setAttribute('disabled', true);

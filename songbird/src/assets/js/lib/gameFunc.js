@@ -12,9 +12,14 @@ import {
   handleRoundPlayerSetVolume,
   handleRoundPlayerTimeUpdate,
 } from './handlers';
+import { langs } from '../language/langs';
+
+import uncknownBirdImg from '../../../assets/images/unknown_bird_1920.webp';
 
 // export const getBirdNames = (level = 0) =>
 //   birdsData[store.settings.language][level].map((item) => item.name);
+
+const UNCKNOWN_TITLE = '*******';
 
 const setHandlersToRoundPlayer = () => {
   const $audio = document.querySelector('#round_pleer');
@@ -30,6 +35,36 @@ const setHandlersToRoundPlayer = () => {
   $playBtn.addEventListener('click', handleRoundPlayerPlay);
 };
 
+export const setToDefaultQuizPage = () => {
+  const $roundPlayer = document.querySelector('#round_pleer');
+  const $targetBirdPhoto = document.querySelector('#target_bird_photo');
+  const $birdInfo = document.querySelector('#bird_info');
+
+  const $roundPlayerBtnPlay = document.querySelector('#roundpleer_play');
+
+  const $targetBirdPhotoImg = $targetBirdPhoto.querySelector('img');
+  const $targetBirdPhotoTitle =
+    $targetBirdPhoto.querySelector('.birds_photo_title');
+
+  const $birdInfoName = $birdInfo.querySelector('#bird_name');
+  const $birdInfoImg = $birdInfo.querySelector('#birds_photo_img');
+  const $birdInfoTitle = $birdInfo.querySelector('#description_title');
+  const $birdInfoText = $birdInfo.querySelector('#description_text');
+
+  store.isPlaySound = false;
+  $roundPlayer.pause();
+  $roundPlayer.currentTime = 0;
+  $roundPlayerBtnPlay.classList.remove('pause');
+
+  $targetBirdPhotoImg.src = uncknownBirdImg;
+  $targetBirdPhotoTitle.innerText = UNCKNOWN_TITLE;
+
+  $birdInfoName.innerText = UNCKNOWN_TITLE;
+  $birdInfoImg.src = uncknownBirdImg;
+  $birdInfoTitle.innerText = UNCKNOWN_TITLE;
+  $birdInfoText.innerText = langs[store.settings.language].quiz.answer.blank;
+};
+
 export const startGame = () => {
   store.currentPoints = 0;
   store.questionPoints = 6;
@@ -39,6 +74,7 @@ export const startGame = () => {
   store.isNextQuestion = false;
   store.isLastQuestion = false;
 
+  setToDefaultQuizPage();
   setLevel(store.currentLevel);
   getCurrentQuestion(store.currentLevel);
   const $roundVolume = document.querySelector('#round_volume');
@@ -58,8 +94,10 @@ export const nextLevel = () => {
   store.currentLevel += 1;
   store.isNextQuestion = false;
   store.currentLvlChecked = [];
+  store.currentClickedBirdId = -1;
   store.isLastQuestion = store.lastLevel === store.currentLevel;
 
+  setToDefaultQuizPage();
   setLevel(store.currentLevel);
   getCurrentQuestion(store.currentLevel);
 };
