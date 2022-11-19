@@ -29,6 +29,7 @@ export const langFunction = {
     const birdDescription = document.querySelector(
       '[data-quiz-answer-description-text]'
     );
+    const targetName = document.querySelector('.birds_photo_title');
 
     store.currentLevelData =
       birdsData[store.settings.language][store.currentLevel];
@@ -52,6 +53,9 @@ export const langFunction = {
       birdDescription.innerText = langs[newLanguage].quiz.answer.blank;
       return;
     }
+
+    targetName.innerText =
+      store.currentLevelData[store.currentQuestionTarget.id - 1].name;
 
     fillBirdInfo(store.currentClickedBirdId);
   },

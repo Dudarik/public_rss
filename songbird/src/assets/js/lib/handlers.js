@@ -125,6 +125,16 @@ export const handleChoiceBirdPanelClick = (event) => {
       if (+store.currentClickedBirdId === store.currentQuestionTarget.id) {
         //play music success
         const $gameScore = document.querySelector('#game_score');
+        const $targetBirdPhoto = document.querySelector('#target_bird_photo');
+
+        console.log($targetBirdPhoto);
+
+        const $targetImg = $targetBirdPhoto.querySelector('img');
+        const $targetName =
+          $targetBirdPhoto.querySelector('.birds_photo_title');
+
+        $targetImg.src = store.currentQuestionTarget.image;
+        $targetName.innerText = store.currentQuestionTarget.name;
 
         store.currentPoints += store.questionPoints;
         store.isNextQuestion = true;

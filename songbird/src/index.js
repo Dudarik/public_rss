@@ -5,7 +5,6 @@ import {
 } from './assets/js/helpers/location';
 
 import { appInit } from './assets/js/lib/appInit';
-import { getBirdNames } from '../src/assets/js/lib/gameFunc';
 
 import './assets/sass/styles.scss';
 

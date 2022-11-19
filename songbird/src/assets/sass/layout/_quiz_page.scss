@@ -111,6 +111,12 @@
       align-items: center;
       // justify-content: center;
       flex-direction: column;
+      img {
+        border-radius: 0.6rem;
+        width: 268px;
+        height: 226px;
+        object-fit: cover;
+      }
       .birds_photo_title {
         font-size: 2.5rem;
         @media screen and (max-width: 1040px) {
