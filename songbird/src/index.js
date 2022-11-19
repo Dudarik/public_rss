@@ -30,5 +30,3 @@ window.addEventListener('load', () => {
 
 addHandlersToMenu(getMenuItems());
 appInit();
-
-console.log(getBirdNames(1));

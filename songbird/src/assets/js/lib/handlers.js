@@ -1,6 +1,7 @@
+import { changePage } from '../helpers/location';
 import { langFunction } from '../language/langFunction';
 import { store } from '../store';
-import { fillBirdInfo } from './gameFunc';
+import { fillBirdInfo, nextLevel } from './gameFunc';
 import { saveGameSettingsToLS } from './localstorage';
 
 const ONE_HUNDRED_PERCENT = 100;
@@ -114,23 +115,38 @@ export const handleChoiceBirdPanelClick = (event) => {
   if (target.tagName !== 'LI') return;
 
   store.currentClickedBirdId = target.dataset.idBird;
-  console.log(store.currentClickedBirdId, store.currentQuestionTarget.id);
+  // console.log(store.currentClickedBirdId, store.currentQuestionTarget.id);
 
   if (!store.isNextQuestion) {
     if (!store.currentLvlChecked.includes(store.currentClickedBirdId)) {
-      //play music
       store.currentLvlChecked.push(store.currentClickedBirdId);
       store.questionPoints -= 1;
 
       if (+store.currentClickedBirdId === store.currentQuestionTarget.id) {
-        console.log(event.target);
+        //play music success
+        const gs = document.querySelector('#game_score');
+
+        store.currentPoints += store.questionPoints;
         store.isNextQuestion = true;
+
+        gs.innerText = store.currentPoints;
+
         event.target.classList.add('success');
-        return;
+      } else {
+        //play music wrong
+        event.target.classList.add('wrong');
       }
-      event.target.classList.add('wrong');
     }
   }
 
   fillBirdInfo(target.dataset.idBird);
+};
+
+export const handleNextButtonClick = () => {
+  if (!store.isLastQuestion) {
+    nextLevel();
+    return;
+  }
+  changePage('results.html');
+  history.pushState(null, null, 'results.html');
 };

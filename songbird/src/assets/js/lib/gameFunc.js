@@ -3,6 +3,7 @@ import { birdsData } from '../data';
 import { getRandomBirdId } from '../helpers';
 import {
   handleChoiceBirdPanelClick,
+  handleNextButtonClick,
   handleRoundPlayerEndAudio,
   handleRoundPlayerMouseDown,
   // handleRoundPlayerPause,
@@ -12,32 +13,8 @@ import {
   handleRoundPlayerTimeUpdate,
 } from './handlers';
 
-export const getBirdNames = (level = 0) =>
-  birdsData[store.settings.language][level].map((item) => item.name);
-
-export const startGame = () => {
-  store.currentPoints = 0;
-  store.questionPoints = 6;
-  store.currentLevel = 0;
-  store.lastLevel = store.levels.length - 1;
-  store.isInGame = true;
-  store.isNextQuestion = false;
-  store.isLastQuestion = false;
-
-  setLevel(store.currentLevel);
-  getCurrentQuestion(store.currentLevel);
-  const $roundVolume = document.querySelector('#round_volume');
-  $roundVolume.value = store.settings.volume * 100;
-};
-
-export const setLevel = (num) => {
-  const $levels = document.querySelectorAll('.game_level');
-  $levels.forEach((lvl) => lvl.classList.remove('active_level'));
-
-  store.currentLevel = num;
-
-  $levels[store.currentLevel].classList.add('active_level');
-};
+// export const getBirdNames = (level = 0) =>
+//   birdsData[store.settings.language][level].map((item) => item.name);
 
 const setHandlersToRoundPlayer = () => {
   const $audio = document.querySelector('#round_pleer');
@@ -53,20 +30,64 @@ const setHandlersToRoundPlayer = () => {
   $playBtn.addEventListener('click', handleRoundPlayerPlay);
 };
 
+export const startGame = () => {
+  store.currentPoints = 0;
+  store.questionPoints = 6;
+  store.currentLevel = 0;
+  store.lastLevel = store.levels.length - 1;
+  store.isInGame = true;
+  store.isNextQuestion = false;
+  store.isLastQuestion = false;
+
+  setLevel(store.currentLevel);
+  getCurrentQuestion(store.currentLevel);
+  const $roundVolume = document.querySelector('#round_volume');
+  $roundVolume.value = store.settings.volume * 100;
+
+  const $nextLevelBtn = document.querySelector('#next_level_btn');
+  $nextLevelBtn.addEventListener('click', handleNextButtonClick);
+
+  const $choiceBirdPanel = document.querySelector('#choice_bird_panel');
+  $choiceBirdPanel.addEventListener('click', handleChoiceBirdPanelClick);
+
+  setHandlersToRoundPlayer();
+};
+
+export const nextLevel = () => {
+  store.questionPoints = 6;
+  store.currentLevel += 1;
+  store.isNextQuestion = false;
+  store.currentLvlChecked = [];
+  store.isLastQuestion = store.lastLevel === store.currentLevel;
+
+  setLevel(store.currentLevel);
+  getCurrentQuestion(store.currentLevel);
+};
+
+export const setLevel = (num) => {
+  const $levels = document.querySelectorAll('.game_level');
+  $levels.forEach((lvl) => lvl.classList.remove('active_level'));
+
+  store.currentLevel = num;
+
+  $levels[store.currentLevel].classList.add('active_level');
+};
+
 export const getCurrentQuestion = (lvlId) => {
   store.currentLevelData = birdsData[store.settings.language][lvlId];
 
   const $audio = document.querySelector('#round_pleer');
-  const $choiceBirdPanel = document.querySelector('#choice_bird_panel');
 
   store.currentQuestionTarget = store.currentLevelData[getRandomBirdId()];
 
   $audio.src = store.currentQuestionTarget.audio;
 
-  setHandlersToRoundPlayer();
-  $choiceBirdPanel.addEventListener('click', handleChoiceBirdPanelClick);
-
   const $panelItems = document.querySelectorAll('.panel_item');
+
+  $panelItems.forEach((item) => {
+    item.classList.remove('success');
+    item.classList.remove('wrong');
+  });
 
   store.currentLevelData.forEach((item, index) => {
     $panelItems[index].innerText = item.name;

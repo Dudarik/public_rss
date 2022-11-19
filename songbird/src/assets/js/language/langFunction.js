@@ -55,6 +55,8 @@ export const langFunction = {
 
     fillBirdInfo(store.currentClickedBirdId);
   },
-  results: () => {},
+  results: () => {
+    console.log('results');
+  },
   gallery: () => {},
 };
