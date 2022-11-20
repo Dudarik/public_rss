@@ -1,3 +1,4 @@
+import { formatTime } from '../helpers';
 import { changePage } from '../helpers/location';
 import { langFunction } from '../language/langFunction';
 import { store } from '../store';
@@ -64,7 +65,7 @@ export const handleRoundPlayerMouseDown = (event) => {
       'style',
       `--value: ${Math.floor(angl / ONE_SECTOR)}`
     );
-    event.target.dataset.seconds = Math.floor($audio.currentTime);
+    event.target.dataset.seconds = formatTime(Math.floor($audio.currentTime));
 
     $audio.currentTime =
       ($audio.duration * angl) / ONE_SECTOR / ONE_HUNDRED_PERCENT;
@@ -89,7 +90,7 @@ export const handleRoundPlayerTimeUpdate = () => {
   const c = $audio.currentTime;
   const $pbar = document.querySelector('#roundpleer_pbar');
 
-  $pbar.dataset.seconds = Math.floor($audio.currentTime);
+  $pbar.dataset.seconds = formatTime(Math.floor($audio.currentTime));
 
   $pbar.setAttribute(
     'style',
@@ -134,6 +135,7 @@ export const handleRoundPlayerSaveVolumeValue = (event) => {
 
 export const handlePlayerPlay = (event) => {
   const $audio = document.querySelector('#pleer');
+  $audio.volume = store.settings.volume;
 
   if (!store.isPlaySound) {
     $audio.play();
@@ -148,11 +150,16 @@ export const handlePlayerPlay = (event) => {
 
 export const handlePlayerTimeUpdate = () => {
   const $audio = document.querySelector('#pleer');
+  const $timer = document.querySelector('#zero_time');
+
   const d = $audio.duration;
   const c = $audio.currentTime;
   const $pbar = document.querySelector('#player_time');
   // $pbar.dataset.seconds = Math.floor($audio.currentTime);
-  $pbar.value = Math.floor((ONE_HUNDRED_PERCENT * c) / d);
+  const calcTime = Math.floor((ONE_HUNDRED_PERCENT * c) / d);
+
+  $pbar.value = calcTime;
+  $timer.innerText = calcTime ? formatTime(calcTime) : '00:00';
 };
 
 export const handlePlayerInput = (event) => {
@@ -195,6 +202,11 @@ export const handleChoiceBirdPanelClick = (event) => {
   const $audio = $player.querySelector('#pleer');
   const endTime = document.querySelector('#audio_duration');
 
+  const $btnPlay = document.querySelector('#player_play');
+
+  $btnPlay.setAttribute('disabled', true);
+  $btnPlay.classList.remove('pause');
+
   setTimeout(() => {
     document.querySelector('#player_time').value = 0;
   }, 20);
@@ -205,7 +217,8 @@ export const handleChoiceBirdPanelClick = (event) => {
 
   setTimeout(() => {
     $audio.addEventListener('loadedmetadata', (event) => {
-      endTime.innerText = Math.round(event.target.duration);
+      endTime.innerText = formatTime(Math.round(event.target.duration));
+      $btnPlay.removeAttribute('disabled');
     });
   }, 0);
 
@@ -254,12 +267,6 @@ export const handleChoiceBirdPanelClick = (event) => {
 
 export const handleNextButtonClick = (event) => {
   stopPlayAllPlayers();
-  // const $audioPlayers = document.querySelectorAll('audio');
-  // store.isPlaySound = false;
-  // $audioPlayers.forEach((player) => {
-  //   player.pause();
-  //   player.currentTime = 0;
-  // });
 
   if (!store.isLastQuestion) {
     event.target.setAttribute('disabled', true);
