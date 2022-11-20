@@ -154,18 +154,43 @@ export const handlePlayerTimeUpdate = () => {
 
   const d = $audio.duration;
   const c = $audio.currentTime;
+
   const $pbar = document.querySelector('#player_time');
   // $pbar.dataset.seconds = Math.floor($audio.currentTime);
   const calcTime = Math.floor((ONE_HUNDRED_PERCENT * c) / d);
+  // const calcTime = Math.floor(
+  //   ($audio.duration / ONE_HUNDRED_PERCENT) * $audio.currentTime
+  // );
+  // console.log(d, c, calcTime);
 
   $pbar.value = calcTime;
-  $timer.innerText = calcTime ? formatTime(calcTime) : '00:00';
+  $timer.innerText = c ? formatTime(c) : '00:00';
 };
 
-export const handlePlayerInput = (event) => {
+export const handleMouseMove = (event) => {
   const $audio = document.querySelector('#pleer');
-  $audio.currentTime =
-    ($audio.duration / ONE_HUNDRED_PERCENT) * +event.target.value;
+  const calcTime = Math.floor(
+    ($audio.duration / ONE_HUNDRED_PERCENT) * +event.target.value
+  );
+  $audio.currentTime = calcTime;
+};
+
+export const handlePlayerMouseDown = (event) => {
+  const $audio = document.querySelector('#pleer');
+  $audio.pause();
+
+  // event.target.addEventListener('mousemove', handleMouseMove);
+  // event.target.addEventListener('click', handleMouseMove);
+
+  document.addEventListener('mouseup', () => {
+    $audio.play();
+    event.target.removeEventListener('mousemove', handleMouseMove);
+  });
+
+  event.target.addEventListener('mouseup', () => {
+    $audio.play();
+    event.target.removeEventListener('mousemove', handleMouseMove);
+  });
 };
 
 export const handlePlayerEndAudio = () => {
@@ -216,13 +241,13 @@ export const handleChoiceBirdPanelClick = (event) => {
     : (endTime.innerText = 'Загрузка...');
 
   setTimeout(() => {
+    $audio.src = store.currentLevelData[store.currentClickedBirdId - 1].audio;
     $audio.addEventListener('loadedmetadata', (event) => {
-      endTime.innerText = formatTime(Math.round(event.target.duration));
+      endTime.innerText = formatTime(Math.floor(event.target.duration));
       $btnPlay.removeAttribute('disabled');
     });
   }, 0);
 
-  $audio.src = store.currentLevelData[store.currentClickedBirdId - 1].audio;
   $player.classList.add('visible');
 
   if (!store.isNextQuestion) {
@@ -268,6 +293,7 @@ export const handleChoiceBirdPanelClick = (event) => {
 
 export const handleNextButtonClick = (event) => {
   stopPlayAllPlayers();
+  document.querySelector('#player').classList.remove('visible');
 
   if (!store.isLastQuestion) {
     event.target.setAttribute('disabled', true);

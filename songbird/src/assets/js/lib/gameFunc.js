@@ -3,9 +3,11 @@ import { birdsData } from '../data';
 import { getRandomBirdId } from '../helpers';
 import {
   handleChoiceBirdPanelClick,
+  handleMouseMove,
   handleNextButtonClick,
   handlePlayerEndAudio,
-  handlePlayerInput,
+  // handlePlayerInput,
+  handlePlayerMouseDown,
   handlePlayerPlay,
   handlePlayerSaveVolumeValue,
   handlePlayerSetVolume,
@@ -53,8 +55,12 @@ const setHandlersToPlayer = () => {
 
   $audio.addEventListener('ended', handlePlayerEndAudio);
   $audio.addEventListener('timeupdate', handlePlayerTimeUpdate);
-  $pbar.addEventListener('input', handlePlayerInput);
+  $pbar.addEventListener('input', handleMouseMove);
   $playBtn.addEventListener('click', handlePlayerPlay);
+
+  $pbar.addEventListener('mousedown', handlePlayerMouseDown);
+
+  // $pbar.addEventListener('change', handlePlayerMouseDown);
 };
 
 export const setToDefaultQuizPage = () => {
