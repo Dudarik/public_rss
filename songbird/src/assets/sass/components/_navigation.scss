@@ -3,6 +3,12 @@
   flex-wrap: wrap;
   gap: 3rem;
 
+  transition: gap 0.5s;
+
+  @media screen and (max-width: 1080px) {
+    gap: 1rem;
+  }
+
   .menu_item {
     list-style: none;
     display: flex;

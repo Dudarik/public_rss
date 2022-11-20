@@ -15,4 +15,17 @@
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
+
+  transition: top 0.5s, right 0.5s;
+
+  @media screen and (max-width: 710px) {
+    right: 1rem;
+    top: 8rem;
+  }
+  @media screen and (max-width: 494px) {
+    font-size: 1.6rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    top: 9rem;
+  }
 }
