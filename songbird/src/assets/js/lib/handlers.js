@@ -214,6 +214,7 @@ export const handleChoiceBirdPanelClick = (event) => {
 
   if (!store.isNextQuestion) {
     if (!store.currentLvlChecked.includes(store.currentClickedBirdId)) {
+      const $questionPoints = document.querySelector('#question_points');
       store.currentLvlChecked.push(store.currentClickedBirdId);
       store.questionPoints -= 1;
 
@@ -242,6 +243,7 @@ export const handleChoiceBirdPanelClick = (event) => {
         event.target.classList.add('success');
       } else {
         //play music wrong
+        $questionPoints.innerText = store.questionPoints - 1;
         event.target.classList.add('wrong');
       }
     }

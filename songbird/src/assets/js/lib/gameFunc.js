@@ -73,6 +73,10 @@ export const setToDefaultQuizPage = () => {
   const $birdInfoTitle = $birdInfo.querySelector('#description_title');
   const $birdInfoText = $birdInfo.querySelector('#description_text');
 
+  const $questionPoints = document.querySelector('#question_points');
+
+  $questionPoints.innerText = '5';
+
   store.isPlaySound = false;
   $roundPlayer.pause();
   $roundPlayer.currentTime = 0;
