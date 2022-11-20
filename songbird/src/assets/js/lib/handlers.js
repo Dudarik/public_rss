@@ -256,8 +256,9 @@ export const handleChoiceBirdPanelClick = (event) => {
         event.target.classList.add('success');
       } else {
         //play music wrong
-        $questionPoints.innerText = store.questionPoints - 1;
+
         event.target.classList.add('wrong');
+        $questionPoints.innerText = store.questionPoints - 1;
       }
     }
   }

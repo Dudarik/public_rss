@@ -99,6 +99,7 @@ export const startGame = () => {
   store.isInGame = true;
   store.isNextQuestion = false;
   store.isLastQuestion = false;
+  store.currentLvlChecked = [];
 
   setToDefaultQuizPage();
   setLevel(store.currentLevel);
