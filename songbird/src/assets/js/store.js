@@ -15,6 +15,7 @@ export const store = {
   lastLevel: 0,
 
   isPlaySound: false,
+  isPlaySound2: false, //for second player, who not round
   isInGame: false,
   isNextQuestion: false,
   isLastQuestion: false,

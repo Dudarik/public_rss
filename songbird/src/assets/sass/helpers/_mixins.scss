@@ -89,5 +89,6 @@
   transition: all 0.5s;
   &:disabled {
     background-color: $color_light_green;
+    filter: opacity(50%);
   }
 }

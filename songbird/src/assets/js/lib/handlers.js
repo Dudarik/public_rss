@@ -15,6 +15,7 @@ const stopPlayAllPlayers = () => {
 
   $playBtns.forEach((btn) => btn.classList.remove('pause'));
   store.isPlaySound = false;
+  store.isPlaySound2 = false;
   $audioPlayers.forEach((player) => {
     player.pause();
     player.currentTime = 0;
@@ -137,14 +138,14 @@ export const handlePlayerPlay = (event) => {
   const $audio = document.querySelector('#pleer');
   $audio.volume = store.settings.volume;
 
-  if (!store.isPlaySound) {
+  if (!store.isPlaySound2) {
     $audio.play();
     event.target.classList.add('pause');
-    store.isPlaySound = true;
+    store.isPlaySound2 = true;
   } else {
     $audio.pause();
     event.target.classList.remove('pause');
-    store.isPlaySound = false;
+    store.isPlaySound2 = false;
   }
 };
 
@@ -156,12 +157,8 @@ export const handlePlayerTimeUpdate = () => {
   const c = $audio.currentTime;
 
   const $pbar = document.querySelector('#player_time');
-  // $pbar.dataset.seconds = Math.floor($audio.currentTime);
+
   const calcTime = Math.floor((ONE_HUNDRED_PERCENT * c) / d);
-  // const calcTime = Math.floor(
-  //   ($audio.duration / ONE_HUNDRED_PERCENT) * $audio.currentTime
-  // );
-  // console.log(d, c, calcTime);
 
   $pbar.value = calcTime;
   $timer.innerText = c ? formatTime(c) : '00:00';
@@ -179,16 +176,13 @@ export const handlePlayerMouseDown = (event) => {
   const $audio = document.querySelector('#pleer');
   $audio.pause();
 
-  // event.target.addEventListener('mousemove', handleMouseMove);
-  // event.target.addEventListener('click', handleMouseMove);
-
   document.addEventListener('mouseup', () => {
-    $audio.play();
+    if (store.isPlaySound2) $audio.play();
     event.target.removeEventListener('mousemove', handleMouseMove);
   });
 
   event.target.addEventListener('mouseup', () => {
-    $audio.play();
+    if (store.isPlaySound2) $audio.play();
     event.target.removeEventListener('mousemove', handleMouseMove);
   });
 };
@@ -196,7 +190,7 @@ export const handlePlayerMouseDown = (event) => {
 export const handlePlayerEndAudio = () => {
   const $playBtn = document.querySelector('#player_play');
   $playBtn.classList.remove('pause');
-  store.isPlaySound = false;
+  store.isPlaySound2 = false;
 };
 
 export const handlePlayerSetVolume = (event) => {
@@ -219,6 +213,7 @@ export const handleChoiceBirdPanelClick = (event) => {
   const target = event.target;
 
   if (target.tagName !== 'LI') return;
+  if (store.currentClickedBirdId === target.dataset.idBird) return;
 
   store.currentClickedBirdId = target.dataset.idBird;
   // console.log(store.currentClickedBirdId, store.currentQuestionTarget.id);
@@ -226,6 +221,7 @@ export const handleChoiceBirdPanelClick = (event) => {
   const $player = document.querySelector('#player');
   const $audio = $player.querySelector('#pleer');
   const endTime = document.querySelector('#audio_duration');
+  store.isPlaySound2 = false;
 
   const $btnPlay = document.querySelector('#player_play');
 
@@ -274,6 +270,10 @@ export const handleChoiceBirdPanelClick = (event) => {
         store.isNextQuestion = true;
 
         $gameScore.innerText = store.currentPoints;
+
+        document
+          .querySelector('#roundpleer_play')
+          .setAttribute('disabled', true);
         document.querySelector('#next_level_btn').removeAttribute('disabled');
 
         stopPlayAllPlayers();
@@ -294,6 +294,8 @@ export const handleChoiceBirdPanelClick = (event) => {
 export const handleNextButtonClick = (event) => {
   stopPlayAllPlayers();
   document.querySelector('#player').classList.remove('visible');
+
+  document.querySelector('#roundpleer_play').removeAttribute('disabled');
 
   if (!store.isLastQuestion) {
     event.target.setAttribute('disabled', true);
