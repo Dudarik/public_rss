@@ -27,7 +27,6 @@ export const changePage = async (href) => {
   app.append(newPage);
 
   langFunction[currentPage](store.settings.language);
-  console.log(currentPage);
   if (currentPage === 'quiz') startGame();
   if (currentPage === 'main')
     document
