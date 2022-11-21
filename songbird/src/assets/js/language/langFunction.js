@@ -62,8 +62,17 @@ export const langFunction = {
 
     fillBirdInfo(store.currentClickedBirdId);
   },
-  results: () => {
-    console.log('results');
+  results: (newLanguage) => {
+    const toTranslate = document.querySelectorAll('[data-result-lang]');
+    toTranslate.forEach((elem) => {
+      if (elem.id === 'current_points') {
+        elem.innerHTML = langs[newLanguage].results[
+          elem.dataset.resultLang
+        ].replace('{{currentPoints}}', store.currentPoints);
+      } else {
+        elem.innerText = langs[newLanguage].results[elem.dataset.resultLang];
+      }
+    });
   },
   gallery: () => {},
 };

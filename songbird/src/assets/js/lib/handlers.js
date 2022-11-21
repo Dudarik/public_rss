@@ -39,7 +39,7 @@ export const handleSwitchLanguage = (event) => {
 
 //===================MAIN PAGE BUTTON======================
 
-export const handleMainPagePlayBtn = (event) => {
+export const handleMainPagePlayBtn = () => {
   changePage('quiz.html');
   history.pushState(null, null, 'quiz.html');
 };

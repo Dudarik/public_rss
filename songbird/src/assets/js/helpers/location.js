@@ -26,11 +26,15 @@ export const changePage = async (href) => {
   app.append(newPage);
 
   langFunction[currentPage](store.settings.language);
-  console.log(app);
+  console.log(currentPage);
   if (currentPage === 'quiz') startGame();
   if (currentPage === 'main')
     document
       .querySelector('#main_btn_play')
+      .addEventListener('click', handleMainPagePlayBtn);
+  if (currentPage === 'results')
+    document
+      .querySelector('#result_btn_play')
       .addEventListener('click', handleMainPagePlayBtn);
 };
 

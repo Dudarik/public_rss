@@ -37,6 +37,17 @@ export const langs = {
         blank: 'Listen to the player .\n Select a bird from the list',
       },
     },
+    results: {
+      title: 'Congratulations!',
+      subtitle: `You took a quiz and dialled
+      <span
+      class="current_points"
+      id="current_points"
+      >{{currentPoints}}</span
+      >
+      out of 30 possible points!`,
+      button_play: 'Play again',
+    },
   },
   ru: {
     //main menu
@@ -73,6 +84,17 @@ export const langs = {
       answer: {
         blank: 'Послушайте плеер. \n Выберите птицу из списка',
       },
+    },
+    results: {
+      title: 'Поздравляем!',
+      subtitle: `Вы прошли викторину и набрали
+      <span
+        class="current_points"
+        id="current_points"
+        >{{currentPoints}}</span
+      >
+      из 30 возможных баллов!`,
+      button_play: 'Играть еще раз',
     },
   },
 };
