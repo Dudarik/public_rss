@@ -7,6 +7,9 @@ export const langFunction = {
   mainMenu: (newLanguage) => {
     const mainMenu = document.querySelector('#main_menu');
     const menuLinks = mainMenu.querySelectorAll('.menu_link');
+    const footerCopyright = document.querySelector('#copyright');
+
+    footerCopyright.innerHTML = langs[newLanguage].footer.copyright;
 
     menuLinks.forEach((link) => {
       const linkTitle = link.dataset.menuLink;

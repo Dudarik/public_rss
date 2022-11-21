@@ -1,0 +1,51 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+
+  flex-wrap: wrap;
+  gap: 1rem;
+  flex: 0 0 auto;
+  @media screen and (max-width: 530px) {
+    justify-content: center;
+  }
+  * {
+    width: 9rem;
+  }
+  .footer_link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.3rem;
+    line-height: 23px;
+    text-decoration: none;
+
+    color: $color_white;
+
+    transition: color 0.5s;
+
+    &:visited {
+      color: $color_white;
+    }
+    &:hover {
+      color: $color_orange;
+    }
+  }
+  .footer_year {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+    color: $color_orange;
+    font-size: 1.5rem;
+  }
+  svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 6rem;
+    fill: $color_orange;
+  }
+}

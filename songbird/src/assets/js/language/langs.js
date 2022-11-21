@@ -8,6 +8,10 @@ export const langs = {
       gallery: 'Gallery',
     },
 
+    footer: {
+      copyright: '&copy; Alexandr Reznichenko',
+    },
+
     //main page
     main: {
       subtitle: 'Quiz',
@@ -41,6 +45,10 @@ export const langs = {
       quiz: 'Викторина',
       results: 'Результаты',
       gallery: 'Галерея',
+    },
+
+    footer: {
+      copyright: '&copy; Александр Резниченко',
     },
     //main page
     main: {
