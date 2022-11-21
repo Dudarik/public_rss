@@ -1,6 +1,7 @@
 import { store } from '../store.js';
 import { langFunction } from '../language/langFunction.js';
 import { startGame } from '../lib/gameFunc.js';
+import { handleMainPagePlayBtn } from '../lib/handlers.js';
 
 export const getMenuItems = () => {
   return document.querySelectorAll('.menu_link');
@@ -27,6 +28,10 @@ export const changePage = async (href) => {
   langFunction[currentPage](store.settings.language);
   console.log(app);
   if (currentPage === 'quiz') startGame();
+  if (currentPage === 'main')
+    document
+      .querySelector('#main_btn_play')
+      .addEventListener('click', handleMainPagePlayBtn);
 };
 
 export const addHandlersToMenu = (links) => {

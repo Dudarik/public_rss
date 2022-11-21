@@ -85,5 +85,8 @@
 
   .btn_main {
     width: 20rem;
+    @media screen and (max-width: 400px) {
+      width: 100%;
+    }
   }
 }

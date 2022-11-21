@@ -37,6 +37,13 @@ export const handleSwitchLanguage = (event) => {
   langFunction['mainMenu'](store.settings.language);
 };
 
+//===================MAIN PAGE BUTTON======================
+
+export const handleMainPagePlayBtn = (event) => {
+  changePage('quiz.html');
+  history.pushState(null, null, 'quiz.html');
+};
+
 //==================ROUND PLAYER===========================
 
 export const handleRoundPlayerMouseDown = (event) => {
