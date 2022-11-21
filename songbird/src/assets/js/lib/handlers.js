@@ -12,7 +12,7 @@ const ONE_HUNDRED_PERCENT = 100;
 const ONE_SECTOR = 3.6;
 const HALF_ROUND = 180;
 
-const stopPlayAllPlayers = () => {
+export const stopPlayAllPlayers = () => {
   const $audioPlayers = document.querySelectorAll('audio');
   const $playBtns = document.querySelectorAll('.play_btn');
 

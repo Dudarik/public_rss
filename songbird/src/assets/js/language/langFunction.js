@@ -45,7 +45,14 @@ export const langFunction = {
 
     ctrlElems.forEach((elem) => {
       const title = elem.dataset.quizLang;
-      elem.innerText = langs[newLanguage].quiz.controls[title];
+      if (title === 'next_level') {
+        if (store.isLastQuestion) {
+          elem.innerText = langs[newLanguage].quiz.controls.next_level.results;
+        } else {
+          elem.innerText =
+            langs[newLanguage].quiz.controls.next_level.next_level;
+        }
+      } else elem.innerText = langs[newLanguage].quiz.controls[title];
     });
 
     store.currentLevelData.forEach((item, index) => {

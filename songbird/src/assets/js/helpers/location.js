@@ -1,7 +1,7 @@
 import { store } from '../store.js';
 import { langFunction } from '../language/langFunction.js';
 import { endGame, startGame } from '../lib/gameFunc.js';
-import { handleMainPagePlayBtn } from '../lib/handlers.js';
+import { handleMainPagePlayBtn, stopPlayAllPlayers } from '../lib/handlers.js';
 import { renderCards } from '../lib/gallery.js';
 
 export const getMenuItems = () => {
@@ -9,6 +9,7 @@ export const getMenuItems = () => {
 };
 
 export const changePage = async (href) => {
+  stopPlayAllPlayers();
   const newPage = await fetch(href)
     .then((response) => response.text())
     .then((text) => {

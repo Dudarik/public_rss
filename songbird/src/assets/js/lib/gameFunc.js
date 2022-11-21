@@ -105,7 +105,7 @@ export const startGame = () => {
   store.currentPoints = 0;
   store.questionPoints = 6;
   store.currentLevel = 0;
-  store.lastLevel = 6; //store.levels.length - 1;
+  store.lastLevel = 5; //store.levels.length - 1;
   store.isInGame = true;
   store.isNextQuestion = false;
   store.isLastQuestion = false;
@@ -140,6 +140,12 @@ export const nextLevel = () => {
   store.currentLvlChecked = [];
   store.currentClickedBirdId = -1;
   store.isLastQuestion = store.lastLevel === store.currentLevel;
+
+  // console.log(store);
+  const $nextBtn = document.querySelector('#next_level_btn');
+  if (store.isLastQuestion)
+    $nextBtn.innerText =
+      store.settings.language === 'en' ? 'Results' : 'Результат';
 
   setToDefaultQuizPage();
   setLevel(store.currentLevel);

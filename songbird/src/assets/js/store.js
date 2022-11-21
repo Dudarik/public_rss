@@ -11,7 +11,7 @@ export const store = {
   currentClickedBirdId: -1,
   currentLvlChecked: [],
 
-  lastLevel: 0,
+  lastLevel: 5,
 
   isPlaySound: false,
   isPlaySound2: false, //for second player, who not round

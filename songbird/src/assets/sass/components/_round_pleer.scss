@@ -99,6 +99,7 @@
     border-radius: 50%;
     display: grid;
     place-items: center center;
+    cursor: pointer;
 
     background: radial-gradient(closest-side, #475c36 80%, transparent 0 2%),
       conic-gradient(
