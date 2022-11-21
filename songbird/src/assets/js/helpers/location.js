@@ -26,7 +26,6 @@ export const changePage = async (href) => {
   app.innerHTML = '';
   app.append(newPage);
 
-  langFunction[currentPage](store.settings.language);
   if (currentPage === 'quiz') startGame();
   if (currentPage === 'main')
     document
@@ -34,6 +33,9 @@ export const changePage = async (href) => {
       .addEventListener('click', handleMainPagePlayBtn);
   if (currentPage === 'results') endGame();
   if (currentPage === 'gallery') renderCards();
+
+  langFunction[currentPage](store.settings.language);
+  // console.log(store);
 };
 
 export const addHandlersToMenu = (links) => {
