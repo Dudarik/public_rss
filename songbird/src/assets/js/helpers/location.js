@@ -1,6 +1,6 @@
 import { store } from '../store.js';
 import { langFunction } from '../language/langFunction.js';
-import { startGame } from '../lib/gameFunc.js';
+import { endGame, startGame } from '../lib/gameFunc.js';
 import { handleMainPagePlayBtn } from '../lib/handlers.js';
 
 export const getMenuItems = () => {
@@ -32,10 +32,7 @@ export const changePage = async (href) => {
     document
       .querySelector('#main_btn_play')
       .addEventListener('click', handleMainPagePlayBtn);
-  if (currentPage === 'results')
-    document
-      .querySelector('#result_btn_play')
-      .addEventListener('click', handleMainPagePlayBtn);
+  if (currentPage === 'results') endGame();
 };
 
 export const addHandlersToMenu = (links) => {

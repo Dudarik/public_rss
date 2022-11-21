@@ -5,6 +5,9 @@ import { store } from '../store';
 import { fillBirdInfo, nextLevel } from './gameFunc';
 import { saveGameSettingsToLS } from './localstorage';
 
+import audioSuccess from '../../sound/success.mp3';
+import audioWrong from '../../sound/wrong.mp3';
+
 const ONE_HUNDRED_PERCENT = 100;
 const ONE_SECTOR = 3.6;
 const HALF_ROUND = 180;
@@ -261,6 +264,7 @@ export const handleChoiceBirdPanelClick = (event) => {
 
       if (+store.currentClickedBirdId === store.currentQuestionTarget.id) {
         //play music success
+        new Audio(audioSuccess).play();
         const $gameScore = document.querySelector('#game_score');
         const $targetBirdPhoto = document.querySelector('#target_bird_photo');
 
@@ -288,7 +292,7 @@ export const handleChoiceBirdPanelClick = (event) => {
         event.target.classList.add('success');
       } else {
         //play music wrong
-
+        new Audio(audioWrong).play();
         event.target.classList.add('wrong');
         $questionPoints.innerText = store.questionPoints - 1;
       }

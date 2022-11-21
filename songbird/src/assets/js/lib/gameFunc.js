@@ -3,6 +3,7 @@ import { birdsData } from '../data';
 import { getRandomBirdId } from '../helpers';
 import {
   handleChoiceBirdPanelClick,
+  handleMainPagePlayBtn,
   handleMouseMove,
   handleNextButtonClick,
   handlePlayerEndAudio,
@@ -23,6 +24,9 @@ import {
 import { langs } from '../language/langs';
 
 import uncknownBirdImg from '../../../assets/images/unknown_bird_1920.webp';
+
+import audioStartGame from '../../sound/startgame.mp3';
+import audioEndGame from '../../sound/wingame.mp3';
 
 // export const getBirdNames = (level = 0) =>
 //   birdsData[store.settings.language][level].map((item) => item.name);
@@ -107,6 +111,8 @@ export const startGame = () => {
   store.isLastQuestion = false;
   store.currentLvlChecked = [];
 
+  new Audio(audioStartGame).play();
+
   setToDefaultQuizPage();
   setLevel(store.currentLevel);
   getCurrentQuestion(store.currentLevel);
@@ -190,4 +196,11 @@ export const fillBirdInfo = (idBird) => {
   birdName.innerText = curBird.name;
   descriptionTitle.innerText = curBird.species;
   descriptionText.innerText = curBird.description;
+};
+
+export const endGame = () => {
+  new Audio(audioEndGame).play();
+  document
+    .querySelector('#result_btn_play')
+    .addEventListener('click', handleMainPagePlayBtn);
 };

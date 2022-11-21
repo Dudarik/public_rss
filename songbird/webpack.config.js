@@ -36,8 +36,15 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
       {
-        test: /\.(?:mp3|ttf|woff|woff2)$/i,
+        test: /\.(?:ttf|woff|woff2)$/i,
         type: 'asset/resource', //asset/resource
+      },
+      {
+        test: /\.(?:mp3)$/i,
+        type: 'asset/resource', //asset/resource
+        generator: {
+          filename: 'assets/sounds/[hash][ext]',
+        },
       },
       {
         test: /\.(?:ico|gif|jpg|jpeg|png|webp|svg)$/i,
@@ -67,6 +74,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
       filename: 'index.html',
+      favicon: './src/favicon-32x32.png',
     }),
     ...templates,
   ],
