@@ -1,0 +1,168 @@
+.gallery_page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  color: $color_white;
+
+  .bird_info {
+    background-color: $color_white;
+    border: 2px solid $color_light_green;
+    border-radius: $border_radius;
+    width: 100%;
+    color: $color_green;
+
+    display: grid;
+
+    grid-template-columns: 20rem 1fr;
+    grid-template-rows: auto auto;
+
+    grid-template-areas:
+      'photo description'
+      'player player';
+
+    position: relative;
+
+    @media screen and (max-width: 1040px) {
+      flex-direction: column;
+    }
+    // * {
+    //   border: 1px dotted green;
+    // }
+    .birds_photo {
+      grid-area: photo;
+      min-width: 20rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 1rem;
+
+      .birds_photo_img {
+        border: 2px solid $color_green;
+        border-radius: 0.6rem;
+        top: -7rem;
+        left: 1.6rem;
+        width: 268px;
+        height: 226px;
+        object-fit: cover;
+
+        @media screen and (max-width: 1040px) {
+          position: static;
+          margin-bottom: 0.5rem;
+        }
+      }
+      .bird_name {
+        @include background-mixin;
+        min-width: 16rem;
+        font-size: 1.5rem;
+        font-weight: 500;
+
+        height: 4rem;
+      }
+    }
+    .bird_description {
+      padding: 1rem 0;
+      width: 100%;
+      grid-area: description;
+
+      @media screen and (max-width: 1040px) {
+        padding: 0.5rem;
+      }
+
+      .description_title {
+        font-weight: 500;
+        font-size: 1.8rem;
+        line-height: 34px;
+
+        display: inline-block;
+        padding-bottom: 1rem;
+
+        border-bottom: 2px solid $color_green;
+      }
+      .description_text {
+        padding: 1rem 0;
+        padding-right: 1rem;
+
+        font-weight: 400;
+        font-size: 1.6rem;
+        line-height: 34px;
+        overflow-y: scroll;
+        min-height: 8rem;
+        max-height: 8rem;
+
+        @media screen and (max-width: 1040px) {
+          font-size: 1.4rem;
+          line-height: 34px;
+          max-height: 15rem;
+        }
+      }
+    }
+    .player_wrapper_gallery {
+      position: absolute;
+      grid-area: player;
+      width: 100%;
+      place-self: center center;
+      opacity: 0;
+      // background-color: transparent;
+      // color: $color_green;
+      height: 0;
+      width: 0;
+      transition: width 0.5s, height 0.5s, opacity 0.5s;
+
+      &.visible {
+        position: static;
+        height: 100%;
+        width: 100%;
+        opacity: 1;
+      }
+    }
+  }
+
+  .birds_gallery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    .gallery_card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      // width: 10rem;
+      position: relative;
+      img {
+        object-fit: cover;
+        width: 12rem;
+        height: 8rem;
+
+        border-radius: $border_radius;
+      }
+      .card_title {
+        position: absolute;
+        cursor: pointer;
+
+        text-transform: uppercase;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        opacity: 0;
+
+        border-radius: $border_radius;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba($color: #000000, $alpha: 0.7);
+        transition: opacity 0.5s;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

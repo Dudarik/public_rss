@@ -105,11 +105,12 @@ export const startGame = () => {
   store.currentPoints = 0;
   store.questionPoints = 6;
   store.currentLevel = 0;
-  store.lastLevel = store.levels.length - 1;
+  store.lastLevel = 6; //store.levels.length - 1;
   store.isInGame = true;
   store.isNextQuestion = false;
   store.isLastQuestion = false;
   store.currentLvlChecked = [];
+  store.currentClickedBirdId = -1;
 
   new Audio(audioStartGame).play();
 
@@ -175,7 +176,7 @@ export const getCurrentQuestion = (lvlId) => {
     $panelItems[index].dataset.idBird = item.id;
   });
 
-  console.log(store);
+  // console.log(store);
 };
 
 export const setSuccesAnswer = () => {
@@ -191,7 +192,8 @@ export const fillBirdInfo = (...args) => {
   const descriptionText = birdInfo.querySelector('#description_text');
 
   let curBird = 0;
-  if (args.length === 1) curBird = store.currentLevelData[args[0]];
+  // console.log(args);
+  if (args.length === 1) curBird = store.currentLevelData[+args[0] - 1];
 
   if (args.length === 2) curBird = store.galleryData[args[0]][args[1]];
 

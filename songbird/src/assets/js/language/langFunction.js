@@ -1,5 +1,6 @@
 import { birdsData } from '../data';
 import { langs } from '../language/langs';
+import { renderCards } from '../lib/gallery';
 import { fillBirdInfo } from '../lib/gameFunc';
 import { store } from '../store';
 
@@ -74,5 +75,7 @@ export const langFunction = {
       }
     });
   },
-  gallery: () => {},
+  gallery: () => {
+    renderCards();
+  },
 };

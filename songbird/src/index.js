@@ -5,7 +5,6 @@ import {
 } from './assets/js/helpers/location';
 
 import { appInit } from './assets/js/lib/appInit';
-
 import './assets/sass/styles.scss';
 
 window.addEventListener('popstate', () => {

@@ -5,7 +5,6 @@ export const store = {
   ls_key_settings: 'dudarik_songbird_settings',
   ls_key_records: 'dudarik_songbird_records',
 
-  levels: ['warmup', 'sparrow', 'forest', 'songbirds', 'predatory', 'seabirds'],
   currentPoints: 0,
   questionPoints: 6,
   currentLevel: 0,
@@ -21,6 +20,7 @@ export const store = {
   isLastQuestion: false,
 
   currentLevelData: [],
+  galleryData: [],
 
   currentQuestionTarget: {
     id: 0,

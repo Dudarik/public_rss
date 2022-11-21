@@ -212,8 +212,9 @@ export const handlePlayerSetVolume = (event) => {
 export const handlePlayerSaveVolumeValue = (event) => {
   store.settings.volume = event.target.value / ONE_HUNDRED_PERCENT;
 
-  console.log(document.querySelector('#round_volume'));
-  document.querySelector('#round_volume').value = event.target.value;
+  // console.log(document.querySelector('#round_volume'));
+  const $round_player_vol = document.querySelector('#round_volume');
+  if ($round_player_vol) $round_player_vol.value = event.target.value;
 
   saveGameSettingsToLS();
 };
