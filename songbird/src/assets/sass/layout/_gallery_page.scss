@@ -23,8 +23,14 @@
 
     position: relative;
 
-    @media screen and (max-width: 1040px) {
-      flex-direction: column;
+    @media screen and (max-width: 720px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto;
+
+      grid-template-areas:
+        'photo'
+        'description'
+        'player';
     }
     // * {
     //   border: 1px dotted green;
@@ -89,12 +95,16 @@
         line-height: 34px;
         overflow-y: scroll;
         min-height: 8rem;
-        max-height: 8rem;
+        max-height: 12rem;
 
         @media screen and (max-width: 1040px) {
           font-size: 1.4rem;
           line-height: 34px;
           max-height: 15rem;
+        }
+
+        @media screen and (max-width: 720px) {
+          max-height: 8rem;
         }
       }
     }
