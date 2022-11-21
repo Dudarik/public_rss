@@ -38,7 +38,7 @@ export const loadFromLS = (key) => {
 };
 
 export const saveGameSettingsToLS = () => {
-  console.log(store);
+  // console.log(store);
   saveToLS(store.ls_key_settings, store.settings);
 };
 

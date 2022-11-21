@@ -31,7 +31,7 @@ export const renderCards = () => {
   $birdGallery.append(...$galleryArray);
   setHandlersToGallery();
 
-  if (store.currentClickedBirdId) {
+  if (store.currentClickedBirdId !== -1) {
     fillBirdInfo(store.currentClickedBirdId[0], store.currentClickedBirdId[1]);
   }
 };
