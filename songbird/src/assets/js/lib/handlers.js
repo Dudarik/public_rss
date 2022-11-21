@@ -42,7 +42,8 @@ export const handleSwitchLanguage = (event) => {
 
 //===================MAIN PAGE BUTTON======================
 
-export const handleMainPagePlayBtn = () => {
+export const handleMainPagePlayBtn = (event) => {
+  event.target.classList.remove('displaynone');
   changePage('quiz.html');
   history.pushState(null, null, 'quiz.html');
 };

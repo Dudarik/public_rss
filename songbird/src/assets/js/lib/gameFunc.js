@@ -211,6 +211,10 @@ export const fillBirdInfo = (...args) => {
 
 export const endGame = () => {
   new Audio(audioEndGame).play();
+  if (store.currentPoints === 30) {
+    document.querySelector('#result_btn_play').classList.add('displaynone');
+    return;
+  }
   document
     .querySelector('#result_btn_play')
     .addEventListener('click', handleMainPagePlayBtn);
