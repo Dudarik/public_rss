@@ -47,7 +47,7 @@ const setHandlersToRoundPlayer = () => {
   $playBtn.addEventListener('click', handleRoundPlayerPlay);
 };
 
-const setHandlersToPlayer = () => {
+export const setHandlersToPlayer = () => {
   const $audio = document.querySelector('#pleer');
 
   const $pbar = document.querySelector('#player_time');
@@ -182,7 +182,7 @@ export const setSuccesAnswer = () => {
   store.isNextQuestion = true;
 };
 
-export const fillBirdInfo = (idBird) => {
+export const fillBirdInfo = (...args) => {
   const birdInfo = document.querySelector('#bird_info');
 
   const birdsPhotoImg = birdInfo.querySelector('#birds_photo_img');
@@ -190,7 +190,10 @@ export const fillBirdInfo = (idBird) => {
   const descriptionTitle = birdInfo.querySelector('#description_title');
   const descriptionText = birdInfo.querySelector('#description_text');
 
-  const curBird = store.currentLevelData[idBird - 1];
+  let curBird = 0;
+  if (args.length === 1) curBird = store.currentLevelData[args[0]];
+
+  if (args.length === 2) curBird = store.galleryData[args[0]][args[1]];
 
   birdsPhotoImg.src = curBird.image;
   birdName.innerText = curBird.name;
