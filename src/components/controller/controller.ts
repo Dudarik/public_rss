@@ -1,7 +1,8 @@
+import { checkElem, checkEventTarget } from '../../helpers';
 import AppLoader from './appLoader';
 
 class AppController extends AppLoader {
-    getSources(callback) {
+    protected getSources(callback: () => void) {
         super.getResp(
             {
                 endpoint: 'sources',
@@ -10,15 +11,16 @@ class AppController extends AppLoader {
         );
     }
 
-    getNews(e, callback) {
-        let target = e.target;
-        const newsContainer = e.currentTarget;
+    protected getNews(e: Event, callback: () => void) {
+        let target = checkElem(checkEventTarget(e.target));
+        const newsContainer = checkElem(checkEventTarget(e.currentTarget));
 
         while (target !== newsContainer) {
             if (target.classList.contains('source__item')) {
                 const sourceId = target.getAttribute('data-source-id');
                 if (newsContainer.getAttribute('data-source') !== sourceId) {
-                    newsContainer.setAttribute('data-source', sourceId);
+                    if (sourceId) newsContainer.setAttribute('data-source', sourceId);
+
                     super.getResp(
                         {
                             endpoint: 'everything',
@@ -31,7 +33,7 @@ class AppController extends AppLoader {
                 }
                 return;
             }
-            target = target.parentNode;
+            target = checkElem(target.parentNode);
         }
     }
 }

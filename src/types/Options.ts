@@ -1,1 +1,1 @@
-export type Options = { [optName: string]: string };
+export type Options = { [optName: string]: string | null };
