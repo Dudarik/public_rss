@@ -1,4 +1,4 @@
-import { checkElem, checkTplElem } from '../../../helpers/index';
+import { checkElem, checkTplElem } from '../../../helpers';
 import { AbstractNews, NewsDataItem } from '../../../interfaces';
 import './news.css';
 
