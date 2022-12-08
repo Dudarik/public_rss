@@ -1,4 +1,4 @@
-import { checkElem } from '../../../helpers/index';
+import { checkElem, checkTplElem } from '../../../helpers/index';
 import { AbstractSources } from '../../../interfaces/AbstractClasses';
 import { SourcesDataItem } from '../../../interfaces/SourcesDataItem';
 import './sources.css';
@@ -6,12 +6,10 @@ import './sources.css';
 class Sources implements AbstractSources {
     public draw(data: SourcesDataItem[]) {
         const fragment = document.createDocumentFragment();
-        const sourceItemTemp: HTMLTemplateElement | null = document.querySelector('#sourceItemTemp');
+        const sourceItemTemp = checkTplElem(document.querySelector('#sourceItemTemp'));
 
         data.forEach((item) => {
-            const sourceClone: HTMLTemplateElement | null = <HTMLTemplateElement>(
-                sourceItemTemp?.content.cloneNode(true)
-            );
+            const sourceClone = checkTplElem(sourceItemTemp).content.cloneNode(true);
 
             if (sourceClone instanceof HTMLTemplateElement) {
                 checkElem(sourceClone.querySelector('.source__item-name')).textContent = item.name;

@@ -1,4 +1,4 @@
-import { checkElem } from '../../../helpers/index';
+import { checkElem, checkTplElem } from '../../../helpers/index';
 import { AbstractNews } from '../../../interfaces/AbstractClasses';
 import { NewsDataItem } from '../../../interfaces/NewsDataItem';
 import './news.css';
@@ -8,10 +8,10 @@ class News implements AbstractNews {
         const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
 
         const fragment = document.createDocumentFragment();
-        const newsItemTemp: HTMLTemplateElement | null = document.querySelector('#newsItemTemp');
+        const newsItemTemp = checkTplElem(document.querySelector('#newsItemTemp'));
 
         news.forEach((item, idx) => {
-            const newsClone: HTMLTemplateElement | null = <HTMLTemplateElement>newsItemTemp?.content.cloneNode(true);
+            const newsClone = checkTplElem(newsItemTemp).content.cloneNode(true);
 
             if (newsClone instanceof HTMLTemplateElement) {
                 if (idx % 2) checkElem(newsClone.querySelector('.news__item')).classList.add('alt');
