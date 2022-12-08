@@ -4,7 +4,7 @@ import { SourcesDataItem } from '../../../interfaces/SourcesDataItem';
 import './sources.css';
 
 class Sources implements AbstractSources {
-    draw(data: SourcesDataItem[]) {
+    public draw(data: SourcesDataItem[]) {
         const fragment = document.createDocumentFragment();
         const sourceItemTemp: HTMLTemplateElement | null = document.querySelector('#sourceItemTemp');
 
