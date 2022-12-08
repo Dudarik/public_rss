@@ -1,8 +1,8 @@
 import { ServerError } from '../../enums';
-import { AbstractLoader, ResponseApi } from '../../interfaces';
+import { ResponseApi } from '../../interfaces';
 import { Options, RequestApi } from '../../types';
 
-class Loader implements AbstractLoader {
+class Loader {
     private baseLink: string;
     private options: Options;
 
@@ -11,7 +11,7 @@ class Loader implements AbstractLoader {
         this.options = options;
     }
 
-    getResp(
+    protected getResp(
         { endpoint, options = {} }: RequestApi,
         callback = () => {
             console.error('No callback for GET response');
@@ -20,7 +20,7 @@ class Loader implements AbstractLoader {
         this.load('GET', endpoint, callback, options);
     }
 
-    errorHandler(res: Response) {
+    private errorHandler(res: Response) {
         if (!res.ok) {
             if (res.status === ServerError.Unauthorized || res.status === ServerError.NotFound)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
@@ -30,7 +30,7 @@ class Loader implements AbstractLoader {
         return res;
     }
 
-    makeUrl(options: Options, endpoint: string) {
+    private makeUrl(options: Options, endpoint: string) {
         const urlOptions = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
@@ -41,7 +41,7 @@ class Loader implements AbstractLoader {
         return url.slice(0, -1);
     }
 
-    load(method: string, endpoint: string, callback: (data: ResponseApi) => void, options: Options = {}) {
+    private load(method: string, endpoint: string, callback: (data: ResponseApi) => void, options: Options = {}) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
