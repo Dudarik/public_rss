@@ -1,6 +1,5 @@
 import { checkElem, checkTplElem } from '../../../helpers/index';
-import { AbstractSources } from '../../../interfaces/AbstractClasses';
-import { SourcesDataItem } from '../../../interfaces/SourcesDataItem';
+import { AbstractSources, SourcesDataItem } from '../../../interfaces';
 import './sources.css';
 
 class Sources implements AbstractSources {

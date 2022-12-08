@@ -1,6 +1,5 @@
 import { checkElem, checkTplElem } from '../../../helpers/index';
-import { AbstractNews } from '../../../interfaces/AbstractClasses';
-import { NewsDataItem } from '../../../interfaces/NewsDataItem';
+import { AbstractNews, NewsDataItem } from '../../../interfaces';
 import './news.css';
 
 class News implements AbstractNews {

@@ -1,8 +1,6 @@
+import { AbstractAppView, ResponseNews, ResponseSources } from '../../interfaces';
 import News from './news/news';
 import Sources from './sources/sources';
-import { AbstractAppView } from '../../interfaces/AbstractClasses';
-import { ResponseSources } from '../../interfaces/ResponseSources';
-import { ResponseNews } from '../../interfaces/ResponseNews';
 
 export class AppView implements AbstractAppView {
     private news: News;
