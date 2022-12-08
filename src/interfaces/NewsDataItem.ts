@@ -1,6 +1,6 @@
 export interface NewsDataItem {
     source: {
-        id: string;
+        id: string | null;
         name: string;
     };
     author: string;
