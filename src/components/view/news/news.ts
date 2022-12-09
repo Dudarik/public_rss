@@ -10,9 +10,9 @@ class News implements AbstractNews {
         const newsItemTemp = checkTplElem(document.querySelector('#newsItemTemp'));
 
         news.forEach((item, idx) => {
-            const newsClone = <HTMLTemplateElement>checkTplElem(newsItemTemp).content.cloneNode(true);
+            const newsClone = newsItemTemp.content.cloneNode(true);
 
-            if (newsClone) {
+            if (newsClone instanceof DocumentFragment) {
                 if (idx % 2) checkElem(newsClone.querySelector('.news__item')).classList.add('alt');
 
                 checkElem(newsClone.querySelector('.news__meta-photo')).style.backgroundImage = `url(${
