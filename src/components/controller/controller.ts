@@ -1,8 +1,9 @@
 import { checkElem, checkEventTarget } from '../../helpers';
+import { Callback } from '../../interfaces';
 import AppLoader from './appLoader';
 
 class AppController extends AppLoader {
-    protected getSources(callback: () => void) {
+    getSources<ResponseSources>(callback: Callback<ResponseSources>) {
         super.getResp(
             {
                 endpoint: 'sources',
@@ -11,7 +12,7 @@ class AppController extends AppLoader {
         );
     }
 
-    protected getNews(e: Event, callback: () => void) {
+    getNews<ResponseNews>(e: Event, callback: Callback<ResponseNews>) {
         let target = checkElem(checkEventTarget(e.target));
         const newsContainer = checkElem(checkEventTarget(e.currentTarget));
 

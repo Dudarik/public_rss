@@ -1,5 +1,5 @@
 import { ServerError } from '../../enums';
-import { ResponseApi } from '../../interfaces';
+import { Callback } from '../../interfaces';
 import { Options, RequestApi } from '../../types';
 
 class Loader {
@@ -41,11 +41,12 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    private load(method: string, endpoint: string, callback: (data: ResponseApi) => void, options: Options = {}) {
+    private load<T>(method: string, endpoint: string, callback: Callback<T>, options: Options = {}) {
+        // console.log('load');
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
-            .then((data: ResponseApi) => callback(data))
+            .then((data: T) => callback(data))
             .catch((err: Error) => console.error(err));
     }
 }
