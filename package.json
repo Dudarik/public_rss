@@ -7,7 +7,8 @@
         "start": "webpack serve --open --config ./webpack.config.js --env mode=dev",
         "build": "webpack --config ./webpack.config.js --env mode=prod",
         "lint": "eslint . --ext .ts",
-        "lint-fix": "npx eslint --ext js,jsx,ts,tsx ./src --fix"
+        "lint-fix": "npx eslint --ext js,jsx,ts,tsx ./src --fix",
+        "deploy": "npm run build && npx gh-pages -d dist -e migration-news-to-ts"
     },
     "repository": {
         "type": "git",
@@ -28,6 +29,7 @@
         "eslint-plugin-import": "^2.23.3",
         "eslint-plugin-prettier": "^3.4.0",
         "eslint-webpack-plugin": "^3.2.0",
+        "gh-pages": "^4.0.0",
         "html-webpack-plugin": "^5.2.0",
         "prettier": "2.2.1",
         "style-loader": "^2.0.0",
