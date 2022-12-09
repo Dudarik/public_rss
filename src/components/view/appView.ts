@@ -11,12 +11,12 @@ export class AppView implements AbstractAppView {
         this.sources = new Sources();
     }
 
-    public drawNews(data: ResponseNews) {
+    public drawNews(data: ResponseNews | undefined) {
         const values = data?.articles ? data?.articles : [];
         this.news.draw(values);
     }
 
-    public drawSources(data: ResponseSources) {
+    public drawSources(data: ResponseSources | undefined) {
         const values = data?.sources ? data?.sources : [];
         this.sources.draw(values);
     }

@@ -8,12 +8,10 @@ class Sources implements AbstractSources {
         const sourceItemTemp = checkTplElem(document.querySelector('#sourceItemTemp'));
 
         data.forEach((item) => {
-            const sourceClone = checkTplElem(sourceItemTemp).content.cloneNode(true);
-
-            if (sourceClone instanceof HTMLTemplateElement) {
+            const sourceClone = <HTMLTemplateElement>checkTplElem(sourceItemTemp).content.cloneNode(true);
+            if (sourceClone) {
                 checkElem(sourceClone.querySelector('.source__item-name')).textContent = item.name;
                 checkElem(sourceClone.querySelector('.source__item')).setAttribute('data-source-id', item.id);
-
                 fragment.append(sourceClone);
             }
         });
