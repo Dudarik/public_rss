@@ -1,4 +1,5 @@
-import { Callback, NewsDataItem, ResponseNews, ResponseSources, SourcesDataItem } from '../interfaces';
+import { Callback, NewsDataItem, SourcesDataItem } from '../interfaces';
+import { ResponseNews, ResponseSources } from '../types';
 import { IAbstractAppController } from '../interfaces/AbstractInterfaces';
 
 export abstract class AbstractLoader {}

@@ -7,13 +7,13 @@ class Loader implements AbstractLoader {
     private readonly baseLink: string;
     private readonly options: Options;
 
-    constructor(baseLink: string, options: Options) {
+    constructor(baseLink: string, options: Readonly<Options>) {
         this.baseLink = baseLink;
         this.options = options;
     }
 
     protected getResp(
-        { endpoint, options = {} }: RequestApi,
+        { endpoint, options = {} }: Readonly<RequestApi>,
         callback = () => {
             console.error('No callback for GET response');
         }
@@ -31,7 +31,7 @@ class Loader implements AbstractLoader {
         return res;
     }
 
-    private makeUrl(options: Options, endpoint: string) {
+    private makeUrl(options: Readonly<Options>, endpoint: string) {
         const urlOptions = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
@@ -42,8 +42,7 @@ class Loader implements AbstractLoader {
         return url.slice(0, -1);
     }
 
-    private load<T>(method: string, endpoint: string, callback: Callback<T>, options: Options = {}) {
-        // console.log('load');
+    private load<T>(method: string, endpoint: string, callback: Callback<T>, options: Readonly<Options> = {}) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())

@@ -4,7 +4,7 @@ import { SourcesDataItem } from '../../../interfaces';
 import './sources.css';
 
 class Sources implements AbstractSources {
-    draw(data: SourcesDataItem[]) {
+    draw(data: Readonly<SourcesDataItem[]>) {
         const fragment = document.createDocumentFragment();
         const sourceItemTemp = checkTplElem(document.querySelector('#sourceItemTemp'));
 

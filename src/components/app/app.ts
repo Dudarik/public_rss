@@ -1,5 +1,5 @@
 import { checkElem } from '../../helpers';
-import { ResponseNews, ResponseSources } from '../../interfaces';
+import { ResponseNews, ResponseSources } from '../../types';
 import AppController from '../controller/controller';
 import { AppView } from '../view/appView';
 
