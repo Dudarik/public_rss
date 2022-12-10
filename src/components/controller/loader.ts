@@ -1,10 +1,11 @@
+import { AbstractLoader } from '../../abstractClasses/AbstractClasses';
 import { ServerError } from '../../enums';
 import { Callback } from '../../interfaces';
 import { Options, RequestApi } from '../../types';
 
-class Loader {
-    private baseLink: string;
-    private options: Options;
+class Loader implements AbstractLoader {
+    private readonly baseLink: string;
+    private readonly options: Options;
 
     constructor(baseLink: string, options: Options) {
         this.baseLink = baseLink;

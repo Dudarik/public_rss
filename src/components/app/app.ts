@@ -3,7 +3,11 @@ import { ResponseNews, ResponseSources } from '../../interfaces';
 import AppController from '../controller/controller';
 import { AppView } from '../view/appView';
 
-class App {
+abstract class AbstractApp {
+    public abstract start(): void;
+}
+
+class App implements AbstractApp {
     private readonly controller: AppController;
     private readonly view: AppView;
 

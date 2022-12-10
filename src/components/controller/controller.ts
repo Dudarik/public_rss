@@ -1,8 +1,9 @@
+import { AbstractAppController } from '../../abstractClasses/AbstractClasses';
 import { checkElem, checkEventTarget } from '../../helpers';
 import { Callback } from '../../interfaces';
 import AppLoader from './appLoader';
 
-class AppController extends AppLoader {
+class AppController extends AppLoader implements AbstractAppController {
     getSources<ResponseSources>(callback: Callback<ResponseSources>) {
         super.getResp(
             {

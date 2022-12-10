@@ -1,9 +1,10 @@
+import { AbstractNews } from '../../../abstractClasses/AbstractClasses';
 import { checkElem, checkTplElem } from '../../../helpers';
-import { AbstractNews, NewsDataItem } from '../../../interfaces';
+import { NewsDataItem } from '../../../interfaces';
 import './news.css';
 
 class News implements AbstractNews {
-    public draw(data: NewsDataItem[]) {
+    draw(data: NewsDataItem[]) {
         const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
 
         const fragment = document.createDocumentFragment();
