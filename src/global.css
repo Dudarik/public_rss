@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500&display=swap');
+html {
+    height: 100%;
+}
 body {
     color: #000;
     /* background: #17181c; */
@@ -7,10 +10,16 @@ body {
     font-family: 'Bebas Neue', cursive;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 header {
     padding: 10px 30px;
+}
+main {
+    flex: 1 0 auto;
 }
 
 header h1 {
@@ -20,6 +29,11 @@ header h1 {
 }
 header h1 .second__title {
     color: #f16110;
+}
+
+header .header__link {
+    color: #000;
+    text-decoration: none;
 }
 
 footer {
