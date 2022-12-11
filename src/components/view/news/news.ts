@@ -7,9 +7,11 @@ class News implements AbstractNews {
     draw(data: Readonly<NewsDataItem[]>) {
         const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
 
-        const fragment = document.createDocumentFragment();
-        const newsItemTemp = checkTplElem(document.querySelector('#newsItemTemp'));
+        const tplId: string = news.length === 0 ? '#newsPlaceholder' : '#newsItemTemp';
 
+        const fragment = document.createDocumentFragment();
+        const newsItemTemp = checkTplElem(document.querySelector(tplId));
+        console.log(newsItemTemp);
         news.forEach((item, idx) => {
             const newsClone = newsItemTemp.content.cloneNode(true);
 
@@ -35,6 +37,10 @@ class News implements AbstractNews {
             }
         });
 
+        if (news.length === 0) {
+            const newsClone = newsItemTemp.content.cloneNode(true);
+            fragment.append(newsClone);
+        }
         checkElem(document.querySelector('.news')).innerHTML = '';
         checkElem(document.querySelector('.news')).appendChild(fragment);
     }

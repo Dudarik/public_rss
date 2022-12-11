@@ -21,6 +21,10 @@ class App implements AbstractApp {
             this.controller.getNews<ResponseNews>(e, (data) => this.view.drawNews(data))
         );
         this.controller.getSources<ResponseSources>((data) => this.view.drawSources(data));
+
+        // this load placeholder, on start application
+        const fakeData: ResponseNews = { status: 'idle', totalResults: 0, articles: [] };
+        this.view.drawNews(fakeData);
     }
 }
 
