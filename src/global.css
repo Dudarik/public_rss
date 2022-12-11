@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 body {
     color: #fff;
-    background: #17181c;
-    font-family: sans-serif;
+    /* background: #17181c; */
+    background: #c5c5c5;
+    font-family: 'Bebas Neue', cursive;
 }
 
 header {
@@ -10,14 +13,19 @@ header {
 
 header h1 {
     font-size: 40px;
-    font-weight: 800;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+header h1 .second__title {
+    color: #f16110;
 }
 
 footer {
     height: 100px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 footer .copyright {
     font-size: 14px;
@@ -32,4 +40,18 @@ footer .copyright a:hover {
 }
 footer .copyright:before {
     content: '©';
+}
+
+footer .footer__link svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 8rem;
+    height: 8rem;
+    fill: #f16110;
+}
+
+footer .footer__link .github {
+    width: 3rem;
+    height: 3rem;
 }
