@@ -17,7 +17,7 @@ class News implements AbstractNews {
                 if (idx % 2) checkElem(newsClone.querySelector('.news__item')).classList.add('alt');
 
                 checkElem(newsClone.querySelector('.news__meta-photo')).style.backgroundImage = `url(${
-                    item.urlToImage || 'img/news_placeholder.jpg'
+                    item.urlToImage || 'assets/images/news_placeholder.webp'
                 })`;
                 checkElem(newsClone.querySelector('.news__meta-author')).textContent = item.author || item.source.name;
                 checkElem(newsClone.querySelector('.news__meta-date')).textContent = item.publishedAt

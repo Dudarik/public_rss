@@ -26,9 +26,13 @@
     right: 0;
     bottom: 0;
     left: 0;
+    background-image: url('../../../assets/images/news_placeholder.webp');
     background-size: cover;
     background-position: center;
     transition: transform 0.2s;
+}
+.news__meta-photo img {
+    object-fit: cover;
 }
 
 .news__item .news__meta-details,
