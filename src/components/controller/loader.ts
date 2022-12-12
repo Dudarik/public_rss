@@ -4,7 +4,7 @@ import { Callback } from '../../interfaces';
 import { Options, RequestApi } from '../../types';
 
 class Loader implements AbstractLoader {
-    constructor(private readonly baseLink: string, private readonly options: Readonly<Options>) {}
+    protected constructor(private readonly baseLink: string, private readonly options: Readonly<Options>) {}
 
     protected getResp(
         { endpoint, options = {} }: Readonly<RequestApi>,
