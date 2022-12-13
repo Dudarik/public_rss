@@ -11,7 +11,7 @@ class News implements AbstractNews {
 
         const fragment = document.createDocumentFragment();
         const newsItemTemp = checkTplElem(document.querySelector(tplId));
-        console.log(newsItemTemp);
+
         news.forEach((item, idx) => {
             const newsClone = newsItemTemp.content.cloneNode(true);
 

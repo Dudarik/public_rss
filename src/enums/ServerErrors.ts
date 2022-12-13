@@ -1,7 +1,4 @@
 export enum ServerError {
-    BadRequest = 400,
-    Unauthorized,
-    PaymentRequired,
-    Forbidden,
-    NotFound,
+    Unauthorized = 401,
+    NotFound = 404,
 }
