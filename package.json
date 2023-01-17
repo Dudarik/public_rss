@@ -1,0 +1,23 @@
+{
+  "name": "async-race",
+  "version": "1.0.0",
+  "description": "Super cool race game for RSSchool",
+  "main": "index.ts",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rolling-scopes-school/dudarik-JSFE2022Q3.git"
+  },
+  "keywords": [
+    "RSSchool",
+    "race"
+  ],
+  "author": "Alex Reznichenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rolling-scopes-school/dudarik-JSFE2022Q3/issues"
+  },
+  "homepage": "https://github.com/rolling-scopes-school/dudarik-JSFE2022Q3#readme"
+}
