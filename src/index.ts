@@ -1,5 +1,7 @@
 // import { api } from './ts/api/api';
 import { getCars, updateCar } from './ts/api/apiCars';
+import { startStopEngine } from './ts/api/apiEngine';
+import { ApiEngineStatus } from './ts/enums/api';
 import { Car } from './ts/interfaces/cars';
 // import { GARAGE_URL } from './ts/api/config';
 
@@ -23,6 +25,26 @@ const fn = async () => {
   // await deleteCar(15);
   await updateCar(pCar);
   console.log(cars);
+  // startStopEngine(1, ApiEngineStatus.Started);
+  // await switchCarsEngineToDriveMode(2, ApiEngineStatus.Started);
+  // await startStopEngine(2, ApiEngineStatus.Drive);
 };
 
 fn();
+
+// let timer: ReturnType<typeof setTimeout>;
+
+document.querySelector('#start')?.addEventListener('click', async () => {
+  // console.log(await switchCarsEngineToDriveMode(2, ApiEngineStatus.Started));
+  console.log(await startStopEngine(2, ApiEngineStatus.Started));
+  console.log(await startStopEngine(2, ApiEngineStatus.Drive));
+
+  // timer = setInterval(drive, 2000);
+  // await startStopEngine(2, ApiEngineStatus.Started);
+});
+document.querySelector('#stop')?.addEventListener('click', async () => {
+  await startStopEngine(2, ApiEngineStatus.Stopped);
+});
+// document.querySelector('#reset')?.addEventListener('click', async () => {
+//   await switchCarsEngineToDriveMode(2, ApiEngineStatus.Stopped);
+// });

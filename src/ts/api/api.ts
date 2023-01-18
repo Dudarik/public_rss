@@ -54,5 +54,8 @@ api.put = function put(url: string, body: ApiRequestBody, customConfig = {}) {
   return api(url, { body, method: ApiMethod.Put, ...customConfig });
 };
 
+api.patch = function patch(url: string, body: ApiRequestBody, customConfig = {}) {
+  return api(url, { body, method: ApiMethod.Patch, ...customConfig });
+};
 // eslint-disable-next-line import/prefer-default-export
 export { api };
