@@ -1,22 +1,22 @@
-type Config<S extends string, T extends string | Record<string, string>> = {
-  [P in S]: T;
-};
-
-type Headers = {
-  [s: string]: string;
-};
+import { ApiMethod } from '../enums/api';
+import { ApiConfig, ApiHeaders, ApiRequestBody, ApiCustomConfig } from '../interfaces/api/index';
 
 const api = async (
   url: string,
-  // eslint-disable-next-line comma-dangle
-  { body, ...customConfig }: Config<string, string | Record<string, string>>
-): Promise<string> => {
-  const headers: Headers = {
+  apiConfig: ApiCustomConfig,
+): Promise<string | Record<string, string>> => {
+  const headers: ApiHeaders = {
     'Content-type': 'application/json',
   };
 
-  const config: Record<string, string | Record<string, string>> = {
-    method: body ? 'POST' : 'GET',
+  const { body, ...customConfig } = apiConfig;
+
+  if (typeof body !== 'object' && typeof body !== 'undefined') {
+    throw new Error('Body must be an object {name: string; color: string;} or undefined');
+  }
+
+  const config: ApiConfig = {
+    method: body ? ApiMethod.Post : ApiMethod.Get,
     ...customConfig,
     headers: {
       ...headers,
@@ -40,6 +40,18 @@ const api = async (
 
 api.get = function get(url: string, customConfig = {}) {
   return api(url, customConfig);
+};
+
+api.post = function post(url: string, body: ApiRequestBody, customConfig = {}) {
+  return api(url, { body, ...customConfig }) as Promise<Record<string, string>>;
+};
+
+api.delete = function del(url: string, customConfig = {}) {
+  return api(url, { method: ApiMethod.Delete, ...customConfig });
+};
+
+api.put = function put(url: string, body: ApiRequestBody, customConfig = {}) {
+  return api(url, { body, method: ApiMethod.Put, ...customConfig });
 };
 
 // eslint-disable-next-line import/prefer-default-export
