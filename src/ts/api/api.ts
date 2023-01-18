@@ -1,10 +1,10 @@
 import { ApiMethod } from '../enums/api';
 import { ApiConfig, ApiHeaders, ApiRequestBody, ApiCustomConfig } from '../interfaces/api/index';
 
-const api = async (
+const api = async <T extends [] | Record<string, string>>(
   url: string,
   apiConfig: ApiCustomConfig,
-): Promise<string | Record<string, string>> => {
+): Promise<T> => {
   const headers: ApiHeaders = {
     'Content-type': 'application/json',
   };
@@ -43,7 +43,7 @@ api.get = function get(url: string, customConfig = {}) {
 };
 
 api.post = function post(url: string, body: ApiRequestBody, customConfig = {}) {
-  return api(url, { body, ...customConfig }) as Promise<Record<string, string>>;
+  return api(url, { body, ...customConfig });
 };
 
 api.delete = function del(url: string, customConfig = {}) {

@@ -3,4 +3,4 @@ import { ApiCustomConfig } from './ApiCustomConfig';
 import { ApiHeaders } from './ApiHeaders';
 import { ApiRequestBody } from './ApiRequestBody';
 
-export { ApiConfig, ApiCustomConfig, ApiHeaders, ApiRequestBody };
+export { ApiRequestBody, ApiConfig, ApiCustomConfig, ApiHeaders };

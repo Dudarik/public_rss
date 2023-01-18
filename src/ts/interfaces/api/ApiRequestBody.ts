@@ -1,4 +1,3 @@
 export interface ApiRequestBody {
-  name: string;
-  color: string;
+  [s: string]: string;
 }
