@@ -6,7 +6,7 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     historyApiFallback: true,
-    open: true,
+    open: false,
     port: 3001,
     hot: false,
     liveReload: true,
