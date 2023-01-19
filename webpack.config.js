@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
+
 const { merge } = require('webpack-merge');
-// const { readdirSync } = require('fs');
+const { readdirSync } = require('fs');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -11,19 +11,19 @@ const EslingWebpackPlugin = require('eslint-webpack-plugin');
 const DEV = 'development';
 const PROD = 'production';
 
-// const TPL_FOLDER = path.join(__dirname, 'src', 'templates');
+const TPL_FOLDER = path.join(__dirname, 'src', 'templates');
 
-// const getTemplatesNames = (tplDirName) => readdirSync(tplDirName);
+const getTemplatesNames = (tplDirName) => readdirSync(tplDirName);
 
-// const templateList = getTemplatesNames(TPL_FOLDER);
+const templateList = getTemplatesNames(TPL_FOLDER);
 
-// const templates = templateList.map(
-//   (templateName) => new HtmlWebpackPlugin({
-//     template: path.join(__dirname, 'src', 'templates', templateName),
-//     filename: templateName,
-//     inject: false,
-//   }),
-// );
+const templates = templateList.map(
+  (templateName) => new HtmlWebpackPlugin({
+    template: path.join(__dirname, 'src', 'templates', templateName),
+    filename: templateName,
+    inject: false,
+  }),
+);
 
 const baseConfig = {
   mode: DEV,
@@ -36,6 +36,10 @@ const baseConfig = {
   },
   module: {
     rules: [
+      {
+        test: /\.html$/i,
+        use: ['html-loader'],
+      },
       {
         test: /\.(c|sa|sc)ss$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
@@ -80,7 +84,7 @@ const baseConfig = {
       filename: 'index.html',
       // favicon: './src/favicon-32x32.png',
     }),
-    // ...templates,
+    ...templates,
   ],
 };
 

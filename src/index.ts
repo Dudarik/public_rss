@@ -1,8 +1,10 @@
 // import { api } from './ts/api/api';
 import { getCars, updateCar } from './ts/api/apiCars';
-import { startStopEngine } from './ts/api/apiEngine';
+import { driveCar, startEngine, startStopEngine } from './ts/api/apiEngine';
+import { footer, header, main } from './ts/components';
 import { ApiEngineStatus } from './ts/enums/api';
 import { Car } from './ts/interfaces/cars';
+
 // import { ApiReturn } from './ts/types/api';
 // import { GARAGE_URL } from './ts/api/config';
 
@@ -39,27 +41,18 @@ document.querySelector('#start')?.addEventListener('click', async () => {
   // console.log(await switchCarsEngineToDriveMode(2, ApiEngineStatus.Started));
   try {
     const arrSt = await Promise.allSettled([
-      startStopEngine(1, ApiEngineStatus.Started),
-      startStopEngine(2, ApiEngineStatus.Started),
-      startStopEngine(3, ApiEngineStatus.Started),
-      startStopEngine(4, ApiEngineStatus.Started),
+      startEngine(1),
+      startEngine(2),
+      startEngine(3),
+      startEngine(4),
     ]);
     console.log(arrSt);
-    const arrDr = await Promise.allSettled([
-      startStopEngine(1, ApiEngineStatus.Drive),
-      startStopEngine(2, ApiEngineStatus.Drive),
-      startStopEngine(3, ApiEngineStatus.Drive),
-      startStopEngine(4, ApiEngineStatus.Drive),
-    ]);
-    // setInterval(() => {
-    //   console.log(arrDr);
-    // }, 500);
-
+    // const arrDr = await Promise.allSettled([driveCar(1), driveCar(2), driveCar(3), driveCar(4)]);
+    const arrDr = Promise.allSettled([driveCar(1), driveCar(2), driveCar(3), driveCar(4)]);
     console.log(arrDr);
-    // console.log(await startStopEngine(1, ApiEngineStatus.Started));
-    // console.log(await startStopEngine(1, ApiEngineStatus.Drive));
-    // console.log(await startStopEngine(2, ApiEngineStatus.Started));
-    // console.log(await startStopEngine(2, ApiEngineStatus.Drive));
+    // setInterval(async () => {
+    //   console.log(await arrDr);
+    // }, 1000);
   } catch (error) {
     console.log(error);
   }
@@ -67,9 +60,13 @@ document.querySelector('#start')?.addEventListener('click', async () => {
   // timer = setInterval(drive, 2000);
   // await startStopEngine(2, ApiEngineStatus.Started);
 });
+
 document.querySelector('#stop')?.addEventListener('click', async () => {
   await startStopEngine(2, ApiEngineStatus.Stopped);
 });
-// document.querySelector('#reset')?.addEventListener('click', async () => {
-//   await switchCarsEngineToDriveMode(2, ApiEngineStatus.Stopped);
-// });
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.append(header());
+  document.body.append(main());
+  document.body.append(footer());
+});
