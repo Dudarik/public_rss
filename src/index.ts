@@ -1,4 +1,4 @@
-// import { api } from './ts/api/api';
+import './assets/scss/main.scss';
 
 import { store } from './store';
 import { carLine, footer, header, main } from './ts/components';
