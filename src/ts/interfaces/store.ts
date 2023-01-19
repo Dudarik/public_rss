@@ -7,4 +7,6 @@ export interface Store {
   currentGaragePage: number;
   currentWinnersPage: number;
   winnersTable: Car[];
+  carsBrands: string[];
+  carsModels: string[];
 }
