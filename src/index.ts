@@ -3,6 +3,7 @@ import { getCars, updateCar } from './ts/api/apiCars';
 import { startStopEngine } from './ts/api/apiEngine';
 import { ApiEngineStatus } from './ts/enums/api';
 import { Car } from './ts/interfaces/cars';
+// import { ApiReturn } from './ts/types/api';
 // import { GARAGE_URL } from './ts/api/config';
 
 const fn = async () => {
@@ -36,8 +37,32 @@ fn();
 
 document.querySelector('#start')?.addEventListener('click', async () => {
   // console.log(await switchCarsEngineToDriveMode(2, ApiEngineStatus.Started));
-  console.log(await startStopEngine(2, ApiEngineStatus.Started));
-  console.log(await startStopEngine(2, ApiEngineStatus.Drive));
+  try {
+    const arrSt = await Promise.allSettled([
+      startStopEngine(1, ApiEngineStatus.Started),
+      startStopEngine(2, ApiEngineStatus.Started),
+      startStopEngine(3, ApiEngineStatus.Started),
+      startStopEngine(4, ApiEngineStatus.Started),
+    ]);
+    console.log(arrSt);
+    const arrDr = await Promise.allSettled([
+      startStopEngine(1, ApiEngineStatus.Drive),
+      startStopEngine(2, ApiEngineStatus.Drive),
+      startStopEngine(3, ApiEngineStatus.Drive),
+      startStopEngine(4, ApiEngineStatus.Drive),
+    ]);
+    // setInterval(() => {
+    //   console.log(arrDr);
+    // }, 500);
+
+    console.log(arrDr);
+    // console.log(await startStopEngine(1, ApiEngineStatus.Started));
+    // console.log(await startStopEngine(1, ApiEngineStatus.Drive));
+    // console.log(await startStopEngine(2, ApiEngineStatus.Started));
+    // console.log(await startStopEngine(2, ApiEngineStatus.Drive));
+  } catch (error) {
+    console.log(error);
+  }
 
   // timer = setInterval(drive, 2000);
   // await startStopEngine(2, ApiEngineStatus.Started);

@@ -1,10 +1,9 @@
 import { ApiMethod } from '../enums/api';
 import { ApiConfig, ApiHeaders, ApiRequestBody, ApiCustomConfig } from '../interfaces/api/index';
+import { ApiReturn } from '../types/api';
+// <T extends [] | Record<string, string> | Error>
 
-const api = async <T extends [] | Record<string, string>>(
-  url: string,
-  apiConfig: ApiCustomConfig,
-): Promise<T> => {
+const api = async (url: string, apiConfig: ApiCustomConfig): ApiReturn => {
   const headers: ApiHeaders = {
     'Content-type': 'application/json',
   };
@@ -27,15 +26,31 @@ const api = async <T extends [] | Record<string, string>>(
   if (body) config.body = JSON.stringify(body);
 
   try {
-    const response = await fetch(url, config);
+    const response = await fetch(url, config)
+      .then((res) => {
+        console.log('res.status', res.status);
+        if (res.status >= 200 && res.status < 300) {
+          return res;
+        }
 
-    if (!response.ok) throw new Error('Cant fetch response');
+        // if (res.status === 500) throw new Error('500');
+        return res;
+      })
+      .catch((err) => {
+        console.log('fetch err');
+        throw err;
+      });
+    // console.log(response);
 
-    return await response.json();
+    // if (!response.ok) throw new Error(response.status.toString());
+    if (response && response.ok) return await response.json();
   } catch (error) {
-    if (error instanceof Error) return Promise.reject(error);
-    return Promise.reject(new Error('Cant resolve promise'));
+    console.log('');
+    throw error;
+    // if (error instanceof Error) return Promise.reject(error);
+    // return Promise.reject(new Error('Cant resolve promise'));
   }
+  return {};
 };
 
 api.get = function get(url: string, customConfig = {}) {

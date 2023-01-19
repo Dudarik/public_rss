@@ -1,4 +1,4 @@
 import { ApiRequestGarageBody } from './ApiRequestGarageBody';
+import { ApiReturn } from './ApiReturn';
 
-// eslint-disable-next-line import/prefer-default-export
-export { ApiRequestGarageBody };
+export { ApiRequestGarageBody, ApiReturn };
