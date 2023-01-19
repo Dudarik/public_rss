@@ -2,6 +2,8 @@ import { Store } from './ts/interfaces/store';
 
 export const store: Store = {
   cars: [],
+  controls: {},
+  renderPosition: {},
   inGame: false,
   totalCarsCount: 0,
   currentGaragePage: 0,
