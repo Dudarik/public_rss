@@ -1,7 +1,7 @@
 import './assets/scss/main.scss';
 
 import { store } from './store';
-import { carLine, footer, header, main } from './ts/components';
+import { footer, header, main } from './ts/components';
 import { initStore } from './ts/lib';
 import { garagePage } from './ts/pages/garage/garagePage';
 
@@ -10,8 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   console.log(store);
 
-  const carLinesHTML = store.cars.map((car) => carLine(car));
-  const garageHTML = garagePage(carLinesHTML);
+  const garageHTML = garagePage([]);
 
   document.body.append(header());
   document.body.append(main([garageHTML]));

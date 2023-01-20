@@ -1,27 +1,23 @@
 import { store } from '../../../store';
-import carLineTPL from '../../../templates/carLine.html';
+import { BtnTypes } from '../../enums';
 import { Car } from '../../interfaces/cars';
 import { createHtmlElementFromTpl } from '../../lib/createHtmlElement';
-import {
-  handlerRemoveCarBtnClick,
-  handlerSelectCarBtnClick,
-  handlerStartOneCarBtnClick,
-  handlerStopOneCarBtnClick,
-} from '../../lib/handlers';
 import { createButton } from '../button/button';
+
+import carLineTPL from '../../../templates/carLine.html';
 import './carLine.scss';
 
-export const createControlButtons = (id: number) => {
-  store.controls[id].select = createButton(handlerSelectCarBtnClick, 'Select', id);
-  store.controls[id].remove = createButton(handlerRemoveCarBtnClick, 'Remove', id);
-  store.controls[id].start = createButton(handlerStartOneCarBtnClick, 'Start', id);
-  store.controls[id].stop = createButton(handlerStopOneCarBtnClick, 'Stop', id);
+export const createControlButtons = (carId: number) => {
+  store.controls[carId].select = createButton('Select', { btnType: BtnTypes.BtnSelectOne, carId });
+  store.controls[carId].remove = createButton('Remove', { btnType: BtnTypes.BtnRemoveOne, carId });
+  store.controls[carId].start = createButton('Start', { btnType: BtnTypes.BtnStartOne, carId });
+  store.controls[carId].reset = createButton('Reset', { btnType: BtnTypes.BtnResetOne, carId });
 
   return [
-    <Node>store.controls[id].select,
-    <Node>store.controls[id].remove,
-    <Node>store.controls[id].start,
-    <Node>store.controls[id].stop,
+    <Node>store.controls[carId].select,
+    <Node>store.controls[carId].remove,
+    <Node>store.controls[carId].start,
+    <Node>store.controls[carId].reset,
   ];
 };
 

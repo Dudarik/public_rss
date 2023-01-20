@@ -13,7 +13,7 @@ export interface Store {
       select: HTMLButtonElement | null;
       start: HTMLButtonElement | null;
       remove: HTMLButtonElement | null;
-      stop: HTMLButtonElement | null;
+      reset: HTMLButtonElement | null;
     };
   };
   renderPosition: {
