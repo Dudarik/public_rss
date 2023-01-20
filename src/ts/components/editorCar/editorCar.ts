@@ -10,6 +10,7 @@ export const editorCar = (elems?: HTMLElement[]) => {
   const inputEdit = editorTpl.querySelector('#inputEdit');
   const inputColorCreate = editorTpl.querySelector('#inputColorCreate');
   const inputColorEdit = editorTpl.querySelector('#inputColorEdit');
+  const btnEditorUpdate = editorTpl.querySelector('#btnEditorUpdate');
 
   if (!(inputCreate instanceof HTMLInputElement) || !(inputEdit instanceof HTMLInputElement))
     throw new Error(`Can't find input for editor`);
@@ -20,10 +21,14 @@ export const editorCar = (elems?: HTMLElement[]) => {
   )
     throw new Error(`Can't find inputColor for editor`);
 
+  if (!(btnEditorUpdate instanceof HTMLButtonElement))
+    throw new Error(`Can't find Update button for editor`);
+
   store.editorCar.formInputCreate = inputCreate;
   store.editorCar.formInputEdit = inputEdit;
   store.editorCar.inputColorCreate = inputColorCreate;
   store.editorCar.inputColorEdit = inputColorEdit;
+  store.editorCar.btnEditorUpdate = btnEditorUpdate;
 
   if (elems && elems.length > 0) editorTpl.append(...elems);
 

@@ -22,6 +22,7 @@ export interface Store {
     formInputEdit: HTMLInputElement | null;
     inputColorCreate: HTMLInputElement | null;
     inputColorEdit: HTMLInputElement | null;
+    btnEditorUpdate: HTMLButtonElement | null;
   };
   renderPosition: {
     [id: number]: number;

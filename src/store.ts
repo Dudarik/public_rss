@@ -10,6 +10,7 @@ export const store: Store = {
     formInputEdit: null,
     inputColorCreate: null,
     inputColorEdit: null,
+    btnEditorUpdate: null,
   },
   controls: {},
   renderPosition: {},
