@@ -3,4 +3,7 @@ export enum BtnTypes {
   BtnRemoveOne = 'BtnRemoveOne',
   BtnResetOne = 'BtnResetOne',
   BtnSelectOne = 'BtnSelectOne',
+  // BtnCreateCar = 'BtnCreateCar',
+  // BtnSaveEdit = 'BtnSaveEdit',
+  // BtnAdd100Cars = 'BtnAdd100Cars',
 }

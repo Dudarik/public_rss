@@ -4,6 +4,13 @@ export const store: Store = {
   cars: [],
   carsRace: {},
   carsHTML: {},
+  editorCar: {
+    carEditId: -1,
+    formInputCreate: null,
+    formInputEdit: null,
+    inputColorCreate: null,
+    inputColorEdit: null,
+  },
   controls: {},
   renderPosition: {},
   inGame: false,

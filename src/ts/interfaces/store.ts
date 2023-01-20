@@ -16,6 +16,13 @@ export interface Store {
       reset: HTMLButtonElement | null;
     };
   };
+  editorCar: {
+    carEditId: number;
+    formInputCreate: HTMLInputElement | null;
+    formInputEdit: HTMLInputElement | null;
+    inputColorCreate: HTMLInputElement | null;
+    inputColorEdit: HTMLInputElement | null;
+  };
   renderPosition: {
     [id: number]: number;
   };

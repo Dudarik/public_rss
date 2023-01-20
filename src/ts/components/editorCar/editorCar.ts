@@ -1,0 +1,31 @@
+import { store } from '../../../store';
+import editorTPL from '../../../templates/editorCar.html';
+import { createHtmlElementFromTpl } from '../../lib';
+import './editorCar.scss';
+
+export const editorCar = (elems?: HTMLElement[]) => {
+  const editorTpl = createHtmlElementFromTpl(editorTPL);
+
+  const inputCreate = editorTpl.querySelector('#inputCreate');
+  const inputEdit = editorTpl.querySelector('#inputEdit');
+  const inputColorCreate = editorTpl.querySelector('#inputColorCreate');
+  const inputColorEdit = editorTpl.querySelector('#inputColorEdit');
+
+  if (!(inputCreate instanceof HTMLInputElement) || !(inputEdit instanceof HTMLInputElement))
+    throw new Error(`Can't find input for editor`);
+
+  if (
+    !(inputColorCreate instanceof HTMLInputElement) ||
+    !(inputColorEdit instanceof HTMLInputElement)
+  )
+    throw new Error(`Can't find inputColor for editor`);
+
+  store.editorCar.formInputCreate = inputCreate;
+  store.editorCar.formInputEdit = inputEdit;
+  store.editorCar.inputColorCreate = inputColorCreate;
+  store.editorCar.inputColorEdit = inputColorEdit;
+
+  if (elems && elems.length > 0) editorTpl.append(...elems);
+
+  return editorTpl;
+};

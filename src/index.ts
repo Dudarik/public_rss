@@ -1,7 +1,8 @@
 import './assets/scss/main.scss';
 
 import { store } from './store';
-import { footer, header, main } from './ts/components';
+import { footer, header } from './ts/components';
+import { main } from './ts/components/main/main';
 import { initStore } from './ts/lib';
 import { garagePage } from './ts/pages/garage/garagePage';
 
@@ -10,7 +11,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   console.log(store);
 
-  const garageHTML = garagePage([]);
+  const garageHTML = garagePage();
 
   document.body.append(header());
   document.body.append(main([garageHTML]));
