@@ -1,5 +1,6 @@
 import { store } from '../../../store';
 import { animation } from '../animation';
+import { disabledCarBtns } from '../disabledCarBtns';
 
 export const handlerStartOneCarBtnClick = (event: Event) => {
   const { target } = event;
@@ -9,40 +10,14 @@ export const handlerStartOneCarBtnClick = (event: Event) => {
   const ufo = document.querySelector(`#ufo-${target.dataset.carId}`);
 
   if (!(ufo instanceof HTMLElement)) throw new Error('err');
-  const carId = target.dataset.carId as unknown as number;
-  store.carsRace[carId] = true;
-  animation(ufo, 10000);
+  const { carId } = target.dataset;
 
-  // console.log(element);
-  // let start: number;
-  // let previousTimeStamp: number;
+  if (carId) {
+    const id = parseInt(carId, 10);
+    disabledCarBtns(id);
 
-  // let done = false;
+    store.carsRace[id] = true;
 
-  // function step(timestamp: number) {
-  //   if (start === undefined) {
-  //     start = timestamp;
-  //   }
-  //   const elapsed = timestamp - start;
-
-  //   if (!(element instanceof HTMLElement)) throw new Error('err');
-
-  //   if (previousTimeStamp !== timestamp) {
-  //     // Math.min() is used here to make sure the element stops at exactly 200px
-  //     const count = Math.min(0.1 * elapsed, 200);
-  //     element.style.transform = `translateX(${count}px)`;
-  //     if (count === 200) done = true;
-  //   }
-
-  //   if (elapsed < 2000) {
-  //     // Stop the animation after 2 seconds
-  //     previousTimeStamp = timestamp;
-  //     if (!done) {
-  //       window.requestAnimationFrame(step);
-  //     }
-  //   }
-  // }
-
-  // window.requestAnimationFrame(step);
-  // console.log(event.target);
+    animation(ufo, 10000);
+  }
 };

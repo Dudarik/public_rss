@@ -1,4 +1,5 @@
 import { store } from '../../../store';
+import { enabledCarBtns } from '../enabledCarBtns';
 
 export const handlerStopOneCarBtnClick = (event: Event) => {
   const { target } = event;
@@ -8,11 +9,14 @@ export const handlerStopOneCarBtnClick = (event: Event) => {
   const { carId } = target.dataset;
 
   if (carId) {
-    store.carsRace[parseInt(carId, 10)] = false;
+    const id = parseInt(carId, 10);
+    store.carsRace[id] = false;
 
     setTimeout(() => {
-      store.carsHTML[parseInt(carId, 10)].style.transform = `translate(0)`;
+      store.carsHTML[id].style.transform = `translate(0)`;
     }, 50);
+
+    enabledCarBtns(id);
   }
 
   console.log('StopOneCar click');
