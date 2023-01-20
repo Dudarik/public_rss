@@ -3,16 +3,18 @@ import './assets/scss/main.scss';
 import { store } from './store';
 import { carLine, footer, header, main } from './ts/components';
 import { initStore } from './ts/lib/initStore';
+import { garagePage } from './ts/pages/garage/garagePage';
 
 document.addEventListener('DOMContentLoaded', async () => {
   await initStore();
 
   console.log(store);
 
-  const carLines = store.cars.map((car) => carLine(car));
+  const carLinesHTML = store.cars.map((car) => carLine(car));
+  const garageHTML = garagePage(carLinesHTML);
 
   document.body.append(header());
-  document.body.append(main([...carLines]));
+  document.body.append(main([garageHTML]));
   document.body.append(footer());
 });
 

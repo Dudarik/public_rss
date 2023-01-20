@@ -31,11 +31,15 @@ export const carLine = (car: Car, elems?: Element[]) => {
   const img = carLineTpl.querySelector('#car_img');
   const carName = carLineTpl.querySelector('#car_name');
   const carlineControls = carLineTpl.querySelector('#carline_controls');
+  const ufo = carLineTpl.querySelector('#ufo');
 
   if (!(img instanceof SVGElement)) throw new Error("can't find SVG picture");
   if (!(carName instanceof HTMLDivElement)) throw new Error("can't find DIV element for carname");
   if (!(carlineControls instanceof HTMLDivElement))
     throw new Error("can't find DIV element for car controls");
+  if (!(ufo instanceof HTMLDivElement)) throw new Error("can't find DIV element for ufo");
+
+  ufo.setAttribute('id', `ufo-${car.id}`);
 
   carlineControls.append(...createControlButtons(car.id));
 
