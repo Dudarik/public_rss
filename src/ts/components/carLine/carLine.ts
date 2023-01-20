@@ -40,7 +40,7 @@ export const carLine = (car: Car, elems?: Element[]) => {
   if (!(ufo instanceof HTMLDivElement)) throw new Error("can't find DIV element for ufo");
 
   ufo.setAttribute('id', `ufo-${car.id}`);
-
+  ufo.dataset.carId = car.id.toString();
   store.carsHTML[car.id] = ufo;
 
   carlineControls.append(...createControlButtons(car.id));

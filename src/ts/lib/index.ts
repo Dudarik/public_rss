@@ -1,6 +1,15 @@
+import { initStore } from './initStore';
 import { createHtmlElementFromTpl } from './createHtmlElement';
 import { animation } from './animation';
 import { initButtonsInStore } from './initButtonsInStore';
 import { initCarsRace } from './initCarsRace';
+import { setCarsHtmlToStore } from './setCarsHtmlToStore';
 
-export { createHtmlElementFromTpl, animation, initButtonsInStore, initCarsRace };
+export {
+  initStore,
+  createHtmlElementFromTpl,
+  animation,
+  initButtonsInStore,
+  initCarsRace,
+  setCarsHtmlToStore,
+};

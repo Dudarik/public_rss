@@ -1,3 +1,4 @@
+import { store } from '../../../store';
 import { animation } from '../animation';
 
 export const handlerStartOneCarBtnClick = (event: Event) => {
@@ -8,7 +9,8 @@ export const handlerStartOneCarBtnClick = (event: Event) => {
   const ufo = document.querySelector(`#ufo-${target.dataset.carId}`);
 
   if (!(ufo instanceof HTMLElement)) throw new Error('err');
-
+  const carId = target.dataset.carId as unknown as number;
+  store.carsRace[carId] = true;
   animation(ufo, 10000);
 
   // console.log(element);

@@ -2,7 +2,7 @@ import './assets/scss/main.scss';
 
 import { store } from './store';
 import { carLine, footer, header, main } from './ts/components';
-import { initStore } from './ts/lib/initStore';
+import { initStore } from './ts/lib';
 import { garagePage } from './ts/pages/garage/garagePage';
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.body.append(header());
   document.body.append(main([garageHTML]));
   document.body.append(footer());
+  // setCarsHtmlToStore();
 });
 
 // import { ApiReturn } from './ts/types/api';
