@@ -3,7 +3,12 @@ import { Car } from './cars';
 export interface Store {
   cars: Car[];
   controls: {
-    [id: number]: HTMLElement[];
+    [id: number]: {
+      select: HTMLButtonElement | null;
+      start: HTMLButtonElement | null;
+      remove: HTMLButtonElement | null;
+      stop: HTMLButtonElement | null;
+    };
   };
   renderPosition: {
     [id: number]: number;
