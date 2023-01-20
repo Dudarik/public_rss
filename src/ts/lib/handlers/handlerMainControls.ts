@@ -1,4 +1,5 @@
 import { BtnTypes } from '../../enums';
+import { handlerGen100CarsClick } from './handlerGen100CarsClick';
 import { handlerRemoveCarBtnClick } from './handlerRemoveCarBtnClick';
 import { handlerSelectCarBtnClick } from './handlerSelectCarBtnClick';
 
@@ -23,6 +24,9 @@ export const handlerMainControls = (event: Event) => {
         break;
       case BtnTypes.BtnSelectOne:
         handlerSelectCarBtnClick(event);
+        break;
+      case BtnTypes.BtnAdd100Cars:
+        handlerGen100CarsClick(event);
         break;
       default:
         break;
