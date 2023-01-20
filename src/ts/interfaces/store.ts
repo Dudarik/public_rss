@@ -2,6 +2,12 @@ import { Car } from './cars';
 
 export interface Store {
   cars: Car[];
+  carsRace: {
+    [id: number]: boolean;
+  };
+  carsHTML: {
+    [id: number]: HTMLDivElement;
+  };
   controls: {
     [id: number]: {
       select: HTMLButtonElement | null;

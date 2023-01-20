@@ -41,6 +41,8 @@ export const carLine = (car: Car, elems?: Element[]) => {
 
   ufo.setAttribute('id', `ufo-${car.id}`);
 
+  store.carsHTML[car.id] = ufo;
+
   carlineControls.append(...createControlButtons(car.id));
 
   img.setAttribute('fill', car.color);
