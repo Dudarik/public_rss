@@ -1,14 +1,26 @@
 <form id="editorForm">
-  <input type="text" name="" id="inputCreate" /><input type="color" id="inputColorCreate" /><button
-    class="btn"
-  >
+  <input
+    type="text"
+    class="input_text-editor"
+    id="inputCreate"
+    placeholder="Input car name"
+  /><input type="color" class="input_color-editor" id="inputColorCreate" /><button class="btn">
     Create
   </button>
-  <input type="text" name="" id="inputEdit" disabled /><input
-    type="color"
-    id="inputColorEdit"
+  <input
+    type="text"
+    class="input_text-editor"
+    id="inputEdit"
+    placeholder="Input car name"
     disabled
-  /><button class="btn" id="btnEditorUpdate" data-btn-type="BtnUpdateEdit" disabled>Update</button>
+  /><input type="color" class="input_color-editor" id="inputColorEdit" disabled /><button
+    class="btn"
+    id="btnEditorUpdate"
+    data-btn-type="BtnUpdateEdit"
+    disabled
+  >
+    Update
+  </button>
   <button class="btn" id="btnGenerate100" data-btn-type="BtnAdd100Cars">Generate 100</button>
   <button class="btn" id="btnStartRace" data-btn-type="BtnStartRace">Start</button>
   <button class="btn" id="btnResetRace" data-btn-type="BtnResetRace" disabled>Reset</button>

@@ -22,3 +22,26 @@
     box-shadow: inset 0px 0px 0px 1px #fd7b1b;
   }
 }
+.input_text-editor {
+  border: none;
+  border-radius: 0.3rem;
+  box-shadow: inset 0px 0px 0px 2px #536ce3;
+  font-size: 1.2rem;
+  padding: 0.2rem;
+  &:disabled {
+    background-color: #e0e5fa;
+    box-shadow: inset 0px 0px 0px 2px #758ef5;
+  }
+}
+
+.input_color-editor {
+  cursor: pointer;
+  border: none;
+  border-radius: 0.3rem;
+  box-shadow: inset 0px 0px 0px 2px #536ce3;
+  padding: 0.1rem;
+  font-size: 1.2rem;
+  &:disabled {
+    box-shadow: inset 0px 0px 0px 2px #e0e5fa;
+  }
+}
