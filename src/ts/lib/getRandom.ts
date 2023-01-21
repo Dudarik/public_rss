@@ -3,13 +3,13 @@ export const getRandomNum = (min: number, max: number) =>
 
 export const getRandomFromZero = (max: number) => getRandomNum(0, max);
 
-export const getRandomHexNum = () => parseInt(getRandomNum(0, 15).toString(), 16);
+export const getRandomHexNum = () => getRandomNum(0, 15);
 
 export const getRandomColor = () => {
   const cArr = ['#'];
 
   for (let i = 0; i < 6; i += 1) {
-    cArr.push(getRandomHexNum().toString());
+    cArr.push(getRandomHexNum().toString(16));
   }
   return cArr.join('');
 };
