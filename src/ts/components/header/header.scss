@@ -4,9 +4,16 @@
 
   min-height: 5rem;
 
-  background-color: greenyellow;
+  background-color: #536ce3;
+
+  color: white;
+  .logo {
+    display: flex;
+    align-items: center;
+  }
 
   .main_title {
     text-transform: uppercase;
+    font-family: 'Impact';
   }
 }

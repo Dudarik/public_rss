@@ -3,7 +3,7 @@ export const getRandomNum = (min: number, max: number) =>
 
 export const getRandomFromZero = (max: number) => getRandomNum(0, max);
 
-export const getRandomHexNum = () => getRandomNum(0, 15);
+export const getRandomHexNum = () => getRandomNum(0, 14);
 
 export const getRandomColor = () => {
   const cArr = ['#'];
