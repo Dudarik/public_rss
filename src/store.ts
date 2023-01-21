@@ -3,6 +3,7 @@ import { Store } from './ts/interfaces/store';
 export const store: Store = {
   cars: [],
   countCars: 0,
+  carsRaceTime: {},
   carsRace: {},
   carsHTML: {},
   editorCar: {

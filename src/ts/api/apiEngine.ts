@@ -1,4 +1,5 @@
 /* eslint-disable import/prefer-default-export */
+import { store } from '../../store';
 import { ApiEngineStatus } from '../enums/api';
 import { api } from './api';
 import { ENGINE_URL } from './config';
@@ -12,16 +13,24 @@ export const startStopEngine = async (id: number, engineStatus: ApiEngineStatus)
 
   try {
     // console.log(id);
+
     return await api.patch(carsUrlQueryString, body).then((p) => p.json());
   } catch (error) {
-    console.log(id, error);
-    return console.log('');
-    // Promise.reject(new Error(`Can't start or stop or drive`));
+    if (error instanceof Error) {
+      // console.log(id, error.message);
+      if (error.message === '500') store.carsRace[id] = false;
+    }
   }
+
+  return id;
+  // Promise.reject(new Error(`Can't start or stop or drive`));
 };
 
 export const startEngine = (id: number) => startStopEngine(id, ApiEngineStatus.Started);
 
 export const stopEngine = (id: number) => startStopEngine(id, ApiEngineStatus.Stopped);
 
-export const driveCar = (id: number) => startStopEngine(id, ApiEngineStatus.Drive);
+export const driveCar = async (id: number) => {
+  await startStopEngine(id, ApiEngineStatus.Drive);
+  return id;
+};

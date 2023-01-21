@@ -3,6 +3,9 @@ import { Car } from './cars';
 export interface Store {
   cars: Car[];
   countCars: number;
+  carsRaceTime: {
+    [id: number]: number;
+  };
   carsRace: {
     [id: number]: boolean;
   };

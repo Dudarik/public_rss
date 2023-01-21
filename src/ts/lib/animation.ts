@@ -3,7 +3,6 @@ import { store } from '../../store';
 /* eslint-disable no-param-reassign */
 export const animation = (elem: HTMLElement, duration: number) => {
   const start = performance.now();
-  console.log(elem);
 
   let carId = -1;
   if (elem.dataset.carId !== undefined) carId = parseInt(elem.dataset.carId, 10);
