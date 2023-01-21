@@ -1,19 +1,69 @@
 .header {
-  display: flex;
-  flex-direction: row;
-
   min-height: 5rem;
 
   background-color: #536ce3;
 
   color: white;
-  .logo {
+  .container {
     display: flex;
-    align-items: center;
-  }
 
-  .main_title {
-    text-transform: uppercase;
-    font-family: 'Impact';
+    align-items: center;
+    justify-content: flex-start;
+
+    min-height: 5rem;
+
+    max-width: 1600px;
+    margin: 0 auto;
+
+    svg {
+      fill: #647df4;
+    }
+    .alien {
+      fill: #647df4;
+      animation: 11s alien_anim infinite;
+    }
+    .header_link {
+      color: white;
+      text-decoration: none;
+      &:visited {
+        color: white;
+      }
+      &:hover {
+        color: white;
+      }
+      &:active {
+        color: white;
+      }
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .main_title {
+      text-transform: uppercase;
+      font-family: 'Impact';
+    }
+  }
+}
+@keyframes alien_anim {
+  0% {
+    fill: #647df4;
+  }
+  80% {
+    fill: #647df4;
+  }
+  85% {
+    fill: #00ff00;
+  }
+  90% {
+    fill: #647df4;
+  }
+  95% {
+    fill: #00ff00;
+  }
+  100% {
+    fill: #647df4;
   }
 }

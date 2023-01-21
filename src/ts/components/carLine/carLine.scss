@@ -1,4 +1,14 @@
 .carline {
   background-color: white;
   border-bottom: 0.2rem dashed #536ce3;
+  .wrapper_controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    .car_name {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fd7b1b;
+    }
+  }
 }
