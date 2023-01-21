@@ -1,3 +1,3 @@
 export interface ApiRequestBody {
-  [s: string]: string;
+  [s: string]: string | number;
 }

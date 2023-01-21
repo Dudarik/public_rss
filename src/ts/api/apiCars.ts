@@ -72,7 +72,8 @@ export const updateCar = async (car: Car) => {
     method: ApiMethod.Put,
   };
 
-  const requestBody: ApiRequestBody = { name: car.name, color: car.color, id: car.id.toString() };
+  const { name, color, id } = car;
+  const requestBody: ApiRequestBody = { name, color, id };
 
   let updCar: Car = {
     id: -1,
