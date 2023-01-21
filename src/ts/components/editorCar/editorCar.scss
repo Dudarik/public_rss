@@ -1,0 +1,9 @@
+.wrapper_controls {
+  display: flex;
+  align-items: center;
+  border: 1px dotted green;
+  gap: 1rem;
+  .car_name {
+    font-size: 1.5rem;
+  }
+}

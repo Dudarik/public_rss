@@ -1,0 +1,24 @@
+.btn {
+  background-color: #ebf1ff;
+  text-transform: uppercase;
+
+  font-weight: bold;
+  min-width: 4rem;
+
+  color: #2b3395;
+  transition: all 0.5s;
+  &:disabled {
+    color: rgba(51, 59, 155, 0.5);
+  }
+  &:hover {
+    background-color: white;
+    color: #fd7b1b;
+    box-shadow: inset 0px 0px 0px 2px #fd7b1b;
+  }
+
+  &:hover:disabled {
+    color: rgba(51, 59, 155, 0.5);
+    background-color: #ebf1ff;
+    box-shadow: inset 0px 0px 0px 1px #fd7b1b;
+  }
+}
