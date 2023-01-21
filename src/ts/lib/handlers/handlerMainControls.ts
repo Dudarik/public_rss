@@ -4,6 +4,7 @@ import { handlerRemoveCarBtnClick } from './handlerRemoveCarBtnClick';
 import { handlerSelectCarBtnClick } from './handlerSelectCarBtnClick';
 
 import { handlerStartOneCarBtnClick } from './handlerStartOneCarBtnClick';
+import { handlerStartRaceBtnClick } from './handlerStartRaceBtnClick';
 import { handlerStopOneCarBtnClick } from './handlerStopOneCarBtnClick';
 
 export const handlerMainControls = (event: Event) => {
@@ -27,6 +28,9 @@ export const handlerMainControls = (event: Event) => {
         break;
       case BtnTypes.BtnAdd100Cars:
         handlerGen100CarsClick(event);
+        break;
+      case BtnTypes.BtnStartRace:
+        handlerStartRaceBtnClick(event);
         break;
       default:
         break;

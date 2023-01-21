@@ -11,11 +11,12 @@ export const startStopEngine = async (id: number, engineStatus: ApiEngineStatus)
   };
 
   try {
-    console.log(id);
-    return await api.patch(carsUrlQueryString, body);
+    // console.log(id);
+    return await api.patch(carsUrlQueryString, body).then((p) => p.json());
   } catch (error) {
     console.log(id, error);
-    return Promise.reject(new Error(`Can't start or stop or drive`));
+    return console.log('');
+    // Promise.reject(new Error(`Can't start or stop or drive`));
   }
 };
 

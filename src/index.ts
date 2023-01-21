@@ -1,6 +1,7 @@
 import './assets/scss/main.scss';
 
 import { store } from './store';
+// import { driveCar, startEngine } from './ts/api/apiEngine';
 import { footer, header } from './ts/components';
 import { main } from './ts/components/main/main';
 import { initStore } from './ts/lib';
@@ -18,6 +19,28 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.body.append(footer());
   // setCarsHtmlToStore();
 });
+// async function fn() {
+//   try {
+//     const r = await startEngine(1).then((d) => d);
+//     console.log(r);
+//     const arrSt = await Promise.all([
+//       startEngine(1),
+//       startEngine(2),
+//       startEngine(3),
+//       startEngine(4),
+//     ]);
+//     console.log(arrSt);
+//     // const arrDr = await Promise.allSettled([driveCar(1), driveCar(2), driveCar(3), driveCar(4)]);
+//     const arrDr = await Promise.allSettled([driveCar(1), driveCar(2), driveCar(3), driveCar(4)]);
+//     console.log(arrDr);
+//     // setInterval(async () => {
+//     //   console.log(await arrDr);
+//     // }, 1000);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+// fn();
 
 // import { ApiReturn } from './ts/types/api';
 // import { GARAGE_URL } from './ts/api/config';
