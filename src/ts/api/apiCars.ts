@@ -14,11 +14,22 @@ export const getCars = async (page: number, limit: number) => {
 
   let cars: Car[] = [];
 
-  const request = await api.get(carsUrlQueryString, customConfig);
+  const response = await api.get(carsUrlQueryString, customConfig);
 
-  if (Array.isArray(request)) cars = Array.from(request);
+  const hCountCars = response.headers.get('X-Total-Count');
 
-  return cars;
+  let countCars = 0;
+
+  if (hCountCars) countCars = parseInt(hCountCars, 10);
+
+  const data = await response.json();
+
+  if (Array.isArray(data)) cars = Array.from(data);
+
+  return {
+    countCars,
+    cars,
+  };
 };
 
 export const getCar = async (id: number) => {

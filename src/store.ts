@@ -2,6 +2,7 @@ import { Store } from './ts/interfaces/store';
 
 export const store: Store = {
   cars: [],
+  countCars: 0,
   carsRace: {},
   carsHTML: {},
   editorCar: {
@@ -15,7 +16,6 @@ export const store: Store = {
   controls: {},
   renderPosition: {},
   inGame: false,
-  totalCarsCount: 0,
   currentGaragePage: 0,
   currentWinnersPage: 0,
   winnersTable: [],

@@ -4,7 +4,9 @@ import { initButtonsInStore } from './initButtonsInStore';
 import { initCarsRace } from './initCarsRace';
 
 export const initStore = async () => {
-  store.cars = await getCars(0, 7);
+  const { cars, countCars } = await getCars(0, 7);
+  store.cars = cars;
+  store.countCars = countCars;
   initCarsRace();
   initButtonsInStore();
 };

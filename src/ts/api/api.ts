@@ -28,9 +28,12 @@ const api = async (url: string, apiConfig: ApiCustomConfig): Promise<Response> =
   try {
     const response = await fetch(url, config);
 
+    // const responseHeaders = {
+    //   count: response.headers.get('X-Total-Count'),
+    // };
     if (!response.ok) throw new Error(response.status.toString());
 
-    return await response.json();
+    return response;
   } catch (error) {
     if (error instanceof Error) return Promise.reject(error);
     return Promise.reject(new Error('Cant resolve promise'));
@@ -38,8 +41,9 @@ const api = async (url: string, apiConfig: ApiCustomConfig): Promise<Response> =
   // return Promise.reject(new Error('Cant resolve promise'));
 };
 
-api.get = function get(url: string, customConfig = {}) {
-  return api(url, customConfig);
+api.get = async function get(url: string, customConfig = {}) {
+  const resp = await api(url, customConfig);
+  return resp;
 };
 
 api.post = function post(url: string, body: ApiRequestBody, customConfig = {}) {

@@ -2,6 +2,7 @@ import { Car } from './cars';
 
 export interface Store {
   cars: Car[];
+  countCars: number;
   carsRace: {
     [id: number]: boolean;
   };
@@ -28,7 +29,6 @@ export interface Store {
     [id: number]: number;
   };
   inGame: boolean;
-  totalCarsCount: number;
   currentGaragePage: number;
   currentWinnersPage: number;
   winnersTable: Car[];
