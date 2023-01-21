@@ -1,7 +1,10 @@
 import { store } from '../../store';
 import { driveCar, startEngine } from '../api/apiEngine';
+import { createWinner, getWinner, updateWinner } from '../api/apiWinners';
+
 import { ApiResponseStart } from '../interfaces/api/ApiResponseStart';
 import { animation } from './animation';
+import { msToSec } from './msToSec';
 
 export const startRace = async () => {
   try {
@@ -21,8 +24,27 @@ export const startRace = async () => {
 
     const winnerId = await Promise.any(requestDrive);
 
-    console.log(winnerId, store.carsRaceTime[winnerId]);
+    const winner = await getWinner(winnerId);
 
+    const currWinTime = msToSec(store.carsRaceTime[winnerId]);
+
+    // console.log('winid', winnerId, currWinTime, winner.time, winner.wins);
+
+    if (winner.id === -1) {
+      const newWinner = { wins: 1, time: currWinTime };
+      await createWinner(newWinner);
+    } else {
+      winner.wins += 1;
+
+      if (winner.time > currWinTime) {
+        winner.time = currWinTime;
+      }
+      await updateWinner(winner);
+    }
+
+    // console.log(await getWinners(0, 10, ApiSortWinners.Id, ApiSortWinnersOrder.Asc));
+    // console.log(winnerId, store.carsRaceTime[winnerId]);
+    // console.log('winid', winnerId, currWinTime, winner.time, winner.wins);
     return requestDrive;
   } catch (error) {
     if (error instanceof Error) return Promise.reject(error);

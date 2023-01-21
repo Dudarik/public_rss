@@ -19,6 +19,7 @@ export const startStopEngine = async (id: number, engineStatus: ApiEngineStatus)
     if (error instanceof Error) {
       // console.log(id, error.message);
       if (error.message === '500') store.carsRace[id] = false;
+      return Promise.reject();
     }
   }
 
@@ -31,6 +32,9 @@ export const startEngine = (id: number) => startStopEngine(id, ApiEngineStatus.S
 export const stopEngine = (id: number) => startStopEngine(id, ApiEngineStatus.Stopped);
 
 export const driveCar = async (id: number) => {
-  await startStopEngine(id, ApiEngineStatus.Drive);
-  return id;
+  const p = await startStopEngine(id, ApiEngineStatus.Drive);
+
+  if (p.success) return id;
+
+  return p;
 };

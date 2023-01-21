@@ -6,6 +6,7 @@ import { initCarsRace } from './initCarsRace';
 import { setCarsHtmlToStore } from './setCarsHtmlToStore';
 import { disabledCarBtns } from './disabledCarBtns';
 import { enabledCarBtns } from './enabledCarBtns';
+import { msToSec } from './msToSec';
 
 export {
   initStore,
@@ -16,4 +17,5 @@ export {
   setCarsHtmlToStore,
   disabledCarBtns,
   enabledCarBtns,
+  msToSec,
 };

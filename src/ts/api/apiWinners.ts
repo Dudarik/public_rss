@@ -38,13 +38,26 @@ export const getWinners = async (
 
 export const getWinner = async (id: number) => {
   const winUrlQueryString = `${WINNERS_URL}/${id}`;
-  const request = await api.get(winUrlQueryString);
 
-  if (!request) throw new Error(`Can't get winner with id=${id}`);
+  let winner: Winner = {
+    id: -1,
+    wins: 0,
+    time: 0,
+  };
 
-  const car: Winner = Object(request);
+  try {
+    const request = await api.get(winUrlQueryString).then((w) => w.json());
 
-  return car;
+    winner = Object(request);
+  } catch (error) {
+    return winner;
+  }
+
+  // if (!request) throw new Error(`Can't get winner with id=${id}`);
+
+  // if (!request) return winner;
+
+  return winner;
 };
 
 export const createWinner = async (winner: Omit<Winner, 'id'>) => {
@@ -77,7 +90,7 @@ export const updateWinner = async (winner: Winner) => {
   };
   const { wins, time, id } = winner;
 
-  const requestBody: ApiRequestBody = { wins, time, id };
+  const requestBody: ApiRequestBody = { id, wins, time };
 
   let updWinner: Winner = {
     id: 0,
