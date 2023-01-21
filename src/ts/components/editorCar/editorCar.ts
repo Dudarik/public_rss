@@ -1,6 +1,7 @@
 import { store } from '../../../store';
 import editorTPL from '../../../templates/editorCar.html';
 import { createHtmlElementFromTpl } from '../../lib';
+import { infoAndNav } from '../infoAndNav/infoAndNav';
 import './editorCar.scss';
 
 export const editorCar = (elems?: HTMLElement[]) => {
@@ -31,6 +32,10 @@ export const editorCar = (elems?: HTMLElement[]) => {
   store.editorCar.btnEditorUpdate = btnEditorUpdate;
 
   if (elems && elems.length > 0) editorTpl.append(...elems);
+
+  const infoAndNavHTML = infoAndNav();
+
+  editorTpl.append(infoAndNavHTML);
 
   return editorTpl;
 };
