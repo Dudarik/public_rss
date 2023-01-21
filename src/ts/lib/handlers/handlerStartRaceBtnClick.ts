@@ -1,12 +1,21 @@
+import { store } from '../../../store';
+import { disabledCarBtns } from '../disabledCarBtns';
 import { startRace } from '../startRace';
 
 export const handlerStartRaceBtnClick = async (event: Event) => {
   event.preventDefault();
-  const { target } = event;
+  // const { target } = event;
 
-  if (!(target instanceof HTMLButtonElement)) throw new Error(`Can't find Start button`);
+  // if (!(target instanceof HTMLButtonElement)) throw new Error(`Can't find Start button`);
 
-  target.setAttribute('disabled', 'disabled');
+  // target.setAttribute('disabled', 'disabled');
+  store.editorCar.btnStartRace?.setAttribute('disabled', 'disabled');
+  store.editorCar.btnResetRace?.removeAttribute('disabled');
+
+  store.cars.forEach((car) => {
+    disabledCarBtns(car.id);
+  });
+
   await startRace();
   console.log('StartRace click');
 };

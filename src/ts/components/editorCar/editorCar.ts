@@ -4,14 +4,14 @@ import { createHtmlElementFromTpl } from '../../lib';
 import { infoAndNav } from '../infoAndNav/infoAndNav';
 import './editorCar.scss';
 
-export const editorCar = (elems?: HTMLElement[]) => {
-  const editorTpl = createHtmlElementFromTpl(editorTPL);
-
-  const inputCreate = editorTpl.querySelector('#inputCreate');
-  const inputEdit = editorTpl.querySelector('#inputEdit');
-  const inputColorCreate = editorTpl.querySelector('#inputColorCreate');
-  const inputColorEdit = editorTpl.querySelector('#inputColorEdit');
-  const btnEditorUpdate = editorTpl.querySelector('#btnEditorUpdate');
+const setBtnElemetsToStore = (elem: Element) => {
+  const inputCreate = elem.querySelector('#inputCreate');
+  const inputEdit = elem.querySelector('#inputEdit');
+  const inputColorCreate = elem.querySelector('#inputColorCreate');
+  const inputColorEdit = elem.querySelector('#inputColorEdit');
+  const btnEditorUpdate = elem.querySelector('#btnEditorUpdate');
+  const btnStartRace = elem.querySelector('#btnStartRace');
+  const btnResetRace = elem.querySelector('#btnResetRace');
 
   if (!(inputCreate instanceof HTMLInputElement) || !(inputEdit instanceof HTMLInputElement))
     throw new Error(`Can't find input for editor`);
@@ -25,17 +25,28 @@ export const editorCar = (elems?: HTMLElement[]) => {
   if (!(btnEditorUpdate instanceof HTMLButtonElement))
     throw new Error(`Can't find Update button for editor`);
 
+  if (!(btnStartRace instanceof HTMLButtonElement) || !(btnResetRace instanceof HTMLButtonElement))
+    throw new Error(`Can't find Start or Reset button for editor`);
+
   store.editorCar.formInputCreate = inputCreate;
   store.editorCar.formInputEdit = inputEdit;
   store.editorCar.inputColorCreate = inputColorCreate;
   store.editorCar.inputColorEdit = inputColorEdit;
   store.editorCar.btnEditorUpdate = btnEditorUpdate;
+  store.editorCar.btnStartRace = btnStartRace;
+  store.editorCar.btnResetRace = btnResetRace;
+};
+
+export const editorCar = (elems?: HTMLElement[]) => {
+  const editorTpl = createHtmlElementFromTpl(editorTPL);
 
   if (elems && elems.length > 0) editorTpl.append(...elems);
 
   const infoAndNavHTML = infoAndNav();
 
   editorTpl.append(infoAndNavHTML);
+
+  setBtnElemetsToStore(editorTpl);
 
   return editorTpl;
 };

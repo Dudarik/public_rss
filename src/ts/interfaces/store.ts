@@ -27,6 +27,8 @@ export interface Store {
     inputColorCreate: HTMLInputElement | null;
     inputColorEdit: HTMLInputElement | null;
     btnEditorUpdate: HTMLButtonElement | null;
+    btnStartRace: HTMLButtonElement | null;
+    btnResetRace: HTMLButtonElement | null;
   };
   renderPosition: {
     [id: number]: number;

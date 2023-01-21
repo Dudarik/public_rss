@@ -9,4 +9,5 @@ export enum BtnTypes {
   BtnAdd100Cars = 'BtnAdd100Cars',
 
   BtnStartRace = 'BtnStartRace',
+  BtnResetRace = 'BtnResetRace',
 }

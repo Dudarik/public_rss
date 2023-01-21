@@ -47,7 +47,7 @@ export const startRace = async () => {
     // console.log('winid', winnerId, currWinTime, winner.time, winner.wins);
     return requestDrive;
   } catch (error) {
-    if (error instanceof Error) return Promise.reject(error);
+    if (error instanceof Error) return 'nobody wins';
     return Promise.reject(new Error('Cant resolve promise'));
   }
 };
