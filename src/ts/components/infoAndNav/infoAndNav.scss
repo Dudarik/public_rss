@@ -1,0 +1,13 @@
+.infoAndNav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  .info_title,
+  .info_Subtitle {
+    color: #fd7b1b;
+  }
+  .btns {
+    display: flex;
+    gap: 1rem;
+  }
+}
