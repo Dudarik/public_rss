@@ -10,7 +10,6 @@ export const handlerStartRaceBtnClick = async (event: Event) => {
 
   // target.setAttribute('disabled', 'disabled');
   store.editorCar.btnStartRace?.setAttribute('disabled', 'disabled');
-  store.editorCar.btnResetRace?.removeAttribute('disabled');
 
   store.cars.forEach((car) => {
     disabledCarBtns(car.id);

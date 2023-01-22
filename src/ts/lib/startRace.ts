@@ -21,6 +21,8 @@ export const startRace = async () => {
       paramId += 1;
     });
 
+    store.editorCar.btnResetRace?.removeAttribute('disabled');
+
     const requestDrive = store.cars.map((car) => driveCar(car.id));
 
     const winnerId = await Promise.any(requestDrive);
