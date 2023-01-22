@@ -16,12 +16,20 @@ export const store: Store = {
     btnEditorCreate: null,
     btnStartRace: null,
     btnResetRace: null,
+    btnGaragePrevPage: null,
+    btnGarageNextPage: null,
   },
   controls: {},
   renderPosition: {},
   inGame: false,
-  currentGaragePage: 0,
+
+  currentGaragePage: 1,
+  pagesCountGarage: 0,
+  carsPerPage: 7,
+
   currentWinnersPage: 0,
+  pagesCountWinner: 0,
+
   winnersTable: [],
   carsBrands: [
     'Chrysler',

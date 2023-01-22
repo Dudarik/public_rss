@@ -11,4 +11,7 @@ export enum BtnTypes {
 
   BtnStartRace = 'BtnStartRace',
   BtnResetRace = 'BtnResetRace',
+
+  BtnGaragePrevPage = 'BtnGaragePrevPage',
+  BtnGarageNextPage = 'BtnGarageNextPage',
 }

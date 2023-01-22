@@ -30,13 +30,21 @@ export interface Store {
     btnEditorCreate: HTMLButtonElement | null;
     btnStartRace: HTMLButtonElement | null;
     btnResetRace: HTMLButtonElement | null;
+    btnGaragePrevPage: HTMLButtonElement | null;
+    btnGarageNextPage: HTMLButtonElement | null;
   };
   renderPosition: {
     [id: number]: number;
   };
   inGame: boolean;
+
   currentGaragePage: number;
+  pagesCountGarage: number;
+  carsPerPage: number;
+
   currentWinnersPage: number;
+  pagesCountWinner: number;
+
   winnersTable: Car[];
   carsBrands: string[];
   carsModels: string[];
