@@ -1,6 +1,11 @@
 .carline {
   background-color: white;
   border-bottom: 0.2rem dashed #536ce3;
+  padding-left: 1rem;
+  padding-right: 3rem;
+  .ufo {
+    height: 60px;
+  }
   .wrapper_controls {
     display: flex;
     align-items: center;
