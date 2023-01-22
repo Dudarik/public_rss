@@ -1,5 +1,6 @@
 import { store } from '../../../store';
 import editorTPL from '../../../templates/editorCar.html';
+import { PropsInfoAndNav } from '../../interfaces/components/PropsInfoAndNav';
 import { createHtmlElementFromTpl } from '../../lib';
 import { infoAndNav } from '../infoAndNav/infoAndNav';
 import './editorCar.scss';
@@ -50,7 +51,16 @@ export const editorCar = (elems?: HTMLElement[]) => {
 
   if (elems && elems.length > 0) editorTpl.append(...elems);
 
-  const infoAndNavHTML = infoAndNav();
+  const infoAndNavProps: PropsInfoAndNav = {
+    countTitleText: 'Garage',
+    storeField: 'countCars',
+    storeFieldCurrentPage: 'currentGaragePage',
+    storeFieldPages: 'pagesCountGarage',
+    btnPrevPageType: 'BtnGaragePrevPage',
+    btnNextPageType: 'BtnGarageNextPage',
+  };
+
+  const infoAndNavHTML = infoAndNav(infoAndNavProps);
 
   editorTpl.append(infoAndNavHTML);
 

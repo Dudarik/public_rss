@@ -12,6 +12,8 @@ export const setWinnersToStore = async () => {
 
   store.countWinners = countWinners;
 
+  store.pagesCountWinner = Math.ceil(countWinners / store.winnerPerPage);
+
   // console.log(winners);
 
   const request = winners.map((winner) => getCar(winner.id));
