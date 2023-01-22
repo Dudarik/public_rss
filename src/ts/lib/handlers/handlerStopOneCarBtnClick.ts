@@ -1,7 +1,8 @@
 import { store } from '../../../store';
+import { stopEngine } from '../../api/apiEngine';
 import { enabledCarBtns } from '../enabledCarBtns';
 
-export const handlerStopOneCarBtnClick = (event: Event) => {
+export const handlerStopOneCarBtnClick = async (event: Event) => {
   const { target } = event;
 
   if (!(target instanceof HTMLButtonElement)) throw new Error(`Can't find button element Start`);
@@ -10,6 +11,8 @@ export const handlerStopOneCarBtnClick = (event: Event) => {
 
   if (carId) {
     const id = parseInt(carId, 10);
+    await stopEngine(id);
+
     store.carsRace[id] = false;
 
     setTimeout(() => {
