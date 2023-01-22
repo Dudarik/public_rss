@@ -10,6 +10,7 @@ const setBtnElemetsToStore = (elem: Element) => {
   const inputColorCreate = elem.querySelector('#inputColorCreate');
   const inputColorEdit = elem.querySelector('#inputColorEdit');
   const btnEditorUpdate = elem.querySelector('#btnEditorUpdate');
+  const btnEditorCreate = elem.querySelector('#btnEditorCreate');
   const btnStartRace = elem.querySelector('#btnStartRace');
   const btnResetRace = elem.querySelector('#btnResetRace');
 
@@ -22,17 +23,24 @@ const setBtnElemetsToStore = (elem: Element) => {
   )
     throw new Error(`Can't find inputColor for editor`);
 
-  if (!(btnEditorUpdate instanceof HTMLButtonElement))
-    throw new Error(`Can't find Update button for editor`);
+  if (
+    !(btnEditorUpdate instanceof HTMLButtonElement) ||
+    !(btnEditorCreate instanceof HTMLButtonElement)
+  )
+    throw new Error(`Can't find Create or Update button for editor`);
 
   if (!(btnStartRace instanceof HTMLButtonElement) || !(btnResetRace instanceof HTMLButtonElement))
     throw new Error(`Can't find Start or Reset button for editor`);
 
   store.editorCar.formInputCreate = inputCreate;
   store.editorCar.formInputEdit = inputEdit;
+
   store.editorCar.inputColorCreate = inputColorCreate;
   store.editorCar.inputColorEdit = inputColorEdit;
+
   store.editorCar.btnEditorUpdate = btnEditorUpdate;
+  store.editorCar.btnEditorCreate = btnEditorCreate;
+
   store.editorCar.btnStartRace = btnStartRace;
   store.editorCar.btnResetRace = btnResetRace;
 };

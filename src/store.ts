@@ -13,6 +13,7 @@ export const store: Store = {
     inputColorCreate: null,
     inputColorEdit: null,
     btnEditorUpdate: null,
+    btnEditorCreate: null,
     btnStartRace: null,
     btnResetRace: null,
   },

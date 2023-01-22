@@ -27,6 +27,7 @@ export interface Store {
     inputColorCreate: HTMLInputElement | null;
     inputColorEdit: HTMLInputElement | null;
     btnEditorUpdate: HTMLButtonElement | null;
+    btnEditorCreate: HTMLButtonElement | null;
     btnStartRace: HTMLButtonElement | null;
     btnResetRace: HTMLButtonElement | null;
   };
