@@ -5,6 +5,7 @@ import { createWinner, getWinner, updateWinner } from '../api/apiWinners';
 import { ApiResponseStart } from '../interfaces/api/ApiResponseStart';
 import { animation } from './animation';
 import { msToSec } from './msToSec';
+import { setWinnersToStore } from './setWinnersToStore';
 
 export const startRace = async () => {
   try {
@@ -20,6 +21,8 @@ export const startRace = async () => {
       paramId += 1;
     });
 
+    console.log(store.cars);
+
     const requestDrive = store.cars.map((car) => driveCar(car.id));
 
     const winnerId = await Promise.any(requestDrive);
@@ -31,7 +34,7 @@ export const startRace = async () => {
     // console.log('winid', winnerId, currWinTime, winner.time, winner.wins);
 
     if (winner.id === -1) {
-      const newWinner = { wins: 1, time: currWinTime };
+      const newWinner = { wins: 1, time: currWinTime, id: winnerId };
       await createWinner(newWinner);
     } else {
       winner.wins += 1;
@@ -41,10 +44,7 @@ export const startRace = async () => {
       }
       await updateWinner(winner);
     }
-
-    // console.log(await getWinners(0, 10, ApiSortWinners.Id, ApiSortWinnersOrder.Asc));
-    // console.log(winnerId, store.carsRaceTime[winnerId]);
-    // console.log('winid', winnerId, currWinTime, winner.time, winner.wins);
+    await setWinnersToStore();
     return requestDrive;
   } catch (error) {
     if (error instanceof Error) return 'nobody wins';

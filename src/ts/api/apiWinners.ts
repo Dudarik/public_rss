@@ -27,6 +27,7 @@ export const getWinners = async (
   const data = await response.json();
 
   if (hCoutWinners) countWinners = parseInt(hCoutWinners, 10);
+  console.log(data);
 
   if (Array.isArray(data)) winners = Array.from(data);
 
@@ -79,8 +80,9 @@ export const deleteWinner = async (id: number) => {
   const customConfig = {
     method: ApiMethod.Delete,
   };
-
-  if (await getWinner(id)) await api.delete(winUrlQueryString, customConfig);
+  const winner = await getWinner(id);
+  // console.log(winner);
+  if (winner.id) await api.delete(winUrlQueryString, customConfig);
 };
 
 export const updateWinner = async (winner: Winner) => {

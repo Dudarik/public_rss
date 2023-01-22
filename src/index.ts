@@ -6,7 +6,7 @@ import { footer, header } from './ts/components';
 import { main } from './ts/components/main/main';
 import { initStore } from './ts/lib';
 import { garagePage } from './ts/pages/garage/garagePage';
-import { winnersPage } from './ts/pages/winners/winnersPage';
+// import { winnersPage } from './ts/pages/winners/winnersPage';
 
 document.addEventListener('DOMContentLoaded', async () => {
   await initStore();
@@ -14,11 +14,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   console.log(store);
 
   const garageHTML = garagePage();
-  const winnersPageHTML = winnersPage();
+  // const winnersPageHTML = winnersPage();
 
   document.body.append(header());
-  document.body.append(main([winnersPageHTML, garageHTML]));
+  document.body.append(main([garageHTML]));
   document.body.append(footer());
+  // document.querySelector('#winners')?.classList.add('hide');
   // setCarsHtmlToStore();
 });
 // async function fn() {
