@@ -38,7 +38,7 @@ export const getCar = async (id: number) => {
 
   if (!request) throw new Error(`Can't get car with id=${id}`);
 
-  const car: Car = Object(request);
+  const car: Car = Object(request.json());
 
   return car;
 };

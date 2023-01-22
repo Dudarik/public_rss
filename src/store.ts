@@ -1,8 +1,10 @@
 import { Store } from './ts/interfaces/store';
+import { ApiSortWinners, ApiSortWinnersOrder } from './ts/enums/api';
 
 export const store: Store = {
   cars: [],
   countCars: 0,
+  countWinners: 0,
   carsRaceTime: {},
   carsRace: {},
   carsHTML: {},
@@ -27,8 +29,11 @@ export const store: Store = {
   pagesCountGarage: 0,
   carsPerPage: 7,
 
-  currentWinnersPage: 0,
+  currentWinnersPage: 1,
+  winnerPerPage: 10,
   pagesCountWinner: 0,
+  sortWinners: ApiSortWinners.Wins,
+  SortOrderWinners: ApiSortWinnersOrder.Desc,
 
   winnersTable: [],
   carsBrands: [

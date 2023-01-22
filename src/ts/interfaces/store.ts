@@ -1,8 +1,12 @@
-import { Car } from './cars';
+import { ApiSortWinners, ApiSortWinnersOrder } from '../enums/api';
+import { Car, WinnersCar } from './cars';
 
 export interface Store {
   cars: Car[];
+
   countCars: number;
+  countWinners: number;
+
   carsRaceTime: {
     [id: number]: number;
   };
@@ -44,8 +48,11 @@ export interface Store {
 
   currentWinnersPage: number;
   pagesCountWinner: number;
+  winnerPerPage: number;
+  sortWinners: ApiSortWinners;
+  SortOrderWinners: ApiSortWinnersOrder;
 
-  winnersTable: Car[];
+  winnersTable: WinnersCar[];
   carsBrands: string[];
   carsModels: string[];
 }

@@ -1,4 +1,4 @@
 import { Car } from './Car';
+import { WinnersCar } from './WinnersCar';
 
-// eslint-disable-next-line import/prefer-default-export
-export { Car };
+export { Car, WinnersCar };

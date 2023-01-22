@@ -93,9 +93,9 @@ export const updateWinner = async (winner: Winner) => {
   const requestBody: ApiRequestBody = { id, wins, time };
 
   let updWinner: Winner = {
-    id: 0,
     time: 0,
     wins: 0,
+    id: 0,
   };
 
   if (await getWinner(winner.id)) {
