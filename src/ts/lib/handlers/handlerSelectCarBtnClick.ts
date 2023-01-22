@@ -22,10 +22,11 @@ export const handlerSelectCarBtnClick = (event: Event) => {
     )
       throw new Error(`Can't load form editor`);
 
-    formInputEdit.value = car.name;
-    inputColorEdit.value = car.color;
-
     store.editorCar.inputColorEdit?.removeAttribute('disabled');
     store.editorCar.btnEditorUpdate?.removeAttribute('disabled');
+
+    formInputEdit.value = car.name;
+    formInputEdit.focus();
+    inputColorEdit.value = car.color;
   }
 };
