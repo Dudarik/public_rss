@@ -6,7 +6,7 @@ import { carSvg } from '../carSvg';
 
 import './winnersTable.scss';
 
-const createWinnerTableRow = (winner: WinnersCar) => {
+const createWinnerTableRow = (winner: WinnersCar, rowNumber: number) => {
   const tr = document.createElement('tr');
 
   const tdId = document.createElement('td');
@@ -23,7 +23,7 @@ const createWinnerTableRow = (winner: WinnersCar) => {
   svg.setAttribute('height', '32px');
   svg.setAttribute('viewBox', '0 0 512.000000 512.000000');
 
-  tdId.innerText = winner.id.toString();
+  tdId.innerText = rowNumber.toString();
   tdCarImage.append(svg);
   tdCarName.innerText = winner.name;
   tdWins.innerText = winner.wins.toString();
@@ -40,7 +40,9 @@ export const winnersTable = (elems?: Element[]) => {
 
   if (!(tBody instanceof HTMLElement)) throw new Error(`Can't find tBody for winners`);
 
-  const winnersHTML = store.winnersTable.map((winner) => createWinnerTableRow(winner));
+  const winnersHTML = store.winnersTable.map((winner, index) =>
+    createWinnerTableRow(winner, index + 1 + 10 * (store.currentWinnersPage - 1)),
+  );
 
   winnersTableTpl.append(...winnersHTML);
 

@@ -4,7 +4,6 @@ import { setWinnersToStore } from '../setWinnersToStore';
 
 export const handlerPrevPageWinnerClick = async (event: Event) => {
   event.preventDefault();
-  console.log('next');
 
   if (store.currentWinnersPage > 1) {
     store.currentWinnersPage -= 1;

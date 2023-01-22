@@ -11,8 +11,6 @@ export const initStore = async () => {
   store.countCars = countCars;
   store.pagesCountGarage = Math.ceil(countCars / store.carsPerPage);
 
-  // console.log(store.cars);
-
   setWinnersToStore();
   initCarsRace();
   initButtonsInStore();

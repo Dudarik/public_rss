@@ -20,7 +20,7 @@ export const winnersPage = () => {
   };
 
   const infoAndNavHTML = infoAndNav(infoAndNavProps);
-  winnersPageTpl.append(winnersTableHTML, infoAndNavHTML);
+  winnersPageTpl.append(infoAndNavHTML, winnersTableHTML);
 
   return winnersPageTpl;
 };
