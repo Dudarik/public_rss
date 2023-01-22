@@ -54,10 +54,6 @@ export const getWinner = async (id: number) => {
     return winner;
   }
 
-  // if (!request) throw new Error(`Can't get winner with id=${id}`);
-
-  // if (!request) return winner;
-
   return winner;
 };
 

@@ -2,7 +2,9 @@ import { BtnTypes } from '../../enums';
 import { handlerCreateCarClick } from './handlerCreateCarClick';
 import { handlerGen100CarsClick } from './handlerGen100CarsClick';
 import { handlerNextPageGarageClick } from './handlerNextPageGarageClick';
+import { handlerNextPageWinnerClick } from './handlerNextPageWinnerClick';
 import { handlerPrevPageGarageClick } from './handlerPrevPageGarageClick';
+import { handlerPrevPageWinnerClick } from './handlerPrevPageWinnerClick';
 import { handlerRemoveCarBtnClick } from './handlerRemoveCarBtnClick';
 import { handlerResetRaceBtnClick } from './handlerResetRaceBtnClick';
 import { handlerSelectCarBtnClick } from './handlerSelectCarBtnClick';
@@ -53,6 +55,12 @@ export const handlerMainControls = (event: Event) => {
         break;
       case BtnTypes.BtnGaragePrevPage:
         handlerPrevPageGarageClick(event);
+        break;
+      case BtnTypes.BtnWinnerNextPage:
+        handlerNextPageWinnerClick(event);
+        break;
+      case BtnTypes.BtnWinnerPrevPage:
+        handlerPrevPageWinnerClick(event);
         break;
       default:
         break;

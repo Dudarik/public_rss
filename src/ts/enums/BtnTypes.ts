@@ -14,4 +14,7 @@ export enum BtnTypes {
 
   BtnGaragePrevPage = 'BtnGaragePrevPage',
   BtnGarageNextPage = 'BtnGarageNextPage',
+
+  BtnWinnerPrevPage = 'BtnWinnerPrevPage',
+  BtnWinnerNextPage = 'BtnWinnerNextPage',
 }

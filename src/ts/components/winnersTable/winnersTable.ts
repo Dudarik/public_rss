@@ -23,12 +23,6 @@ const createWinnerTableRow = (winner: WinnersCar) => {
   svg.setAttribute('height', '32px');
   svg.setAttribute('viewBox', '0 0 512.000000 512.000000');
 
-  // width="512.000000pt" height="512.000000pt" viewBox="0 0 512.000000 512.000000"
-  // img.src = '../../../assets/img/car.svg';
-  // img.setAttribute('fill', winner.color.toString());
-
-  // img.style.width = '32px';
-
   tdId.innerText = winner.id.toString();
   tdCarImage.append(svg);
   tdCarName.innerText = winner.name;
