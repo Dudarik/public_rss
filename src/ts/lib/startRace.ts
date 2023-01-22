@@ -21,8 +21,6 @@ export const startRace = async () => {
       paramId += 1;
     });
 
-    console.log(store.cars);
-
     const requestDrive = store.cars.map((car) => driveCar(car.id));
 
     const winnerId = await Promise.any(requestDrive);
