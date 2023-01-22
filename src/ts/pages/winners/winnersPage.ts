@@ -1,7 +1,7 @@
 import winnersPageTPL from '../../../templates/winnersPage.html';
 import { infoAndNav } from '../../components/infoAndNav/infoAndNav';
 import { winnersTable } from '../../components/winnersTable/winnersTable';
-import { PropsInfoAndNav } from '../../interfaces/components/PropsInfoAndNav';
+import { PropsInfoAndNav } from '../../interfaces/components';
 import { createHtmlElementFromTpl } from '../../lib/createHtmlElement';
 import './winnersPage.scss';
 

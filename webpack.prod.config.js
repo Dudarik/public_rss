@@ -1,6 +1,6 @@
 module.exports = {
   mode: 'production',
   output: {
-    publicPath: 'https://zingy-cactus-c32f7f.netlify.app/',
+    publicPath: 'https://rolling-scopes-school.github.io/dudarik-JSFE2022Q3/async-race',
   },
 };

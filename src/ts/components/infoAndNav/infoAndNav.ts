@@ -1,6 +1,6 @@
 import { store } from '../../../store';
 import infoAndNavTPL from '../../../templates/infoAndNav.html';
-import { PropsInfoAndNav } from '../../interfaces/components/PropsInfoAndNav';
+import { PropsInfoAndNav } from '../../interfaces/components';
 import { createHtmlElementFromTpl } from '../../lib';
 import './infoAndNav.scss';
 

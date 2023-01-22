@@ -1,6 +1,6 @@
 import { store } from '../../../store';
 import editorTPL from '../../../templates/editorCar.html';
-import { PropsInfoAndNav } from '../../interfaces/components/PropsInfoAndNav';
+import { PropsInfoAndNav } from '../../interfaces/components';
 import { createHtmlElementFromTpl } from '../../lib';
 import { infoAndNav } from '../infoAndNav/infoAndNav';
 import './editorCar.scss';

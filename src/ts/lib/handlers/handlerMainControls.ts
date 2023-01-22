@@ -1,4 +1,4 @@
-import { BtnTypes } from '../../enums';
+import { Handlers } from '../../interfaces/components';
 import { handlerCreateCarClick } from './handlerCreateCarClick';
 import { handlerGen100CarsClick } from './handlerGen100CarsClick';
 import { handlerNextPageGarageClick } from './handlerNextPageGarageClick';
@@ -14,56 +14,28 @@ import { handlerStartRaceBtnClick } from './handlerStartRaceBtnClick';
 import { handlerStopOneCarBtnClick } from './handlerStopOneCarBtnClick';
 import { handlerUpdateCarClick } from './handlerUpdateCarClick';
 
+const handlers: Handlers = {
+  BtnStartOne: (event: Event) => handlerStartOneCarBtnClick(event),
+  BtnResetOne: (event: Event) => handlerStopOneCarBtnClick(event),
+  BtnRemoveOne: (event: Event) => handlerRemoveCarBtnClick(event),
+  BtnSelectOne: (event: Event) => handlerSelectCarBtnClick(event),
+  BtnAdd100Cars: (event: Event) => handlerGen100CarsClick(event),
+  BtnStartRace: (event: Event) => handlerStartRaceBtnClick(event),
+  BtnResetRace: (event: Event) => handlerResetRaceBtnClick(event),
+  BtnCreateCar: (event: Event) => handlerCreateCarClick(event),
+  BtnUpdateEdit: (event: Event) => handlerUpdateCarClick(event),
+  BtnGarageNextPage: (event: Event) => handlerNextPageGarageClick(event),
+  BtnGaragePrevPage: (event: Event) => handlerPrevPageGarageClick(event),
+  BtnWinnerNextPage: (event: Event) => handlerNextPageWinnerClick(event),
+  BtnWinnerPrevPage: (event: Event) => handlerPrevPageWinnerClick(event),
+};
+
 export const handlerMainControls = (event: Event) => {
   const { target } = event;
 
   if (target instanceof HTMLButtonElement) {
     const { btnType } = target.dataset;
-    console.log(btnType);
 
-    switch (btnType) {
-      case BtnTypes.BtnStartOne:
-        handlerStartOneCarBtnClick(event);
-        break;
-      case BtnTypes.BtnResetOne:
-        handlerStopOneCarBtnClick(event);
-        break;
-      case BtnTypes.BtnRemoveOne:
-        handlerRemoveCarBtnClick(event);
-        break;
-      case BtnTypes.BtnSelectOne:
-        handlerSelectCarBtnClick(event);
-        break;
-      case BtnTypes.BtnAdd100Cars:
-        handlerGen100CarsClick(event);
-        break;
-      case BtnTypes.BtnStartRace:
-        handlerStartRaceBtnClick(event);
-        break;
-      case BtnTypes.BtnResetRace:
-        handlerResetRaceBtnClick(event);
-        break;
-      case BtnTypes.BtnCreateCar:
-        handlerCreateCarClick(event);
-        break;
-      case BtnTypes.BtnUpdateEdit:
-        handlerUpdateCarClick(event);
-        break;
-      case BtnTypes.BtnGarageNextPage:
-        console.log('next');
-        handlerNextPageGarageClick(event);
-        break;
-      case BtnTypes.BtnGaragePrevPage:
-        handlerPrevPageGarageClick(event);
-        break;
-      case BtnTypes.BtnWinnerNextPage:
-        handlerNextPageWinnerClick(event);
-        break;
-      case BtnTypes.BtnWinnerPrevPage:
-        handlerPrevPageWinnerClick(event);
-        break;
-      default:
-        break;
-    }
+    if (btnType) handlers[btnType](event);
   }
 };
