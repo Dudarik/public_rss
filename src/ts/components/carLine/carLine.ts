@@ -8,10 +8,26 @@ import carLineTPL from '../../../templates/carLine.html';
 import './carLine.scss';
 
 export const createControlButtons = (carId: number) => {
-  store.controls[carId].select = createButton('Select', { btnType: BtnTypes.BtnSelectOne, carId });
-  store.controls[carId].remove = createButton('Remove', { btnType: BtnTypes.BtnRemoveOne, carId });
-  store.controls[carId].start = createButton('Start', { btnType: BtnTypes.BtnStartOne, carId });
-  store.controls[carId].reset = createButton('Reset', { btnType: BtnTypes.BtnResetOne, carId });
+  store.controls[carId].select = createButton('Select', {
+    btnType: BtnTypes.BtnSelectOne,
+    carId,
+    disabled: store.inGame,
+  });
+  store.controls[carId].remove = createButton('Remove', {
+    btnType: BtnTypes.BtnRemoveOne,
+    carId,
+    disabled: store.inGame,
+  });
+  store.controls[carId].start = createButton('Start', {
+    btnType: BtnTypes.BtnStartOne,
+    carId,
+    disabled: store.inGame,
+  });
+  store.controls[carId].reset = createButton('Reset', {
+    btnType: BtnTypes.BtnResetOne,
+    carId,
+    disabled: !store.inGame,
+  });
 
   return [
     <Node>store.controls[carId].select,
@@ -35,9 +51,14 @@ export const carLine = (car: Car, elems?: Element[]) => {
     throw new Error("can't find DIV element for car controls");
   if (!(ufo instanceof HTMLDivElement)) throw new Error("can't find DIV element for ufo");
 
-  ufo.setAttribute('id', `ufo-${car.id}`);
-  ufo.dataset.carId = car.id.toString();
-  store.carsHTML[car.id] = ufo;
+  if (!store.inGame) {
+    ufo.setAttribute('id', `ufo-${car.id}`);
+    ufo.dataset.carId = car.id.toString();
+    store.carsHTML[car.id] = ufo;
+  } else {
+    ufo.innerHTML = '';
+    ufo.append(store.carsHTML[car.id]);
+  }
 
   carlineControls.append(...createControlButtons(car.id));
 
