@@ -50,10 +50,10 @@ const baseConfig = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(?:ico|gif|jpg|jpeg|png|webp|svg)$/i,
+        test: /\.(?:ico|gif|jpg|png|jpeg|webp|svg)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'images/[name][ext]',
+          filename: 'assets/img/[name][ext]',
         },
       },
     ],

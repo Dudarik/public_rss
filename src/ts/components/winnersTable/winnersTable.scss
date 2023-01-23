@@ -5,6 +5,9 @@
     background-color: #1d9db6;
     color: white;
     padding: 0.5rem;
+    &.sort {
+      cursor: pointer;
+    }
   }
   tr {
     border: 1px solid lightblue;

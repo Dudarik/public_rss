@@ -1,42 +1,29 @@
 import { store } from '../../../store';
-import winnersTableTPL from '../../../templates/winnersTable.html';
-import { WinnersCar } from '../../interfaces/cars';
+
+// import { WinnersCar } from '../../interfaces/cars';
 import { createHtmlElementFromTpl } from '../../lib';
-import { carSvg } from '../carSvg';
 
+// import { carSvg } from '../carSvg';
+
+import winnersTableTPL from '../../../templates/winnersTable.html';
 import './winnersTable.scss';
+import { handlerSortThClick } from '../../lib/handlers/handlerSortThClick';
+import { createWinnerTableRow } from '../../lib/createWinnersTableRow';
 
-const createWinnerTableRow = (winner: WinnersCar, rowNumber: number) => {
-  const tr = document.createElement('tr');
-
-  const tdId = document.createElement('td');
-  const tdCarImage = document.createElement('td');
-  const tdCarName = document.createElement('td');
-  const tdWins = document.createElement('td');
-  const tdBestTime = document.createElement('td');
-
-  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-  svg.innerHTML = carSvg;
-
-  svg.setAttribute('fill', winner.color.toString());
-  svg.setAttribute('width', '32px');
-  svg.setAttribute('height', '32px');
-  svg.setAttribute('viewBox', '0 0 512.000000 512.000000');
-
-  tdId.innerText = rowNumber.toString();
-  tdCarImage.append(svg);
-  tdCarName.innerText = winner.name;
-  tdWins.innerText = winner.wins.toString();
-  tdBestTime.innerText = winner.time.toString();
-
-  tr.append(tdId, tdCarImage, tdCarName, tdWins, tdBestTime);
-  return tr;
-};
+// import { handlerSortThClick } from '../../lib/handlers/handlerSortThClick';
 
 export const winnersTable = (elems?: Element[]) => {
   const winnersTableTpl = createHtmlElementFromTpl(winnersTableTPL);
 
   const tBody = winnersTableTpl.querySelector('#table_winners_body');
+  const sortWins = winnersTableTpl.querySelector('#sort_wins');
+  const sortTime = winnersTableTpl.querySelector('#sort_time');
+
+  if (!(sortWins instanceof HTMLTableCellElement) || !(sortTime instanceof HTMLTableCellElement))
+    throw new Error(`Can't find TH wins element`);
+
+  sortWins.addEventListener('click', handlerSortThClick);
+  sortTime.addEventListener('click', handlerSortThClick);
 
   if (!(tBody instanceof HTMLElement)) throw new Error(`Can't find tBody for winners`);
 
@@ -44,7 +31,7 @@ export const winnersTable = (elems?: Element[]) => {
     createWinnerTableRow(winner, index + 1 + 10 * (store.currentWinnersPage - 1)),
   );
 
-  winnersTableTpl.append(...winnersHTML);
+  tBody.append(...winnersHTML);
 
   if (elems && elems.length > 0) winnersTableTpl.append(...elems);
 
