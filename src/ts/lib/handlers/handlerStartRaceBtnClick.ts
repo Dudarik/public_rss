@@ -15,6 +15,8 @@ export const handlerStartRaceBtnClick = async (event: Event) => {
     disabledCarBtns(car.id);
   });
 
+  store.inGame = true;
   await startRace();
+
   console.log('StartRace click');
 };

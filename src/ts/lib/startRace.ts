@@ -43,6 +43,7 @@ export const startRace = async () => {
         winner.time = currWinTime;
       }
       await updateWinner(winner);
+      store.inGame = false;
     }
     await setWinnersToStore();
     return requestDrive;

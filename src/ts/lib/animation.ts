@@ -10,7 +10,7 @@ export const animation = (elem: HTMLElement, duration: number) => {
   requestAnimationFrame(function anim(time) {
     const timeFraction = (time - start) / duration;
     elem.style.transform = `translate(${timeFraction * 90}%)`;
-
+    // console.log(elem);
     if (timeFraction < 1 && store.carsRace[carId]) {
       requestAnimationFrame(anim);
     }
