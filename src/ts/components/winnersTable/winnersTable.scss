@@ -1,0 +1,17 @@
+.winners_table {
+  padding: 1rem;
+  border-collapse: collapse;
+  .t_head_row {
+    background-color: #1d9db6;
+    color: white;
+    padding: 0.5rem;
+  }
+  tr {
+    border: 1px solid lightblue;
+  }
+  td {
+    vertical-align: center;
+    text-align: center;
+    padding: 0 1rem;
+  }
+}
