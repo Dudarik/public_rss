@@ -6,7 +6,7 @@ export const handlerNextPageGarageClick = async (event: Event) => {
   event.preventDefault();
   console.log('next');
 
-  if (store.currentGaragePage < store.pagesCountGarage) {
+  if (store.inGame === false && store.currentGaragePage < store.pagesCountGarage) {
     store.currentGaragePage += 1;
     // store.inGame = false;
 
