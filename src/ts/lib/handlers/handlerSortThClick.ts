@@ -10,6 +10,12 @@ export const handlerSortThClick = async (event: Event) => {
 
   const sortBy = target.id.slice(5);
 
+  const thToRemoveClass = document.querySelector(`#sort_${store.sortWinners}`);
+
+  if (!(thToRemoveClass instanceof HTMLElement)) throw new Error(`Can't find thToRemoveClass`);
+
+  thToRemoveClass.classList.remove(`sort_${store.SortOrderWinners}`);
+
   switch (sortBy) {
     case ApiSortWinners.Wins:
       store.sortWinners = ApiSortWinners.Wins;
@@ -26,6 +32,8 @@ export const handlerSortThClick = async (event: Event) => {
   else {
     store.SortOrderWinners = ApiSortWinnersOrder.Desc;
   }
+
+  target.classList.add(`sort_${store.SortOrderWinners}`);
 
   await setWinnersToStore();
 

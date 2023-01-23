@@ -21,8 +21,11 @@ export const createWinnerTableRow = (winner: WinnersCar, rowNumber: number) => {
   tdId.innerText = rowNumber.toString();
   tdCarImage.append(svg);
   tdCarName.innerText = winner.name;
+
   tdWins.innerText = winner.wins.toString();
   tdBestTime.innerText = winner.time.toString();
+
+  tdCarName.classList.add('car_name');
 
   tr.append(tdId, tdCarImage, tdCarName, tdWins, tdBestTime);
   return tr;

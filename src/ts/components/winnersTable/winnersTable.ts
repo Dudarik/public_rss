@@ -1,16 +1,12 @@
 import { store } from '../../../store';
 
-// import { WinnersCar } from '../../interfaces/cars';
+import { handlerSortThClick } from '../../lib/handlers/handlerSortThClick';
+import { createWinnerTableRow } from '../../lib/createWinnersTableRow';
+import { ApiSortWinners } from '../../enums/api';
 import { createHtmlElementFromTpl } from '../../lib';
-
-// import { carSvg } from '../carSvg';
 
 import winnersTableTPL from '../../../templates/winnersTable.html';
 import './winnersTable.scss';
-import { handlerSortThClick } from '../../lib/handlers/handlerSortThClick';
-import { createWinnerTableRow } from '../../lib/createWinnersTableRow';
-
-// import { handlerSortThClick } from '../../lib/handlers/handlerSortThClick';
 
 export const winnersTable = (elems?: Element[]) => {
   const winnersTableTpl = createHtmlElementFromTpl(winnersTableTPL);
@@ -21,6 +17,12 @@ export const winnersTable = (elems?: Element[]) => {
 
   if (!(sortWins instanceof HTMLTableCellElement) || !(sortTime instanceof HTMLTableCellElement))
     throw new Error(`Can't find TH wins element`);
+
+  if (store.sortWinners === ApiSortWinners.Time)
+    sortTime.classList.add(`sort_${store.SortOrderWinners}`);
+
+  if (store.sortWinners === ApiSortWinners.Wins)
+    sortWins.classList.add(`sort_${store.SortOrderWinners}`);
 
   sortWins.addEventListener('click', handlerSortThClick);
   sortTime.addEventListener('click', handlerSortThClick);
