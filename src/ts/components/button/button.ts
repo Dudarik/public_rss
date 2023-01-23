@@ -1,4 +1,5 @@
 import { BtnOptions } from '../../interfaces/components';
+
 import './button.scss';
 
 export const createButton = (btnName: string, btnOptions: BtnOptions) => {

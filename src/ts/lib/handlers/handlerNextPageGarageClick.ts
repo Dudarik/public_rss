@@ -4,11 +4,9 @@ import { initStore } from '../initStore';
 
 export const handlerNextPageGarageClick = async (event: Event) => {
   event.preventDefault();
-  console.log('next');
 
   if (store.inGame === false && store.currentGaragePage < store.pagesCountGarage) {
     store.currentGaragePage += 1;
-    // store.inGame = false;
 
     await initStore();
     const garagePageHTML = garagePage();

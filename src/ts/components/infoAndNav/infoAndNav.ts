@@ -1,7 +1,8 @@
 import { store } from '../../../store';
-import infoAndNavTPL from '../../../templates/infoAndNav.html';
 import { PropsInfoAndNav } from '../../interfaces/components';
 import { createHtmlElementFromTpl } from '../../lib';
+
+import infoAndNavTPL from '../../../templates/infoAndNav.html';
 import './infoAndNav.scss';
 
 export const infoAndNav = (props: PropsInfoAndNav) => {
@@ -43,33 +44,3 @@ export const infoAndNav = (props: PropsInfoAndNav) => {
 
   return infoAndNavTpl;
 };
-
-// export const infoAndNav = (props: PropsInfoAndNav) => {
-//   const infoAndNavTpl = createHtmlElementFromTpl(infoAndNavTPL);
-
-//   const countCars = infoAndNavTpl.querySelector('#countCars');
-//   const currentPage = infoAndNavTpl.querySelector('#currentPage');
-//   const pages = infoAndNavTpl.querySelector('#pages');
-
-//   const btnGaragePrevPage = infoAndNavTpl.querySelector('#btnGaragePrevPage');
-//   const btnGarageNextPage = infoAndNavTpl.querySelector('#btnGarageNextPage');
-
-//   if (
-//     !(countCars instanceof HTMLSpanElement) ||
-//     !(currentPage instanceof HTMLSpanElement) ||
-//     !(pages instanceof HTMLSpanElement)
-//   )
-//     throw new Error(`Can't find span for info`);
-
-//   if (
-//     !(btnGaragePrevPage instanceof HTMLButtonElement) ||
-//     !(btnGarageNextPage instanceof HTMLButtonElement)
-//   )
-//     throw new Error(`Can't find buttons for Nav`);
-
-//   countCars.innerText = store.countCars.toString();
-//   currentPage.innerText = store.currentGaragePage.toString();
-//   pages.innerText = store.pagesCountGarage.toString();
-
-//   return infoAndNavTpl;
-// };

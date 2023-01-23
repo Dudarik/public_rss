@@ -9,7 +9,6 @@ export const handlerSortThClick = async (event: Event) => {
   if (!(target instanceof HTMLElement)) throw new Error(`Can't find sort TH`);
 
   const sortBy = target.id.slice(5);
-
   const thToRemoveClass = document.querySelector(`#sort_${store.sortWinners}`);
 
   if (!(thToRemoveClass instanceof HTMLElement)) throw new Error(`Can't find thToRemoveClass`);
@@ -46,7 +45,6 @@ export const handlerSortThClick = async (event: Event) => {
   const winnersHTML = store.winnersTable.map((winner, index) =>
     createWinnerTableRow(winner, index + 1 + 10 * (store.currentWinnersPage - 1)),
   );
-  console.log(...winnersHTML);
 
   winnersTableBody.append(...winnersHTML);
 };

@@ -21,6 +21,4 @@ export const handlerStopOneCarBtnClick = async (event: Event) => {
 
     enabledCarBtns(id);
   }
-
-  console.log('StopOneCar click');
 };

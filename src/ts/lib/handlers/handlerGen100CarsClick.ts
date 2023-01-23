@@ -1,4 +1,3 @@
-import { store } from '../../../store';
 import { garagePage } from '../../pages/garage/garagePage';
 import { generateCars } from '../generateCars';
 import { initStore } from '../initStore';
@@ -15,5 +14,4 @@ export const handlerGen100CarsClick = async (event: Event) => {
 
   main.innerHTML = '';
   main.append(garagePageHTML);
-  console.log('log', store.countCars);
 };

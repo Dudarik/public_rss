@@ -1,4 +1,3 @@
-import { store } from '../../../store';
 import { deleteCar } from '../../api/apiCars';
 import { deleteWinner, getWinner } from '../../api/apiWinners';
 import { garagePage } from '../../pages/garage/garagePage';
@@ -27,7 +26,7 @@ export const handlerRemoveCarBtnClick = async (event: Event) => {
   }
 
   await initStore();
-  console.log(store);
+
   const app = document.querySelector('#app');
 
   if (!(app instanceof HTMLElement)) throw new Error(`Can't find button element Main app`);

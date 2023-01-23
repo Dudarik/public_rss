@@ -1,5 +1,3 @@
-/* eslint-disable import/no-cycle */
-
 import { getCarsLines } from '../../lib/getCarsLines';
 import { createHtmlElementFromTpl } from '../../lib/createHtmlElement';
 import { editorCar } from '../../components/editorCar/editorCar';

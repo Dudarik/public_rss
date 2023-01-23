@@ -1,7 +1,5 @@
 import { ApiMethod } from '../enums/api';
 import { ApiConfig, ApiHeaders, ApiRequestBody, ApiCustomConfig } from '../interfaces/api/index';
-// import { ApiReturn } from '../types/api';
-// <T extends [] | Record<string, string> | Error>
 
 const api = async (url: string, apiConfig: ApiCustomConfig): Promise<Response> => {
   const headers: ApiHeaders = {
@@ -28,9 +26,6 @@ const api = async (url: string, apiConfig: ApiCustomConfig): Promise<Response> =
   try {
     const response = await fetch(url, config);
 
-    // const responseHeaders = {
-    //   count: response.headers.get('X-Total-Count'),
-    // };
     if (!response.ok) throw new Error(response.status.toString());
 
     return response;
@@ -38,7 +33,6 @@ const api = async (url: string, apiConfig: ApiCustomConfig): Promise<Response> =
     if (error instanceof Error) return Promise.reject(error);
     return Promise.reject(new Error('Cant resolve promise'));
   }
-  // return Promise.reject(new Error('Cant resolve promise'));
 };
 
 api.get = async function get(url: string, customConfig = {}) {
@@ -61,5 +55,5 @@ api.put = function put(url: string, body: ApiRequestBody, customConfig = {}) {
 api.patch = function patch(url: string, body: ApiRequestBody, customConfig = {}) {
   return api(url, { body, method: ApiMethod.Patch, ...customConfig });
 };
-// eslint-disable-next-line import/prefer-default-export
+
 export { api };

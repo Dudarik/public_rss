@@ -4,7 +4,7 @@ import { initStore } from '../initStore';
 
 export const handlerPrevPageGarageClick = async (event: Event) => {
   event.preventDefault();
-  console.log('prev');
+
   if (store.inGame === false && store.currentGaragePage > 1) {
     store.currentGaragePage -= 1;
 

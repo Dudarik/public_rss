@@ -2,7 +2,6 @@ import { ApiMethod } from '../enums/api';
 import { ApiCustomConfig, ApiRequestBody } from '../interfaces/api';
 import { Car } from '../interfaces/cars';
 import { api } from './api';
-// import { deleteWinner } from './apiWinners';
 import { GARAGE_URL } from './config';
 
 export const getCars = async (page: number, limit: number) => {
@@ -66,7 +65,6 @@ export const deleteCar = async (id: number) => {
 
   if (await getCar(id)) {
     await api.delete(carsUrlQueryString, customConfig);
-    // await deleteWinner(id);
   }
 };
 
