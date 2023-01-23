@@ -5,15 +5,29 @@ import { createHtmlElementFromTpl } from '../../lib';
 import { infoAndNav } from '../infoAndNav/infoAndNav';
 import './editorCar.scss';
 
-const setBtnElemetsToStore = (elem: Element) => {
+const setRaceBtnElemetsToStore = (elem: Element) => {
+  const btnStartRace = elem.querySelector('#btnStartRace');
+  const btnResetRace = elem.querySelector('#btnResetRace');
+
+  if (!(btnStartRace instanceof HTMLButtonElement) || !(btnResetRace instanceof HTMLButtonElement))
+    throw new Error(`Can't find Start or Reset button for editor`);
+
+  if (store.inGame) {
+    btnStartRace.setAttribute('disabled', 'disabled');
+    btnResetRace.removeAttribute('disabled');
+  }
+
+  store.editorCar.btnStartRace = btnStartRace;
+  store.editorCar.btnResetRace = btnResetRace;
+};
+
+const setEditorBtnElemetsToStore = (elem: Element) => {
   const inputCreate = elem.querySelector('#inputCreate');
   const inputEdit = elem.querySelector('#inputEdit');
   const inputColorCreate = elem.querySelector('#inputColorCreate');
   const inputColorEdit = elem.querySelector('#inputColorEdit');
   const btnEditorUpdate = elem.querySelector('#btnEditorUpdate');
   const btnEditorCreate = elem.querySelector('#btnEditorCreate');
-  const btnStartRace = elem.querySelector('#btnStartRace');
-  const btnResetRace = elem.querySelector('#btnResetRace');
 
   if (!(inputCreate instanceof HTMLInputElement) || !(inputEdit instanceof HTMLInputElement))
     throw new Error(`Can't find input for editor`);
@@ -30,9 +44,6 @@ const setBtnElemetsToStore = (elem: Element) => {
   )
     throw new Error(`Can't find Create or Update button for editor`);
 
-  if (!(btnStartRace instanceof HTMLButtonElement) || !(btnResetRace instanceof HTMLButtonElement))
-    throw new Error(`Can't find Start or Reset button for editor`);
-
   store.editorCar.formInputCreate = inputCreate;
   store.editorCar.formInputEdit = inputEdit;
 
@@ -41,9 +52,6 @@ const setBtnElemetsToStore = (elem: Element) => {
 
   store.editorCar.btnEditorUpdate = btnEditorUpdate;
   store.editorCar.btnEditorCreate = btnEditorCreate;
-
-  store.editorCar.btnStartRace = btnStartRace;
-  store.editorCar.btnResetRace = btnResetRace;
 };
 
 export const editorCar = (elems?: HTMLElement[]) => {
@@ -64,7 +72,8 @@ export const editorCar = (elems?: HTMLElement[]) => {
 
   editorTpl.append(infoAndNavHTML);
 
-  setBtnElemetsToStore(editorTpl);
+  setRaceBtnElemetsToStore(editorTpl);
+  setEditorBtnElemetsToStore(editorTpl);
 
   return editorTpl;
 };
