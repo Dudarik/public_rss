@@ -7,6 +7,8 @@ export interface Store {
   countCars: number;
   countWinners: number;
 
+  lastWinner: { id: number; time: number };
+
   carsRaceTime: {
     [id: number]: number;
   };

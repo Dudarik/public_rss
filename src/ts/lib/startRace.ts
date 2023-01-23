@@ -24,21 +24,17 @@ export const startRace = async () => {
     store.editorCar.btnResetRace?.removeAttribute('disabled');
 
     const requestDrive = store.cars.map((car) => driveCar(car.id));
-
     const winnerId = await Promise.any(requestDrive);
-
     const winner = await getWinner(winnerId);
-
     const currWinTime = msToSec(store.carsRaceTime[winnerId]);
 
-    // console.log('winid', winnerId, currWinTime, winner.time, winner.wins);
+    store.lastWinner = { id: winnerId, time: currWinTime };
 
     if (winner.id === -1) {
       const newWinner = { wins: 1, time: currWinTime, id: winnerId };
       await createWinner(newWinner);
     } else {
       winner.wins += 1;
-
       if (winner.time > currWinTime) {
         winner.time = currWinTime;
       }

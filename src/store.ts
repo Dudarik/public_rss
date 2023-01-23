@@ -5,6 +5,12 @@ export const store: Store = {
   cars: [],
   countCars: 0,
   countWinners: 0,
+
+  lastWinner: {
+    id: -1,
+    time: -1,
+  },
+
   carsRaceTime: {},
   carsRace: {},
   carsHTML: {},

@@ -8,6 +8,7 @@ export const handlerNextPageGarageClick = async (event: Event) => {
 
   if (store.currentGaragePage < store.pagesCountGarage) {
     store.currentGaragePage += 1;
+    // store.inGame = false;
 
     await initStore();
     const garagePageHTML = garagePage();
