@@ -20,7 +20,7 @@ export const handlerRemoveCarBtnClick = async (event: Event) => {
     const winner = await getWinner(id);
 
     if (winner.id !== -1) {
-      await deleteWinner(parseInt(carId, 10));
+      await deleteWinner(id);
       setWinnersToStore();
     }
   }
