@@ -1,5 +1,5 @@
 import { store } from '../../../store';
-import { startEngine } from '../../api/apiEngine';
+import { driveCar, startEngine } from '../../api/apiEngine';
 import { ApiResponseStart } from '../../interfaces/api/ApiResponseStart';
 import { animation } from '../animation';
 import { disabledCarBtns } from '../disabledCarBtns';
@@ -19,6 +19,7 @@ export const handlerStartOneCarBtnClick = async (event: Event) => {
     disabledCarBtns(id);
 
     const responseStart: ApiResponseStart = await startEngine(id);
+    await driveCar(id);
 
     store.carsRace[id] = true;
 
