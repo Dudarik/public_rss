@@ -23,29 +23,41 @@ const setRaceBtnElemetsToStore = (elem: Element) => {
   store.editorCar.btnResetRace = btnResetRace;
 };
 
-const setEditorBtnElemetsToStore = (elem: Element) => {
+const setCreatorElementsToStore = (elem: Element) => {
   const inputCreate = elem.querySelector('#inputCreate');
-  const inputEdit = elem.querySelector('#inputEdit');
   const inputColorCreate = elem.querySelector('#inputColorCreate');
-  const inputColorEdit = elem.querySelector('#inputColorEdit');
-  const btnEditorUpdate = elem.querySelector('#btnEditorUpdate');
   const btnEditorCreate = elem.querySelector('#btnEditorCreate');
 
-  if (!(inputCreate instanceof HTMLInputElement) || !(inputEdit instanceof HTMLInputElement))
-    throw new Error(`Can't find input for editor`);
-  if (
-    !(inputColorCreate instanceof HTMLInputElement) ||
-    !(inputColorEdit instanceof HTMLInputElement)
-  )
-    throw new Error(`Can't find inputColor for editor`);
-  if (
-    !(btnEditorUpdate instanceof HTMLButtonElement) ||
-    !(btnEditorCreate instanceof HTMLButtonElement)
-  )
+  if (!(inputCreate instanceof HTMLInputElement)) throw new Error(`Can't find input for creator`);
+
+  if (!(inputColorCreate instanceof HTMLInputElement))
+    throw new Error(`Can't find Create button for creator`);
+
+  if (!(btnEditorCreate instanceof HTMLButtonElement))
     throw new Error(`Can't find Create or Update button for editor`);
   inputCreate.value = store.editorValue.inputCreate.length > 0 ? store.editorValue.inputCreate : '';
   inputColorCreate.value =
     store.editorValue.inputColorCreate.length > 0 ? store.editorValue.inputColorCreate : '#000000';
+
+  inputCreate.addEventListener('change', handlerChangeInputEditor);
+  inputColorCreate.addEventListener('change', handlerChangeInputEditor);
+
+  store.editorCar.formInputCreate = inputCreate;
+  store.editorCar.inputColorCreate = inputColorCreate;
+  store.editorCar.btnEditorCreate = btnEditorCreate;
+};
+
+const setEditorElemetsToStore = (elem: Element) => {
+  const inputEdit = elem.querySelector('#inputEdit');
+  const inputColorEdit = elem.querySelector('#inputColorEdit');
+  const btnEditorUpdate = elem.querySelector('#btnEditorUpdate');
+
+  if (!(inputEdit instanceof HTMLInputElement)) throw new Error(`Can't find input for editor`);
+  if (!(inputColorEdit instanceof HTMLInputElement))
+    throw new Error(`Can't find inputColor for editor`);
+  if (!(btnEditorUpdate instanceof HTMLButtonElement))
+    throw new Error(`Can't find Create or Update button for editor`);
+
   if (store.editorValue.inputEdit.length > 0) {
     inputEdit.value = store.editorValue.inputEdit;
     inputColorEdit.value = store.editorValue.inputColorEdit;
@@ -54,18 +66,15 @@ const setEditorBtnElemetsToStore = (elem: Element) => {
     inputColorEdit.setAttribute('disabled', 'disabled');
     btnEditorUpdate.setAttribute('disabled', 'disabled');
   }
-  inputCreate.addEventListener('change', handlerChangeInputEditor);
-  inputColorCreate.addEventListener('change', handlerChangeInputEditor);
+
   inputEdit.addEventListener('focus', handlerChangeInputEditor);
   inputEdit.addEventListener('change', handlerChangeInputEditor);
   inputColorEdit.addEventListener('change', handlerChangeInputEditor);
 
-  store.editorCar.formInputCreate = inputCreate;
   store.editorCar.formInputEdit = inputEdit;
-  store.editorCar.inputColorCreate = inputColorCreate;
+
   store.editorCar.inputColorEdit = inputColorEdit;
   store.editorCar.btnEditorUpdate = btnEditorUpdate;
-  store.editorCar.btnEditorCreate = btnEditorCreate;
 };
 
 export const editorCar = (elems?: HTMLElement[]) => {
@@ -87,7 +96,8 @@ export const editorCar = (elems?: HTMLElement[]) => {
   editorTpl.append(infoAndNavHTML);
 
   setRaceBtnElemetsToStore(editorTpl);
-  setEditorBtnElemetsToStore(editorTpl);
+  setCreatorElementsToStore(editorTpl);
+  setEditorElemetsToStore(editorTpl);
 
   return editorTpl;
 };
