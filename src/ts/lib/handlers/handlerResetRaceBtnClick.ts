@@ -18,10 +18,10 @@ export const handlerResetRaceBtnClick = async (event: Event) => {
         store.carsHTML[car.id].style.transform = `translate(0)`;
       }, 50);
 
+      store.inGame = false;
       enabledCarBtns(car.id);
     }
   });
-
   store.editorCar.btnResetRace?.setAttribute('disabled', 'disabled');
   store.editorCar.btnStartRace?.removeAttribute('disabled');
 };
