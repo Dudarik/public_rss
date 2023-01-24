@@ -19,11 +19,16 @@ export const handlerStartOneCarBtnClick = async (event: Event) => {
     disabledCarBtns(id);
 
     const responseStart: ApiResponseStart = await startEngine(id);
-    driveCar(id);
 
     store.carsRace[id] = true;
 
     store.carsRaceTime[id] = responseStart.distance / responseStart.velocity;
     animation(ufo, store.carsRaceTime[id]);
+
+    try {
+      await driveCar(id);
+    } catch (error) {
+      if (error instanceof Error) console.log('stop');
+    }
   }
 };

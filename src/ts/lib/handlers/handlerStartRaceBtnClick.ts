@@ -13,11 +13,14 @@ export const handlerStartRaceBtnClick = async (event: Event) => {
   });
 
   store.inGame = true;
-  await startRace();
-  const winnerName = store.cars.filter((car) => car.id === store.lastWinner.id)[0].name;
-  const modalWindowHTML = modalWindow({
-    title: `Congratulations: ${winnerName}`,
-    text: `Win in ${store.lastWinner.time} seconds!`,
-  });
-  document.body.prepend(modalWindowHTML);
+  const race = await startRace();
+
+  if (race !== 'nobody wins') {
+    const winnerName = store.cars.filter((car) => car.id === store.lastWinner.id)[0].name;
+    const modalWindowHTML = modalWindow({
+      title: `Congratulations: ${winnerName}`,
+      text: `Win in ${store.lastWinner.time} seconds!`,
+    });
+    document.body.prepend(modalWindowHTML);
+  }
 };

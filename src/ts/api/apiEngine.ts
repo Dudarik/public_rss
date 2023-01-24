@@ -35,7 +35,9 @@ export const driveCar = async (id: number) => {
 
     return p;
   } catch (error) {
-    if (error instanceof Error) console.log(error.name);
+    if (error instanceof Error) {
+      return Promise.reject(new Error('Err'));
+    }
   }
   return undefined;
 };

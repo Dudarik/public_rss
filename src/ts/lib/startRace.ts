@@ -25,6 +25,11 @@ export const startRace = async () => {
 
     const requestDrive = store.cars.map((car) => driveCar(car.id));
     const winnerId = await Promise.any(requestDrive);
+
+    if (winnerId === undefined) {
+      store.inGame = false;
+      return undefined;
+    }
     const winner = await getWinner(winnerId);
     const currWinTime = msToSec(store.carsRaceTime[winnerId]);
 
