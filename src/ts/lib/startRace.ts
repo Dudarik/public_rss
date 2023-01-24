@@ -33,6 +33,7 @@ export const startRace = async () => {
     if (winner.id === -1) {
       const newWinner = { wins: 1, time: currWinTime, id: winnerId };
       await createWinner(newWinner);
+      store.inGame = false;
     } else {
       winner.wins += 1;
       if (winner.time > currWinTime) {
