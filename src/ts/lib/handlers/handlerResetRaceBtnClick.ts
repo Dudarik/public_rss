@@ -8,6 +8,8 @@ export const handlerResetRaceBtnClick = async (event: Event) => {
 
   if (!(target instanceof HTMLButtonElement)) throw new Error(`Can't find button element Reset`);
 
+  store.inGame = false;
+
   store.cars.forEach(async (car) => {
     if (car.id) {
       await stopEngine(car.id);
@@ -18,7 +20,6 @@ export const handlerResetRaceBtnClick = async (event: Event) => {
         store.carsHTML[car.id].style.transform = `translate(0)`;
       }, 50);
 
-      store.inGame = false;
       enabledCarBtns(car.id);
     }
   });
