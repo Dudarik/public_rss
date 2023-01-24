@@ -1,3 +1,4 @@
+import { store } from '../../../store';
 import { deleteCar } from '../../api/apiCars';
 import { deleteWinner, getWinner } from '../../api/apiWinners';
 import { garagePage } from '../../pages/garage/garagePage';
@@ -22,6 +23,9 @@ export const handlerRemoveCarBtnClick = async (event: Event) => {
     if (winner.id !== -1) {
       await deleteWinner(id);
       setWinnersToStore();
+    }
+    if (store.cars.length === 1 && store.currentGaragePage > 1) {
+      store.currentGaragePage -= 1;
     }
   }
 
