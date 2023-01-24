@@ -10,6 +10,9 @@ export const handlerUpdateCarClick = async (event: Event) => {
   const name = store.editorCar.formInputEdit?.value;
   const color = store.editorCar.inputColorEdit?.value;
 
+  store.editorValue.inputColorEdit = '#000000';
+  store.editorValue.inputEdit = '';
+
   if (name && color) await updateCar({ id, name, color });
 
   await initStore();

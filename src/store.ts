@@ -27,6 +27,14 @@ export const store: Store = {
     btnGaragePrevPage: null,
     btnGarageNextPage: null,
   },
+
+  editorValue: {
+    inputCreate: '',
+    inputEdit: '',
+    inputColorCreate: '',
+    inputColorEdit: '',
+  },
+
   controls: {},
   renderPosition: {},
   inGame: false,

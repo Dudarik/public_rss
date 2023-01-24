@@ -9,6 +9,9 @@ export const handlerCreateCarClick = async (event: Event) => {
   const name = store.editorCar.formInputCreate?.value;
   const color = store.editorCar.inputColorCreate?.value;
 
+  store.editorValue.inputColorCreate = '#000000';
+  store.editorValue.inputCreate = '';
+
   if (name && color) await createCar({ name, color });
 
   await initStore();

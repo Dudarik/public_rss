@@ -5,6 +5,7 @@ import { infoAndNav } from '../infoAndNav/infoAndNav';
 
 import editorTPL from '../../../templates/editorCar.html';
 import './editorCar.scss';
+import { handlerChangeInputEditor } from '../../lib/handlers/handlerChangeInputEditor';
 
 const setRaceBtnElemetsToStore = (elem: Element) => {
   const btnStartRace = elem.querySelector('#btnStartRace');
@@ -44,13 +45,28 @@ const setEditorBtnElemetsToStore = (elem: Element) => {
     !(btnEditorCreate instanceof HTMLButtonElement)
   )
     throw new Error(`Can't find Create or Update button for editor`);
+  inputCreate.value = store.editorValue.inputCreate.length > 0 ? store.editorValue.inputCreate : '';
+  inputColorCreate.value =
+    store.editorValue.inputColorCreate.length > 0 ? store.editorValue.inputColorCreate : '#000000';
+
+  if (store.editorValue.inputEdit.length > 0) {
+    inputEdit.value = store.editorValue.inputEdit;
+    inputColorEdit.value = store.editorValue.inputColorEdit;
+  } else {
+    inputEdit.setAttribute('disabled', 'disabled');
+    inputColorEdit.setAttribute('disabled', 'disabled');
+    btnEditorUpdate.setAttribute('disabled', 'disabled');
+  }
+  inputCreate.addEventListener('change', handlerChangeInputEditor);
+  inputColorCreate.addEventListener('change', handlerChangeInputEditor);
+  inputEdit.addEventListener('focus', handlerChangeInputEditor);
+  inputEdit.addEventListener('change', handlerChangeInputEditor);
+  inputColorEdit.addEventListener('change', handlerChangeInputEditor);
 
   store.editorCar.formInputCreate = inputCreate;
   store.editorCar.formInputEdit = inputEdit;
-
   store.editorCar.inputColorCreate = inputColorCreate;
   store.editorCar.inputColorEdit = inputColorEdit;
-
   store.editorCar.btnEditorUpdate = btnEditorUpdate;
   store.editorCar.btnEditorCreate = btnEditorCreate;
 };

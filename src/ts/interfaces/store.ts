@@ -39,6 +39,15 @@ export interface Store {
     btnGaragePrevPage: HTMLButtonElement | null;
     btnGarageNextPage: HTMLButtonElement | null;
   };
+
+  editorValue: {
+    [s: string]: string;
+  };
+  // inputCreate: string;
+  // inputEdit: string;
+  // inputColorCreate: string;
+  // inputColorEdit: string;
+
   renderPosition: {
     [id: number]: number;
   };

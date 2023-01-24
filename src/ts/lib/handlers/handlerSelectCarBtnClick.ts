@@ -28,5 +28,6 @@ export const handlerSelectCarBtnClick = (event: Event) => {
     formInputEdit.value = car.name;
     formInputEdit.focus();
     inputColorEdit.value = car.color;
+    store.editorValue.inputColorEdit = car.color;
   }
 };
