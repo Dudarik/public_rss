@@ -33,13 +33,11 @@ const setEditorBtnElemetsToStore = (elem: Element) => {
 
   if (!(inputCreate instanceof HTMLInputElement) || !(inputEdit instanceof HTMLInputElement))
     throw new Error(`Can't find input for editor`);
-
   if (
     !(inputColorCreate instanceof HTMLInputElement) ||
     !(inputColorEdit instanceof HTMLInputElement)
   )
     throw new Error(`Can't find inputColor for editor`);
-
   if (
     !(btnEditorUpdate instanceof HTMLButtonElement) ||
     !(btnEditorCreate instanceof HTMLButtonElement)
@@ -48,7 +46,6 @@ const setEditorBtnElemetsToStore = (elem: Element) => {
   inputCreate.value = store.editorValue.inputCreate.length > 0 ? store.editorValue.inputCreate : '';
   inputColorCreate.value =
     store.editorValue.inputColorCreate.length > 0 ? store.editorValue.inputColorCreate : '#000000';
-
   if (store.editorValue.inputEdit.length > 0) {
     inputEdit.value = store.editorValue.inputEdit;
     inputColorEdit.value = store.editorValue.inputColorEdit;
