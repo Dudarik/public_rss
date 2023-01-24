@@ -19,7 +19,7 @@ export const handlerStartOneCarBtnClick = async (event: Event) => {
     disabledCarBtns(id);
 
     const responseStart: ApiResponseStart = await startEngine(id);
-    await driveCar(id);
+    driveCar(id);
 
     store.carsRace[id] = true;
 
