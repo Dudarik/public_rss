@@ -25,7 +25,7 @@ export const startRace = async () => {
 
     const requestDrive = store.cars.map((car) => driveCar(car.id));
     const winnerId = await Promise.any(requestDrive);
-
+    if (!store.inGame) return undefined;
     if (winnerId === undefined) {
       store.inGame = false;
       return undefined;
