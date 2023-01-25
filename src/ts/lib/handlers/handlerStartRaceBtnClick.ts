@@ -15,7 +15,7 @@ export const handlerStartRaceBtnClick = async (event: Event) => {
   store.inGame = true;
   const race = await startRace();
 
-  if (store.inGame && (race !== 'nobody wins' || race !== undefined)) {
+  if (race !== 'nobody wins' || race !== undefined) {
     const winnerName = store.cars.filter((car) => car.id === store.lastWinner.id)[0].name;
     const modalWindowHTML = modalWindow({
       title: `Congratulations: ${winnerName}`,
